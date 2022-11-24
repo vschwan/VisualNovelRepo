@@ -8,30 +8,39 @@
   <script src="Fudge/FudgeCore.js"></script>
   <script src="FudgeStory/FudgeStory.js"></script>
   <script src="./Build/Template.js"></script>
-  <title>Fudge Story Template</title>
-  <splash src="Images/Splash.png" />
+  <title>Some Story</title>
 </head>
 
 <body>
   <scene>
 
     <dialog type="splash" open>
-      <img id="FudgeStoryLogo" theme="light" /> <!-- use "light" or "dark" -->
-      <p>
-        Design your splash screen here. Reposition and rescale the logo above, but do not remove.
-      </p>
-    </dialog>
+      <div>
+        <p>
+          <img id="FudgeStoryLogo" theme="dark" /> <!-- use "light" or "dark" -->
+        </p>
+        <p>
+          <img id="Background" src="./Images/Backgrounds/mountainsBackground_cat.png" alt="">
+        </p>
+        <p>Some Story</p>
+      </dialog>
+      </div>
+      
 
-    <canvas></canvas>
-
+    <canvas>
+    </canvas>
 
     <speech>
-      <name>The name of the character speaking</name>
-      <content>The text the character says</content>
+      <name>
+          <!-- The name of the character speaking -->
+      </name>
+      <content>
+               <!-- The text the character says -->
+      </content>
     </speech>
 
     <dialog type="text">
-      The content of a page of text for reading
+         <!-- The content of a page of text for reading -->
     </dialog>
 
   </scene>
