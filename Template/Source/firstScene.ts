@@ -13,11 +13,12 @@ namespace Template {
             }
         };
         ƒS.Sound.play(sound.forestSound, 1, true);
+        ƒS.Sound.play(sound.normalMoew, 1, false);
         //  ƒS.Sound.fade(sound.forestSound, 1, 0.0, true);
         // ƒS.Speech.hide(); //Sprechfenster ausblenden 
         await ƒS.Location.show(locations.forest);
         await ƒS.update(transition.puzzle.duration, transition.puzzle.alpha, transition.puzzle.edge);
-        ƒS.Sound.play(sound.normalMoew, 1, false);
+       
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(60, 90));
 
         await ƒS.update(); //nach jeder location updaten 
@@ -61,7 +62,7 @@ namespace Template {
             case dialogue.iSayBla:
                 //continue path here
                 console.log("answer: Bla");
-                ƒS.Sound.play(sound.normalMoew, 1, false);
+                ƒS.Sound.play(sound.demandingmeow, 1, false);
                 await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0004);
                 break;
         }

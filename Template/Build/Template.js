@@ -91,7 +91,8 @@ var Template;
         forestSound: "Audio/forestWind.mp3",
         //catSounds
         normalMoew: "Audio/catAudio/meow.mp3",
-        cathissing: "Audio/catAudio/cathisses.wav"
+        cathissing: "Audio/catAudio/cathisses.wav",
+        demandingmeow: "Template/Audio/demandingMeow.wav"
         // SFX
         //zb drop (namen geben): "audio/drop.mp3"
     };
@@ -161,11 +162,11 @@ var Template;
             }
         };
         Template.ƒS.Sound.play(Template.sound.forestSound, 1, true);
+        Template.ƒS.Sound.play(Template.sound.normalMoew, 1, false);
         //  ƒS.Sound.fade(sound.forestSound, 1, 0.0, true);
         // ƒS.Speech.hide(); //Sprechfenster ausblenden 
         await Template.ƒS.Location.show(Template.locations.forest);
         await Template.ƒS.update(Template.transition.puzzle.duration, Template.transition.puzzle.alpha, Template.transition.puzzle.edge);
-        Template.ƒS.Sound.play(Template.sound.normalMoew, 1, false);
         await Template.ƒS.Character.show(Template.characters.pinkCat, Template.characters.pinkCat.pose.normal, Template.ƒS.positionPercent(60, 90));
         await Template.ƒS.update(); //nach jeder location updaten 
         await Template.ƒS.Speech.tell(Template.characters.pinkCat, text.pinkCat.T0001); //maßstabgetreue Grafiken verwenden! 
@@ -203,7 +204,7 @@ var Template;
             case dialogue.iSayBla:
                 //continue path here
                 console.log("answer: Bla");
-                Template.ƒS.Sound.play(Template.sound.normalMoew, 1, false);
+                Template.ƒS.Sound.play(Template.sound.demandingmeow, 1, false);
                 await Template.ƒS.Speech.tell(Template.characters.pinkCat, text.pinkCat.T0004);
                 break;
         }

@@ -95,10 +95,13 @@ namespace Template {
   export let sound = {
     // themes
     forestSound: "Audio/forestWind.mp3",
-
+  
     //catSounds
     normalMoew: "Audio/catAudio/meow.mp3",
-    cathissing:  "Audio/catAudio/cathisses.wav"
+    cathissing:  "Audio/catAudio/cathisses.wav",
+    demandingmeow: "Template/Audio/demandingMeow.wav"
+
+
    
     // SFX
     //zb drop (namen geben): "audio/drop.mp3"
