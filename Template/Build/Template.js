@@ -90,7 +90,8 @@ var Template;
         // themes
         forestSound: "Audio/forestWind.mp3",
         //catSounds
-        normalMoew: "Audio/catAudio/meow.mp3"
+        normalMoew: "Audio/catAudio/meow.mp3",
+        cathissing: "Audio/catAudio/cathisses.wav"
         // SFX
         //zb drop (namen geben): "audio/drop.mp3"
     };
@@ -182,6 +183,7 @@ var Template;
                 console.log("answer: yes");
                 await Template.ƒS.Character.hide(Template.characters.pinkCat);
                 await Template.ƒS.update();
+                Template.ƒS.Sound.play(Template.sound.cathissing, 1, false);
                 await Template.ƒS.Character.show(Template.characters.pinkCat, Template.characters.pinkCat.pose.upset, Template.ƒS.positionPercent(60, 90)); //ohne await, würde die katze erst nach klicken erscheinen?
                 await Template.ƒS.update();
                 await Template.ƒS.Speech.tell(Template.characters.pinkCat, text.pinkCat.T0005);
@@ -195,11 +197,13 @@ var Template;
             case dialogue.iSayNo:
                 //continue path here
                 console.log("answer: No");
+                Template.ƒS.Sound.play(Template.sound.normalMoew, 1, false);
                 await Template.ƒS.Speech.tell(Template.characters.pinkCat, text.pinkCat.T0003);
                 break;
             case dialogue.iSayBla:
                 //continue path here
                 console.log("answer: Bla");
+                Template.ƒS.Sound.play(Template.sound.normalMoew, 1, false);
                 await Template.ƒS.Speech.tell(Template.characters.pinkCat, text.pinkCat.T0004);
                 break;
         }

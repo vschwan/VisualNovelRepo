@@ -97,7 +97,8 @@ namespace Template {
     forestSound: "Audio/forestWind.mp3",
 
     //catSounds
-    normalMoew: "Audio/catAudio/meow.mp3"
+    normalMoew: "Audio/catAudio/meow.mp3",
+    cathissing:  "Audio/catAudio/cathisses.wav"
    
     // SFX
     //zb drop (namen geben): "audio/drop.mp3"

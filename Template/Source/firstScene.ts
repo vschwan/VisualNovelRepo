@@ -39,6 +39,7 @@ namespace Template {
                 console.log("answer: yes");
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.update();
+                ƒS.Sound.play(sound.cathissing, 1, false);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.upset, ƒS.positionPercent(60, 90)); //ohne await, würde die katze erst nach klicken erscheinen?
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0005);
@@ -53,12 +54,14 @@ namespace Template {
             case dialogue.iSayNo:
                 //continue path here
                 console.log("answer: No");
+                ƒS.Sound.play(sound.normalMoew, 1, false);
                 await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0003);
                 break;
 
             case dialogue.iSayBla:
                 //continue path here
                 console.log("answer: Bla");
+                ƒS.Sound.play(sound.normalMoew, 1, false);
                 await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0004);
                 break;
         }
