@@ -16,6 +16,7 @@ declare namespace Template {
     };
     let sound: {
         forestSound: string;
+        normalMoew: string;
     };
     let locations: {
         forest: {

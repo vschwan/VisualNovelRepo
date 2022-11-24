@@ -88,7 +88,9 @@ var Template;
     };
     Template.sound = {
         // themes
-        forestSound: "Audio/forestWind.mp3"
+        forestSound: "Audio/forestWind.mp3",
+        //catSounds
+        normalMoew: "Audio/catAudio/meow.mp3"
         // SFX
         //zb drop (namen geben): "audio/drop.mp3"
     };
@@ -158,10 +160,11 @@ var Template;
             }
         };
         Template.ƒS.Sound.play(Template.sound.forestSound, 1, true);
-        Template.ƒS.Sound.fade(Template.sound.forestSound, 1, 0.0, true);
+        //  ƒS.Sound.fade(sound.forestSound, 1, 0.0, true);
         // ƒS.Speech.hide(); //Sprechfenster ausblenden 
         await Template.ƒS.Location.show(Template.locations.forest);
         await Template.ƒS.update(Template.transition.puzzle.duration, Template.transition.puzzle.alpha, Template.transition.puzzle.edge);
+        Template.ƒS.Sound.play(Template.sound.normalMoew, 1, false);
         await Template.ƒS.Character.show(Template.characters.pinkCat, Template.characters.pinkCat.pose.normal, Template.ƒS.positionPercent(60, 90));
         await Template.ƒS.update(); //nach jeder location updaten 
         await Template.ƒS.Speech.tell(Template.characters.pinkCat, text.pinkCat.T0001); //maßstabgetreue Grafiken verwenden! 
