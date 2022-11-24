@@ -13,7 +13,8 @@ namespace Template {
             }
         };
         ƒS.Sound.play(sound.forestSound, 1, true);
-        ƒS.Sound.play(sound.normalMoew, 1, false);
+        await new Promise(resolve => setTimeout(resolve, 2500));
+         ƒS.Sound.play(sound.normalMoew, 1, false);
         //  ƒS.Sound.fade(sound.forestSound, 1, 0.0, true);
         // ƒS.Speech.hide(); //Sprechfenster ausblenden 
         await ƒS.Location.show(locations.forest);

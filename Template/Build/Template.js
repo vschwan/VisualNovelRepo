@@ -162,6 +162,7 @@ var Template;
             }
         };
         Template.ƒS.Sound.play(Template.sound.forestSound, 1, true);
+        await new Promise(resolve => setTimeout(resolve, 2500));
         Template.ƒS.Sound.play(Template.sound.normalMoew, 1, false);
         //  ƒS.Sound.fade(sound.forestSound, 1, 0.0, true);
         // ƒS.Speech.hide(); //Sprechfenster ausblenden 
