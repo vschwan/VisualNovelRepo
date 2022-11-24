@@ -5,14 +5,16 @@ namespace Template {
             pinkCat: { //charakter muss in der main angelegt werden (oder anscheinend auch nicht, aber zur ÜBersicht sinnvol??)
                 T0001: "Hello, I'm a derpy cat.",
                 T0002: "Who are you? Should I be afraid of you?",
+                //reaction to choices
                 T0003: "Ah, good, I'm glad about that.",
                 T0004: "Ok, kinda boring.",
                 T0005: "Uah!",
                 T0006: "Fuck off, don't touch me."
             }
         };
-
-        ƒS.Speech.hide(); //Sprechfenster ausblenden 
+        ƒS.Sound.play(sound.forestSound, 1, true);
+     ƒS.Sound.fade(sound.forestSound, 1, 0.0, true);
+       // ƒS.Speech.hide(); //Sprechfenster ausblenden 
         await ƒS.Location.show(locations.forest);
         await ƒS.update(transition.puzzle.duration, transition.puzzle.alpha, transition.puzzle.edge);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(60, 90));
@@ -22,7 +24,7 @@ namespace Template {
         ƒS.update(); // wie lange dauert die Fade-transition an? - Zahl in Klammer
 
 
-        //Entschiedungsmöglichkeiten
+        //Entscheidungsmöglichkeiten
         let dialogue = {
             iSayYes: "Yes",
             iSayNo: "No",
@@ -32,7 +34,6 @@ namespace Template {
         let dialogueElement = await ƒS.Menu.getInput(dialogue, "choicesCSSClass");
         switch (dialogueElement) {
             case dialogue.iSayYes:
-                //continue path here
                 console.log("answer: yes");
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.update();

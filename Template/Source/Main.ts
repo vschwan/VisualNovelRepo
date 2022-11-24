@@ -94,8 +94,9 @@ namespace Template {
 
   export let sound = {
     // themes
-    backgroundTheme: "Audio/Nightclub.ogg"
+    forestSound: "Audio/forestWind.mp3"
 
+   
     // SFX
     //zb drop (namen geben): "audio/drop.mp3"
   };

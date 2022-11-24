@@ -88,7 +88,7 @@ var Template;
     };
     Template.sound = {
         // themes
-        backgroundTheme: "Audio/Nightclub.ogg"
+        forestSound: "Audio/forestWind.mp3"
         // SFX
         //zb drop (namen geben): "audio/drop.mp3"
     };
@@ -150,13 +150,16 @@ var Template;
             pinkCat: {
                 T0001: "Hello, I'm a derpy cat.",
                 T0002: "Who are you? Should I be afraid of you?",
+                //reaction to choices
                 T0003: "Ah, good, I'm glad about that.",
                 T0004: "Ok, kinda boring.",
                 T0005: "Uah!",
                 T0006: "Fuck off, don't touch me."
             }
         };
-        Template.ƒS.Speech.hide(); //Sprechfenster ausblenden 
+        Template.ƒS.Sound.play(Template.sound.forestSound, 1, true);
+        Template.ƒS.Sound.fade(Template.sound.forestSound, 1, 0.0, true);
+        // ƒS.Speech.hide(); //Sprechfenster ausblenden 
         await Template.ƒS.Location.show(Template.locations.forest);
         await Template.ƒS.update(Template.transition.puzzle.duration, Template.transition.puzzle.alpha, Template.transition.puzzle.edge);
         await Template.ƒS.Character.show(Template.characters.pinkCat, Template.characters.pinkCat.pose.normal, Template.ƒS.positionPercent(60, 90));
@@ -164,7 +167,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.pinkCat, text.pinkCat.T0001); //maßstabgetreue Grafiken verwenden! 
         await Template.ƒS.Speech.tell(Template.characters.pinkCat, text.pinkCat.T0002);
         Template.ƒS.update(); // wie lange dauert die Fade-transition an? - Zahl in Klammer
-        //Entschiedungsmöglichkeiten
+        //Entscheidungsmöglichkeiten
         let dialogue = {
             iSayYes: "Yes",
             iSayNo: "No",
@@ -173,7 +176,6 @@ var Template;
         let dialogueElement = await Template.ƒS.Menu.getInput(dialogue, "choicesCSSClass");
         switch (dialogueElement) {
             case dialogue.iSayYes:
-                //continue path here
                 console.log("answer: yes");
                 await Template.ƒS.Character.hide(Template.characters.pinkCat);
                 await Template.ƒS.update();
