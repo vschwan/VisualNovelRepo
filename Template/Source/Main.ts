@@ -8,7 +8,33 @@ namespace Template {
     points: 0
     // started: false,
     // ended: false
+
+    //hier auch Punkte verteilungssystem-Variable reinhauen
   };
+
+  export let items = {
+  Spider: {
+      name: "Spider",
+      description: "a spidery spider",
+      image: "./Images/Items/spider.png",
+      static: true //nicht gecheckt, falls false, einfach weglassen, weil schon autom. auf false
+    },
+
+    Fish: {
+      name: "Fish",
+      description: "a tiny fishy fish",
+      image: "./Images/Items/fish.png",
+      static: true
+    },
+
+    Fly: {
+      name: "Fly",
+      description: "an annoying fly, like most flies",
+      image: "./Images/Items/fly.png",
+      static: true
+    }
+  };
+
 
   export function animation(): ƒS.AnimationDefinition {
     //something
@@ -34,8 +60,12 @@ namespace Template {
     save: "Save",
     load: "Load",
     close: "Close",
-    credits: "Credits"
+    credits: "Credits" //
   };
+
+  function credits(): void {
+    ƒS.Text.print("");
+  }
 
   let gameMenu: ƒS.Menu;
 
@@ -54,6 +84,8 @@ namespace Template {
         gameMenu.close();
         menuIsOpen = false;
         break;
+      case inGameMenuButtons.credits:
+        credits();
     }
   }
 
@@ -88,21 +120,21 @@ namespace Template {
     puzzle: {
       duration: 1,
       alpha: "FreeTransitions/JigsawThemedTransitions/puzzle.png",
-      edge: 2
+      edge: 1
     }
   };
 
   export let sound = {
     // themes
     forestSound: "Audio/forestWind.mp3",
-  
+
     //catSounds
     normalMoew: "Audio/catAudio/meow.mp3",
-    cathissing:  "Audio/catAudio/cathisses.wav",
+    cathissing: "Audio/catAudio/cathisses.wav",
     demandingmeow: "Template/Audio/demandingMeow.wav"
 
 
-   
+
     // SFX
     //zb drop (namen geben): "audio/drop.mp3"
   };
@@ -135,7 +167,8 @@ namespace Template {
         normal: "./Images/Characters/pinkCatNormal.png",
         angry: "",
         happy: "",
-        upset: "./Images/Characters/pinkCatFrightened.png"
+        upset: "./Images/Characters/pinkCatFrightened.png",
+        dormant: "./Images/Characters/pinkCatDormant.png"
       }
     },
 
@@ -169,3 +202,7 @@ namespace Template {
     ƒS.Progress.go(scenes);
   }
 }
+
+
+
+

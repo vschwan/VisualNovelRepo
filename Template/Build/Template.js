@@ -9,6 +9,27 @@ var Template;
         points: 0
         // started: false,
         // ended: false
+        //hier auch Punkte verteilungssystem-Variable reinhauen
+    };
+    Template.items = {
+        Spider: {
+            name: "Spider",
+            description: "a spidery spider",
+            image: "./Images/Items/spider.png",
+            static: true //nicht gecheckt, falls false, einfach weglassen, weil schon autom. auf false
+        },
+        Fish: {
+            name: "Fish",
+            description: "a tiny fishy fish",
+            image: "./Images/Items/fish.png",
+            static: true
+        },
+        Fly: {
+            name: "Fly",
+            description: "an annoying fly, like most flies",
+            image: "./Images/Items/fly.png",
+            static: true
+        }
     };
     function animation() {
         //something
@@ -34,8 +55,11 @@ var Template;
         save: "Save",
         load: "Load",
         close: "Close",
-        credits: "Credits"
+        credits: "Credits" //
     };
+    function credits() {
+        Template.ƒS.Text.print("");
+    }
     let gameMenu;
     //open entspricht Menu ist offen und false zu
     let menuIsOpen = true;
@@ -51,6 +75,8 @@ var Template;
                 gameMenu.close();
                 menuIsOpen = false;
                 break;
+            case inGameMenuButtons.credits:
+                credits();
         }
     }
     // Menu shortcuts
@@ -83,7 +109,7 @@ var Template;
         puzzle: {
             duration: 1,
             alpha: "FreeTransitions/JigsawThemedTransitions/puzzle.png",
-            edge: 2
+            edge: 1
         }
     };
     Template.sound = {
@@ -120,7 +146,8 @@ var Template;
                 normal: "./Images/Characters/pinkCatNormal.png",
                 angry: "",
                 happy: "",
-                upset: "./Images/Characters/pinkCatFrightened.png"
+                upset: "./Images/Characters/pinkCatFrightened.png",
+                dormant: "./Images/Characters/pinkCatDormant.png"
             }
         },
         silvesterCat: {
@@ -161,11 +188,11 @@ var Template;
                 T0006: "Fuck off, don't touch me."
             }
         };
+        Template.ƒS.Speech.hide(); //Sprechfenster ausblenden 
         Template.ƒS.Sound.play(Template.sound.forestSound, 1, true);
         await new Promise(resolve => setTimeout(resolve, 2500));
         Template.ƒS.Sound.play(Template.sound.normalMoew, 1, false);
         //  ƒS.Sound.fade(sound.forestSound, 1, 0.0, true);
-        // ƒS.Speech.hide(); //Sprechfenster ausblenden 
         await Template.ƒS.Location.show(Template.locations.forest);
         await Template.ƒS.update(Template.transition.puzzle.duration, Template.transition.puzzle.alpha, Template.transition.puzzle.edge);
         await Template.ƒS.Character.show(Template.characters.pinkCat, Template.characters.pinkCat.pose.normal, Template.ƒS.positionPercent(60, 90));
@@ -201,6 +228,13 @@ var Template;
                 console.log("answer: No");
                 Template.ƒS.Sound.play(Template.sound.normalMoew, 1, false);
                 await Template.ƒS.Speech.tell(Template.characters.pinkCat, text.pinkCat.T0003);
+                //inventory
+                Template.ƒS.Inventory.add(Template.items.Spider);
+                for (let i = 0; i < 5; i++) { //5blobs, draufklicken --> konsumieren
+                    Template.ƒS.Inventory.add(Template.items.Spider);
+                }
+                Template.ƒS.Inventory.open();
+                Template.ƒS.update();
                 break;
             case dialogue.iSayBla:
                 //continue path here
@@ -218,16 +252,70 @@ var Template;
             //delete dialogue.iSayBla; --> Entscheidungsmöglichkeiten oder so löschen
         }
         ;
-        /*  //animation stuff
-          await ƒS.Character.show(characters.silvesterCat,characters.silvesterCat.pose.normal, ƒS.positions.bottomcenter);
-          ƒS.update();
-          await ƒS.Character.animate(characters.silvesterCat, characters.silvesterCat.pose.normal, animation());
-    
+        /*
+        
+                function handleItems(): void {
+                 
+                    let canvas: HTMLCanvasElement = document.querySelector("canvas");
+                    let img: HTMLImageElement = document.createElement("img");
+                    img.src = "./Images/Items/spider.png";
+                    canvas.appendChild(img);
+                    positionItemRandomly(img);
+                }
+        
+                function positionItemRandomly(_img: HTMLImageElement): void {
+                    let left = Math.floor((Math.random() * 400) + 1) + "px";
+                    let top = Math.floor((Math.random() * 400) + 1) + "px";
+                    console.log("spidies?");
+                    let imagestyle = _img.style;
+                    imagestyle.position = "absolute";
+                    imagestyle.top = top;
+                    imagestyle.left = left;
+                }
         */
     }
     Template.firstScene = firstScene;
+    //Erinnerung: Immer sinnvolle Bezeichnungen für Variablen wählen!
+    //mit F2 Bezeichnung/Begriff auswechseln
+    //maßstabgetreue Grafiken verwenden! 
+    //wait for Signal bei Methoden --> true/false
+    //Klassen definieren für chactere
+    //ƒS.Speech.clear();
+    //ƒS.Speech.hide() --> keine weitere Möglichkeit 
+    //falls man Namen des Chacters nicht angeziegt haben will bei Speech.tell statt name "null" eingeben
+    //ƒS.Speech.setTickerDelays(80, 5000); --> Textgeschwindigkeit + Zeit vergehen lassen, bevor Text erscheint
+    // let signalDelay3: ƒS.Signal = ƒS.Progress.defineSignal([() => ƒS.Progress.delay(3)]) ; //Sekunden werden angegebne --> dann kan weiterverwenden
+    // signalDelay3;
 })(Template || (Template = {}));
-//Erinnerung: Immer sinnvolle Bezeichnungen für Variablen wählen!
-//mit F2 Bezeichnung/Begriff auswechseln
-//maßstabgetreue Grafiken verwenden! 
+var Template;
+(function (Template) {
+    //export let crc2: CanvasRenderingContext2D;
+    /* function handleItems(): void {
+       let nSpiders: number = 10;
+   
+       for (let i: number = 0; i < nSpiders; i++) {
+   
+         let x: number = (Math.random() * canvas.width);
+         let y: number = (320 + Math.random() * canvas.height / 4);
+   
+         let posItem: Vector = new Vector(x, y);
+         let item: Flower = new Flower(posFlower);
+   
+       }
+     }*/
+    function handleItems() {
+        let img = document.createElement("img");
+        img.src = "./Images/Items/spider.png";
+        Template.canvas.appendChild(img);
+        positionItemRandomly(img);
+    }
+    function positionItemRandomly(_img) {
+        let left = Math.floor((Math.random() * 400) + 1) + "px";
+        let top = Math.floor((Math.random() * 400) + 1) + "px";
+        let imagestyle = _img.style;
+        imagestyle.position = "absolute";
+        imagestyle.top = top;
+        imagestyle.left = left;
+    }
+})(Template || (Template = {}));
 //# sourceMappingURL=Template.js.map

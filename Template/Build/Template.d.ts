@@ -5,6 +5,26 @@ declare namespace Template {
         nameProtagonist: string;
         points: number;
     };
+    let items: {
+        Spider: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+        Fish: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+        Fly: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+    };
     function animation(): ƒS.AnimationDefinition;
     function getAnimation(): ƒS.AnimationDefinition;
     let transition: {
@@ -45,6 +65,7 @@ declare namespace Template {
                 angry: string;
                 happy: string;
                 upset: string;
+                dormant: string;
             };
         };
         silvesterCat: {
@@ -58,4 +79,7 @@ declare namespace Template {
 }
 declare namespace Template {
     function firstScene(): ƒS.SceneReturn;
+}
+declare namespace Template {
+    let canvas: HTMLCanvasElement;
 }
