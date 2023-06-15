@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <script src="Fudge/FudgeCore.js"></script>
+  <script src="FudgeStory/FudgeStory.js"></script>
+  <script src="./Build/Template.js"></script>
+  <title>A Cat in Limbo</title>
+</head>
+
+<body>
+  <scene>
+
+    <canvas></canvas>
+
+    <speech>
+      <name>
+        <!-- The name of the character speaking -->
+      </name>
+      <content>
+        <!-- The text the character says -->
+      </content>
+    </speech>
+
+    <dialog type="text">
+      <!-- The content of a page of text for reading -->
+    </dialog>
+
+    <dialog type="inventory">
+      <button type="button">close</button>
+      <ul>
+        <!-- <li>a description could be written in here</li>
+          <li>b</li>
+          <li>c</li>
+          <li>d</li>
+          <li>e</li> -->
+      </ul>
+    </dialog>
+
+
+    <div type="interface">
+      <input id="scoreForCat" type="text" value="cat" disabled>
+      <!-- für value der Skala; Füllung -->
+      <meter id="catMeter" name="catScore" min="0" max="100" disabled></meter>
+    </div>
+
+  </scene>
+
+  <dialog type="splash" open>
+    <div>
+      <p>
+        <img id="FudgeStoryLogo" theme="dark" /> <!-- use "light" or "dark" -->
+      </p>
+      <p>
+        <img id="Background" src="./Images/Backgrounds/mountainsBackground_cat.png" alt="cat with mountains in background">
+        <h1>A Cat in Limbo</h1>
+      </p>
+
+  </dialog>
+
+  <!-- <dialog type="items">
+    </dialog> -->
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
