@@ -51,8 +51,13 @@ declare namespace ACatInLimbo {
         meadowSound: string;
         normalMoew: string;
         cathissing: string;
-        demandingmeow: string;
+        demandingmeow1: string;
+        demandingMeow2: string;
         cuteMeow: string;
+        kindOfSadMeow: string;
+        purrMeow: string;
+        purringDeep: string;
+        purring: string;
     };
     let locations: {
         forest: {
@@ -134,7 +139,18 @@ declare namespace ACatInLimbo {
             name: string;
             origin: ƒ.ORIGIN2D;
             pose: {
+                attack: string;
                 normal: string;
+                sad: string;
+                smile: string;
+            };
+        };
+        swampCreature: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+                asleep: string;
             };
         };
     };

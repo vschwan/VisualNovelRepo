@@ -135,8 +135,13 @@ var ACatInLimbo;
         //catSounds
         normalMoew: "Audio/catAudio/meow.mp3",
         cathissing: "Audio/catAudio/cathisses.wav",
-        demandingmeow: "Template/Audio/demandingMeow.wav",
-        cuteMeow: "./Audio/catAudio/ANMLCat_Meow cat 7 (ID 1895)_BSB.wav"
+        demandingmeow1: "./Audio/catAudio/demandingMeow1.wav",
+        demandingMeow2: ".Audio/catAudio/demandingMeow2.mp3",
+        cuteMeow: "./Audio/catAudio/ANMLCat_Meow cat 7 (ID 1895)_BSB.wav",
+        kindOfSadMeow: "./Audio/catAudio/262312__steffcaffrey__cat-meow1-80256.mp3",
+        purrMeow: "./Audio/catAudio/cat-purr-meow-8327.mp3",
+        purringDeep: "./Audio/catAudio/cat-purring-2-73009.mp3",
+        purring: "Audio/catAudio/purring-cat-77928.mp3"
         // SFX
         //zb drop (namen geben): "audio/drop.mp3"
     };
@@ -178,7 +183,7 @@ var ACatInLimbo;
             name: "You"
         },
         pinkCat: {
-            name: "pinkCat",
+            name: "pink Cat",
             origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
                 //pink Cat poses regular
@@ -220,10 +225,21 @@ var ACatInLimbo;
             }
         },
         spiderCreature: {
-            name: "-",
+            name: "Spider Creature",
             origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                normal: "./Images/Characters/Creatures/....png"
+                attack: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightAttack.png",
+                normal: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightNormal.png",
+                sad: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightSad.png",
+                smile: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightSmile.png"
+            }
+        },
+        swampCreature: {
+            name: "Swamp Creature",
+            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                normal: "./Images/Characters/creatures/swampCreature/swampCreatureAsleep.png",
+                asleep: "./Images/Characters/creatures/swampCreature/swampCreatureNormal.png"
             }
         }
     };
@@ -304,8 +320,10 @@ var ACatInLimbo;
                 T0005: "Ouuuh, you seem nice!"
             }
         };
+        //Hide MeterBar
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
+        //Intro
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.meadowSound, 1, true);
         await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.meadow);
@@ -334,6 +352,8 @@ var ACatInLimbo;
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, text.protagonist.T0005);
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, text.protagonist.T0006);
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, text.protagonist.T0007);
+            //maybe implement enabling collection of items
+            //"Animation" : Stone Cat awakes
             case firstAction.awakeCat:
                 console.log("cat awakes");
                 ACatInLimbo.ƒS.Speech.hide();
@@ -342,13 +362,14 @@ var ACatInLimbo;
                 await ACatInLimbo.ƒS.update(1);
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
                 await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.awakening3, ACatInLimbo.ƒS.positionPercent(65, 85));
-                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, text.protagonist.T0008);
                 await ACatInLimbo.ƒS.update(1);
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
                 await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.awakening4, ACatInLimbo.ƒS.positionPercent(65, 85));
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, text.protagonist.T0008);
                 await ACatInLimbo.ƒS.update(1);
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
                 await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.awakening5, ACatInLimbo.ƒS.positionPercent(65, 85));
+                //insert cat yawn
                 await ACatInLimbo.ƒS.update(1);
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
                 await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.awakening6, ACatInLimbo.ƒS.positionPercent(65, 85));
@@ -361,28 +382,37 @@ var ACatInLimbo;
                 await ACatInLimbo.ƒS.update(1);
                 break;
         }
+        //Cat stretch
+        await ACatInLimbo.ƒS.Speech.hide();
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.stretchingSmall, ACatInLimbo.ƒS.positionPercent(70, 85));
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.stonePedestal, ACatInLimbo.ƒS.positionPercent(65, 85));
         await ACatInLimbo.ƒS.update(1);
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
-        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.cuteMeow, 1, false);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalSmall, ACatInLimbo.ƒS.positionPercent(75, 85));
         await ACatInLimbo.ƒS.update(1);
+        //Choices for how to act towards Cat
         let approachCat = {
             approachCatCarefully: "Carefully approach cat",
             ApproachCat: "Walk towards cat",
             Wait: "Wait"
         };
+        //wait for input
         let approachCatRequest = await ACatInLimbo.ƒS.Menu.getInput(approachCat, "choicesCSSClass");
-        //Sshow MeterBar 
+        //Show MeterBar 
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.update();
         switch (approachCatRequest) {
             case approachCat.approachCatCarefully:
                 console.log("Carefully approach cat");
-                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal, ACatInLimbo.ƒS.positionPercent(75, 95));
+                await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.demandingMeow2, 1, false);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal, ACatInLimbo.ƒS.positionPercent(80, 95));
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, text.pinkCat.T0004);
                 ACatInLimbo.dataForSave.catScore += 2;
+                await ACatInLimbo.ƒS.update();
                 break;
             case approachCat.ApproachCat:
                 console.log("Walk towards cat");
@@ -394,51 +424,84 @@ var ACatInLimbo;
                 console.log("Wait");
                 document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
                 // ƒS.Speech.hide();
+                //choices for how to attract cat
                 let attractCat = {
                     kneelDown: "Kneel down",
                     reachOut: "Reach Out",
-                    makeSounds: "make ksksks"
+                    makeSounds: "Make ksksks",
                 };
+                //booleans to be able to delete buttons/choices
                 let pickedKneelDown;
                 let pickedReachOut;
                 let pickedMakeSounds;
                 do {
-                    // if (pickedYes || pickedBla || pickedNo || pickedOk || pickedYes) {
-                    //   delete firstDialogueElementAnswers.iSayYes;
-                    // }
-                    if (pickedKneelDown) {
+                    //keine Ahnung wie das sonst gehen soll: check if booleans are true to delete each button without affecting the variety of all choices 
+                    if (pickedKneelDown == true && pickedMakeSounds == true && pickedReachOut == true) {
+                        ACatInLimbo.dataForSave.pickedChoice = true;
+                    } //Problem: die if-Zeile sorgt dafür, dass wenn der letzte Button gedrückt wurde, 
+                    //die if bedingung erfüllt wurde, der Code weiterspringt und somit auf eine weitere Eingabe gewartet wird. 
+                    //Erst nach weiterem Drücken auf den gelichen Button verschwindet er dann
+                    else if (pickedKneelDown == true) {
+                        console.log(pickedKneelDown);
                         delete attractCat.kneelDown;
+                        console.log("delete kneel down");
                     }
-                    else if (pickedMakeSounds) {
+                    if (pickedKneelDown == true && pickedMakeSounds == true && pickedReachOut == true) {
+                        ACatInLimbo.dataForSave.pickedChoice = true;
+                    }
+                    else if (pickedMakeSounds == true) {
+                        console.log(pickedMakeSounds);
                         delete attractCat.makeSounds;
+                        console.log("delete make sounds");
                     }
-                    else if (pickedReachOut) {
+                    if (pickedKneelDown == true && pickedMakeSounds == true && pickedReachOut == true) {
+                        ACatInLimbo.dataForSave.pickedChoice = true;
+                    }
+                    else if (pickedReachOut == true) {
+                        console.log(pickedReachOut);
                         delete attractCat.reachOut;
+                        console.log("delete reach out");
                     }
-                    let attractCatRequest = await ACatInLimbo.ƒS.Menu.getInput(attractCat, "choicesCSSclass");
+                    //warte auf Inout
+                    let attractCatRequest = await ACatInLimbo.ƒS.Menu.getInput(attractCat, "choicesCSSClass");
                     switch (attractCatRequest) {
                         case attractCat.kneelDown:
                             console.log("Kneel down");
+                            await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.purrMeow, 1, false); //sound wird nicht gefunden 404
                             ACatInLimbo.dataForSave.catScore += 5;
                             pickedKneelDown = true;
                             break;
                         case attractCat.makeSounds:
                             console.log("make ksksks");
+                            await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.purrMeow, 1, false);
                             ACatInLimbo.dataForSave.catScore += 5;
                             pickedMakeSounds = true;
                             break;
                         case attractCat.reachOut:
                             console.log("reach out");
+                            await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.purrMeow, 1, false);
                             ACatInLimbo.dataForSave.catScore += 5;
                             pickedReachOut = true;
+                            //    dataForSave.pickedChoice = true;
                             break;
                     }
                 } while (!ACatInLimbo.dataForSave.pickedChoice);
-                ACatInLimbo.dataForSave.catScore += 5;
-                console.log(ACatInLimbo.dataForSave.catScore);
-                await ACatInLimbo.ƒS.update(5);
-                document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
+                console.log("delete all and cat is happy");
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.purring, 1, false);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.lovelySmall, ACatInLimbo.ƒS.positionPercent(75, 85));
                 await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.lovely, ACatInLimbo.ƒS.positionPercent(80, 95));
+                await ACatInLimbo.ƒS.update();
+                /*
+                
+                dataForSave.catScore += 5;
+                console.log(dataForSave.catScore);
+                await ƒS.update(5);
+                document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
+                await ƒS.update();
+                */
                 break;
         }
     }
@@ -516,7 +579,7 @@ var ACatInLimbo;
             case dialogue.iSayBla:
                 //continue path here
                 console.log("answer: Bla");
-                ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.demandingmeow, 1, false);
+                ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.demandingmeow1, 1, false);
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, text.pinkCat.T0004);
                 //METERBAR
                 // dataForSave.pickedMeterScene = true;

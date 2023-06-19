@@ -2,7 +2,7 @@ namespace ACatInLimbo {
   export import ƒ = FudgeCore;
   export import ƒS = FudgeStory;
   console.log("FudgeStory template starting");
-  
+
 
   export let dataForSave = {
     catScore: 10,
@@ -143,8 +143,14 @@ namespace ACatInLimbo {
     //catSounds
     normalMoew: "Audio/catAudio/meow.mp3",
     cathissing: "Audio/catAudio/cathisses.wav",
-    demandingmeow: "Template/Audio/demandingMeow.wav",
-    cuteMeow: "./Audio/catAudio/ANMLCat_Meow cat 7 (ID 1895)_BSB.wav"
+    demandingmeow1: "./Audio/catAudio/demandingMeow1.wav",
+    demandingMeow2: ".Audio/catAudio/demandingMeow2.mp3",
+    cuteMeow: "./Audio/catAudio/ANMLCat_Meow cat 7 (ID 1895)_BSB.wav",
+    kindOfSadMeow: "./Audio/catAudio/262312__steffcaffrey__cat-meow1-80256.mp3",
+    purrMeow: "./Audio/catAudio/cat-purr-meow-8327.mp3",
+    purringDeep: "./Audio/catAudio/cat-purring-2-73009.mp3",
+    purring: "Audio/catAudio/purring-cat-77928.mp3"
+
     // SFX
     //zb drop (namen geben): "audio/drop.mp3"
   };
@@ -198,7 +204,7 @@ namespace ACatInLimbo {
     },
 
     pinkCat: {
-      name: "pinkCat",
+      name: "pink Cat",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         //pink Cat poses regular
@@ -243,12 +249,25 @@ namespace ACatInLimbo {
     },
 
     spiderCreature: {
-      name: "-",
+      name: "Spider Creature",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        normal: "./Images/Characters/Creatures/....png"
+        attack: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightAttack.png",
+        normal: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightNormal.png",
+        sad: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightSad.png",
+        smile: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightSmile.png"
+      }
+    }, 
+
+    swampCreature:{
+      name: "Swamp Creature",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose:{
+        normal:"./Images/Characters/creatures/swampCreature/swampCreatureAsleep.png",
+        asleep:"./Images/Characters/creatures/swampCreature/swampCreatureNormal.png"
       }
     }
+
 
   };
 

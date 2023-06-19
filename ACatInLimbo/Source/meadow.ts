@@ -23,10 +23,11 @@ namespace ACatInLimbo {
             }
 
         }
-
+        //Hide MeterBar
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
 
+        //Intro
         ƒS.Speech.hide(); //Sprachfenster ausblenden
         ƒS.Sound.play(sound.meadowSound, 1, true);
         await ƒS.Location.show(locations.meadow);
@@ -58,8 +59,9 @@ namespace ACatInLimbo {
                 await ƒS.Speech.tell(characters.protagonist, text.protagonist.T0005);
                 await ƒS.Speech.tell(characters.protagonist, text.protagonist.T0006);
                 await ƒS.Speech.tell(characters.protagonist, text.protagonist.T0007);
+            //maybe implement enabling collection of items
 
-
+            //"Animation" : Stone Cat awakes
             case firstAction.awakeCat:
                 console.log("cat awakes");
                 ƒS.Speech.hide();
@@ -68,13 +70,14 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening3, ƒS.positionPercent(65, 85));
-                await ƒS.Speech.tell(characters.protagonist, text.protagonist.T0008);
                 await ƒS.update(1);
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening4, ƒS.positionPercent(65, 85));
+                await ƒS.Speech.tell(characters.protagonist, text.protagonist.T0008);
                 await ƒS.update(1);
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening5, ƒS.positionPercent(65, 85));
+                //insert cat yawn
                 await ƒS.update(1);
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening6, ƒS.positionPercent(65, 85));
@@ -88,32 +91,40 @@ namespace ACatInLimbo {
                 break;
         }
 
+        //Cat stretch
+        await ƒS.Speech.hide();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.stretchingSmall, ƒS.positionPercent(70, 85));
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.stonePedestal, ƒS.positionPercent(65, 85));
         await ƒS.update(1);
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.update();
+        await ƒS.Sound.play(sound.cuteMeow, 1, false);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalSmall, ƒS.positionPercent(75, 85));
         await ƒS.update(1);
 
+        //Choices for how to act towards Cat
         let approachCat = {
             approachCatCarefully: "Carefully approach cat",
             ApproachCat: "Walk towards cat",
             Wait: "Wait"
         };
 
+        //wait for input
         let approachCatRequest = await ƒS.Menu.getInput(approachCat, "choicesCSSClass");
-        //Sshow MeterBar 
+        //Show MeterBar 
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
-
+        document.getElementById("scoreForCat").style.display = "";
+        await ƒS.Character.hide(characters.pinkCat);
+        await ƒS.update();
 
         switch (approachCatRequest) {
             case approachCat.approachCatCarefully:
                 console.log("Carefully approach cat");
-                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(75, 95));
+                await ƒS.Sound.play(sound.demandingMeow2, 1, false);
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
                 await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0004);
                 dataForSave.catScore += 2;
+                await ƒS.update();
 
                 break;
 
@@ -128,58 +139,92 @@ namespace ACatInLimbo {
                 console.log("Wait");
                 document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
                 // ƒS.Speech.hide();
+
+                //choices for how to attract cat
                 let attractCat = {
                     kneelDown: "Kneel down",
                     reachOut: "Reach Out",
-                    makeSounds: "make ksksks"
+                    makeSounds: "Make ksksks",
                 };
+
+                //booleans to be able to delete buttons/choices
                 let pickedKneelDown: boolean;
                 let pickedReachOut: boolean;
                 let pickedMakeSounds: boolean;
 
                 do {
-
-                    // if (pickedYes || pickedBla || pickedNo || pickedOk || pickedYes) {
-                    //   delete firstDialogueElementAnswers.iSayYes;
-                    // }
-                    if (pickedKneelDown) {
+                    //keine Ahnung wie das sonst gehen soll: check if booleans are true to delete each button without affecting the variety of all choices 
+                    if (pickedKneelDown == true && pickedMakeSounds == true && pickedReachOut == true) {
+                        dataForSave.pickedChoice = true;
+                    } //Problem: die if-Zeile sorgt dafür, dass wenn der letzte Button gedrückt wurde, 
+                    //die if bedingung erfüllt wurde, der Code weiterspringt und somit auf eine weitere Eingabe gewartet wird. 
+                    //Erst nach weiterem Drücken auf den gelichen Button verschwindet er dann
+                    else if (pickedKneelDown == true) {
+                        console.log(pickedKneelDown);
                         delete attractCat.kneelDown;
-                    }
-                    else if (pickedMakeSounds) {
-                        delete attractCat.makeSounds;
-                    }
-                    else if (pickedReachOut) {
-                        delete attractCat.reachOut;
+                        console.log("delete kneel down");
                     }
 
-                    let attractCatRequest = await ƒS.Menu.getInput(attractCat, "choicesCSSclass");
+                    if (pickedKneelDown == true && pickedMakeSounds == true && pickedReachOut == true) {
+                        dataForSave.pickedChoice = true;
+                    }
+                    else if (pickedMakeSounds == true) {
+                        console.log(pickedMakeSounds);
+                        delete attractCat.makeSounds;
+                        console.log("delete make sounds");
+                    }
+
+                    if (pickedKneelDown == true && pickedMakeSounds == true && pickedReachOut == true) {
+                        dataForSave.pickedChoice = true;
+                    }
+                    else if (pickedReachOut == true) {
+                        console.log(pickedReachOut);
+                        delete attractCat.reachOut;
+                        console.log("delete reach out");
+                    }
+                    //warte auf Inout
+                    let attractCatRequest = await ƒS.Menu.getInput(attractCat, "choicesCSSClass");
 
                     switch (attractCatRequest) {
                         case attractCat.kneelDown:
                             console.log("Kneel down");
+                            await ƒS.Sound.play(sound.purrMeow, 1, false); //sound wird nicht gefunden 404
                             dataForSave.catScore += 5;
                             pickedKneelDown = true;
                             break;
                         case attractCat.makeSounds:
                             console.log("make ksksks");
+                            await ƒS.Sound.play(sound.purrMeow, 1, false);
                             dataForSave.catScore += 5;
                             pickedMakeSounds = true;
                             break;
                         case attractCat.reachOut:
                             console.log("reach out");
+                            await ƒS.Sound.play(sound.purrMeow, 1, false);
                             dataForSave.catScore += 5;
                             pickedReachOut = true;
+                            //    dataForSave.pickedChoice = true;
                             break;
                     }
                 } while (!dataForSave.pickedChoice);
 
+                console.log("delete all and cat is happy");
+                await ƒS.Character.hide(characters.pinkCat);
+                await ƒS.Sound.play(sound.purring, 1, false);
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.lovelySmall, ƒS.positionPercent(75, 85));
+                await ƒS.update();
+                await ƒS.Character.hide(characters.pinkCat);
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.lovely, ƒS.positionPercent(80, 95));
+                await ƒS.update();
 
+                /*
+                
                 dataForSave.catScore += 5;
                 console.log(dataForSave.catScore);
                 await ƒS.update(5);
                 document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
                 await ƒS.update();
-
+                */
                 break;
         }
 
