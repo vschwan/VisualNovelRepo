@@ -5,6 +5,7 @@ namespace ACatInLimbo {
 
 
   export let dataForSave = {
+    visitedLake: false,
     nameProtagonist: "You",
     catScore: 10,
     scoreForCat: "",
@@ -44,7 +45,10 @@ namespace ACatInLimbo {
       pose: {
         //pink Cat poses regular
         normal: "./Images/Characters/pinkCat/pinkCatNormal.png",
-        fromBehind: "./Images/Characters/pinkCat/pinkCatBehind.png",
+        normalLookingAway: "./Images/Characters/pinkCat/pinkCatNormalFromBehind.png",
+        normalAngry: "./Images/Characters/pinkCat/pinkCatNormalAngry.png",
+        fromBehindLookingAway: "./Images/Characters/pinkCat/pinkCatBehind.png",
+        fromBehindLookingBack: "./Images/Characters/pinkCat/pinkCatBehindLook.png",
         scared: "./Images/Characters/pinkCat/pinkCatScared.png",
         cleaningAss: "./Images/Characters/pinkCat/pinkCatCleaningAss.png",
         cleaningPaw: "./Images/Characters/pinkCat/pinkCatCleaningPaw.png",
@@ -56,11 +60,14 @@ namespace ACatInLimbo {
         sleeping: "./Images/Characters/pinkCat/pinkCatSleeping.png",
         stretching: "./Images/Characters/pinkCat/pinkCatStretching.png",
         talking: "./Images/Characters/pinkCat/pinkCatTalking.png",
+        talkingAngry: "./Images/Characters/pinkCat/pinkCatTalkingAngry.png",
         thoughtful1: "./Images/Characters/pinkCat/pinkCatThoughtful1.png",
         thoughtful2: "./Images/Characters/pinkCat/pinkCatThoughtful2.png",
         thumbsUp: "./Images/Characters/pinkCat/pinkCatThumbsUp.png",
         walking: "./Images/Characters/pinkCat/pinkCatWalking.png",
         yawning: "./Images/Characters/pinkCat/pinkCatYawning.png",
+        crouched: "./Images/Characters/pinkCat/pinkCatCrouched.png",
+        crouchedLookingAway: "./Images/Characters/pinkCat/pinkCatCrouchedLookingAway.png",
 
         //pink Cat poses small 
         normalSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatNormalSmall.png",
@@ -95,6 +102,7 @@ namespace ACatInLimbo {
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         attack: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightAttack.png",
+        attackBig: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightAttackBig.png",
         normal: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightNormal.png",
         sad: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightSad.png",
         smile: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightSmile.png"
@@ -143,10 +151,35 @@ namespace ACatInLimbo {
   export function ScaredCatAnimation(): ƒS.AnimationDefinition {
     //something
     return {
-      start: { translation: ƒS.positionPercent(60, 90), color: ƒS.Color.CSS("", 1) },
-      end: { translation: ƒS.positionPercent(90, 90), color: ƒS.Color.CSS("black", 0.5) },
-      duration: 3,
+      start: { translation: ƒS.positionPercent(85, 95), color: ƒS.Color.CSS("", 1) },
+      end: { translation: ƒS.positionPercent(150, 100), color: ƒS.Color.CSS("black", 0.5) },
+      duration: 2,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+    };
+  }
+  export function spiderAnimationHide(): ƒS.AnimationDefinition {
+    return {
+      start: {translation: ƒS.positionPercent(50,-20)},
+      end: {translation: ƒS.positionPercent(50, 20)},
+      duration: 5,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCESTOPAFTER
+    };
+  }
+  export function spiderAnimationAppear(): ƒS.AnimationDefinition {
+    return {
+      start: {translation: ƒS.positionPercent(50,-20)},
+      end: {translation: ƒS.positionPercent(50, 50)},
+      duration: 5,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+    };
+  }
+
+  export function spiderAnimationDisappear(): ƒS.AnimationDefinition {
+    return {
+      start: {translation: ƒS.positionPercent(50,50)},
+      end: {translation: ƒS.positionPercent(50, -20)},
+      duration: 5,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
     };
   }
 
@@ -234,7 +267,7 @@ namespace ACatInLimbo {
     },
 
     circleSwirl: {
-      duration: 1,
+      duration: 2,
       alpha: "FreeTransitions/Others/009.jpg",
       edge: 1
     }
@@ -247,8 +280,8 @@ namespace ACatInLimbo {
     meadowSound: "Audio/Ambience/spring-forest-birds-sounds.mp3",
 
     //catSounds
-    normalMoew: "Audio/catAudio/meow.mp3",
-    cathissing: "Audio/catAudio/cathisses.wav",
+    normalMoew: "./Audio/catAudio/meow.mp3",
+    cathissing: "./Audio/catAudio/cathisses.wav", 
     demandingmeow1: "./Audio/catAudio/demandingMeow1.wav",
     demandingMeow2: "./Audio/catAudio/demandingMeow2.mp3",
     cuteMeow: "./Audio/catAudio/ANMLCat_Meow cat 7 (ID 1895)_BSB.wav",
@@ -257,9 +290,13 @@ namespace ACatInLimbo {
     purringDeep: "./Audio/catAudio/cat-purring-2-73009.mp3",
     purring: "Audio/catAudio/purring-cat-77928.mp3",
     longGrowl: "./Audio/catAudio/angry-cat-70623.mp3",
-    growling1: "./Audio/catAudio/ANMLCat_Growling cat 3 (ID 1887)_BSB.wav"
+    growling1: "./Audio/catAudio/ANMLCat_Growling cat 3 (ID 1887)_BSB.wav",
 
     // SFX
+    horrorDrum1: "./Audio/FX/mixkit-hard-horror-hit-drum-565 (1).wav",
+    horrorDrum2: "./Audio/FX/mixkit-horror-deep-drum-heartbeat-559.wav"
+
+
     //zb drop (namen geben): "audio/drop.mp3"
   };
 
@@ -316,18 +353,18 @@ namespace ACatInLimbo {
     buttonFunctionalities("Close");
 
     let scenes: ƒS.Scenes = [
-      //{ id: "", scene: Meadow, name: "meadow", next: "" },
+      // { id: "Meadow Scene", scene: Meadow, name: "meadow", next: "" },
       { id: "Forest Scene", scene: Forest, name: "Forest", next: "" },
-     // { id: "lake", scene: Lake, name: "lake", next: "" },
-    //  { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
-     // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
+      // { id: "Lake Scene", scene: Lake, name: "lake", next: "" },
+     // {id: "Swamp Scene", scene: Swamp, name: "Swamp", next:""},
+      //  { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
+      // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
       // Empty ending scene to stop the program
       { id: "Empty Scene", scene: Empty, name: "END" }  //Progamm kann nicht stopenn, deswegen empty Scene zum Schluss erstellen, ohne Inhalt
     ];
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");
     dataForSave = ƒS.Progress.setData(dataForSave, uiElement);
-
 
     // start the sequence
     ƒS.Progress.go(scenes);

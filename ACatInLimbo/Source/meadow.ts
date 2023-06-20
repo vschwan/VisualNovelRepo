@@ -64,11 +64,11 @@ namespace ACatInLimbo {
         await ƒS.Location.show(locations.meadow);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening1, ƒS.positionPercent(65, 85));
         await ƒS.update(transition.swirlStuff.duration, transition.swirlStuff.alpha, transition.swirlStuff.edge);
-        ƒS.update();
+       // ƒS.update();
       //  await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.front, ƒS.positionPercent(10, 95));
         await ƒS.update(2);
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0001);
-        await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0002, false);
+        await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0002);
         await ƒS.update(1);
       //  await ƒS.Character.hide(characters.protagonist);
       //  await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
@@ -327,11 +327,11 @@ namespace ACatInLimbo {
 
         switch (nextLocationRequest) {
             case nextLocation.forest:
-                return "forest"
+                return "Forest Scene"
                 break;
 
             case nextLocation.lake:
-                return "lake"
+                return "Lake Scene"
                 break;
         }
     }

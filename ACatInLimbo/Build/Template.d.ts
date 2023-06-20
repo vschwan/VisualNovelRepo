@@ -4,9 +4,16 @@ declare namespace ACatInLimbo {
     function Empty(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
+    function Forest(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function Lake(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let dataForSave: {
+        visitedLake: boolean;
         nameProtagonist: string;
         catScore: number;
         scoreForCat: string;
@@ -36,7 +43,10 @@ declare namespace ACatInLimbo {
             origin: ƒ.ORIGIN2D;
             pose: {
                 normal: string;
-                fromBehind: string;
+                normalLookingAway: string;
+                normalAngry: string;
+                fromBehindLookingAway: string;
+                fromBehindLookingBack: string;
                 scared: string;
                 cleaningAss: string;
                 cleaningPaw: string;
@@ -48,11 +58,14 @@ declare namespace ACatInLimbo {
                 sleeping: string;
                 stretching: string;
                 talking: string;
+                talkingAngry: string;
                 thoughtful1: string;
                 thoughtful2: string;
                 thumbsUp: string;
                 walking: string;
                 yawning: string;
+                crouched: string;
+                crouchedLookingAway: string;
                 normalSmall: string;
                 scaredSmall: string;
                 curiousSmall: string;
@@ -81,6 +94,7 @@ declare namespace ACatInLimbo {
             origin: ƒ.ORIGIN2D;
             pose: {
                 attack: string;
+                attackBig: string;
                 normal: string;
                 sad: string;
                 smile: string;
@@ -116,6 +130,9 @@ declare namespace ACatInLimbo {
         };
     };
     function ScaredCatAnimation(): ƒS.AnimationDefinition;
+    function spiderAnimationHide(): ƒS.AnimationDefinition;
+    function spiderAnimationAppear(): ƒS.AnimationDefinition;
+    function spiderAnimationDisappear(): ƒS.AnimationDefinition;
     function getAnimation(): ƒS.AnimationDefinition;
     let transition: {
         puzzle: {
@@ -149,6 +166,8 @@ declare namespace ACatInLimbo {
         purring: string;
         longGrowl: string;
         growling1: string;
+        horrorDrum1: string;
+        horrorDrum2: string;
     };
     let locations: {
         forest: {
@@ -182,16 +201,13 @@ declare namespace ACatInLimbo {
     };
 }
 declare namespace ACatInLimbo {
-    function Forest(): ƒS.SceneReturn;
+    function Meadow(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function Swamp(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     let canvas: HTMLCanvasElement;
-}
-declare namespace ACatInLimbo {
-    function Lake(): ƒS.SceneReturn;
-}
-declare namespace ACatInLimbo {
-    function Meadow(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function testScene(): ƒS.SceneReturn;
