@@ -5,9 +5,9 @@ namespace ACatInLimbo {
 
 
   export let dataForSave = {
+    nameProtagonist: "You",
     catScore: 10,
     scoreForCat: "",
-    nameProtagonist: "",
     points: 0,
     pickedMeterBar: false,
     pickedChoice: false
@@ -15,6 +15,101 @@ namespace ACatInLimbo {
     // ended: false
 
     //hier auch Punkte verteilungssystem-Variable reinhauen
+  };
+
+  export let characters = {
+
+    protagonist: {
+      name: dataForSave.nameProtagonist,
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        front: "./Images/Characters/protagonist/protagonistFront.png",
+        side: "./Images/Characters/protagonist/protagonistSide.png",
+        handsInHips: "./Images/Characters/protagonist/protagonistHandsInHips.png",
+        scared: "./Images/Characters/protagonist/protagonistScared.png",
+        thinking: "./Images/Characters/protagonist/protagonistThinking.png"
+      }
+    },
+
+    narrator: {
+      name: "Narrator",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {}
+    },
+
+
+    pinkCat: {
+      name: "pink Cat",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        //pink Cat poses regular
+        normal: "./Images/Characters/pinkCat/pinkCatNormal.png",
+        fromBehind: "./Images/Characters/pinkCat/pinkCatBehind.png",
+        scared: "./Images/Characters/pinkCat/pinkCatScared.png",
+        cleaningAss: "./Images/Characters/pinkCat/pinkCatCleaningAss.png",
+        cleaningPaw: "./Images/Characters/pinkCat/pinkCatCleaningPaw.png",
+        curious: "./Images/Characters/pinkCat/pinkCatCurious.png",
+        derpy1: "./Images/Characters/pinkCat/pinkCatDerp1.png",
+        derpy2: "./Images/Characters/pinkCat/pinkCatDerp2.png",
+        lovely: "./Images/Characters/pinkCat/pinkCatLove.png",
+        layingOnBack: "./Images/Characters/pinkCat/pinkCatOnBack.png",
+        sleeping: "./Images/Characters/pinkCat/pinkCatSleeping.png",
+        stretching: "./Images/Characters/pinkCat/pinkCatStretching.png",
+        talking: "./Images/Characters/pinkCat/pinkCatTalking.png",
+        thoughtful1: "./Images/Characters/pinkCat/pinkCatThoughtful1.png",
+        thoughtful2: "./Images/Characters/pinkCat/pinkCatThoughtful2.png",
+        thumbsUp: "./Images/Characters/pinkCat/pinkCatThumbsUp.png",
+        walking: "./Images/Characters/pinkCat/pinkCatWalking.png",
+        yawning: "./Images/Characters/pinkCat/pinkCatYawning.png",
+
+        //pink Cat poses small 
+        normalSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatNormalSmall.png",
+        scaredSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatScaredSmall.png",
+        curiousSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatCuriousSmall.png",
+        lovelySmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatLoveSmall.png",
+        layingOnBackSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatOnBackSmall.png",
+        stretchingSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatStretchingSmall.png",
+
+        //pink Cat as stone Statue awakes
+        awakening1: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening1.png",
+        awakening2: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening2.png",
+        awakening3: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening3.png",
+        awakening4: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening4.png",
+        awakening5: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening5.png",
+        awakening6: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening6.png",
+        awakening7: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening7.png",
+        awakening8: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening8.png"
+      }
+    },
+
+    stonePedestal: {
+      name: "stonePedestal",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        stonePedestal: "./Images/Characters/pinkCat/pinkCatAwakening/stonePedestal.png"
+      }
+    },
+
+    spiderCreature: {
+      name: "Spider Creature",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        attack: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightAttack.png",
+        normal: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightNormal.png",
+        sad: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightSad.png",
+        smile: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightSmile.png"
+      }
+    },
+
+    swampCreature: {
+      name: "Swamp Creature",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        normal: "./Images/Characters/creatures/swampCreature/swampCreatureAsleep.png",
+        asleep: "./Images/Characters/creatures/swampCreature/swampCreatureNormal.png"
+      }
+    }
+
   };
 
   export let items = {
@@ -40,8 +135,12 @@ namespace ACatInLimbo {
     }
   };
 
+  /*export function UpdateName(): void {
+    characters.protagonist.name = dataForSave.nameProtagonist;
+  }*/
 
-  export function animation(): ƒS.AnimationDefinition {
+  //ANIMATIONS
+  export function ScaredCatAnimation(): ƒS.AnimationDefinition {
     //something
     return {
       start: { translation: ƒS.positionPercent(60, 90), color: ƒS.Color.CSS("", 1) },
@@ -132,24 +231,33 @@ namespace ACatInLimbo {
       duration: 1,
       alpha: "FreeTransitions/Others/027.jpg",
       edge: 1
+    },
+
+    circleSwirl: {
+      duration: 1,
+      alpha: "FreeTransitions/Others/009.jpg",
+      edge: 1
     }
   };
 
   export let sound = {
     // ambience
-    forestSound: "Audio/forestWind.mp3",
+    forestWind: "Audio/Ambience/forestWind.mp3",
+    scaryForest: "./Audio/Ambience/mixkit-scary-forest-at-night-2486.wav",
     meadowSound: "Audio/Ambience/spring-forest-birds-sounds.mp3",
 
     //catSounds
     normalMoew: "Audio/catAudio/meow.mp3",
     cathissing: "Audio/catAudio/cathisses.wav",
     demandingmeow1: "./Audio/catAudio/demandingMeow1.wav",
-    demandingMeow2: ".Audio/catAudio/demandingMeow2.mp3",
+    demandingMeow2: "./Audio/catAudio/demandingMeow2.mp3",
     cuteMeow: "./Audio/catAudio/ANMLCat_Meow cat 7 (ID 1895)_BSB.wav",
     kindOfSadMeow: "./Audio/catAudio/262312__steffcaffrey__cat-meow1-80256.mp3",
     purrMeow: "./Audio/catAudio/cat-purr-meow-8327.mp3",
     purringDeep: "./Audio/catAudio/cat-purring-2-73009.mp3",
-    purring: "Audio/catAudio/purring-cat-77928.mp3"
+    purring: "Audio/catAudio/purring-cat-77928.mp3",
+    longGrowl: "./Audio/catAudio/angry-cat-70623.mp3",
+    growling1: "./Audio/catAudio/ANMLCat_Growling cat 3 (ID 1887)_BSB.wav"
 
     // SFX
     //zb drop (namen geben): "audio/drop.mp3"
@@ -194,82 +302,7 @@ namespace ACatInLimbo {
 
   };
 
-  export let characters = {
-    narrator: {
-      name: "Narrator"
-    },
 
-    protagonist: {
-      name: "You"
-    },
-
-    pinkCat: {
-      name: "pink Cat",
-      origin: ƒS.ORIGIN.BOTTOMCENTER,
-      pose: {
-        //pink Cat poses regular
-        normal: "./Images/Characters/pinkCat/pinkCatNormal.png",
-        fromBehind: "./Images/Characters/pinkCat/pinkCatBehind.png",
-        scared: "./Images/Characters/pinkCat/pinkCatScared.png",
-        cleaningAss: "./Images/Characters/pinkCat/pinkCatCleaningAss.png",
-        cleaningPaw: "./Images/Characters/pinkCat/pinkCatCleaningPaw.png",
-        curious: "./Images/Characters/pinkCat/pinkCatCurious.png",
-        derpy1: "./Images/Characters/pinkCat/pinkCatDerp1.png",
-        derpy2: "./Images/Characters/pinkCat/pinkCatDerp2.png",
-        lovely: "./Images/Characters/pinkCat/pinkCatLove.png",
-        layingOnBack: "./Images/Characters/pinkCat/pinkCatOnBack.png",
-        sleeping: "./Images/Characters/pinkCat/pinkCatSleeping.png",
-        stretching: "./Images/Characters/pinkCat/pinkCatStretching.png",
-        talking: "./Images/Characters/pinkCat/pinkCatTalking.png",
-        thoughtful1: "./Images/Characters/pinkCat/pinkCatThoughtful1.png",
-        thoughtful2: "./Images/Characters/pinkCat/pinkCatThoughtful2.png",
-        thumbsUp: "./Images/Characters/pinkCat/pinkCatThumbsUp.png",
-        walking: "./Images/Characters/pinkCat/pinkCatWalking.png",
-        yawning: "./Images/Characters/pinkCat/pinkCatYawning.png",
-
-        //pink Cat poses small 
-        normalSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatNormalSmall.png",
-        scaredSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatScaredSmall.png",
-        curiousSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatCuriousSmall.png",
-        lovelySmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatLoveSmall.png",
-        layingOnBackSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatOnBackSmall.png",
-        stretchingSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatStretchingSmall.png",
-
-        //pink Cat as stone Statue awakes
-        awakening1: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening1.png",
-        awakening2: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening2.png",
-        awakening3: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening3.png",
-        awakening4: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening4.png",
-        awakening5: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening5.png",
-        awakening6: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening6.png",
-        awakening7: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening7.png",
-        awakening8: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening8.png",
-        stonePedestal: "./Images/Characters/pinkCat/pinkCatAwakening/stonePedestal.png"
-      }
-    },
-
-    spiderCreature: {
-      name: "Spider Creature",
-      origin: ƒS.ORIGIN.BOTTOMCENTER,
-      pose: {
-        attack: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightAttack.png",
-        normal: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightNormal.png",
-        sad: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightSad.png",
-        smile: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightSmile.png"
-      }
-    }, 
-
-    swampCreature:{
-      name: "Swamp Creature",
-      origin: ƒS.ORIGIN.BOTTOMCENTER,
-      pose:{
-        normal:"./Images/Characters/creatures/swampCreature/swampCreatureAsleep.png",
-        asleep:"./Images/Characters/creatures/swampCreature/swampCreatureNormal.png"
-      }
-    }
-
-
-  };
 
   // Szenenstruktur
   window.addEventListener("load", start);
@@ -283,9 +316,11 @@ namespace ACatInLimbo {
     buttonFunctionalities("Close");
 
     let scenes: ƒS.Scenes = [
-      { id: "", scene: firstScene, name: "meadow", next: "" },
-      { id: "write", scene: testScene, name: "test Scene", next: "" }, //name = kurze Description für einen selbst
-      { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
+      //{ id: "", scene: Meadow, name: "meadow", next: "" },
+      { id: "Forest Scene", scene: Forest, name: "Forest", next: "" },
+     // { id: "lake", scene: Lake, name: "lake", next: "" },
+    //  { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
+     // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
       // Empty ending scene to stop the program
       { id: "Empty Scene", scene: Empty, name: "END" }  //Progamm kann nicht stopenn, deswegen empty Scene zum Schluss erstellen, ohne Inhalt
     ];

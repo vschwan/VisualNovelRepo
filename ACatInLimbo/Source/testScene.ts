@@ -15,7 +15,7 @@ namespace ACatInLimbo {
         };
 
         ƒS.Speech.hide(); //Sprechfenster ausblenden 
-        ƒS.Sound.play(sound.forestSound, 1, true);
+        ƒS.Sound.play(sound.forestWind, 1, true);
         await new Promise(resolve => setTimeout(resolve, 2500));
         ƒS.Sound.play(sound.normalMoew, 1, false);
         //  ƒS.Sound.fade(sound.forestSound, 1, 0.0, true);
@@ -50,7 +50,7 @@ namespace ACatInLimbo {
                 await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0005);
                 await ƒS.update();
                 ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0006);
-                await ƒS.Character.animate(characters.pinkCat, characters.pinkCat.pose.scared, animation());
+                await ƒS.Character.animate(characters.pinkCat, characters.pinkCat.pose.scared, ScaredCatAnimation());
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.update();
