@@ -19,6 +19,7 @@ namespace ACatInLimbo {
         purring: "Audio/catAudio/purring-cat-77928.mp3",
         longGrowl: "./Audio/catAudio/angry-cat-70623.mp3",
         growling1: "./Audio/catAudio/ANMLCat_Growling cat 3 (ID 1887)_BSB.wav",
+        catEating: "./Audio/catAudio/cat-eating-dry-food-133130.mp3",
     
         // SFX
         horrorDrum1: "./Audio/FX/mixkit-hard-horror-hit-drum-565 (1).wav",

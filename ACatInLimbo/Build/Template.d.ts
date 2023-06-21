@@ -1,4 +1,9 @@
 declare namespace ACatInLimbo {
+    let originAmountFish: number;
+    let originAmountSpider: number;
+    let originAmountFly: number;
+}
+declare namespace ACatInLimbo {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let dataForSave: {
@@ -103,9 +108,6 @@ declare namespace ACatInLimbo {
     function buttonFunctionalities(_option: string): Promise<void>;
 }
 declare namespace ACatInLimbo {
-    let canvas: HTMLCanvasElement;
-}
-declare namespace ACatInLimbo {
     function ScaredCatAnimation(): ƒS.AnimationDefinition;
     function spiderAnimationHide(): ƒS.AnimationDefinition;
     function spiderAnimationAppear(): ƒS.AnimationDefinition;
@@ -128,6 +130,7 @@ declare namespace ACatInLimbo {
         purring: string;
         longGrowl: string;
         growling1: string;
+        catEating: string;
         horrorDrum1: string;
         horrorDrum2: string;
     };

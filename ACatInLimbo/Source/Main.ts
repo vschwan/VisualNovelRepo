@@ -186,7 +186,7 @@ namespace ACatInLimbo {
           originAmount = ƒS.Inventory.getAmount(items.Fish);
         }},100);
 }*/
-
+ 
   // Menu shortcuts
   document.addEventListener("keydown", handleKeyPress);
   async function handleKeyPress(_event: KeyboardEvent): Promise<void> {
@@ -233,11 +233,11 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
-     // { id: "Meadow Scene", scene: Meadow, name: "meadow", next: "" },
-      { id: "Forest Scene", scene: Forest, name: "Forest", next: "" },
+      // { id: "Meadow Scene", scene: Meadow, name: "meadow", next: "" },
+      //  { id: "Forest Scene", scene: Forest, name: "Forest", next: "" },
       // { id: "Lake Scene", scene: Lake, name: "lake", next: "" },
       // {id: "Swamp Scene", scene: Swamp, name: "Swamp", next:""},
-      // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
+      { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
       // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
       // Empty ending scene to stop the program
       { id: "Empty Scene", scene: Empty, name: "END" }  //Progamm kann nicht stopenn, deswegen empty Scene zum Schluss erstellen, ohne Inhalt

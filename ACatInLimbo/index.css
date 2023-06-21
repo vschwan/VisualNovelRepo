@@ -126,14 +126,14 @@ dialog.choicesCSSClass {
   background-color: rgba(255, 255, 255, 0.24);
   border: 0ch;
   border-radius: 20px;
-  right: 72%;
+  right: 80%;
   top: 2%;
   padding: 1px;
   float: left;
 }
 
 .gameMenuCSS button {
-  font-size: 5px;
+  font-size: 15px;
   border-radius: 15px;
   border-style: none;
   background-color: rgb(143, 159, 201);
@@ -181,10 +181,11 @@ dialog[type="inventory"]>ul>li {
   border-radius: 10px;
   /*list-style-type: none;*/
   margin-bottom: 10px;
-  font-size: 5px;
+  font-size: 15px;
 }
 dialog[type="inventory"]>ul>li.name {
   color: rgb(143, 159, 201);
+  font-size: 50px;
 }
 
 dialog[type="inventory"]>button {

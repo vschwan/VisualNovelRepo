@@ -2,7 +2,7 @@ namespace ACatInLimbo {
 
     export async function testScene(): ƒS.SceneReturn { //um Fudge Story funktion aufzurufen - Szene aufrufen
         console.log("testScene starting");
-      
+
         let text = {
             pinkCat: { //charakter muss in der main angelegt werden (oder anscheinend auch nicht, aber zur ÜBersicht sinnvol??)
                 T0001: "Hello, I'm a derpy cat.",
@@ -25,6 +25,7 @@ namespace ACatInLimbo {
         await ƒS.update(transition.puzzle.duration, transition.puzzle.alpha, transition.puzzle.edge);
 
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(60, 90));
+        
 
         await ƒS.update(); //nach jeder location updaten 
         await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0001); //maßstabgetreue Grafiken verwenden! 
@@ -47,7 +48,7 @@ namespace ACatInLimbo {
                 await ƒS.update();
                 ƒS.Sound.play(sound.cathissing, 1, false);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.scared, ƒS.positionPercent(60, 90)); //ohne await, würde die katze erst nach klicken erscheinen?
-            
+
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0005);
                 await ƒS.update();
@@ -75,9 +76,11 @@ namespace ACatInLimbo {
                 for (let i: number = 0; i < 5; i++) { //5blobs, draufklicken --> konsumieren
                     ƒS.Inventory.add(items.Spider);
                 }
-                let numberOfFish = ƒS.Inventory.getAmount(items.Fish);
-                console.log(numberOfFish);
-              //  originAmount =  ƒS.Inventory.getAmount(items.Fish);
+
+                originAmountFly = ƒS.Inventory.getAmount(items.Fly);
+                originAmountFish = ƒS.Inventory.getAmount(items.Fish);
+                originAmountSpider = ƒS.Inventory.getAmount(items.Spider);
+
                 ƒS.Inventory.open();
                 ƒS.update();
                 await new Promise(resolve => setTimeout(resolve, 2500));

@@ -1,6 +1,48 @@
 "use strict";
 var ACatInLimbo;
 (function (ACatInLimbo) {
+    ACatInLimbo.originAmountFish = 0;
+    ACatInLimbo.originAmountSpider = 0;
+    ACatInLimbo.originAmountFly = 0;
+    let startGame = true;
+    setInterval(() => {
+        // console.log("hello from timeout");
+        if (!startGame) {
+            if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Fish) < ACatInLimbo.originAmountFish) {
+                console.log("nomnomnom");
+                ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.catEating, 1, false);
+                ACatInLimbo.originAmountFish = ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Fish);
+            }
+            if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Fish) != ACatInLimbo.originAmountFish) {
+                ACatInLimbo.originAmountFish = ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Fish);
+            }
+            if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Spider) < ACatInLimbo.originAmountSpider) {
+                console.log("nomnomnom");
+                ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.catEating, 1, false);
+                ACatInLimbo.originAmountSpider = ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Spider);
+            }
+            if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Spider) != ACatInLimbo.originAmountSpider) {
+                ACatInLimbo.originAmountSpider = ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Spider);
+            }
+            if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Fly) < ACatInLimbo.originAmountFly) {
+                console.log("nomnomnom");
+                ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.catEating, 1, false);
+                ACatInLimbo.originAmountFly = ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Fly);
+            }
+            if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Fly) != ACatInLimbo.originAmountFly) {
+                ACatInLimbo.originAmountFly = ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Fly);
+            }
+        }
+        else {
+            ACatInLimbo.originAmountFish = ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Fish);
+            ACatInLimbo.originAmountSpider = ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Spider);
+            ACatInLimbo.originAmountFly = ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Fly);
+            startGame = false;
+        }
+    }, 100);
+})(ACatInLimbo || (ACatInLimbo = {}));
+var ACatInLimbo;
+(function (ACatInLimbo) {
     ACatInLimbo.ƒ = FudgeCore;
     ACatInLimbo.ƒS = FudgeStory;
     console.log("FudgeStory template Bitch starting");
@@ -210,10 +252,10 @@ var ACatInLimbo;
         document.getElementById("scoreForCat").style.display = "none";
         let scenes = [
             // { id: "Meadow Scene", scene: Meadow, name: "meadow", next: "" },
-            { id: "Forest Scene", scene: ACatInLimbo.Forest, name: "Forest", next: "" },
+            //  { id: "Forest Scene", scene: Forest, name: "Forest", next: "" },
             // { id: "Lake Scene", scene: Lake, name: "lake", next: "" },
             // {id: "Swamp Scene", scene: Swamp, name: "Swamp", next:""},
-            // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
+            { id: "Test Scene", scene: ACatInLimbo.testScene, name: "Test", next: "" },
             // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
             // Empty ending scene to stop the program
             { id: "Empty Scene", scene: ACatInLimbo.Empty, name: "END" } //Progamm kann nicht stopenn, deswegen empty Scene zum Schluss erstellen, ohne Inhalt
@@ -223,39 +265,6 @@ var ACatInLimbo;
         // start the sequence
         ACatInLimbo.ƒS.Progress.go(scenes);
     }
-})(ACatInLimbo || (ACatInLimbo = {}));
-var ACatInLimbo;
-(function (ACatInLimbo) {
-    //export let crc2: CanvasRenderingContext2D;
-    /* function handleItems(): void {
-       let nSpiders: number = 10;
-   
-       for (let i: number = 0; i < nSpiders; i++) {
-   
-         let x: number = (Math.random() * canvas.width);
-         let y: number = (320 + Math.random() * canvas.height / 4);
-   
-         let posItem: Vector = new Vector(x, y);
-         let item: Flower = new Flower(posFlower);
-   
-       }
-     }*/
-    /*function handleItems(): void {
-       let img: HTMLImageElement = document.createElement("img");
-       img.src = "./Images/Items/spider.png";
-       canvas.appendChild(img);
-       positionItemRandomly(img);
-   
-     }*/
-    /* function positionItemRandomly(_img: HTMLImageElement): void {
-   
-       let left = Math.floor((Math.random() * 400) + 1) + "px";
-       let top = Math.floor((Math.random() * 400) + 1) + "px";
-       let imagestyle = _img.style;
-       imagestyle.position = "absolute";
-       imagestyle.top = top;
-       imagestyle.left = left;
-     }*/
 })(ACatInLimbo || (ACatInLimbo = {}));
 var ACatInLimbo;
 (function (ACatInLimbo) {
@@ -326,6 +335,7 @@ var ACatInLimbo;
         purring: "Audio/catAudio/purring-cat-77928.mp3",
         longGrowl: "./Audio/catAudio/angry-cat-70623.mp3",
         growling1: "./Audio/catAudio/ANMLCat_Growling cat 3 (ID 1887)_BSB.wav",
+        catEating: "./Audio/catAudio/cat-eating-dry-food-133130.mp3",
         // SFX
         horrorDrum1: "./Audio/FX/mixkit-hard-horror-hit-drum-565 (1).wav",
         horrorDrum2: "./Audio/FX/mixkit-horror-deep-drum-heartbeat-559.wav"
@@ -1059,9 +1069,9 @@ var ACatInLimbo;
                 for (let i = 0; i < 5; i++) { //5blobs, draufklicken --> konsumieren
                     ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Spider);
                 }
-                let numberOfFish = ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Fish);
-                console.log(numberOfFish);
-                //  originAmount =  ƒS.Inventory.getAmount(items.Fish);
+                ACatInLimbo.originAmountFly = ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Fly);
+                ACatInLimbo.originAmountFish = ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Fish);
+                ACatInLimbo.originAmountSpider = ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Spider);
                 ACatInLimbo.ƒS.Inventory.open();
                 ACatInLimbo.ƒS.update();
                 await new Promise(resolve => setTimeout(resolve, 2500));
