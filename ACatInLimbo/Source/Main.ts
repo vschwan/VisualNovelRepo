@@ -3,6 +3,9 @@ namespace ACatInLimbo {
   export import ƒS = FudgeStory;
   console.log("FudgeStory template starting");
 
+  let gameMenu: ƒS.Menu;
+  //open entspricht Menu ist offen und false zu
+  let menuIsOpen: boolean = true;
 
   export let dataForSave = {
     visitedLake: false,
@@ -123,29 +126,38 @@ namespace ACatInLimbo {
   export let items = {
     Spider: {
       name: "Spider",
-      description: "a spidery spider",
+      description: "a small spider",
       image: "./Images/Items/spider.png",
-      static: true //nicht gecheckt, falls false, einfach weglassen, weil schon autom. auf false
+      static: false //nicht gecheckt, falls false, einfach weglassen, weil schon autom. auf false
     },
 
     Fish: {
       name: "Fish",
-      description: "a tiny fishy fish",
+      description: "a small fishy fish",
       image: "./Images/Items/fish.png",
-      static: true
+      static: false
     },
 
     Fly: {
       name: "Fly",
-      description: "an annoying fly, like most flies",
+      description: "a small annoying fly, like most flies are",
       image: "./Images/Items/fly.png",
-      static: true
+      static: false
     }
   };
 
   /*export function UpdateName(): void {
     characters.protagonist.name = dataForSave.nameProtagonist;
   }*/
+
+  export function ItemUse():void{
+    
+  }
+
+  //INVENTORY
+  export function OpenInventory(): void {
+
+  }
 
   //ANIMATIONS
   export function ScaredCatAnimation(): ƒS.AnimationDefinition {
@@ -159,16 +171,16 @@ namespace ACatInLimbo {
   }
   export function spiderAnimationHide(): ƒS.AnimationDefinition {
     return {
-      start: {translation: ƒS.positionPercent(50,-20)},
-      end: {translation: ƒS.positionPercent(50, 20)},
+      start: { translation: ƒS.positionPercent(50, -20) },
+      end: { translation: ƒS.positionPercent(50, 20) },
       duration: 5,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCESTOPAFTER
     };
   }
   export function spiderAnimationAppear(): ƒS.AnimationDefinition {
     return {
-      start: {translation: ƒS.positionPercent(50,-20)},
-      end: {translation: ƒS.positionPercent(50, 50)},
+      start: { translation: ƒS.positionPercent(50, -20) },
+      end: { translation: ƒS.positionPercent(50, 50) },
       duration: 5,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
     };
@@ -176,8 +188,8 @@ namespace ACatInLimbo {
 
   export function spiderAnimationDisappear(): ƒS.AnimationDefinition {
     return {
-      start: {translation: ƒS.positionPercent(50,50)},
-      end: {translation: ƒS.positionPercent(50, -20)},
+      start: { translation: ƒS.positionPercent(50, 50) },
+      end: { translation: ƒS.positionPercent(50, -20) },
       duration: 5,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
     };
@@ -192,67 +204,7 @@ namespace ACatInLimbo {
     };
   }
 
-  //Menu shortcuts
-  let inGameMenuButtons = {
-    save: "Save",
-    load: "Load",
-    close: "Close",
-    credits: "Credits" //
-  };
-
-  function credits(): void {
-    ƒS.Text.print("");
-  }
-
-  let gameMenu: ƒS.Menu;
-
-  //open entspricht Menu ist offen und false zu
-  let menuIsOpen: boolean = true;
-
-  async function buttonFunctionalities(_option: string): Promise<void> {
-    console.log(_option);
-    switch (_option) {
-      case inGameMenuButtons.save:
-        await ƒS.Progress.save();
-        break;
-      case inGameMenuButtons.load:
-        await ƒS.Progress.load();
-      case inGameMenuButtons.close:
-        gameMenu.close();
-        menuIsOpen = false;
-        break;
-      case inGameMenuButtons.credits:
-        credits();
-    }
-  }
-
-  // Menu shortcuts
-  document.addEventListener("keydown", handleKeyPress);
-  async function handleKeyPress(_event: KeyboardEvent): Promise<void> {
-    switch (_event.code) {
-      case ƒ.KEYBOARD_CODE.F8:
-        console.log("Save");
-        await ƒS.Progress.save();
-        break;
-      case ƒ.KEYBOARD_CODE.F9:
-        console.log("Load");
-        await ƒS.Progress.load();
-        break;
-      case ƒ.KEYBOARD_CODE.M:
-        if (menuIsOpen) {
-          console.log("Close");
-          gameMenu.close();
-          menuIsOpen = false;
-        }
-        else {
-          console.log("Open");
-          gameMenu.open();
-          menuIsOpen = true;
-        }
-        break;
-    }
-  }
-
+  //Transitions
   export let transition = {
     puzzle: {
       duration: 1,
@@ -281,7 +233,7 @@ namespace ACatInLimbo {
 
     //catSounds
     normalMoew: "./Audio/catAudio/meow.mp3",
-    cathissing: "./Audio/catAudio/cathisses.wav", 
+    cathissing: "./Audio/catAudio/cathisses.wav",
     demandingmeow1: "./Audio/catAudio/demandingMeow1.wav",
     demandingMeow2: "./Audio/catAudio/demandingMeow2.mp3",
     cuteMeow: "./Audio/catAudio/ANMLCat_Meow cat 7 (ID 1895)_BSB.wav",
@@ -340,24 +292,92 @@ namespace ACatInLimbo {
   };
 
 
+  //Credits
+  function credits(): void {
+    ƒS.Text.print("All characters are drawn by Valentina Schwan");
+  }
 
-  // Szenenstruktur
+  //MENU
+  let inGameMenuButtons = {
+    save: "Save",
+    load: "Load",
+    inventory: "Inventory",
+    credits: "Credits",
+    close: "Close"
+  };
+
+  export async function buttonFunctionalities(_option: string): Promise<void> {
+    console.log(_option);
+    switch (_option) {
+      case inGameMenuButtons.save:
+        await ƒS.Progress.save();
+        break;
+      case inGameMenuButtons.load:
+        await ƒS.Progress.load();
+        break;
+      case inGameMenuButtons.close:
+        gameMenu.close();
+        menuIsOpen = false;
+        break;
+      case inGameMenuButtons.credits:
+        credits();
+        break;
+      case inGameMenuButtons.inventory:
+        await ƒS.Inventory.open();
+    }
+  }
+
+  // Menu shortcuts
+  document.addEventListener("keydown", handleKeyPress);
+  async function handleKeyPress(_event: KeyboardEvent): Promise<void> {
+    switch (_event.code) {
+      case ƒ.KEYBOARD_CODE.S:
+        console.log("Save Scene");
+        await ƒS.Progress.save();
+        break;
+      case ƒ.KEYBOARD_CODE.C:
+        console.log("Credits");
+        credits();
+        break;
+      case ƒ.KEYBOARD_CODE.L:
+        console.log("Load Scene");
+        await ƒS.Progress.load();
+        break;
+      case ƒ.KEYBOARD_CODE.I:
+        console.log("open Inventory");
+        await ƒS.Inventory.open();
+        break;
+      case ƒ.KEYBOARD_CODE.M:
+        if (menuIsOpen) {
+          console.log("Menu closed");
+          gameMenu.close();
+          menuIsOpen = false;
+        }
+        else {
+          console.log("Menu open");
+          gameMenu.open();
+          menuIsOpen = true;
+        }
+        break;
+    }
+  }
   window.addEventListener("load", start);
 
   function start(_event: Event): void {
+    //Menu
+    gameMenu = ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenuCSS");
+    // buttonFunctionalities("Close");
+
     //Hide MeterBar
     document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
     document.getElementById("scoreForCat").style.display = "none";
-    //Menu
-    gameMenu = ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenuCSSclass");
-    buttonFunctionalities("Close");
 
     let scenes: ƒS.Scenes = [
       // { id: "Meadow Scene", scene: Meadow, name: "meadow", next: "" },
-      { id: "Forest Scene", scene: Forest, name: "Forest", next: "" },
+      // { id: "Forest Scene", scene: Forest, name: "Forest", next: "" },
       // { id: "Lake Scene", scene: Lake, name: "lake", next: "" },
-     // {id: "Swamp Scene", scene: Swamp, name: "Swamp", next:""},
-      //  { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
+      // {id: "Swamp Scene", scene: Swamp, name: "Swamp", next:""},
+      { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
       // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
       // Empty ending scene to stop the program
       { id: "Empty Scene", scene: Empty, name: "END" }  //Progamm kann nicht stopenn, deswegen empty Scene zum Schluss erstellen, ohne Inhalt

@@ -517,6 +517,9 @@ var FudgeStory;
             Inventory.ƒused.push(item.querySelector("name").textContent);
             let amount = item.querySelector("amount");
             amount.innerText = (parseInt(amount.innerText) - 1).toString();
+            console.log("-1 item");//von mir
+            console.log(_event.currentTarget);//von mir 
+            
             if (amount.innerText == "0")
                 Inventory.dialog.querySelector("ul").removeChild(item);
         };

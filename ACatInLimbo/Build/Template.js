@@ -17,7 +17,7 @@ var ACatInLimbo;
                 T0003: "Uaaaah, fuck fuck fuck fuck, LET'S RUN!!!!",
                 T0004: "Well, it's working?!",
                 T0005: "...",
-                T0006: "I'm nothing like that thing, it's fucking digusting.",
+                T0006: "Ew, I'm nothing like that thing, it's fucking digusting.",
                 T0007: "Really? That poor thing!",
                 T0008: "What's wrong with it?",
                 T0009: "Wait, so if I'm staying I'm gonna turn into this thing?",
@@ -26,7 +26,7 @@ var ACatInLimbo;
             pinkCat: {
                 T0001: "We don't HAVE to, but I want to visit an old friend. I want to see what he's been up to you know?",
                 T0002: "That's cause you're a baby.",
-                T0003: " Oh, look! I think I just saw him!",
+                T0003: "!Oh, look! I think I just saw him!",
                 T0004: "Come out you chicken shit!",
                 T0005: "Wait...you're not going to attack, are you?",
                 T0006: "I knew it! You're my old chicken shit friend!",
@@ -173,22 +173,6 @@ var ACatInLimbo;
                         await ACatInLimbo.ƒS.update();
                         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textForest.pinkCat.T0012);
                         await ACatInLimbo.ƒS.update();
-                        /*  await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0013);
-                          let nextLocation = {
-                              swamp: "Swamp",
-                              lake: "Lake"
-                          }
-                          if (dataForSave.visitedLake == true) {
-                              delete nextLocation.lake
-                          }
-  
-                          let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass")
-                          switch (nextLocationRequest) {
-                              case nextLocation.lake:
-                                  return "Lake Scene"
-                              case nextLocation.swamp:
-                                  return "Swamp Scene"
-                          }*/
                         break;
                     case HowToTreatSpider.console:
                         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textForest.protagonist.T0007);
@@ -217,8 +201,8 @@ var ACatInLimbo;
                         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textForest.pinkCat.T0018);
                         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.spiderCreature, textForest.spiderCreature.T0002);
                         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textForest.pinkCat.T0019);
-                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.spiderCreature, textForest.spiderCreature.T0003);
                         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textForest.pinkCat.T0020);
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.spiderCreature, textForest.spiderCreature.T0003);
                         //add flies to Inventory
                         await ACatInLimbo.ƒS.update();
                         await ACatInLimbo.ƒS.Character.hideAll();
@@ -270,6 +254,9 @@ var ACatInLimbo;
     ACatInLimbo.ƒ = FudgeCore;
     ACatInLimbo.ƒS = FudgeStory;
     console.log("FudgeStory template starting");
+    let gameMenu;
+    //open entspricht Menu ist offen und false zu
+    let menuIsOpen = true;
     ACatInLimbo.dataForSave = {
         visitedLake: false,
         nameProtagonist: "You",
@@ -376,26 +363,33 @@ var ACatInLimbo;
     ACatInLimbo.items = {
         Spider: {
             name: "Spider",
-            description: "a spidery spider",
+            description: "a small spider",
             image: "./Images/Items/spider.png",
-            static: true //nicht gecheckt, falls false, einfach weglassen, weil schon autom. auf false
+            static: false //nicht gecheckt, falls false, einfach weglassen, weil schon autom. auf false
         },
         Fish: {
             name: "Fish",
-            description: "a tiny fishy fish",
+            description: "a small fishy fish",
             image: "./Images/Items/fish.png",
-            static: true
+            static: false
         },
         Fly: {
             name: "Fly",
-            description: "an annoying fly, like most flies",
+            description: "a small annoying fly, like most flies are",
             image: "./Images/Items/fly.png",
-            static: true
+            static: false
         }
     };
     /*export function UpdateName(): void {
       characters.protagonist.name = dataForSave.nameProtagonist;
     }*/
+    function ItemUse() {
+    }
+    ACatInLimbo.ItemUse = ItemUse;
+    //INVENTORY
+    function OpenInventory() {
+    }
+    ACatInLimbo.OpenInventory = OpenInventory;
     //ANIMATIONS
     function ScaredCatAnimation() {
         //something
@@ -443,61 +437,7 @@ var ACatInLimbo;
         };
     }
     ACatInLimbo.getAnimation = getAnimation;
-    //Menu shortcuts
-    let inGameMenuButtons = {
-        save: "Save",
-        load: "Load",
-        close: "Close",
-        credits: "Credits" //
-    };
-    function credits() {
-        ACatInLimbo.ƒS.Text.print("");
-    }
-    let gameMenu;
-    //open entspricht Menu ist offen und false zu
-    let menuIsOpen = true;
-    async function buttonFunctionalities(_option) {
-        console.log(_option);
-        switch (_option) {
-            case inGameMenuButtons.save:
-                await ACatInLimbo.ƒS.Progress.save();
-                break;
-            case inGameMenuButtons.load:
-                await ACatInLimbo.ƒS.Progress.load();
-            case inGameMenuButtons.close:
-                gameMenu.close();
-                menuIsOpen = false;
-                break;
-            case inGameMenuButtons.credits:
-                credits();
-        }
-    }
-    // Menu shortcuts
-    document.addEventListener("keydown", handleKeyPress);
-    async function handleKeyPress(_event) {
-        switch (_event.code) {
-            case ACatInLimbo.ƒ.KEYBOARD_CODE.F8:
-                console.log("Save");
-                await ACatInLimbo.ƒS.Progress.save();
-                break;
-            case ACatInLimbo.ƒ.KEYBOARD_CODE.F9:
-                console.log("Load");
-                await ACatInLimbo.ƒS.Progress.load();
-                break;
-            case ACatInLimbo.ƒ.KEYBOARD_CODE.M:
-                if (menuIsOpen) {
-                    console.log("Close");
-                    gameMenu.close();
-                    menuIsOpen = false;
-                }
-                else {
-                    console.log("Open");
-                    gameMenu.open();
-                    menuIsOpen = true;
-                }
-                break;
-        }
-    }
+    //Transitions
     ACatInLimbo.transition = {
         puzzle: {
             duration: 1,
@@ -567,21 +507,87 @@ var ACatInLimbo;
             background: "Images/Backgrounds/nightpark.png"
         }
     };
-    // Szenenstruktur
+    //Credits
+    function credits() {
+        ACatInLimbo.ƒS.Text.print("All characters are drawn by Valentina Schwan");
+    }
+    //MENU
+    let inGameMenuButtons = {
+        save: "Save",
+        load: "Load",
+        inventory: "Inventory",
+        credits: "Credits",
+        close: "Close"
+    };
+    async function buttonFunctionalities(_option) {
+        console.log(_option);
+        switch (_option) {
+            case inGameMenuButtons.save:
+                await ACatInLimbo.ƒS.Progress.save();
+                break;
+            case inGameMenuButtons.load:
+                await ACatInLimbo.ƒS.Progress.load();
+                break;
+            case inGameMenuButtons.close:
+                gameMenu.close();
+                menuIsOpen = false;
+                break;
+            case inGameMenuButtons.credits:
+                credits();
+                break;
+            case inGameMenuButtons.inventory:
+                await ACatInLimbo.ƒS.Inventory.open();
+        }
+    }
+    ACatInLimbo.buttonFunctionalities = buttonFunctionalities;
+    // Menu shortcuts
+    document.addEventListener("keydown", handleKeyPress);
+    async function handleKeyPress(_event) {
+        switch (_event.code) {
+            case ACatInLimbo.ƒ.KEYBOARD_CODE.S:
+                console.log("Save Scene");
+                await ACatInLimbo.ƒS.Progress.save();
+                break;
+            case ACatInLimbo.ƒ.KEYBOARD_CODE.C:
+                console.log("Credits");
+                credits();
+                break;
+            case ACatInLimbo.ƒ.KEYBOARD_CODE.L:
+                console.log("Load Scene");
+                await ACatInLimbo.ƒS.Progress.load();
+                break;
+            case ACatInLimbo.ƒ.KEYBOARD_CODE.I:
+                console.log("open Inventory");
+                await ACatInLimbo.ƒS.Inventory.open();
+                break;
+            case ACatInLimbo.ƒ.KEYBOARD_CODE.M:
+                if (menuIsOpen) {
+                    console.log("Menu closed");
+                    gameMenu.close();
+                    menuIsOpen = false;
+                }
+                else {
+                    console.log("Menu open");
+                    gameMenu.open();
+                    menuIsOpen = true;
+                }
+                break;
+        }
+    }
     window.addEventListener("load", start);
     function start(_event) {
+        //Menu
+        gameMenu = ACatInLimbo.ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenuCSS");
+        // buttonFunctionalities("Close");
         //Hide MeterBar
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
-        //Menu
-        gameMenu = ACatInLimbo.ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenuCSSclass");
-        buttonFunctionalities("Close");
         let scenes = [
             // { id: "Meadow Scene", scene: Meadow, name: "meadow", next: "" },
-            { id: "Forest Scene", scene: ACatInLimbo.Forest, name: "Forest", next: "" },
+            // { id: "Forest Scene", scene: Forest, name: "Forest", next: "" },
             // { id: "Lake Scene", scene: Lake, name: "lake", next: "" },
             // {id: "Swamp Scene", scene: Swamp, name: "Swamp", next:""},
-            //  { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
+            { id: "Test Scene", scene: ACatInLimbo.testScene, name: "Test", next: "" },
             // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
             // Empty ending scene to stop the program
             { id: "Empty Scene", scene: ACatInLimbo.Empty, name: "END" } //Progamm kann nicht stopenn, deswegen empty Scene zum Schluss erstellen, ohne Inhalt
@@ -614,7 +620,7 @@ var ACatInLimbo;
             pinkCat: {
                 T0001: "Back off! I'm warning you. My claws are sharp as ever.",
                 T0002: "You act like someone who has never ever even met a cat!",
-                T0003: "Ugh, shut up. Do I have to expect you to behave like this all the time? Cause if that's the case I think I'm just gonne scooch right back on my stone over there.",
+                T0003: "Ugh, shut up. Do I have to expect you to behave like this all the time? Cause if that's the case I think I'm just gonna scooch right back on my stone over there.",
                 T0004: "...I hope so.",
                 T0005: "Not too fast, that's right. You seem to know your stuff I guess.",
                 T0006: "Ouuuh, you seem nice!"
@@ -624,7 +630,7 @@ var ACatInLimbo;
             protagonist: {
                 T0001: "Okay, so what is this and where am I? Do you know about this place?",
                 T0002: "What?!",
-                T0003: "Limbo? Like the Limbo in Christianity? ",
+                T0003: "Limbo? Like the Limbo in Christianity?",
                 T0004: "...?",
                 T0005: "So... there is a way out? Can I be with my family if I get out?",
                 T0006: "You're right, I can't remember anything. But this doesn't really sound like a place that's not bad.",
@@ -634,10 +640,10 @@ var ACatInLimbo;
             },
             pinkCat: {
                 T0001: "A warm Hello to you too, good sir. You're dead!",
-                T0002: "No need to panic. You're in Limbo. ",
-                T0003: "Uuuuuh, I don't know about Christianity stuff. Though this is neither a good nor a bad place. It's an in-between.",
+                T0002: "No need to panic. You're in Limbo.",
+                T0003: "Uuuuuh, I don't know anything about Christianity stuff. Though this is neither a good nor a bad place. It's an in-between.",
                 T0004: "Well, you're dead, but your soul didn't get to afterlife.",
-                T0005: "why do you care? You can't remember them. No, honestly I don't have a clue about what happens if you get through, but good thing is, you don't have to suffer for eternity.",
+                T0005: "Why do you care? You can't remember them. No, honestly I don't have a clue about what happens if you get through, but good thing is, you don't have to suffer for eternity.",
                 T0006: "Does sound good, ey?",
                 T0007: "Okay, you're right, I forgot, it's only a neutral place for me personally.",
                 T0008: "That's cause I'm a guide. I can give you a tour if you want?",
@@ -647,6 +653,7 @@ var ACatInLimbo;
         //Hide MeterBar
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
+        //  buttonFunctionalities("Open");
         //Intro
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.meadowSound, 1, true);
@@ -681,6 +688,21 @@ var ACatInLimbo;
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textAwakening.protagonist.T0005);
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textAwakening.protagonist.T0006);
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textAwakening.protagonist.T0007);
+                await ACatInLimbo.ƒS.update();
+                //inventory
+                //  let cattest: H document.getElementsByName("pink Cat");
+                //let speakerRightI: HTMLImageElement = <HTMLImageElement>document.getElementById("speakerRight_i");
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fly);
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fish);
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fly);
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fish);
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fly);
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fish);
+                for (let i = 0; i < 5; i++) {
+                    ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Spider);
+                }
+                await ACatInLimbo.ƒS.Inventory.open();
+                await ACatInLimbo.ƒS.update();
             //maybe implement enabling collection of items
             //"Animation" : Stone Cat awakes
             case firstAction.awakeCat:
@@ -1000,12 +1022,20 @@ var ACatInLimbo;
                 ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.normalMoew, 1, false);
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, text.pinkCat.T0003);
                 //inventory
-                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Spider);
+                // ƒS.Inventory.add(items.Spider);
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fly);
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fish);
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fly);
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fish);
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fly);
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fish);
                 for (let i = 0; i < 5; i++) { //5blobs, draufklicken --> konsumieren
                     ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Spider);
                 }
                 ACatInLimbo.ƒS.Inventory.open();
                 ACatInLimbo.ƒS.update();
+                await new Promise(resolve => setTimeout(resolve, 2500));
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, text.pinkCat.T0001); //maßstabgetreue Grafiken verwenden! 
                 break;
             case dialogue.iSayBla:
                 //continue path here
@@ -1023,10 +1053,10 @@ var ACatInLimbo;
                 await ACatInLimbo.ƒS.update();
                 break;
         }
-        await ACatInLimbo.ƒS.Text.print("Hi"); //novel pages --> 
-        ACatInLimbo.ƒS.Text.addClass("novelpage"); //css klasse hinzufügen und gestalten
-        //credits in novel page schreiben 
-        return "secondScene"; //andere Szene abspielen...id verwenden, nicht szenennahmens
+        /*    await ƒS.Text.print("Hi"); //novel pages -->
+            ƒS.Text.addClass("novelpage");//css klasse hinzufügen und gestalten
+            //credits in novel page schreiben
+            return "secondScene"; //andere Szene abspielen...id verwenden, nicht szenennahmens*/
         //boolean gibts ja auch noch, ganz vergessen
         let pickedYes;
         // let pickedNo: boolean;

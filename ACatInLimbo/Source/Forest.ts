@@ -11,7 +11,7 @@ namespace ACatInLimbo {
                 T0004: "Well, it's working?!",
                 T0005: "...",
 
-                T0006: "I'm nothing like that thing, it's fucking digusting.",
+                T0006: "Ew, I'm nothing like that thing, it's fucking digusting.",
 
                 T0007: "Really? That poor thing!",
                 T0008: "What's wrong with it?",
@@ -21,7 +21,7 @@ namespace ACatInLimbo {
             pinkCat: {
                 T0001: "We don't HAVE to, but I want to visit an old friend. I want to see what he's been up to you know?",
                 T0002: "That's cause you're a baby.",
-                T0003: " Oh, look! I think I just saw him!",
+                T0003: "!Oh, look! I think I just saw him!",
                 T0004: "Come out you chicken shit!",
                 T0005: "Wait...you're not going to attack, are you?",
                 T0006: "I knew it! You're my old chicken shit friend!",
@@ -183,23 +183,6 @@ namespace ACatInLimbo {
                         await ƒS.update();
                         await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0012);
                         await ƒS.update();
-
-                        /*  await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0013);
-                          let nextLocation = {
-                              swamp: "Swamp",
-                              lake: "Lake"
-                          }
-                          if (dataForSave.visitedLake == true) {
-                              delete nextLocation.lake
-                          }
-  
-                          let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass")
-                          switch (nextLocationRequest) {
-                              case nextLocation.lake:
-                                  return "Lake Scene"
-                              case nextLocation.swamp:
-                                  return "Swamp Scene"
-                          }*/
                         break;
 
                     case HowToTreatSpider.console:
@@ -229,8 +212,8 @@ namespace ACatInLimbo {
                         await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0018);
                         await ƒS.Speech.tell(characters.spiderCreature, textForest.spiderCreature.T0002);
                         await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0019);
-                        await ƒS.Speech.tell(characters.spiderCreature, textForest.spiderCreature.T0003);
                         await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0020);
+                        await ƒS.Speech.tell(characters.spiderCreature, textForest.spiderCreature.T0003);
                         //add flies to Inventory
                         await ƒS.update();
                         await ƒS.Character.hideAll();

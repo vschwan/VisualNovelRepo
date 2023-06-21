@@ -22,7 +22,7 @@ namespace ACatInLimbo {
             pinkCat: {
                 T0001: "Back off! I'm warning you. My claws are sharp as ever.",
                 T0002: "You act like someone who has never ever even met a cat!",
-                T0003: "Ugh, shut up. Do I have to expect you to behave like this all the time? Cause if that's the case I think I'm just gonne scooch right back on my stone over there.",
+                T0003: "Ugh, shut up. Do I have to expect you to behave like this all the time? Cause if that's the case I think I'm just gonna scooch right back on my stone over there.",
                 T0004: "...I hope so.",
                 T0005: "Not too fast, that's right. You seem to know your stuff I guess.",
                 T0006: "Ouuuh, you seem nice!"
@@ -33,7 +33,7 @@ namespace ACatInLimbo {
             protagonist: {
                 T0001: "Okay, so what is this and where am I? Do you know about this place?",
                 T0002: "What?!",
-                T0003: "Limbo? Like the Limbo in Christianity? ",
+                T0003: "Limbo? Like the Limbo in Christianity?",
                 T0004: "...?",
                 T0005: "So... there is a way out? Can I be with my family if I get out?",
                 T0006: "You're right, I can't remember anything. But this doesn't really sound like a place that's not bad.",
@@ -44,10 +44,10 @@ namespace ACatInLimbo {
 
             pinkCat: {
                 T0001: "A warm Hello to you too, good sir. You're dead!",
-                T0002: "No need to panic. You're in Limbo. ",
-                T0003: "Uuuuuh, I don't know about Christianity stuff. Though this is neither a good nor a bad place. It's an in-between.",
+                T0002: "No need to panic. You're in Limbo.",
+                T0003: "Uuuuuh, I don't know anything about Christianity stuff. Though this is neither a good nor a bad place. It's an in-between.",
                 T0004: "Well, you're dead, but your soul didn't get to afterlife.",
-                T0005: "why do you care? You can't remember them. No, honestly I don't have a clue about what happens if you get through, but good thing is, you don't have to suffer for eternity.",
+                T0005: "Why do you care? You can't remember them. No, honestly I don't have a clue about what happens if you get through, but good thing is, you don't have to suffer for eternity.",
                 T0006: "Does sound good, ey?",
                 T0007: "Okay, you're right, I forgot, it's only a neutral place for me personally.",
                 T0008: "That's cause I'm a guide. I can give you a tour if you want?",
@@ -57,6 +57,7 @@ namespace ACatInLimbo {
         //Hide MeterBar
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
+        //  buttonFunctionalities("Open");
 
         //Intro
         ƒS.Speech.hide(); //Sprachfenster ausblenden
@@ -64,14 +65,14 @@ namespace ACatInLimbo {
         await ƒS.Location.show(locations.meadow);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening1, ƒS.positionPercent(65, 85));
         await ƒS.update(transition.swirlStuff.duration, transition.swirlStuff.alpha, transition.swirlStuff.edge);
-       // ƒS.update();
-      //  await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.front, ƒS.positionPercent(10, 95));
+        // ƒS.update();
+        //  await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.front, ƒS.positionPercent(10, 95));
         await ƒS.update(2);
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0001);
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0002);
         await ƒS.update(1);
-      //  await ƒS.Character.hide(characters.protagonist);
-      //  await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
+        //  await ƒS.Character.hide(characters.protagonist);
+        //  await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
         dataForSave.nameProtagonist = await ƒS.Speech.getInput();
         await ƒS.update();
         //UpdateName();
@@ -94,6 +95,21 @@ namespace ACatInLimbo {
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0005);
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0006);
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0007);
+                await ƒS.update();
+                //inventory
+                //  let cattest: H document.getElementsByName("pink Cat");
+                //let speakerRightI: HTMLImageElement = <HTMLImageElement>document.getElementById("speakerRight_i");
+                ƒS.Inventory.add(items.Fly);
+                ƒS.Inventory.add(items.Fish);
+                ƒS.Inventory.add(items.Fly);
+                ƒS.Inventory.add(items.Fish);
+                ƒS.Inventory.add(items.Fly);
+                ƒS.Inventory.add(items.Fish);
+                for (let i: number = 0; i < 5; i++) {
+                    ƒS.Inventory.add(items.Spider);
+                }
+                await ƒS.Inventory.open();
+                await ƒS.update();
             //maybe implement enabling collection of items
 
             //"Animation" : Stone Cat awakes
@@ -107,16 +123,16 @@ namespace ACatInLimbo {
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening3, ƒS.positionPercent(65, 85));
                 await ƒS.update(1);
                 await ƒS.Character.hide(characters.pinkCat);
-         //       await ƒS.Character.hide(characters.protagonist);
-           //     await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.scared, ƒS.positionPercent(10, 95));
+                //       await ƒS.Character.hide(characters.protagonist);
+                //     await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.scared, ƒS.positionPercent(10, 95));
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening4, ƒS.positionPercent(65, 85));
                 await ƒS.update(1)
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0008);
                 await ƒS.update(1);
                 await ƒS.Speech.hide();
                 await ƒS.Character.hide(characters.pinkCat);
-             //   await ƒS.Character.hide(characters.protagonist);
-               // await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
+                //   await ƒS.Character.hide(characters.protagonist);
+                // await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening5, ƒS.positionPercent(65, 85));
                 //insert cat yawn
                 await ƒS.update(1);
@@ -163,7 +179,7 @@ namespace ACatInLimbo {
                 console.log("Carefully approach cat");
                 dataForSave.catScore += 5;
                 await ƒS.Character.hide(characters.pinkCat);
-              //  await ƒS.Character.hide(characters.protagonist);
+                //  await ƒS.Character.hide(characters.protagonist);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.curiousSmall, ƒS.positionPercent(75, 85));
                 //await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.side, ƒS.positionPercent(10, 95));
                 await ƒS.Sound.play(sound.purrMeow, 1, false);
@@ -176,10 +192,10 @@ namespace ACatInLimbo {
                 console.log("Walk towards cat");
                 dataForSave.catScore -= 5;
                 await ƒS.Character.hide(characters.pinkCat);
-             //   await ƒS.Character.hide(characters.protagonist);
+                //   await ƒS.Character.hide(characters.protagonist);
                 await ƒS.Sound.play(sound.longGrowl, 1, false);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.scaredSmall, ƒS.positionPercent(75, 85));
-               // await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
+                // await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
 
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, textAwakening.pinkCat.T0001);
@@ -290,7 +306,7 @@ namespace ACatInLimbo {
         }
 
         await ƒS.Character.hide(characters.pinkCat);
-      //  await ƒS.Character.hide(characters.protagonist);
+        //  await ƒS.Character.hide(characters.protagonist);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
         //await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.handsInHips, ƒS.positionPercent(10, 95));
         await ƒS.update();

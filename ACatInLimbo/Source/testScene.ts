@@ -63,12 +63,21 @@ namespace ACatInLimbo {
                 await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0003);
 
                 //inventory
-                ƒS.Inventory.add(items.Spider);
+                // ƒS.Inventory.add(items.Spider);
+                
+                ƒS.Inventory.add(items.Fly);
+                ƒS.Inventory.add(items.Fish);
+                ƒS.Inventory.add(items.Fly);
+                ƒS.Inventory.add(items.Fish);
+                ƒS.Inventory.add(items.Fly);
+                ƒS.Inventory.add(items.Fish);
                 for (let i: number = 0; i < 5; i++) { //5blobs, draufklicken --> konsumieren
                     ƒS.Inventory.add(items.Spider);
                 }
                 ƒS.Inventory.open();
                 ƒS.update();
+                await new Promise(resolve => setTimeout(resolve, 2500));
+                await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0001); //maßstabgetreue Grafiken verwenden! 
                 break;
 
             case dialogue.iSayBla:
@@ -93,10 +102,10 @@ namespace ACatInLimbo {
 
         }
 
-        await ƒS.Text.print("Hi"); //novel pages --> 
-        ƒS.Text.addClass("novelpage");//css klasse hinzufügen und gestalten
-        //credits in novel page schreiben 
-        return "secondScene"; //andere Szene abspielen...id verwenden, nicht szenennahmens
+        /*    await ƒS.Text.print("Hi"); //novel pages --> 
+            ƒS.Text.addClass("novelpage");//css klasse hinzufügen und gestalten
+            //credits in novel page schreiben 
+            return "secondScene"; //andere Szene abspielen...id verwenden, nicht szenennahmens*/
 
 
         //boolean gibts ja auch noch, ganz vergessen

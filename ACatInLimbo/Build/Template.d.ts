@@ -129,6 +129,8 @@ declare namespace ACatInLimbo {
             static: boolean;
         };
     };
+    function ItemUse(): void;
+    function OpenInventory(): void;
     function ScaredCatAnimation(): ƒS.AnimationDefinition;
     function spiderAnimationHide(): ƒS.AnimationDefinition;
     function spiderAnimationAppear(): ƒS.AnimationDefinition;
@@ -199,6 +201,7 @@ declare namespace ACatInLimbo {
             background: string;
         };
     };
+    function buttonFunctionalities(_option: string): Promise<void>;
 }
 declare namespace ACatInLimbo {
     function Meadow(): ƒS.SceneReturn;
