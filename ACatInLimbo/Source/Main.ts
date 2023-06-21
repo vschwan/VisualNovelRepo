@@ -1,7 +1,7 @@
 namespace ACatInLimbo {
   export import ƒ = FudgeCore;
   export import ƒS = FudgeStory;
-  console.log("FudgeStory template starting");
+  console.log("FudgeStory template Bitch starting");
 
   let gameMenu: ƒS.Menu;
   //open entspricht Menu ist offen und false zu
@@ -123,173 +123,19 @@ namespace ACatInLimbo {
 
   };
 
-  export let items = {
-    Spider: {
-      name: "Spider",
-      description: "a small spider",
-      image: "./Images/Items/spider.png",
-      static: false //nicht gecheckt, falls false, einfach weglassen, weil schon autom. auf false
-    },
-
-    Fish: {
-      name: "Fish",
-      description: "a small fishy fish",
-      image: "./Images/Items/fish.png",
-      static: false
-    },
-
-    Fly: {
-      name: "Fly",
-      description: "a small annoying fly, like most flies are",
-      image: "./Images/Items/fly.png",
-      static: false
-    }
-  };
 
   /*export function UpdateName(): void {
     characters.protagonist.name = dataForSave.nameProtagonist;
   }*/
 
-  export function ItemUse():void{
-    
+  export function ItemUse(): void {
+
   }
 
   //INVENTORY
   export function OpenInventory(): void {
 
   }
-
-  //ANIMATIONS
-  export function ScaredCatAnimation(): ƒS.AnimationDefinition {
-    //something
-    return {
-      start: { translation: ƒS.positionPercent(85, 95), color: ƒS.Color.CSS("", 1) },
-      end: { translation: ƒS.positionPercent(150, 100), color: ƒS.Color.CSS("black", 0.5) },
-      duration: 2,
-      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
-    };
-  }
-  export function spiderAnimationHide(): ƒS.AnimationDefinition {
-    return {
-      start: { translation: ƒS.positionPercent(50, -20) },
-      end: { translation: ƒS.positionPercent(50, 20) },
-      duration: 5,
-      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCESTOPAFTER
-    };
-  }
-  export function spiderAnimationAppear(): ƒS.AnimationDefinition {
-    return {
-      start: { translation: ƒS.positionPercent(50, -20) },
-      end: { translation: ƒS.positionPercent(50, 50) },
-      duration: 5,
-      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
-    };
-  }
-
-  export function spiderAnimationDisappear(): ƒS.AnimationDefinition {
-    return {
-      start: { translation: ƒS.positionPercent(50, 50) },
-      end: { translation: ƒS.positionPercent(50, -20) },
-      duration: 5,
-      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
-    };
-  }
-
-  export function getAnimation(): ƒS.AnimationDefinition {
-    return {
-      start: { translation: ƒS.positions.bottomleft, rotation: -20, scaling: new ƒS.Position(0.5, 1.5), color: ƒS.Color.CSS("white", 0.3) },
-      end: { translation: ƒS.positions.bottomright, rotation: 20, scaling: new ƒS.Position(1.5, 0.5), color: ƒS.Color.CSS("red") },
-      duration: 1,
-      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCESTOPAFTER
-    };
-  }
-
-  //Transitions
-  export let transition = {
-    puzzle: {
-      duration: 1,
-      alpha: "FreeTransitions/JigsawThemedTransitions/puzzle.png",
-      edge: 1
-    },
-
-    swirlStuff: {
-      duration: 1,
-      alpha: "FreeTransitions/Others/027.jpg",
-      edge: 1
-    },
-
-    circleSwirl: {
-      duration: 2,
-      alpha: "FreeTransitions/Others/009.jpg",
-      edge: 1
-    }
-  };
-
-  export let sound = {
-    // ambience
-    forestWind: "Audio/Ambience/forestWind.mp3",
-    scaryForest: "./Audio/Ambience/mixkit-scary-forest-at-night-2486.wav",
-    meadowSound: "Audio/Ambience/spring-forest-birds-sounds.mp3",
-
-    //catSounds
-    normalMoew: "./Audio/catAudio/meow.mp3",
-    cathissing: "./Audio/catAudio/cathisses.wav",
-    demandingmeow1: "./Audio/catAudio/demandingMeow1.wav",
-    demandingMeow2: "./Audio/catAudio/demandingMeow2.mp3",
-    cuteMeow: "./Audio/catAudio/ANMLCat_Meow cat 7 (ID 1895)_BSB.wav",
-    kindOfSadMeow: "./Audio/catAudio/262312__steffcaffrey__cat-meow1-80256.mp3",
-    purrMeow: "./Audio/catAudio/cat-purr-meow-8327.mp3",
-    purringDeep: "./Audio/catAudio/cat-purring-2-73009.mp3",
-    purring: "Audio/catAudio/purring-cat-77928.mp3",
-    longGrowl: "./Audio/catAudio/angry-cat-70623.mp3",
-    growling1: "./Audio/catAudio/ANMLCat_Growling cat 3 (ID 1887)_BSB.wav",
-
-    // SFX
-    horrorDrum1: "./Audio/FX/mixkit-hard-horror-hit-drum-565 (1).wav",
-    horrorDrum2: "./Audio/FX/mixkit-horror-deep-drum-heartbeat-559.wav"
-
-
-    //zb drop (namen geben): "audio/drop.mp3"
-  };
-
-  export let locations = {
-    forest: {
-      name: "Forest",
-      background: "Images/Backgrounds/darkforest.png"
-    },
-
-    bay: {
-      name: "Bay",
-      background: "Images/Backgrounds/bay.png"
-    },
-
-    lake: {
-      name: "Lake",
-      background: "Images/Backgrounds/lake1.png"
-    },
-
-    meadow: {
-      name: "Meadow",
-      background: "Images/Backgrounds/meadow.png"
-    },
-
-    swamp: {
-      name: "Swamp",
-      background: "Images/Backgrounds/swamp.png"
-    },
-
-    river: {
-      name: "River",
-      background: "Images/Backgrounds/swampRiver.png"
-    },
-
-    nightpark: {
-      name: "Nightpart",
-      background: "Images/Backgrounds/nightpark.png"
-    }
-
-
-  };
 
 
   //Credits
@@ -326,6 +172,20 @@ namespace ACatInLimbo {
         await ƒS.Inventory.open();
     }
   }
+
+  /*//ƒS.Inventory.add(items.Fly);
+ export let originAmount: number;
+  console.log("click bitch");
+  let inventoryDialog: HTMLDialogElement = document.querySelector("#invent");
+  document.addEventListener("pointerdown", checkInventoryFeeding);
+  async function checkInventoryFeeding():Promise<void> {
+    console.log("click bitch");
+    setTimeout(() => {
+      if(ƒS.Inventory.getAmount(items.Fish) < originAmount) {
+          console.log("nomnomnom");
+          originAmount = ƒS.Inventory.getAmount(items.Fish);
+        }},100);
+}*/
 
   // Menu shortcuts
   document.addEventListener("keydown", handleKeyPress);
@@ -373,11 +233,11 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
-     //{ id: "Meadow Scene", scene: Meadow, name: "meadow", next: "" },
-    //  { id: "Forest Scene", scene: Forest, name: "Forest", next: "" },
+     // { id: "Meadow Scene", scene: Meadow, name: "meadow", next: "" },
+      { id: "Forest Scene", scene: Forest, name: "Forest", next: "" },
       // { id: "Lake Scene", scene: Lake, name: "lake", next: "" },
       // {id: "Swamp Scene", scene: Swamp, name: "Swamp", next:""},
-     { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
+      // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
       // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
       // Empty ending scene to stop the program
       { id: "Empty Scene", scene: Empty, name: "END" }  //Progamm kann nicht stopenn, deswegen empty Scene zum Schluss erstellen, ohne Inhalt

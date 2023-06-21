@@ -2,6 +2,7 @@ namespace ACatInLimbo {
 
     export async function testScene(): ƒS.SceneReturn { //um Fudge Story funktion aufzurufen - Szene aufrufen
         console.log("testScene starting");
+      
         let text = {
             pinkCat: { //charakter muss in der main angelegt werden (oder anscheinend auch nicht, aber zur ÜBersicht sinnvol??)
                 T0001: "Hello, I'm a derpy cat.",
@@ -46,6 +47,7 @@ namespace ACatInLimbo {
                 await ƒS.update();
                 ƒS.Sound.play(sound.cathissing, 1, false);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.scared, ƒS.positionPercent(60, 90)); //ohne await, würde die katze erst nach klicken erscheinen?
+            
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0005);
                 await ƒS.update();
@@ -64,7 +66,6 @@ namespace ACatInLimbo {
 
                 //inventory
                 // ƒS.Inventory.add(items.Spider);
-                
                 ƒS.Inventory.add(items.Fly);
                 ƒS.Inventory.add(items.Fish);
                 ƒS.Inventory.add(items.Fly);
@@ -74,6 +75,9 @@ namespace ACatInLimbo {
                 for (let i: number = 0; i < 5; i++) { //5blobs, draufklicken --> konsumieren
                     ƒS.Inventory.add(items.Spider);
                 }
+                let numberOfFish = ƒS.Inventory.getAmount(items.Fish);
+                console.log(numberOfFish);
+              //  originAmount =  ƒS.Inventory.getAmount(items.Fish);
                 ƒS.Inventory.open();
                 ƒS.update();
                 await new Promise(resolve => setTimeout(resolve, 2500));

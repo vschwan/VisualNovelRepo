@@ -1,15 +1,4 @@
 declare namespace ACatInLimbo {
-}
-declare namespace ACatInLimbo {
-    function Empty(): ƒS.SceneReturn;
-}
-declare namespace ACatInLimbo {
-    function Forest(): ƒS.SceneReturn;
-}
-declare namespace ACatInLimbo {
-    function Lake(): ƒS.SceneReturn;
-}
-declare namespace ACatInLimbo {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let dataForSave: {
@@ -109,6 +98,43 @@ declare namespace ACatInLimbo {
             };
         };
     };
+    function ItemUse(): void;
+    function OpenInventory(): void;
+    function buttonFunctionalities(_option: string): Promise<void>;
+}
+declare namespace ACatInLimbo {
+    let canvas: HTMLCanvasElement;
+}
+declare namespace ACatInLimbo {
+    function ScaredCatAnimation(): ƒS.AnimationDefinition;
+    function spiderAnimationHide(): ƒS.AnimationDefinition;
+    function spiderAnimationAppear(): ƒS.AnimationDefinition;
+    function spiderAnimationDisappear(): ƒS.AnimationDefinition;
+    function getAnimation(): ƒS.AnimationDefinition;
+}
+declare namespace ACatInLimbo {
+    let sound: {
+        forestWind: string;
+        scaryForest: string;
+        meadowSound: string;
+        normalMoew: string;
+        cathissing: string;
+        demandingmeow1: string;
+        demandingMeow2: string;
+        cuteMeow: string;
+        kindOfSadMeow: string;
+        purrMeow: string;
+        purringDeep: string;
+        purring: string;
+        longGrowl: string;
+        growling1: string;
+        horrorDrum1: string;
+        horrorDrum2: string;
+    };
+}
+declare namespace ACatInLimbo {
+}
+declare namespace ACatInLimbo {
     let items: {
         Spider: {
             name: string;
@@ -129,48 +155,8 @@ declare namespace ACatInLimbo {
             static: boolean;
         };
     };
-    function ItemUse(): void;
-    function OpenInventory(): void;
-    function ScaredCatAnimation(): ƒS.AnimationDefinition;
-    function spiderAnimationHide(): ƒS.AnimationDefinition;
-    function spiderAnimationAppear(): ƒS.AnimationDefinition;
-    function spiderAnimationDisappear(): ƒS.AnimationDefinition;
-    function getAnimation(): ƒS.AnimationDefinition;
-    let transition: {
-        puzzle: {
-            duration: number;
-            alpha: string;
-            edge: number;
-        };
-        swirlStuff: {
-            duration: number;
-            alpha: string;
-            edge: number;
-        };
-        circleSwirl: {
-            duration: number;
-            alpha: string;
-            edge: number;
-        };
-    };
-    let sound: {
-        forestWind: string;
-        scaryForest: string;
-        meadowSound: string;
-        normalMoew: string;
-        cathissing: string;
-        demandingmeow1: string;
-        demandingMeow2: string;
-        cuteMeow: string;
-        kindOfSadMeow: string;
-        purrMeow: string;
-        purringDeep: string;
-        purring: string;
-        longGrowl: string;
-        growling1: string;
-        horrorDrum1: string;
-        horrorDrum2: string;
-    };
+}
+declare namespace ACatInLimbo {
     let locations: {
         forest: {
             name: string;
@@ -201,16 +187,40 @@ declare namespace ACatInLimbo {
             background: string;
         };
     };
-    function buttonFunctionalities(_option: string): Promise<void>;
+}
+declare namespace ACatInLimbo {
+    let transition: {
+        puzzle: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        swirlStuff: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        circleSwirl: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+    };
+}
+declare namespace ACatInLimbo {
+    function Empty(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function Forest(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function Lake(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function Meadow(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function Swamp(): ƒS.SceneReturn;
-}
-declare namespace ACatInLimbo {
-    let canvas: HTMLCanvasElement;
 }
 declare namespace ACatInLimbo {
     function testScene(): ƒS.SceneReturn;
