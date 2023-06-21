@@ -97,7 +97,8 @@ namespace ACatInLimbo {
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0007);
                 await ƒS.update();
                 //inventory
-                //  let cattest: H document.getElementsByName("pink Cat");
+             
+               //  let cattest: HMTLdocument.getElementsByName("pink Cat");
                 //let speakerRightI: HTMLImageElement = <HTMLImageElement>document.getElementById("speakerRight_i");
                 ƒS.Inventory.add(items.Fly);
                 ƒS.Inventory.add(items.Fish);

@@ -583,8 +583,8 @@ var ACatInLimbo;
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
         let scenes = [
-            // { id: "Meadow Scene", scene: Meadow, name: "meadow", next: "" },
-            // { id: "Forest Scene", scene: Forest, name: "Forest", next: "" },
+            //{ id: "Meadow Scene", scene: Meadow, name: "meadow", next: "" },
+            //  { id: "Forest Scene", scene: Forest, name: "Forest", next: "" },
             // { id: "Lake Scene", scene: Lake, name: "lake", next: "" },
             // {id: "Swamp Scene", scene: Swamp, name: "Swamp", next:""},
             { id: "Test Scene", scene: ACatInLimbo.testScene, name: "Test", next: "" },
@@ -690,7 +690,7 @@ var ACatInLimbo;
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textAwakening.protagonist.T0007);
                 await ACatInLimbo.ƒS.update();
                 //inventory
-                //  let cattest: H document.getElementsByName("pink Cat");
+                //  let cattest: HMTLdocument.getElementsByName("pink Cat");
                 //let speakerRightI: HTMLImageElement = <HTMLImageElement>document.getElementById("speakerRight_i");
                 ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fly);
                 ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fish);
