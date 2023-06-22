@@ -36,7 +36,7 @@ namespace ACatInLimbo {
                 T0003: "Limbo? Like the Limbo in Christianity?",
                 T0004: "...?",
                 T0005: "So... there is a way out? Can I be with my family if I get out?",
-                T0006: "You're right, I can't remember anything. But this doesn't really sound like a place that's not bad.",
+                T0006: "You're right, I can't remember anything. From what you're telling me, this place doesn't sound like one I would want to stay in.",
                 T0007: "Why is that?",
                 T0008: "A tour to...where exactly?",
                 T0009: "Oh, good God, yeah, let's go!"
@@ -45,7 +45,7 @@ namespace ACatInLimbo {
             pinkCat: {
                 T0001: "A warm Hello to you too, good sir. You're dead!",
                 T0002: "No need to panic. You're in Limbo.",
-                T0003: "Uuuuuh, I don't know anything about Christianity stuff. Though this is neither a good nor a bad place. It's an in-between.",
+                T0003: "Uuuuuh, I don't know anything about that Christianity stuff. This is neither a good nor a bad place though. It's an in-between.",
                 T0004: "Well, you're dead, but your soul didn't get to afterlife.",
                 T0005: "Why do you care? You can't remember them. No, honestly I don't have a clue about what happens if you get through, but good thing is, you don't have to suffer for eternity.",
                 T0006: "Does sound good, ey?",
@@ -58,7 +58,8 @@ namespace ACatInLimbo {
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
         //  buttonFunctionalities("Open");
-
+        help();
+        await new Promise(resolve => setTimeout(resolve, 3000));
         //Intro
         ƒS.Speech.hide(); //Sprachfenster ausblenden
         ƒS.Sound.play(sound.meadowSound, 1, true);
@@ -92,13 +93,17 @@ namespace ACatInLimbo {
         switch (firstActionRequest) {
             case firstAction.lookAround:
                 console.log("look around");
+                ƒS.Inventory.add(items.Spider);
+                ƒS.Inventory.add(items.Spider);
+                ƒS.Text.print("2 spiders added");
+                await ƒS.Speech.tell(characters.protagonist, "some spiders!");
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0005);
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0006);
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0007);
                 await ƒS.update();
                 //inventory
-             
-               //  let cattest: HMTLdocument.getElementsByName("pink Cat");
+
+                //  let cattest: HMTLdocument.getElementsByName("pink Cat");
                 //let speakerRightI: HTMLImageElement = <HTMLImageElement>document.getElementById("speakerRight_i");
                 ƒS.Inventory.add(items.Fly);
                 ƒS.Inventory.add(items.Fish);
@@ -123,6 +128,7 @@ namespace ACatInLimbo {
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening3, ƒS.positionPercent(65, 85));
                 await ƒS.update(1);
+                await ƒS.Sound.play(sound.yawn, 1, false);
                 await ƒS.Character.hide(characters.pinkCat);
                 //       await ƒS.Character.hide(characters.protagonist);
                 //     await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.scared, ƒS.positionPercent(10, 95));
@@ -135,7 +141,6 @@ namespace ACatInLimbo {
                 //   await ƒS.Character.hide(characters.protagonist);
                 // await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening5, ƒS.positionPercent(65, 85));
-                //insert cat yawn
                 await ƒS.update(1);
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening6, ƒS.positionPercent(65, 85));
@@ -173,7 +178,7 @@ namespace ACatInLimbo {
         let approachCatRequest = await ƒS.Menu.getInput(approachCat, "choicesCSSClass");
         //Show MeterBar 
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
-        document.getElementById("scoreForCat").style.display = "";
+        //  document.getElementById("scoreForCat").style.display = "";
 
         switch (approachCatRequest) {
             case approachCat.approachCatCarefully:
@@ -194,7 +199,7 @@ namespace ACatInLimbo {
                 dataForSave.catScore -= 5;
                 await ƒS.Character.hide(characters.pinkCat);
                 //   await ƒS.Character.hide(characters.protagonist);
-                await ƒS.Sound.play(sound.longGrowl, 1, false);
+                await ƒS.Sound.play(sound.growling3, 1, false);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.scaredSmall, ƒS.positionPercent(75, 85));
                 // await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
 
@@ -306,6 +311,7 @@ namespace ACatInLimbo {
                 break;
         }
 
+        await ƒS.Sound.fade(sound.purring,0,2);
         await ƒS.Character.hide(characters.pinkCat);
         //  await ƒS.Character.hide(characters.protagonist);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
@@ -333,13 +339,13 @@ namespace ACatInLimbo {
         await ƒS.Character.hideAll();
         await ƒS.update();
 
-
         //pick next Location
         let nextLocation = {
             forest: "Forest",
             lake: "Lake"
         }
 
+        ƒS.Sound.fade(sound.meadowSound, 0, 2);
         let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass");
 
         switch (nextLocationRequest) {
@@ -351,6 +357,8 @@ namespace ACatInLimbo {
                 return "Lake Scene"
                 break;
         }
+
+
     }
 
 

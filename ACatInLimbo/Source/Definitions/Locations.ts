@@ -13,7 +13,7 @@ namespace ACatInLimbo {
 
         lake: {
             name: "Lake",
-            background: "Images/Backgrounds/lake1.png"
+            background: "Images/Backgrounds/lake.png"
         },
 
         meadow: {

@@ -2,16 +2,16 @@ namespace ACatInLimbo {
   export import ƒ = FudgeCore;
   export import ƒS = FudgeStory;
   console.log("FudgeStory template Bitch starting");
-
   let gameMenu: ƒS.Menu;
   //open entspricht Menu ist offen und false zu
   let menuIsOpen: boolean = true;
 
   export let dataForSave = {
     visitedLake: false,
+    visitedForest: false,
     nameProtagonist: "You",
     catScore: 10,
-    scoreForCat: "",
+    // scoreForCat: "",
     points: 0,
     pickedMeterBar: false,
     pickedChoice: false
@@ -135,7 +135,11 @@ namespace ACatInLimbo {
         attack: "./Images/Characters/creatures/lakeCreature/lakeCreatureAttack.png",
         bait: "./Images/Characters/creatures/lakeCreature/lakeCreatureBait.png",
         smile: "./Images/Characters/creatures/lakeCreature/lakeCreatureSmile.png",
-        cry: "./Images/Characters/creatures/lakeCreature/lakeCreatureCry.png"
+        cry: "./Images/Characters/creatures/lakeCreature/lakeCreatureCry.png",
+        hardCry: "./Images/Characters/creatures/lakeCreature/lakeCreatureHardCry.png",
+        heartEyes: "./Images/Characters/creatures/lakeCreature/lakeCreatureHeartEyes.png",
+        heartEyesBroken: "./Images/Characters/creatures/lakeCreature/lakeCreatureHeartEyesBroken.png",
+        hideSad: "./Images/Characters/creatures/lakeCreature/lakeCreatureHideSad.png"
 
       }
     }
@@ -159,11 +163,23 @@ namespace ACatInLimbo {
   export function OpenInventory(): void {
 
   }
+  /*
+    export function checkForCatScore() {
+      if (dataForSave.catScore === 0 || dataForSave.catScore < 0) {
+        return "Bad End";
+      }
+    }
+  */
 
 
   //Credits
   function credits(): void {
     ƒS.Text.print("All characters are drawn by Valentina Schwan");
+  }
+
+  //Help
+  export function help(): void {
+    ƒS.Text.print("<p>In this game you can find a Lovemeter in the right corner of the screen. It shows the affection the pink Cat feels towards you.</p><p>Be careful it doesn't leave you!</p>");
   }
 
   //MENU
@@ -172,6 +188,7 @@ namespace ACatInLimbo {
     load: "Load",
     inventory: "Inventory",
     credits: "Credits",
+    help: "Help",
     close: "Close"
   };
 
@@ -190,6 +207,9 @@ namespace ACatInLimbo {
         break;
       case inGameMenuButtons.credits:
         credits();
+        break;
+      case inGameMenuButtons.help:
+        help();
         break;
       case inGameMenuButtons.inventory:
         await ƒS.Inventory.open();
@@ -226,6 +246,10 @@ namespace ACatInLimbo {
         console.log("Load Scene");
         await ƒS.Progress.load();
         break;
+      case ƒ.KEYBOARD_CODE.H:
+        console.log("Help");
+        help();
+        break;
       case ƒ.KEYBOARD_CODE.I:
         console.log("open Inventory");
         await ƒS.Inventory.open();
@@ -245,7 +269,6 @@ namespace ACatInLimbo {
     }
   }
   window.addEventListener("load", start);
-
   function start(_event: Event): void {
     //Menu
     gameMenu = ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenuCSS");
@@ -256,12 +279,13 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
-    { id: "Meadow Scene", scene: Meadow, name: "meadow", next: "" },
-    { id: "Forest Scene", scene: Forest, name: "Forest", next: "" },
-      // { id: "Lake Scene", scene: Lake, name: "lake", next: "" },
+      { id: "Meadow Scene", scene: Meadow, name: "meadow" },
+      { id: "Forest Scene", scene: Forest, name: "Forest" },
+      { id: "Lake Scene", scene: Lake, name: "lake" },
       // {id: "Swamp Scene", scene: Swamp, name: "Swamp", next:""},
-     // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
+      // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
       // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
+      // {id: "Bad End", scene: BadEnding, name: "Bad"},
       // Empty ending scene to stop the program
       { id: "Empty Scene", scene: Empty, name: "END" }  //Progamm kann nicht stopenn, deswegen empty Scene zum Schluss erstellen, ohne Inhalt
     ];

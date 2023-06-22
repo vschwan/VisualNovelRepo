@@ -3,6 +3,8 @@ namespace ACatInLimbo {
     export async function Forest(): ƒS.SceneReturn {
         console.log("Scene starting: Forest");
 
+        dataForSave.visitedForest = true;
+
         let textForest = {
             protagonist: {
                 T0001: "It's kinda eery here. Do we HAVE to be here?",
@@ -105,6 +107,7 @@ namespace ACatInLimbo {
 
         switch (fightFlightRequest) {
             case FightFlight.flight:
+                ƒS.Sound.fade(sound.scaryForest, 0, 2);
                 let nextLocation = {
                     swamp: "Swamp",
                     lake: "Lake"
@@ -214,6 +217,12 @@ namespace ACatInLimbo {
                         await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0019);
                         await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0020);
                         await ƒS.Speech.tell(characters.spiderCreature, textForest.spiderCreature.T0003);
+                        ƒS.Inventory.add(items.Fly);
+                        ƒS.Inventory.add(items.Fly);
+                        ƒS.Inventory.add(items.Fly);
+                        ƒS.Inventory.add(items.Fly);
+                        ƒS.Inventory.add(items.Fly);
+                        ƒS.Text.print("Five flies added");
                         //add flies to Inventory
                         await ƒS.update();
                         await ƒS.Character.hideAll();
@@ -222,6 +231,7 @@ namespace ACatInLimbo {
                         await ƒS.update();
                         await ƒS.Character.hide(characters.pinkCat);
                         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
+                        //
                         await ƒS.update();
                         break;
                 }
@@ -239,6 +249,7 @@ namespace ACatInLimbo {
             delete nextLocation.lake
         }
 
+        ƒS.Sound.fade(sound.scaryForest, 0, 2);
         let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass")
         switch (nextLocationRequest) {
             case nextLocation.lake:

@@ -126,7 +126,7 @@ dialog.choicesCSSClass {
   background-color: rgba(255, 255, 255, 0.24);
   border: 0ch;
   border-radius: 20px;
-  right: 80%;
+  right: 75%;
   top: 2%;
   padding: 1px;
   float: left;
@@ -233,12 +233,12 @@ meter[id="catMeter"]::-webkit-meter-optimum-value {
 
 input[id="scoreForCat"] {
   color: rgb(255, 248, 253);
-  background-color: rgb(100, 122, 180);
-  border: #d21212;
   font-size: 16pt;
   position: absolute;
   bottom: 89%;
   width: 3%;
   height: 2%;
   margin-left: 1%;
+  border-color: #eedd7e;
+  border:0cap;
 }

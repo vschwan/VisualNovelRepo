@@ -8,9 +8,9 @@ declare namespace ACatInLimbo {
     export import ƒS = FudgeStory;
     let dataForSave: {
         visitedLake: boolean;
+        visitedForest: boolean;
         nameProtagonist: string;
         catScore: number;
-        scoreForCat: string;
         points: number;
         pickedMeterBar: boolean;
         pickedChoice: boolean;
@@ -106,9 +106,27 @@ declare namespace ACatInLimbo {
                 smile: string;
             };
         };
+        lakeCreature: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+                sideEye: string;
+                hide: string;
+                attack: string;
+                bait: string;
+                smile: string;
+                cry: string;
+                hardCry: string;
+                heartEyes: string;
+                heartEyesBroken: string;
+                hideSad: string;
+            };
+        };
     };
     function ItemUse(): void;
     function OpenInventory(): void;
+    function help(): void;
     function buttonFunctionalities(_option: string): Promise<void>;
 }
 declare namespace ACatInLimbo {
@@ -116,13 +134,19 @@ declare namespace ACatInLimbo {
     function spiderAnimationHide(): ƒS.AnimationDefinition;
     function spiderAnimationAppear(): ƒS.AnimationDefinition;
     function spiderAnimationDisappear(): ƒS.AnimationDefinition;
-    function getAnimation(): ƒS.AnimationDefinition;
+    function swampCreatureAppearance(): ƒS.AnimationDefinition;
 }
 declare namespace ACatInLimbo {
     let sound: {
         forestWind: string;
         scaryForest: string;
         meadowSound: string;
+        lakeSound: string;
+        DrippingInCave: string;
+        smallOceanWaves: string;
+        LakeWaves: string;
+        swamp: string;
+        frogs: string;
         normalMoew: string;
         cathissing: string;
         demandingmeow1: string;
@@ -132,11 +156,20 @@ declare namespace ACatInLimbo {
         purrMeow: string;
         purringDeep: string;
         purring: string;
-        longGrowl: string;
         growling1: string;
-        catEating: string;
+        growling2: string;
+        growling3: string;
+        yawn: string;
         horrorDrum1: string;
         horrorDrum2: string;
+        dive: string;
+        slimeSound: string;
+        stepOnSlug: string;
+        chompEat: string;
+        fishEat: string;
+        dryFood: string;
+        bubblingInTheDeep: string;
+        lightbubbling: string;
     };
 }
 declare namespace ACatInLimbo {
@@ -224,7 +257,20 @@ declare namespace ACatInLimbo {
             alpha: string;
             edge: number;
         };
+        wet1: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        wet2: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
     };
+}
+declare namespace ACatInLimbo {
+    function BadEnding(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function Empty(): ƒS.SceneReturn;
