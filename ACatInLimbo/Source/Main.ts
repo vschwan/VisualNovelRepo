@@ -117,9 +117,32 @@ namespace ACatInLimbo {
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         normal: "./Images/Characters/creatures/swampCreature/swampCreatureAsleep.png",
-        asleep: "./Images/Characters/creatures/swampCreature/swampCreatureNormal.png"
+        asleep: "./Images/Characters/creatures/swampCreature/swampCreatureNormal.png",
+        lessWood1: "./Images/Characters/creatures/swampCreature/swampCreatureLessWood1.png",
+        lessWood2: "./Images/Characters/creatures/swampCreature/swampCreatureLessWood2.png",
+        noSnails: "./Images/Characters/creatures/swampCreature/swampCreatureNoSnails.png",
+        smile: "./Images/Characters/creatures/swampCreature/swampCreatureSmile.png"
+      }
+    },
+
+    lakeCreature: {
+      name: "Lake Creature",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        normal: "./Images/Characters/creatures/lakeCreature/lakeCreatureNormal.png",
+        sideEye: "./Images/Characters/creatures/lakeCreature/lakeCreatureSideEye.png",
+        hide: "./Images/Characters/creatures/lakeCreature/lakeCreatureHide.png",
+        attack: "./Images/Characters/creatures/lakeCreature/lakeCreatureAttack.png",
+        bait: "./Images/Characters/creatures/lakeCreature/lakeCreatureBait.png",
+        smile: "./Images/Characters/creatures/lakeCreature/lakeCreatureSmile.png",
+        cry: "./Images/Characters/creatures/lakeCreature/lakeCreatureCry.png"
+
       }
     }
+
+
+    //Items as Characters
+
 
   };
 
@@ -186,7 +209,7 @@ namespace ACatInLimbo {
           originAmount = ƒS.Inventory.getAmount(items.Fish);
         }},100);
 }*/
- 
+
   // Menu shortcuts
   document.addEventListener("keydown", handleKeyPress);
   async function handleKeyPress(_event: KeyboardEvent): Promise<void> {

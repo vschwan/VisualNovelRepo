@@ -15,6 +15,15 @@ namespace ACatInLimbo {
             }
         };
 
+
+       console.log(ƒS.Base.getGraph());
+     /*   for (let i: number = 0; i < 5; i++) { //5blobs, draufklicken --> konsumieren
+            let newButton: HTMLButtonElement = <HTMLButtonElement>document.createElement("button");
+            let body: HTMLBodyElement = <HTMLBodyElement>document.querySelector("body");
+            body.appendChild(newButton);
+          //  ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.crouched, ƒS.positionPercent())
+        }*/
+
         ƒS.Speech.hide(); //Sprechfenster ausblenden 
         ƒS.Sound.play(sound.forestWind, 1, true);
         await new Promise(resolve => setTimeout(resolve, 2500));
@@ -25,7 +34,6 @@ namespace ACatInLimbo {
         await ƒS.update(transition.puzzle.duration, transition.puzzle.alpha, transition.puzzle.edge);
 
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(60, 90));
-        
 
         await ƒS.update(); //nach jeder location updaten 
         await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0001); //maßstabgetreue Grafiken verwenden! 

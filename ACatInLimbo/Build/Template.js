@@ -148,9 +148,14 @@ var ACatInLimbo;
             origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
                 normal: "./Images/Characters/creatures/swampCreature/swampCreatureAsleep.png",
-                asleep: "./Images/Characters/creatures/swampCreature/swampCreatureNormal.png"
+                asleep: "./Images/Characters/creatures/swampCreature/swampCreatureNormal.png",
+                lessWood1: "./Images/Characters/creatures/swampCreature/swampCreatureLessWood1.png",
+                lessWood2: "./Images/Characters/creatures/swampCreature/swampCreatureLessWood2.png",
+                noSnails: "./Images/Characters/creatures/swampCreature/swampCreatureNoSnails.png",
+                smile: "./Images/Characters/creatures/swampCreature/swampCreatureSmile.png"
             }
-        }
+        },
+        //Items as Characters
     };
     /*export function UpdateName(): void {
       characters.protagonist.name = dataForSave.nameProtagonist;
@@ -361,6 +366,18 @@ var ACatInLimbo;
             description: "a small annoying fly, like most flies are",
             image: "./Images/Items/fly.png",
             static: false
+        },
+        Snail: {
+            name: "Snail",
+            description: "a slimy snail",
+            image: "./Image/Items/snail.png",
+            static: false
+        },
+        Fireflies: {
+            name: "Fireflies",
+            description: "glowing Fireflies",
+            image: ".Image/Items/fireflies.png",
+            static: true
         }
     };
 })(ACatInLimbo || (ACatInLimbo = {}));
@@ -1018,6 +1035,13 @@ var ACatInLimbo;
                 T0006: "Fuck off, don't touch me."
             }
         };
+        console.log(ACatInLimbo.ƒS.Base.getGraph());
+        /*   for (let i: number = 0; i < 5; i++) { //5blobs, draufklicken --> konsumieren
+               let newButton: HTMLButtonElement = <HTMLButtonElement>document.createElement("button");
+               let body: HTMLBodyElement = <HTMLBodyElement>document.querySelector("body");
+               body.appendChild(newButton);
+             //  ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.crouched, ƒS.positionPercent())
+           }*/
         ACatInLimbo.ƒS.Speech.hide(); //Sprechfenster ausblenden 
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.forestWind, 1, true);
         await new Promise(resolve => setTimeout(resolve, 2500));

@@ -21,6 +21,20 @@ namespace ACatInLimbo {
           description: "a small annoying fly, like most flies are",
           image: "./Images/Items/fly.png",
           static: false
+        }, 
+
+        Snail: {
+          name: "Snail", 
+          description: "a slimy snail",
+          image: "./Image/Items/snail.png", 
+          static: false
+        }, 
+
+        Fireflies:{
+          name: "Fireflies",
+          description: "glowing Fireflies",
+          image: ".Image/Items/fireflies.png", 
+          static: true
         }
       };
 

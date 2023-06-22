@@ -100,6 +100,10 @@ declare namespace ACatInLimbo {
             pose: {
                 normal: string;
                 asleep: string;
+                lessWood1: string;
+                lessWood2: string;
+                noSnails: string;
+                smile: string;
             };
         };
     };
@@ -152,6 +156,18 @@ declare namespace ACatInLimbo {
             static: boolean;
         };
         Fly: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+        Snail: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+        Fireflies: {
             name: string;
             description: string;
             image: string;
