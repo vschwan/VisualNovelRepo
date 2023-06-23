@@ -2,7 +2,7 @@ namespace ACatInLimbo {
 
     export async function Forest(): ƒS.SceneReturn {
         console.log("Scene starting: Forest");
-
+      //  dataForSave.currentPlace="Current Location: Forest";
         dataForSave.visitedForest = true;
 
         let textForest = {
@@ -253,9 +253,11 @@ namespace ACatInLimbo {
         let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass")
         switch (nextLocationRequest) {
             case nextLocation.lake:
-                return "Lake Scene"
+                dataForSave.currentPath = "ForestToLake";
+                return "Map Scene"
             case nextLocation.swamp:
-                return "Swamp Scene"
+                dataForSave.currentPath = "ForestToSwamp";
+                return "Map Scene"
         }
 
 

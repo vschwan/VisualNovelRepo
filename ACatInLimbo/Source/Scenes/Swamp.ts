@@ -2,6 +2,7 @@ namespace ACatInLimbo {
 
     export async function Swamp(): ƒS.SceneReturn {
         console.log("Scene starting: Swamp");
+        // dataForSave.currentPlace="Current Location: Swamp";
 
         let textSwamp = {
             protagonist: {
@@ -50,7 +51,35 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.pinkCat, textSwamp.pinkCat.T0001);
         await ƒS.update();
         await ƒS.Sound.play(sound.bubblingInTheDeep, 1, false);
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        await ƒS.Speech.tell(characters.protagonist, textSwamp.protagonist.T0002);
+        await ƒS.Speech.tell(characters.pinkCat, textSwamp.pinkCat.T0002);
+        await ƒS.update();
+        await ƒS.Sound.play(sound.bubblingInTheDeep, 1, false);
         await ƒS.Character.animate(characters.swampCreature, characters.swampCreature.pose.asleep, swampCreatureAppearance());
+        await ƒS.update();
+        await ƒS.Speech.tell(characters.pinkCat, textSwamp.pinkCat.T0003);
+        await ƒS.update();
+
+        let helpSwampCreature = {
+            help: "help",
+            dontHelp: "don't help"
+        }
+
+        let helpSwampCreatureRequest = await ƒS.Menu.getInput(helpSwampCreature, "choicesCSSClass");
+        switch (helpSwampCreatureRequest) {
+            case helpSwampCreature.help:
+                
+
+                break;
+            case helpSwampCreature.dontHelp:
+                await ƒS.Speech.tell(characters.pinkCat, textSwamp.pinkCat.TD11);
+                await ƒS.Speech.tell(characters.protagonist, textSwamp.protagonist.TD11);
+                await ƒS.Speech.tell(characters.pinkCat, textSwamp.pinkCat.TD12);
+                await ƒS.update();
+                break;
+        }
+
 
 
 

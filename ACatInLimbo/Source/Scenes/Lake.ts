@@ -2,7 +2,8 @@ namespace ACatInLimbo {
 
     export async function Lake(): ƒS.SceneReturn {
         console.log("Scene starting: Lake");
-        dataForSave.visitedLake= true; 
+        //  dataForSave.currentPlace="Current Location: Lake";
+        dataForSave.visitedLake = true;
 
         let textLake = {
             protagonist: {
@@ -204,16 +205,16 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0015);
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.hide(characters.lakeCreature);
         await ƒS.update();
         await new Promise(resolve => setTimeout(resolve, 2000));
         await ƒS.Sound.play(sound.dive, 1, false);
         await ƒS.Character.hide(characters.lakeCreature)
         await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.hideSad, ƒS.positionPercent(50, 75));
         await ƒS.update();
+        await new Promise(resolve => setTimeout(resolve, 2000));
         await ƒS.Character.hide(characters.lakeCreature)
         await ƒS.update(2);
-        await new Promise(resolve => setTimeout(resolve, 1000));
+    
 
         let nextLocation = {
             swamp: "Swamp",
@@ -228,9 +229,11 @@ namespace ACatInLimbo {
         let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass")
         switch (nextLocationRequest) {
             case nextLocation.forest:
-                return "Forest Scene"
+                dataForSave.currentPath = "LakeToForest";
+                return "Map Scene"
             case nextLocation.swamp:
-                return "Swamp Scene"
+                dataForSave.currentPath = "LakeToSwamp";
+                return "Map Scene"
         }
 
 

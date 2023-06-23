@@ -31,9 +31,14 @@ namespace ACatInLimbo {
             background: "Images/Backgrounds/swampRiver.png"
         },
 
-        nightpark: {
-            name: "Nightpart",
-            background: "Images/Backgrounds/nightpark.png"
+        map: {
+            name: "Map",
+            background:"./Images/Map/map.png"
+        },
+
+        meadowForest: {
+            name: "MeadowForest", 
+            background: "./Images/Map/MeadowForest.png"
         }
 
 

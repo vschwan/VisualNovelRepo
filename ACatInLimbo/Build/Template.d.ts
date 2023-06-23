@@ -14,6 +14,7 @@ declare namespace ACatInLimbo {
         points: number;
         pickedMeterBar: boolean;
         pickedChoice: boolean;
+        currentPath: string;
     };
     let characters: {
         protagonist: {
@@ -123,9 +124,27 @@ declare namespace ACatInLimbo {
                 hideSad: string;
             };
         };
+        path: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                meadowForest: string;
+                meadowLake: string;
+                forestLake: string;
+                forestSwamp: string;
+                lakeSwamp: string;
+                swampRiver: string;
+                swampBay: string;
+                bayRiver: string;
+                bayCave: string;
+                riverCave: string;
+                riverMountains: string;
+                mountainsClouds: string;
+                caveClouds: string;
+                cloudsGate: string;
+            };
+        };
     };
-    function ItemUse(): void;
-    function OpenInventory(): void;
     function help(): void;
     function buttonFunctionalities(_option: string): Promise<void>;
 }
@@ -170,6 +189,8 @@ declare namespace ACatInLimbo {
         dryFood: string;
         bubblingInTheDeep: string;
         lightbubbling: string;
+        footstepsForest: string;
+        footstepsGrass: string;
     };
 }
 declare namespace ACatInLimbo {
@@ -234,7 +255,11 @@ declare namespace ACatInLimbo {
             name: string;
             background: string;
         };
-        nightpark: {
+        map: {
+            name: string;
+            background: string;
+        };
+        meadowForest: {
             name: string;
             background: string;
         };
@@ -267,6 +292,11 @@ declare namespace ACatInLimbo {
             alpha: string;
             edge: number;
         };
+        straightLines: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
     };
 }
 declare namespace ACatInLimbo {
@@ -280,6 +310,9 @@ declare namespace ACatInLimbo {
 }
 declare namespace ACatInLimbo {
     function Lake(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function Map(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function Meadow(): ƒS.SceneReturn;

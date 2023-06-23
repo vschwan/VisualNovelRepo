@@ -38,8 +38,10 @@ namespace ACatInLimbo {
         chompEat: "./Audio/FX/eating-sound-effect-36186.mp3",
         fishEat: "./Audio/FX/Fish Eat (Nr. 2  Fortnite Sound) - Sound Effect for editing.mp3",
         dryFood: "./Audio/FX/cat-eating-dry-food-133130.mp3",
-        bubblingInTheDeep: "ACatInLimbo/Audio/FX/BlubbernInTiefe.mp3",
-        lightbubbling: "ACatInLimbo/Audio/FX/BlubbernLeisesPlanschen.mp3"
+        bubblingInTheDeep: "./Audio/FX/BlubbernInTiefe.mp3",
+        lightbubbling: "./Audio/FX/BlubbernLeisesPlanschen.mp3", 
+        footstepsForest: "./Audio/FX/mixkit-footsteps-in-the-forest-ground-1230.wav",
+        footstepsGrass: "./Audio/FX/mixkit-walking-on-grass-1921.wav"
 
     
       };

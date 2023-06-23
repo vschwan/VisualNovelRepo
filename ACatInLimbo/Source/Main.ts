@@ -7,6 +7,7 @@ namespace ACatInLimbo {
   let menuIsOpen: boolean = true;
 
   export let dataForSave = {
+    // currentPlace: "Current Location: Lake",
     visitedLake: false,
     visitedForest: false,
     nameProtagonist: "You",
@@ -14,7 +15,9 @@ namespace ACatInLimbo {
     // scoreForCat: "",
     points: 0,
     pickedMeterBar: false,
-    pickedChoice: false
+    pickedChoice: false,
+    currentPath: "",
+    // openMap: false
     // started: false,
     // ended: false
 
@@ -142,27 +145,64 @@ namespace ACatInLimbo {
         hideSad: "./Images/Characters/creatures/lakeCreature/lakeCreatureHideSad.png"
 
       }
+    },
+
+    path: {
+      name: "Path",
+      origin: ƒS.ORIGIN.CENTER,
+      pose: {
+        meadowForest: "./Images/Map/MeadowForest.png",
+        meadowLake: "./Images/Map/MeadowLake.png",
+        forestLake: "./Images/Map/ForestLake.png",
+        forestSwamp: "./Images/Map/ForestSwamp.png",
+        lakeSwamp: "./Images/Map/LakeSwamp.png",
+        swampRiver: "./Images/Map/SwampRiver.png",
+        swampBay: "./Images/Map/SwampBay.png",
+        bayRiver: "./Images/Map/BayRiver.png",
+        bayCave: "./Images/Map/BayCave.png",
+        riverCave: "./Images/Map/RiverCave.png",
+        riverMountains: "./Images/Map/RiverMountains.png",
+        mountainsClouds: "./Images/Map/MountainsClouds.png",
+        caveClouds: "./Images/Map/CaveClouds.png",
+        cloudsGate: "./Images/Map/CloudsGate.png"
+      }
     }
-
-
     //Items as Characters
-
-
   };
 
 
+  // let map: HTMLImageElement = <HTMLImageElement>document.createElement("img")
+  // let getP: HTMLParagraphElement = <HTMLParagraphElement>document.querySelector("#mapHolder");
+  // map.src = "./Images/VN_map_vector.png";
+
+  // export function openMap() {
+  //   let map: HTMLImageElement = <HTMLImageElement>document.createElement("img")
+  //   let getP: HTMLParagraphElement = <HTMLParagraphElement>document.querySelector("#mapHolder");
+  //   map.src = "./Images/VN_map_vector.png";
+  //   dataForSave.openMap = true;
+  //   console.log("open map");
+  //   getP.appendChild(map);
+  //   ƒS.Text.print(dataForSave.currentPlace);
+  // }
+
+  // export function closeMap() {
+  //   dataForSave.openMap = false;
+  //   console.log("close map");
+  //   getP.removeChild(map);
+  // }
   /*export function UpdateName(): void {
     characters.protagonist.name = dataForSave.nameProtagonist;
   }*/
 
-  export function ItemUse(): void {
+  // export function ItemUse(): void {
 
-  }
+  // }
 
   //INVENTORY
-  export function OpenInventory(): void {
+  // export function OpenInventory(): void {
 
-  }
+  // }
+
   /*
     export function checkForCatScore() {
       if (dataForSave.catScore === 0 || dataForSave.catScore < 0) {
@@ -189,7 +229,8 @@ namespace ACatInLimbo {
     inventory: "Inventory",
     credits: "Credits",
     help: "Help",
-    close: "Close"
+    close: "Close",
+    //   map: "Map"
   };
 
   export async function buttonFunctionalities(_option: string): Promise<void> {
@@ -208,6 +249,13 @@ namespace ACatInLimbo {
       case inGameMenuButtons.credits:
         credits();
         break;
+      // case inGameMenuButtons.map:
+      //   if (dataForSave.openMap === false) {
+      //     openMap()
+      //   } else {
+      //     closeMap();
+      //   }
+      //   break;
       case inGameMenuButtons.help:
         help();
         break;
@@ -279,10 +327,11 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
-      { id: "Meadow Scene", scene: Meadow, name: "meadow" },
-      { id: "Forest Scene", scene: Forest, name: "Forest" },
-      { id: "Lake Scene", scene: Lake, name: "lake" },
-      // {id: "Swamp Scene", scene: Swamp, name: "Swamp", next:""},
+    //  { id: "Meadow Scene", scene: Meadow, name: "meadow" },
+     // { id: "Forest Scene", scene: Forest, name: "Forest" },
+   //   { id: "Lake Scene", scene: Lake, name: "lake" },
+    //  { id: "Map Scene", scene: Map, name: "map" },
+      { id: "Swamp Scene", scene: Swamp, name: "Swamp", next: "" },
       // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
       // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
       // {id: "Bad End", scene: BadEnding, name: "Bad"},

@@ -2,6 +2,7 @@ namespace ACatInLimbo {
 
     export async function Meadow(): ƒS.SceneReturn {
         console.log("Scene starting: Meadow");
+        //   dataForSave.currentPlace="Meadow";
 
         let textAwakening = {
             protagonist: {
@@ -58,8 +59,13 @@ namespace ACatInLimbo {
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
         //  buttonFunctionalities("Open");
-        help();
-        await new Promise(resolve => setTimeout(resolve, 3000));
+
+        // if (dataForSave.openMap==false){
+        //     dataForSave.openMap = true;
+        //     openMap();
+        // }
+
+
         //Intro
         ƒS.Speech.hide(); //Sprachfenster ausblenden
         ƒS.Sound.play(sound.meadowSound, 1, true);
@@ -68,7 +74,10 @@ namespace ACatInLimbo {
         await ƒS.update(transition.swirlStuff.duration, transition.swirlStuff.alpha, transition.swirlStuff.edge);
         // ƒS.update();
         //  await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.front, ƒS.positionPercent(10, 95));
-        await ƒS.update(2);
+        //  await ƒS.update(2);
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        help();
+        await new Promise(resolve => setTimeout(resolve, 4000));
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0001);
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0002);
         await ƒS.update(1);
@@ -93,10 +102,10 @@ namespace ACatInLimbo {
         switch (firstActionRequest) {
             case firstAction.lookAround:
                 console.log("look around");
-                ƒS.Inventory.add(items.Spider);
-                ƒS.Inventory.add(items.Spider);
-                ƒS.Text.print("2 spiders added");
-                await ƒS.Speech.tell(characters.protagonist, "some spiders!");
+                // ƒS.Inventory.add(items.Spider);
+                // ƒS.Inventory.add(items.Spider);
+                // ƒS.Text.print("2 spiders added");
+                // await ƒS.Speech.tell(characters.protagonist, "some spiders!");
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0005);
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0006);
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0007);
@@ -308,10 +317,11 @@ namespace ACatInLimbo {
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.lovely, ƒS.positionPercent(80, 95));
                 await ƒS.update();
+                await ƒS.Sound.fade(sound.purring, 0, 2);
                 break;
         }
 
-        await ƒS.Sound.fade(sound.purring,0,2);
+
         await ƒS.Character.hide(characters.pinkCat);
         //  await ƒS.Character.hide(characters.protagonist);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
@@ -350,17 +360,19 @@ namespace ACatInLimbo {
 
         switch (nextLocationRequest) {
             case nextLocation.forest:
-                return "Forest Scene"
+                dataForSave.currentPath = "MeadowToForest";
+                return "Map Scene"
+                // return "Forest Scene"
                 break;
 
             case nextLocation.lake:
-                return "Lake Scene"
+                dataForSave.currentPath = "MeadowToLake";
+                return "Map Scene"
+                //return "Lake Scene"
                 break;
         }
 
 
+
     }
-
-
-
-} 
+}
