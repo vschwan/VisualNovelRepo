@@ -155,8 +155,8 @@ var ACatInLimbo;
             name: "Swamp Creature",
             origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                normal: "./Images/Characters/creatures/swampCreature/swampCreatureAsleep.png",
-                asleep: "./Images/Characters/creatures/swampCreature/swampCreatureNormal.png",
+                normal: "./Images/Characters/creatures/swampCreature/swampCreatureNormal.png",
+                asleep: "./Images/Characters/creatures/swampCreature/swampCreatureAsleep.png",
                 lessWood1: "./Images/Characters/creatures/swampCreature/swampCreatureLessWood1.png",
                 lessWood2: "./Images/Characters/creatures/swampCreature/swampCreatureLessWood2.png",
                 noSnails: "./Images/Characters/creatures/swampCreature/swampCreatureNoSnails.png",
@@ -344,10 +344,10 @@ var ACatInLimbo;
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
         let scenes = [
-            //  { id: "Meadow Scene", scene: Meadow, name: "meadow" },
-            // { id: "Forest Scene", scene: Forest, name: "Forest" },
-            //   { id: "Lake Scene", scene: Lake, name: "lake" },
-            //  { id: "Map Scene", scene: Map, name: "map" },
+            { id: "Meadow Scene", scene: ACatInLimbo.Meadow, name: "meadow" },
+            { id: "Forest Scene", scene: ACatInLimbo.Forest, name: "Forest" },
+            { id: "Lake Scene", scene: ACatInLimbo.Lake, name: "lake" },
+            { id: "Map Scene", scene: ACatInLimbo.Map, name: "map" },
             { id: "Swamp Scene", scene: ACatInLimbo.Swamp, name: "Swamp", next: "" },
             // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
             // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
@@ -404,13 +404,23 @@ var ACatInLimbo;
     function swampCreatureAppearance() {
         //something
         return {
-            start: { translation: ACatInLimbo.ƒS.positionPercent(-50, 50), color: ACatInLimbo.ƒS.Color.CSS("black", 0.5) },
-            end: { translation: ACatInLimbo.ƒS.positionPercent(30, 50), color: ACatInLimbo.ƒS.Color.CSS("black", 1) },
-            duration: 2,
+            start: { translation: ACatInLimbo.ƒS.positionPercent(-50, 85), color: ACatInLimbo.ƒS.Color.CSS("", 0) },
+            end: { translation: ACatInLimbo.ƒS.positionPercent(30, 85), color: ACatInLimbo.ƒS.Color.CSS("", 1) },
+            duration: 8,
             playmode: ACatInLimbo.ƒS.ANIMATION_PLAYMODE.PLAYONCE
         };
     }
     ACatInLimbo.swampCreatureAppearance = swampCreatureAppearance;
+    function swampCreatureDisappearance() {
+        //something
+        return {
+            start: { translation: ACatInLimbo.ƒS.positionPercent(30, 85), color: ACatInLimbo.ƒS.Color.CSS("", 1) },
+            end: { translation: ACatInLimbo.ƒS.positionPercent(-50, 85), color: ACatInLimbo.ƒS.Color.CSS("", 0) },
+            duration: 8,
+            playmode: ACatInLimbo.ƒS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
+    ACatInLimbo.swampCreatureDisappearance = swampCreatureDisappearance;
     /*
       export function getAnimation(): ƒS.AnimationDefinition {
         return {
@@ -560,7 +570,7 @@ var ACatInLimbo;
             edge: 1
         },
         wet2: {
-            duration: 1,
+            duration: 2,
             alpha: "./FreeTransitions/Others/wet.jpg",
             edge: 1
         },
@@ -789,7 +799,7 @@ var ACatInLimbo;
                         ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fly);
                         ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fly);
                         ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fly);
-                        ACatInLimbo.ƒS.Text.print("Five flies added");
+                        ACatInLimbo.ƒS.Text.print("Five flies have been added to your Inventory");
                         //add flies to Inventory
                         await ACatInLimbo.ƒS.update();
                         await ACatInLimbo.ƒS.Character.hideAll();
@@ -1133,6 +1143,28 @@ var ACatInLimbo;
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.path);
                 await ACatInLimbo.ƒS.update();
                 return "Forest Scene";
+                break;
+            case "SwampToRiver":
+                console.log("Swamp to River");
+                await ACatInLimbo.ƒS.update(1);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.path, ACatInLimbo.characters.path.pose.swampRiver, ACatInLimbo.ƒS.positionPercent(50, 50));
+                await ACatInLimbo.ƒS.update(3);
+                await new Promise(resolve => setTimeout(resolve, 4000));
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.path);
+                await ACatInLimbo.ƒS.update();
+                return "River Scene";
+                break;
+            case "SwampToBay":
+                console.log("Swamp to Bay");
+                await ACatInLimbo.ƒS.update(1);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.path, ACatInLimbo.characters.path.pose.swampBay, ACatInLimbo.ƒS.positionPercent(50, 50));
+                await ACatInLimbo.ƒS.update(3);
+                await new Promise(resolve => setTimeout(resolve, 4000));
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.path);
+                await ACatInLimbo.ƒS.update();
+                return "Bay Scene";
                 break;
         }
         // await new Promise(resolve => setTimeout(resolve, 3000));
@@ -1492,52 +1524,66 @@ var ACatInLimbo;
         // dataForSave.currentPlace="Current Location: Swamp";
         let textSwamp = {
             protagonist: {
-                T0001: "Bah, it really doesn't smmell  good here!",
+                T0001: "Bah, it really doesn't smell  good here!",
                 T0002: "What was that?",
                 TD11: "Sorry, I just think it looks a bit nasty.",
                 TD21: "He looks really sad. Maybe we can help him somehow?",
-                TD22: "Alright. Is it the wood that sticks inside your body?",
+                TD22: "Is it the wood that sticks inside your body?",
                 TD23: "alright, I'm gonna do it!",
-                TD24: "Better?",
-                TD25: "Well, he was talkative. Hey, I think we got something from him!"
+                TD24: "ehm...yeah? If it doesn't mind?",
+                TD25: "Better?",
+                TD26: "Well, he was talkative. Hey, I think we got something from him!",
+                TD27: "Some fireflies!"
             },
             pinkCat: {
-                T0001: "Ugh, you're right, let's move on ASAP.",
+                T0001: "Ugh, you're right, and those fucking frogs, what the hell?! Let's move on ASAP.",
                 T0002: "The next shitshow, I fear.",
                 T0003: "Holy moly, what happened to YOU?",
                 TD11: "What?! How can you be so heartless?",
                 TD12: "Then let's go, I guess. I would drown If I tried to help him.",
                 TD21: "Are you hurt, maybe?",
-                TD22: "Sounds about right. Okay let's get that stuff out of you. It would hurt me too to be honest.",
-                TD23: "Hey, can I get those snails maybe?",
-                TD24: "ehm…alright? If it doesn't mind…",
-                TD25: "Noice. Maybe it's gonna be of use. Please let's move forward now, this place stinks like hell!"
+                TD22: "Sounds about right. Okay let's get that stuff out of you. It would hurt me too, to be honest.",
+                TD23: "Hey, can I get those snails maybe? They look pretty.",
+                TD24: "Noice. Maybe it's gonna be of use. Please let's move forward now, this place stinks like hell!"
             },
             swampCreature: {
                 T0001: "blubblblblblb!"
             }
         };
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
-        ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.frogs, 0.5, true);
+        ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.frogs, 0.1, true);
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.swamp, 0.5, true);
         await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.swamp);
         await ACatInLimbo.ƒS.update(ACatInLimbo.transition.wet2.duration, ACatInLimbo.transition.wet2.alpha, ACatInLimbo.transition.wet2.edge);
         await ACatInLimbo.ƒS.update(1);
-        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(80, 95));
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal, ACatInLimbo.ƒS.positionPercent(80, 95));
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textSwamp.protagonist.T0001);
         await ACatInLimbo.ƒS.update();
-        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talkingAngry, ACatInLimbo.ƒS.positionPercent(80, 95));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(80, 95));
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textSwamp.pinkCat.T0001);
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.bubblingInTheDeep, 1, false);
+        await ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.bubblingInTheDeep, 0, 5);
         await new Promise(resolve => setTimeout(resolve, 2000));
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textSwamp.protagonist.T0002);
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talkingAngry, ACatInLimbo.ƒS.positionPercent(80, 95));
+        await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textSwamp.pinkCat.T0002);
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.bubblingInTheDeep, 1, false);
         await ACatInLimbo.ƒS.Character.animate(ACatInLimbo.characters.swampCreature, ACatInLimbo.characters.swampCreature.pose.asleep, ACatInLimbo.swampCreatureAppearance());
+        await ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.bubblingInTheDeep, 0, 3);
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.derpy1, ACatInLimbo.ƒS.positionPercent(80, 95));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.crouchedLookingAway, ACatInLimbo.ƒS.positionPercent(80, 95));
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textSwamp.pinkCat.T0003);
         await ACatInLimbo.ƒS.update();
@@ -1548,12 +1594,126 @@ var ACatInLimbo;
         let helpSwampCreatureRequest = await ACatInLimbo.ƒS.Menu.getInput(helpSwampCreature, "choicesCSSClass");
         switch (helpSwampCreatureRequest) {
             case helpSwampCreature.help:
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textSwamp.protagonist.TD21);
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textSwamp.pinkCat.TD21);
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.swampCreature);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.swampCreature, ACatInLimbo.characters.swampCreature.pose.normal, ACatInLimbo.ƒS.positionPercent(30, 85));
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.swampCreature, textSwamp.swampCreature.T0001);
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textSwamp.protagonist.TD22);
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.swampCreature, textSwamp.swampCreature.T0001);
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textSwamp.pinkCat.TD22);
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.crouched, ACatInLimbo.ƒS.positionPercent(80, 95));
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textSwamp.protagonist.TD23);
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.thumbsUp, ACatInLimbo.ƒS.positionPercent(80, 95));
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalLookingAway, ACatInLimbo.ƒS.positionPercent(80, 95));
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.lightbubbling, 1, false);
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.swampCreature);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.swampCreature, ACatInLimbo.characters.swampCreature.pose.lessWood1, ACatInLimbo.ƒS.positionPercent(30, 85));
+                await ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.lightbubbling, 0, 3);
+                await ACatInLimbo.ƒS.update(2);
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.derpy2, ACatInLimbo.ƒS.positionPercent(80, 95));
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textSwamp.pinkCat.TD23);
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textSwamp.protagonist.TD24);
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalLookingAway, ACatInLimbo.ƒS.positionPercent(80, 95));
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.lightbubbling, 1, false);
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.swampCreature);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.swampCreature, ACatInLimbo.characters.swampCreature.pose.noSnails, ACatInLimbo.ƒS.positionPercent(30, 85));
+                await ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.lightbubbling, 0, 3);
+                await ACatInLimbo.ƒS.update();
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Snail);
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Snail);
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Snail);
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Snail);
+                ACatInLimbo.ƒS.Text.print("Four snails have been added to your Inventory");
+                await ACatInLimbo.ƒS.update(2);
+                await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.lightbubbling, 1, false);
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.swampCreature);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.swampCreature, ACatInLimbo.characters.swampCreature.pose.lessWood2, ACatInLimbo.ƒS.positionPercent(30, 85));
+                await ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.lightbubbling, 0, 3);
+                await ACatInLimbo.ƒS.update(2);
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textSwamp.protagonist.TD25);
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.swampCreature);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.swampCreature, ACatInLimbo.characters.swampCreature.pose.smile, ACatInLimbo.ƒS.positionPercent(30, 85));
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.cleaningPaw, ACatInLimbo.ƒS.positionPercent(80, 95));
+                await ACatInLimbo.ƒS.update();
+                ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fireflies);
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textSwamp.protagonist.TD26);
+                await ACatInLimbo.ƒS.update();
+                ACatInLimbo.ƒS.Text.print("a jar of fireflies has been added to your Inventory");
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textSwamp.protagonist.TD27);
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal, ACatInLimbo.ƒS.positionPercent(80, 95));
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.bubblingInTheDeep, 1, false);
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.swampCreature);
+                await ACatInLimbo.ƒS.Character.animate(ACatInLimbo.characters.swampCreature, ACatInLimbo.characters.swampCreature.pose.smile, ACatInLimbo.swampCreatureDisappearance());
+                await ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.bubblingInTheDeep, 0, 5);
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textSwamp.pinkCat.TD24);
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                await ACatInLimbo.ƒS.update();
                 break;
             case helpSwampCreature.dontHelp:
+                ACatInLimbo.dataForSave.catScore -= 5;
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talkingAngry, ACatInLimbo.ƒS.positionPercent(80, 95));
+                await ACatInLimbo.ƒS.update();
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textSwamp.pinkCat.TD11);
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(80, 95));
+                await ACatInLimbo.ƒS.update();
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textSwamp.protagonist.TD11);
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textSwamp.pinkCat.TD12);
                 await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.bubblingInTheDeep, 1, false);
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.swampCreature);
+                await ACatInLimbo.ƒS.Character.animate(ACatInLimbo.characters.swampCreature, ACatInLimbo.characters.swampCreature.pose.asleep, ACatInLimbo.swampCreatureDisappearance());
+                await ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.bubblingInTheDeep, 0, 5);
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                await ACatInLimbo.ƒS.update();
+                //hide swamp creature?
+                break;
+        }
+        //pick next Location
+        let nextLocation = {
+            bay: "Bay",
+            river: "River"
+        };
+        ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.frogs, 0, 2);
+        ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.swamp, 0, 2);
+        let nextLocationRequest = await ACatInLimbo.ƒS.Menu.getInput(nextLocation, "choicesCSSClass");
+        switch (nextLocationRequest) {
+            case nextLocation.bay:
+                ACatInLimbo.dataForSave.currentPath = "SwampToBay";
+                return "Map Scene";
+                // return "Forest Scene"
+                break;
+            case nextLocation.river:
+                ACatInLimbo.dataForSave.currentPath = "SwampToRiver";
+                return "Map Scene";
+                //return "Lake Scene"
                 break;
         }
     }

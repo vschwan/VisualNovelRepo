@@ -119,8 +119,8 @@ namespace ACatInLimbo {
       name: "Swamp Creature",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        normal: "./Images/Characters/creatures/swampCreature/swampCreatureAsleep.png",
-        asleep: "./Images/Characters/creatures/swampCreature/swampCreatureNormal.png",
+        normal: "./Images/Characters/creatures/swampCreature/swampCreatureNormal.png",
+        asleep: "./Images/Characters/creatures/swampCreature/swampCreatureAsleep.png",
         lessWood1: "./Images/Characters/creatures/swampCreature/swampCreatureLessWood1.png",
         lessWood2: "./Images/Characters/creatures/swampCreature/swampCreatureLessWood2.png",
         noSnails: "./Images/Characters/creatures/swampCreature/swampCreatureNoSnails.png",
@@ -327,10 +327,10 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
-    //  { id: "Meadow Scene", scene: Meadow, name: "meadow" },
-     // { id: "Forest Scene", scene: Forest, name: "Forest" },
-   //   { id: "Lake Scene", scene: Lake, name: "lake" },
-    //  { id: "Map Scene", scene: Map, name: "map" },
+      { id: "Meadow Scene", scene: Meadow, name: "meadow" },
+      { id: "Forest Scene", scene: Forest, name: "Forest" },
+      { id: "Lake Scene", scene: Lake, name: "lake" },
+      { id: "Map Scene", scene: Map, name: "map" },
       { id: "Swamp Scene", scene: Swamp, name: "Swamp", next: "" },
       // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
       // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 

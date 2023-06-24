@@ -154,6 +154,7 @@ declare namespace ACatInLimbo {
     function spiderAnimationAppear(): ƒS.AnimationDefinition;
     function spiderAnimationDisappear(): ƒS.AnimationDefinition;
     function swampCreatureAppearance(): ƒS.AnimationDefinition;
+    function swampCreatureDisappearance(): ƒS.AnimationDefinition;
 }
 declare namespace ACatInLimbo {
     let sound: {

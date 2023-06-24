@@ -36,9 +36,18 @@ namespace ACatInLimbo {
   export function swampCreatureAppearance(): ƒS.AnimationDefinition {
     //something
     return {
-      start: { translation: ƒS.positionPercent(-50, 50), color: ƒS.Color.CSS("black", 0.5) },
-      end: { translation: ƒS.positionPercent(30, 50), color: ƒS.Color.CSS("black", 1) },
-      duration: 2,
+      start: { translation: ƒS.positionPercent(-50, 85), color: ƒS.Color.CSS("", 0) },
+      end: { translation: ƒS.positionPercent(30, 85), color: ƒS.Color.CSS("", 1) },
+      duration: 8,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+    };
+  }
+  export function swampCreatureDisappearance(): ƒS.AnimationDefinition {
+    //something
+    return {
+      start: { translation: ƒS.positionPercent(30, 85), color: ƒS.Color.CSS("", 1) },
+      end: { translation: ƒS.positionPercent(-50, 85), color: ƒS.Color.CSS("", 0) },
+      duration: 8,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
     };
   }

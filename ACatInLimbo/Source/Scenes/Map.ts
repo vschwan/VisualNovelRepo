@@ -91,6 +91,32 @@ namespace ACatInLimbo {
                 return "Forest Scene"
 
                 break;
+
+                case "SwampToRiver":
+                    console.log("Swamp to River");
+                    await ƒS.update(1);
+                    await ƒS.Character.show(characters.path, characters.path.pose.swampRiver, ƒS.positionPercent(50, 50));
+                    await ƒS.update(3);
+                    await new Promise(resolve => setTimeout(resolve, 4000));
+                    await ƒS.update();
+                    await ƒS.Character.hide(characters.path);
+                    await ƒS.update();
+                    return "River Scene"
+    
+                    break;
+
+                    case "SwampToBay":
+                        console.log("Swamp to Bay");
+                        await ƒS.update(1);
+                        await ƒS.Character.show(characters.path, characters.path.pose.swampBay, ƒS.positionPercent(50, 50));
+                        await ƒS.update(3);
+                        await new Promise(resolve => setTimeout(resolve, 4000));
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.path);
+                        await ƒS.update();
+                        return "Bay Scene"
+        
+                        break;
         }
 
         // await new Promise(resolve => setTimeout(resolve, 3000));

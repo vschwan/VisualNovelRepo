@@ -222,7 +222,7 @@ namespace ACatInLimbo {
                         ƒS.Inventory.add(items.Fly);
                         ƒS.Inventory.add(items.Fly);
                         ƒS.Inventory.add(items.Fly);
-                        ƒS.Text.print("Five flies added");
+                        ƒS.Text.print("Five flies have been added to your Inventory");
                         //add flies to Inventory
                         await ƒS.update();
                         await ƒS.Character.hideAll();

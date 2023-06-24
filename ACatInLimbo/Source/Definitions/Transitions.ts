@@ -27,7 +27,7 @@ namespace ACatInLimbo {
     },
 
     wet2: {
-      duration: 1,
+      duration: 2,
       alpha: "./FreeTransitions/Others/wet.jpg",
       edge: 1
     }, 
