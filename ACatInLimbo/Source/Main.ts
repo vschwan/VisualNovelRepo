@@ -382,13 +382,12 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
-      { id: "Bay Scene", scene: Bay, name: "Bay" },
       { id: "Meadow Scene", scene: Meadow, name: "meadow" },
       { id: "Forest Scene", scene: Forest, name: "Forest" },
       { id: "Lake Scene", scene: Lake, name: "lake" },
       { id: "Map Scene", scene: Map, name: "map" },
       { id: "Swamp Scene", scene: Swamp, name: "Swamp", next: "" },
-      { id: "River Scene", scene: River, name: "River" },
+     // { id: "River Scene", scene: River, name: "River" },
       { id: "Bay Scene", scene: Bay, name: "Bay" },
       // { id: "Cave Scene", scene: Cave, name: "Cave" },
       // { id: "Mountains Scene", scene: Mountains, name: "Mountains" },

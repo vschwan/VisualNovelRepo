@@ -403,13 +403,12 @@ var ACatInLimbo;
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
         let scenes = [
-            { id: "Bay Scene", scene: ACatInLimbo.Bay, name: "Bay" },
             { id: "Meadow Scene", scene: ACatInLimbo.Meadow, name: "meadow" },
             { id: "Forest Scene", scene: ACatInLimbo.Forest, name: "Forest" },
             { id: "Lake Scene", scene: ACatInLimbo.Lake, name: "lake" },
             { id: "Map Scene", scene: ACatInLimbo.Map, name: "map" },
             { id: "Swamp Scene", scene: ACatInLimbo.Swamp, name: "Swamp", next: "" },
-            { id: "River Scene", scene: ACatInLimbo.River, name: "River" },
+            // { id: "River Scene", scene: River, name: "River" },
             { id: "Bay Scene", scene: ACatInLimbo.Bay, name: "Bay" },
             // { id: "Cave Scene", scene: Cave, name: "Cave" },
             // { id: "Mountains Scene", scene: Mountains, name: "Mountains" },
