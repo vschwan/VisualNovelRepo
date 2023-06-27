@@ -32,6 +32,12 @@ namespace ACatInLimbo {
       edge: 1
     }, 
 
+    dots: {
+      duration: 2,
+      alpha: "./FreeTransitions/Others/017.png",
+      edge: 1
+    },
+
     straightLines: {
       duration: 1,
       alpha: "./FreeTransitions/Others/005.jpg",

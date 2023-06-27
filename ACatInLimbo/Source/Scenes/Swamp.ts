@@ -2,7 +2,6 @@ namespace ACatInLimbo {
 
     export async function Swamp(): ƒS.SceneReturn {
         console.log("Scene starting: Swamp");
-        // dataForSave.currentPlace="Current Location: Swamp";
 
         let textSwamp = {
             protagonist: {
@@ -43,6 +42,60 @@ namespace ACatInLimbo {
         await ƒS.Location.show(locations.swamp);
         await ƒS.update(transition.wet2.duration, transition.wet2.alpha, transition.wet2.edge);
         await ƒS.update(1);
+
+        //check if Swamp has already been visited and jump to next scene if so
+        if (dataForSave.visitedSwamp == true) {
+            //pick next Location
+            let nextLocation = {
+                bay: "Bay",
+                river: "River",
+                forest: "Forest",
+                lake: "Lake"
+            }
+            if (dataForSave.visitedForest == false || dataForSave.visitedLake == false) {
+                delete nextLocation.bay
+                delete nextLocation.river
+            }
+            if (dataForSave.visitedForest == true) {
+                delete nextLocation.forest
+            }
+            if (dataForSave.visitedLake == true) {
+                delete nextLocation.lake
+            }
+
+            ƒS.Sound.fade(sound.frogs, 0, 2);
+            ƒS.Sound.fade(sound.swamp, 0, 2);
+            let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass");
+
+            switch (nextLocationRequest) {
+                case nextLocation.bay:
+                    dataForSave.currentPath = "SwampToBay";
+                    return "Map Scene"
+                    // return "Forest Scene"
+                    break;
+
+                case nextLocation.river:
+                    dataForSave.currentPath = "SwampToRiver";
+                    return "Map Scene"
+                    //return "Lake Scene"
+                    break;
+
+                case nextLocation.forest:
+                    dataForSave.currentPath = "SwampToForest";
+                    return "Map Scene"
+                    //return "Lake Scene"
+                    break;
+
+                case nextLocation.lake:
+                    dataForSave.currentPath = "SwampToLake";
+                    return "Map Scene"
+                    //return "Lake Scene"
+                    break;
+            }
+        }
+        //set visited Swamp to true
+        dataForSave.visitedSwamp = true;
+        //start with Scene
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
         await ƒS.update();
         await ƒS.Speech.tell(characters.protagonist, textSwamp.protagonist.T0001);
@@ -61,6 +114,9 @@ namespace ACatInLimbo {
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(80, 95));
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, textSwamp.pinkCat.T0002);
+        await ƒS.update();
+        await ƒS.Character.hide(characters.pinkCat);
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 95));
         await ƒS.update();
         await ƒS.Sound.play(sound.bubblingInTheDeep, 1, false);
         await ƒS.Character.animate(characters.swampCreature, characters.swampCreature.pose.asleep, swampCreatureAppearance());
@@ -114,22 +170,45 @@ namespace ACatInLimbo {
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.derpy2, ƒS.positionPercent(80, 95));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, textSwamp.pinkCat.TD23);
-                await ƒS.Speech.tell(characters.protagonist, textSwamp.protagonist.TD24);
-                await ƒS.update();
-                await ƒS.Character.hide(characters.pinkCat);
-                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(80, 95));
-                await ƒS.update();
-                await ƒS.Sound.play(sound.lightbubbling, 1, false);
-                await ƒS.Character.hide(characters.swampCreature);
-                await ƒS.Character.show(characters.swampCreature, characters.swampCreature.pose.noSnails, ƒS.positionPercent(30, 85));
-                await ƒS.Sound.fade(sound.lightbubbling, 0, 3);
-                await ƒS.update();
-                ƒS.Inventory.add(items.Snail);
-                ƒS.Inventory.add(items.Snail);
-                ƒS.Inventory.add(items.Snail);
-                ƒS.Inventory.add(items.Snail);
-                ƒS.Text.print("Four snails have been added to your Inventory");
-                await ƒS.update(2);
+
+                let getSnails = {
+                    getSnails: "get Snails",
+                    dontGetSnails: "Don't get snails"
+                }
+                let getSnailsRequest = await ƒS.Menu.getInput(getSnails, "choicesCSSClass");
+                switch (getSnailsRequest) {
+                    case getSnails.dontGetSnails:
+                        await ƒS.Speech.tell(characters.protagonist, "What? No. They don't belong to you and they don't hut the creature. Maybe it wants to keep them.")
+                        await ƒS.update();
+                        dataForSave.catScore = -5;
+                        await ƒS.Character.hide(characters.pinkCat);
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 95));
+                        await ƒS.update();
+                        await ƒS.Speech.tell(characters.pinkCat, "Thanks for nothing.")
+                        await ƒS.update();
+                        break;
+                    case getSnails.getSnails:
+                        await ƒS.Speech.tell(characters.protagonist, textSwamp.protagonist.TD24);
+                        dataForSave.catScore = +5;
+                        await ƒS.Speech.tell(characters.pinkCat, "Thanks!");
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.pinkCat);
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(80, 95));
+                        await ƒS.update();
+                        await ƒS.Sound.play(sound.lightbubbling, 1, false);
+                        await ƒS.Character.hide(characters.swampCreature);
+                        await ƒS.Character.show(characters.swampCreature, characters.swampCreature.pose.noSnails, ƒS.positionPercent(30, 85));
+                        await ƒS.Sound.fade(sound.lightbubbling, 0, 3);
+                        await ƒS.update();
+                        ƒS.Inventory.add(items.Snail);
+                        ƒS.Inventory.add(items.Snail);
+                        ƒS.Inventory.add(items.Snail);
+                        ƒS.Inventory.add(items.Snail);
+                        ƒS.Text.print("Four snails have been added to your Inventory");
+                        await ƒS.update(2);
+                        break;
+                }
+             
                 await ƒS.Sound.play(sound.lightbubbling, 1, false);
                 await ƒS.Character.hide(characters.swampCreature);
                 await ƒS.Character.show(characters.swampCreature, characters.swampCreature.pose.lessWood2, ƒS.positionPercent(30, 85));
@@ -183,7 +262,6 @@ namespace ACatInLimbo {
                 await ƒS.Sound.fade(sound.bubblingInTheDeep, 0, 5);
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.update();
-
                 //hide swamp creature?
                 break;
         }
@@ -191,9 +269,20 @@ namespace ACatInLimbo {
         //pick next Location
         let nextLocation = {
             bay: "Bay",
-            river: "River"
+            river: "River",
+            forest: "Forest",
+            lake: "Lake"
         }
-
+        if (dataForSave.visitedForest == false || dataForSave.visitedLake == false) {
+            delete nextLocation.bay
+            delete nextLocation.river
+        }
+        if (dataForSave.visitedForest == true) {
+            delete nextLocation.forest
+        }
+        if (dataForSave.visitedLake == true) {
+            delete nextLocation.lake
+        }
         ƒS.Sound.fade(sound.frogs, 0, 2);
         ƒS.Sound.fade(sound.swamp, 0, 2);
         let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass");
@@ -207,6 +296,18 @@ namespace ACatInLimbo {
 
             case nextLocation.river:
                 dataForSave.currentPath = "SwampToRiver";
+                return "Map Scene"
+                //return "Lake Scene"
+                break;
+
+            case nextLocation.forest:
+                dataForSave.currentPath = "SwampToForest";
+                return "Map Scene"
+                //return "Lake Scene"
+                break;
+
+            case nextLocation.lake:
+                dataForSave.currentPath = "SwampToLake";
                 return "Map Scene"
                 //return "Lake Scene"
                 break;

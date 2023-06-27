@@ -282,7 +282,7 @@ declare namespace FudgeStory {
         name: string;
         description: string;
         image: RequestInfo;
-        static?: boolean;
+        static?: boolean; 
         handler?: (_event: CustomEvent) => void;
     }
     const Inventory_base: any;
@@ -293,6 +293,10 @@ declare namespace FudgeStory {
         private static ƒDialog;
         private static ƒused;
         private static get dialog();
+        /**
+         * Fickt euch und fucking FudgeStory mit dazu
+         */
+        static subtract(_item: ItemDefinition): void;
         /**
          * Adds an item to the inventory
          */
@@ -308,6 +312,7 @@ declare namespace FudgeStory {
         /**
          * Closes the inventory
          */
+        
         static close(): void;
         private static hndUseItem;
         private static replaceWhitespace;

@@ -2,7 +2,6 @@ namespace ACatInLimbo {
 
     export async function Meadow(): ƒS.SceneReturn {
         console.log("Scene starting: Meadow");
-        //   dataForSave.currentPlace="Meadow";
 
         let textAwakening = {
             protagonist: {
@@ -10,9 +9,9 @@ namespace ACatInLimbo {
                 T0002: "WHO am I?",
                 T0003: "Ah, I remember, it's ",
                 T0004: "What is that strange statue doing over there....",
-                T0005: "Well, this seems like a lovely meadow, but what the fuck am I doing here? I feel kind of...ghosty. Like I don't have a lot of substance.",
-                T0006: "And a cat? Really?",
-                T0007: "Why does it look so real? Like it's not supposed to be of stone. Maybe if I touch i...",
+                T0005: "Got some spiders, great.",
+                T0006: "Well, this seems like a lovely meadow, but what the fuck am I doing here? I feel kind of...ghosty. Like I don't have a lot of substance.",
+                T0007: "Why does this cat look so real? Like it's not supposed to be of stone. Maybe if I touch i...",
                 T0008: "Wtf, it's alive!",
                 T0009: "What now?",
                 T0010: "Ouuuh, I'm sorry, I'm sorry, calm down!",
@@ -76,8 +75,8 @@ namespace ACatInLimbo {
         //  await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.front, ƒS.positionPercent(10, 95));
         //  await ƒS.update(2);
         await new Promise(resolve => setTimeout(resolve, 3000));
-        help();
-        await new Promise(resolve => setTimeout(resolve, 4000));
+        // help();
+        // await new Promise(resolve => setTimeout(resolve, 4000));
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0001);
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0002);
         await ƒS.update(1);
@@ -101,33 +100,20 @@ namespace ACatInLimbo {
         let firstActionRequest = await ƒS.Menu.getInput(firstAction, "choicesCSSClass");
         switch (firstActionRequest) {
             case firstAction.lookAround:
+                //macht eig keinen sinn weil die katze noch nciht wach ist, aber ich lass es erstmal drin, whatever
                 console.log("look around");
-                // ƒS.Inventory.add(items.Spider);
-                // ƒS.Inventory.add(items.Spider);
-                // ƒS.Text.print("2 spiders added");
-                // await ƒS.Speech.tell(characters.protagonist, "some spiders!");
+                ƒS.Inventory.add(items.Spider);
+                ƒS.Inventory.add(items.Spider);
+                ƒS.Inventory.add(items.Spider);
+                ƒS.Text.print("Three spiders have been added to your Inventory");
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0005);
+                await ƒS.update();
+                // ƒS.Text.print("Hint: Never forget to keep the cat happy. Try to give it some food out of your Inventory (I) to make it like you more.");
+                // await ƒS.update();
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0006);
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0007);
                 await ƒS.update();
-                //inventory
 
-                //  let cattest: HMTLdocument.getElementsByName("pink Cat");
-                //let speakerRightI: HTMLImageElement = <HTMLImageElement>document.getElementById("speakerRight_i");
-                ƒS.Inventory.add(items.Fly);
-                ƒS.Inventory.add(items.Fish);
-                ƒS.Inventory.add(items.Fly);
-                ƒS.Inventory.add(items.Fish);
-                ƒS.Inventory.add(items.Fly);
-                ƒS.Inventory.add(items.Fish);
-                for (let i: number = 0; i < 5; i++) {
-                    ƒS.Inventory.add(items.Spider);
-                }
-                await ƒS.Inventory.open();
-                await ƒS.update();
-            //maybe implement enabling collection of items
-
-            //"Animation" : Stone Cat awakes
             case firstAction.awakeCat:
                 console.log("cat awakes");
                 ƒS.Speech.hide();
@@ -137,14 +123,14 @@ namespace ACatInLimbo {
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening3, ƒS.positionPercent(65, 85));
                 await ƒS.update(1);
+                await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0008);
+                await ƒS.update();
                 await ƒS.Sound.play(sound.yawn, 1, false);
                 await ƒS.Character.hide(characters.pinkCat);
                 //       await ƒS.Character.hide(characters.protagonist);
                 //     await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.scared, ƒS.positionPercent(10, 95));
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening4, ƒS.positionPercent(65, 85));
                 await ƒS.update(1)
-                await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0008);
-                await ƒS.update(1);
                 await ƒS.Speech.hide();
                 await ƒS.Character.hide(characters.pinkCat);
                 //   await ƒS.Character.hide(characters.protagonist);
@@ -199,6 +185,7 @@ namespace ACatInLimbo {
                 //await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.side, ƒS.positionPercent(10, 95));
                 await ƒS.Sound.play(sound.purrMeow, 1, false);
                 await ƒS.update();
+                ƒS.Text.print("Hint: You just got some affection points. <p>The Lovemeter in the right corner shows how much the cat likes you.</p>Try to give it some food (if you have some) out of your Inventory (I) to please it.<p>If the cat doesn't like you anymore, it's gonna leave.</p>");
                 await ƒS.Speech.tell(characters.pinkCat, textAwakening.pinkCat.T0005);
                 await ƒS.update();
                 break;
@@ -211,8 +198,8 @@ namespace ACatInLimbo {
                 await ƒS.Sound.play(sound.growling3, 1, false);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.scaredSmall, ƒS.positionPercent(75, 85));
                 // await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
-
                 await ƒS.update();
+                ƒS.Text.print("Hint: You just lost some affection points. <p>The Lovemeter in the right corner shows how much the cat likes you.</p><p>Try to give it some food (if you have some) out of your Inventory (I) to please it.</p><p>If the cat doesn't like you anymore, it's gonna leave.</p>");
                 await ƒS.Speech.tell(characters.pinkCat, textAwakening.pinkCat.T0001);
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0010);
                 await ƒS.Speech.tell(characters.pinkCat, textAwakening.pinkCat.T0002);
@@ -312,6 +299,7 @@ namespace ACatInLimbo {
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.lovelySmall, ƒS.positionPercent(75, 85));
                 await ƒS.Character.show(characters.stonePedestal, characters.stonePedestal.pose.stonePedestal, ƒS.positionPercent(65, 85));
                 await ƒS.update();
+                ƒS.Text.print("Hint: You just got a lot of affection points. <p>The Lovemeter in the right corner shows how much the cat likes you.</p>Try to give it some food (if you have some) out of your Inventory (I) to please it.<p>If the cat doesn't like you anymore, it's gonna leave.</p>");
                 await ƒS.Speech.tell(characters.pinkCat, textAwakening.pinkCat.T0006);
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
@@ -319,6 +307,7 @@ namespace ACatInLimbo {
                 await ƒS.update();
                 await ƒS.Sound.fade(sound.purring, 0, 2);
                 break;
+                
         }
 
 
@@ -330,19 +319,47 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.protagonist, textIntro.protagonist.T0001);
         await ƒS.Speech.tell(characters.pinkCat, textIntro.pinkCat.T0001);
         await ƒS.Speech.tell(characters.protagonist, textIntro.protagonist.T0002);
+        await ƒS.update();
+        await ƒS.Character.hide(characters.pinkCat);
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.cleaningPaw, ƒS.positionPercent(80, 95));
+        await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, textIntro.pinkCat.T0002);
         await ƒS.Speech.tell(characters.protagonist, textIntro.protagonist.T0003);
+        await ƒS.update();
+        await ƒS.Character.hide(characters.pinkCat);
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.thoughtful2, ƒS.positionPercent(80, 95));
+        await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, textIntro.pinkCat.T0003);
         await ƒS.Speech.tell(characters.protagonist, textIntro.protagonist.T0004);
+        await ƒS.update();
+        await ƒS.Character.hide(characters.pinkCat);
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.derpy2, ƒS.positionPercent(80, 95));
+        await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, textIntro.pinkCat.T0004);
         await ƒS.Speech.tell(characters.protagonist, textIntro.protagonist.T0005);
         await ƒS.Speech.tell(characters.pinkCat, textIntro.pinkCat.T0005);
+        await ƒS.update();
+        await ƒS.Character.hide(characters.pinkCat);
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.curious, ƒS.positionPercent(80, 95));
+        await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, textIntro.pinkCat.T0006);
         await ƒS.Speech.tell(characters.protagonist, textIntro.protagonist.T0006);
+        await ƒS.update();
+        await ƒS.Character.hide(characters.pinkCat);
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.derpy1, ƒS.positionPercent(80, 95));
+        await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, textIntro.pinkCat.T0007);
         await ƒS.Speech.tell(characters.protagonist, textIntro.protagonist.T0007);
+        await ƒS.update();
+        await ƒS.Character.hide(characters.pinkCat);
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.proud, ƒS.positionPercent(80, 95));
+        await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, textIntro.pinkCat.T0008);
         await ƒS.Speech.tell(characters.protagonist, textIntro.protagonist.T0008);
+        await ƒS.update();
+        await ƒS.Character.hide(characters.pinkCat);
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
+        await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, textIntro.pinkCat.T0009);
         await ƒS.Speech.tell(characters.protagonist, textIntro.protagonist.T0009);
         await ƒS.update();

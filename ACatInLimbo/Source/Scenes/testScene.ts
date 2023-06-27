@@ -27,7 +27,7 @@ namespace ACatInLimbo {
         ƒS.Speech.hide(); //Sprechfenster ausblenden 
         ƒS.Sound.play(sound.forestWind, 1, true);
         await new Promise(resolve => setTimeout(resolve, 2500));
-        ƒS.Sound.play(sound.normalMoew, 1, false);
+        ƒS.Sound.play(sound.cuteMeow, 1, false);
         //  ƒS.Sound.fade(sound.forestSound, 1, 0.0, true);
 
         await ƒS.Location.show(locations.forest);
@@ -70,7 +70,7 @@ namespace ACatInLimbo {
             case dialogue.iSayNo:
                 //continue path here
                 console.log("answer: No");
-                ƒS.Sound.play(sound.normalMoew, 1, false);
+                ƒS.Sound.play(sound.cuteMeow, 1, false);
                 await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0003);
 
                 //inventory

@@ -14,11 +14,13 @@ namespace ACatInLimbo {
         frogs: "./Audio/Ambience/frogs-48410.mp3",
     
         //catSounds
-        normalMoew: "./Audio/catAudio/meow.mp3",
         cathissing: "./Audio/catAudio/cathisses.wav",
         demandingmeow1: "./Audio/catAudio/demandingMeow1.wav",
         demandingMeow2: "./Audio/catAudio/demandingMeow2.mp3",
-        cuteMeow: "./Audio/catAudio/ANMLCat_Meow cat 7 (ID 1895)_BSB.wav",
+        singlerawr: ".//Audio/catAudio/ANMLCat_Little meow of a cat (ID 0494)_BSB.wav",
+    
+        cuteMeow: "./Audio/catAudio/cuteMeow.wav",
+        cuteMeowMultiple: "./Audio/catAudio/shari_meow-47485.mp3",
         kindOfSadMeow: "./Audio/catAudio/262312__steffcaffrey__cat-meow1-80256.mp3",
         purrMeow: "./Audio/catAudio/cat-purr-meow-8327.mp3",
         purringDeep: "./Audio/catAudio/cat-purring-2-73009.mp3",

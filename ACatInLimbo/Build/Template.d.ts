@@ -2,13 +2,27 @@ declare namespace ACatInLimbo {
     let originAmountFish: number;
     let originAmountSpider: number;
     let originAmountFly: number;
+    let bayCreatureFed: boolean;
 }
 declare namespace ACatInLimbo {
     export import ƒ = FudgeCore;
     export import ƒS = FudgeStory;
     let dataForSave: {
         visitedLake: boolean;
+        visitedLakeTwice: boolean;
         visitedForest: boolean;
+        visitedSwamp: boolean;
+        visitedBay: boolean;
+        visitedRiver: boolean;
+        pathMeadowForest: boolean;
+        pathMeadowLake: boolean;
+        pathForestLake: boolean;
+        pathForestSwamp: boolean;
+        pathLakeSwamp: boolean;
+        pathSwampBay: boolean;
+        pathSwampRiver: boolean;
+        pathBayCave: boolean;
+        pathBayRiver: boolean;
         nameProtagonist: string;
         catScore: number;
         points: number;
@@ -61,12 +75,21 @@ declare namespace ACatInLimbo {
                 yawning: string;
                 crouched: string;
                 crouchedLookingAway: string;
+                crouchedSad: string;
+                proud: string;
+                play1: string;
+                play2: string;
+                normal2: string;
+                normal2Sad: string;
                 normalSmall: string;
                 scaredSmall: string;
+                scaredSmallTurnedRight: string;
                 curiousSmall: string;
                 lovelySmall: string;
                 layingOnBackSmall: string;
                 stretchingSmall: string;
+                play1Small: string;
+                play2Small: string;
                 awakening1: string;
                 awakening2: string;
                 awakening3: string;
@@ -122,6 +145,27 @@ declare namespace ACatInLimbo {
                 heartEyes: string;
                 heartEyesBroken: string;
                 hideSad: string;
+                smileHeart: string;
+            };
+        };
+        bayCreature: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                armSide: string;
+                attack: string;
+                coin: string;
+                happy: string;
+                headAngry: string;
+                headNormal: string;
+                heart: string;
+                lookingDownSad: string;
+                lookingDown: string;
+                normal: string;
+                talking: string;
+                talkingAngry: string;
+                glow: string;
+                happyHeart: string;
             };
         };
         path: {
@@ -167,11 +211,12 @@ declare namespace ACatInLimbo {
         LakeWaves: string;
         swamp: string;
         frogs: string;
-        normalMoew: string;
         cathissing: string;
         demandingmeow1: string;
         demandingMeow2: string;
+        singlerawr: string;
         cuteMeow: string;
+        cuteMeowMultiple: string;
         kindOfSadMeow: string;
         purrMeow: string;
         purringDeep: string;
@@ -228,6 +273,18 @@ declare namespace ACatInLimbo {
             image: string;
             static: boolean;
         };
+        Heart: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+        Coin: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
     };
 }
 declare namespace ACatInLimbo {
@@ -238,6 +295,14 @@ declare namespace ACatInLimbo {
         };
         bay: {
             name: string;
+            background: string;
+        };
+        bayClose: {
+            bayClose: string;
+            background: string;
+        };
+        bayGlow: {
+            bayGlow: string;
             background: string;
         };
         lake: {
@@ -257,10 +322,6 @@ declare namespace ACatInLimbo {
             background: string;
         };
         map: {
-            name: string;
-            background: string;
-        };
-        meadowForest: {
             name: string;
             background: string;
         };
@@ -293,6 +354,11 @@ declare namespace ACatInLimbo {
             alpha: string;
             edge: number;
         };
+        dots: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
         straightLines: {
             duration: number;
             alpha: string;
@@ -304,10 +370,22 @@ declare namespace ACatInLimbo {
     function BadEnding(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
+    function Bay(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function Cave(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function Clouds(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
     function Empty(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function Forest(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function Gate(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function Lake(): ƒS.SceneReturn;
@@ -317,6 +395,12 @@ declare namespace ACatInLimbo {
 }
 declare namespace ACatInLimbo {
     function Meadow(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function Mountains(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function River(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function Swamp(): ƒS.SceneReturn;

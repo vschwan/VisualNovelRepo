@@ -5,11 +5,31 @@ namespace ACatInLimbo {
   let gameMenu: ƒS.Menu;
   //open entspricht Menu ist offen und false zu
   let menuIsOpen: boolean = true;
+  //export let toogleSnailUsability: boolean; 
 
   export let dataForSave = {
+    // changeUsabilityItem: true,
+    //snailUsability: true,
     // currentPlace: "Current Location: Lake",
+    //boolean for scenes visited --> for Location-Decisions
     visitedLake: false,
+    visitedLakeTwice: false,
     visitedForest: false,
+    visitedSwamp: false,
+    visitedBay: false,
+    visitedRiver: false,
+
+    //booelan for checking if path on map has already been walked --> mapScene
+    pathMeadowForest: false,
+    pathMeadowLake: false,
+    pathForestLake: false,
+    pathForestSwamp: false,
+    pathLakeSwamp: false,
+    pathSwampBay: false,
+    pathSwampRiver: false,
+    pathBayCave: false,
+    pathBayRiver: false,
+
     nameProtagonist: "You",
     catScore: 10,
     // scoreForCat: "",
@@ -23,6 +43,8 @@ namespace ACatInLimbo {
 
     //hier auch Punkte verteilungssystem-Variable reinhauen
   };
+
+
 
   export let characters = {
 
@@ -74,14 +96,24 @@ namespace ACatInLimbo {
         yawning: "./Images/Characters/pinkCat/pinkCatYawning.png",
         crouched: "./Images/Characters/pinkCat/pinkCatCrouched.png",
         crouchedLookingAway: "./Images/Characters/pinkCat/pinkCatCrouchedLookingAway.png",
+        crouchedSad: "./Images/Characters/pinkCat/pinkCatCrouchedSad.png",
+        proud: "./Images/Characters/pinkCat/proud.png",
+        play1: "./Images/Characters/pinkCat/pinkCatplay1.png",
+        play2: "./Images/Characters/pinkCat/pinkCatplay2.png",
+        normal2: "./Images/Characters/pinkCat/normal2.png",
+        normal2Sad: "./Images/Characters/pinkCat/normal2Sad.png",
+
 
         //pink Cat poses small 
         normalSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatNormalSmall.png",
         scaredSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatScaredSmall.png",
+        scaredSmallTurnedRight: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatScaredSmallTurnedRight.png",
         curiousSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatCuriousSmall.png",
         lovelySmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatLoveSmall.png",
         layingOnBackSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatOnBackSmall.png",
         stretchingSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatStretchingSmall.png",
+        play1Small: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatPlay1Small.png",
+        play2Small: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatPlay2Small.png",
 
         //pink Cat as stone Statue awakes
         awakening1: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening1.png",
@@ -142,7 +174,30 @@ namespace ACatInLimbo {
         hardCry: "./Images/Characters/creatures/lakeCreature/lakeCreatureHardCry.png",
         heartEyes: "./Images/Characters/creatures/lakeCreature/lakeCreatureHeartEyes.png",
         heartEyesBroken: "./Images/Characters/creatures/lakeCreature/lakeCreatureHeartEyesBroken.png",
-        hideSad: "./Images/Characters/creatures/lakeCreature/lakeCreatureHideSad.png"
+        hideSad: "./Images/Characters/creatures/lakeCreature/lakeCreatureHideSad.png",
+        smileHeart: "./Images/Characters/creatures/lakeCreature/lakeCreatureSmileHeart.png",
+
+      }
+    },
+
+    bayCreature: {
+      name: "bay Creature",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        armSide: "./Images/Characters/creatures/bayCreature/bayCreatureArmsSide.png",
+        attack: "./Images/Characters/creatures/bayCreature/bayCreatureAttack.png",
+        coin: "./Images/Characters/creatures/bayCreature/bayCreatureCoin.png",
+        happy: "./Images/Characters/creatures/bayCreature/bayCreatureHappy.png",
+        headAngry: "./Images/Characters/creatures/bayCreature/bayCreatureHeadAngry.png",
+        headNormal: "./Images/Characters/creatures/bayCreature/bayCreatureHeadNormal.png",
+        heart: "./Images/Characters/creatures/bayCreature/bayCreatureHeart.png",
+        lookingDownSad: "./Images/Characters/creatures/bayCreature/bayCreatureLookindDownSad.png",
+        lookingDown: "./Images/Characters/creatures/bayCreature/bayCreatureLookingDown.png",
+        normal: "./Images/Characters/creatures/bayCreature/bayCreatureNormal.png",
+        talking: "./Images/Characters/creatures/bayCreature/bayCreatureTalking.png",
+        talkingAngry: "./Images/Characters/creatures/bayCreature/bayCreatureTalkingAngry.png",
+        glow: "./Images/Characters/creatures/bayCreature/bayGlow.png",
+        happyHeart: "./Images/Characters/creatures/bayCreature/bayCreatureHappyHeart.png"
 
       }
     },
@@ -219,7 +274,7 @@ namespace ACatInLimbo {
 
   //Help
   export function help(): void {
-    ƒS.Text.print("<p>In this game you can find a Lovemeter in the right corner of the screen. It shows the affection the pink Cat feels towards you.</p><p>Be careful it doesn't leave you!</p>");
+    ƒS.Text.print("<p>In this game you can find a Lovemeter in the right corner of the screen. It shows the affection the pink Cat feels towards you.</p><p>Open your Inventory through the menu to feed your Cat with items you collect throughout the story to make it like you more.</p><p>Be careful it doesn't leave you!</p><p>Shortcuts:</p><p>Menu: M</p><p>Save: S</p><p>Load: L</p><p>Help: H</p><p>Credits: C</p>");
   }
 
   //MENU
@@ -298,10 +353,10 @@ namespace ACatInLimbo {
         console.log("Help");
         help();
         break;
-      case ƒ.KEYBOARD_CODE.I:
-        console.log("open Inventory");
-        await ƒS.Inventory.open();
-        break;
+      // case ƒ.KEYBOARD_CODE.I:
+      //   console.log("open Inventory");
+      //   await ƒS.Inventory.open();
+      //   break;
       case ƒ.KEYBOARD_CODE.M:
         if (menuIsOpen) {
           console.log("Menu closed");
@@ -327,11 +382,18 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
+      { id: "Bay Scene", scene: Bay, name: "Bay" },
       { id: "Meadow Scene", scene: Meadow, name: "meadow" },
       { id: "Forest Scene", scene: Forest, name: "Forest" },
       { id: "Lake Scene", scene: Lake, name: "lake" },
       { id: "Map Scene", scene: Map, name: "map" },
       { id: "Swamp Scene", scene: Swamp, name: "Swamp", next: "" },
+      { id: "River Scene", scene: River, name: "River" },
+      { id: "Bay Scene", scene: Bay, name: "Bay" },
+      // { id: "Cave Scene", scene: Cave, name: "Cave" },
+      // { id: "Mountains Scene", scene: Mountains, name: "Mountains" },
+      // { id: "Clouds", scene: Clouds, name: "Clouds" },
+      // { id: "Gate", scene: Gate, name: "Gate" },
       // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
       // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
       // {id: "Bad End", scene: BadEnding, name: "Bad"},

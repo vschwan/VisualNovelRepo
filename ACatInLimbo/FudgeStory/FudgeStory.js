@@ -454,6 +454,26 @@ var FudgeStory;
             return Inventory.ƒDialog;
         }
         /**
+         * soll n item abziehen hoffentlich. muss es halt selbst schreiben, weils keiner gemacht hat alter.
+         */
+        static subtract(_item) {
+            let item = Inventory.getItemElement(_item);
+            if (item) {
+                let amount = item.querySelector("amount");
+                amount.innerText = (parseInt(amount.innerText) - 1).toString();
+                return;
+            }
+            Inventory.ƒused.push(item.querySelector("name").textContent);
+            let amount = item.querySelector("amount");
+            amount.innerText = (parseInt(amount.innerText) - 1).toString();
+            console.log("-1 item");//von mir
+            console.log(_event.currentTarget);//von mir 
+
+            if (amount.innerText == "0")
+                Inventory.dialog.querySelector("ul").removeChild(item);
+        };
+     
+        /**
          * Adds an item to the inventory
          */
         static add(_item) {
@@ -477,9 +497,12 @@ var FudgeStory;
             }
             Inventory.dialog.querySelector("ul").appendChild(item);
         }
+
+    
         /**
          * Retrieves the number of items specified by the parameter currently available in the inventory
          */
+
         static getAmount(_item) {
             let item = Inventory.getItemElement(_item);
             if (item)
@@ -519,7 +542,7 @@ var FudgeStory;
             amount.innerText = (parseInt(amount.innerText) - 1).toString();
             console.log("-1 item");//von mir
             console.log(_event.currentTarget);//von mir 
-            
+
             if (amount.innerText == "0")
                 Inventory.dialog.querySelector("ul").removeChild(item);
         };
@@ -529,6 +552,7 @@ var FudgeStory;
         static getItemElement(_item) {
             return Inventory.dialog.querySelector(`[id=${Inventory.replaceWhitespace(_item.name)}]`);
         }
+        
     }
     FudgeStory.Inventory = Inventory;
 })(FudgeStory || (FudgeStory = {}));

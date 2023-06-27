@@ -2,7 +2,6 @@ namespace ACatInLimbo {
 
     export async function Forest(): ƒS.SceneReturn {
         console.log("Scene starting: Forest");
-      //  dataForSave.currentPlace="Current Location: Forest";
         dataForSave.visitedForest = true;
 
         let textForest = {
@@ -21,7 +20,7 @@ namespace ACatInLimbo {
                 T0010: "...Great."
             },
             pinkCat: {
-                T0001: "We don't HAVE to, but I want to visit an old friend. I want to see what he's been up to you know?",
+                T0001: "We don't HAVE to, but I want to visit an old friend. I want to see what he's been up to, you know?",
                 T0002: "That's cause you're a baby.",
                 T0003: "!Oh, look! I think I just saw him!",
                 T0004: "Come out you chicken shit!",
@@ -96,7 +95,7 @@ namespace ACatInLimbo {
         await ƒS.Character.animate(characters.pinkCat, characters.pinkCat.pose.scared, ScaredCatAnimation());
         await ƒS.update();
         await ƒS.Speech.tell(characters.protagonist, textForest.protagonist.T0003);
-        await ƒS.update()
+        await ƒS.update();
 
         //fight or flight to lake or swamp
         let FightFlight = {
@@ -107,7 +106,6 @@ namespace ACatInLimbo {
 
         switch (fightFlightRequest) {
             case FightFlight.flight:
-                ƒS.Sound.fade(sound.scaryForest, 0, 2);
                 let nextLocation = {
                     swamp: "Swamp",
                     lake: "Lake"
@@ -115,15 +113,19 @@ namespace ACatInLimbo {
                 if (dataForSave.visitedLake == true) {
                     delete nextLocation.lake
                 }
-
+                await ƒS.Character.hide(characters.spiderCreature);
+                ƒS.Sound.fade(sound.scaryForest, 0, 2);
                 let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass")
                 switch (nextLocationRequest) {
                     case nextLocation.lake:
-                        return "Lake Scene"
+                        dataForSave.currentPath = "ForestToLake";
+                        return "Map Scene"
                         break;
 
                     case nextLocation.swamp:
-                        return "Swamp Scene"
+
+                        dataForSave.currentPath = "ForestToSwamp";
+                        return "Map Scene"
                         break;
                 }
                 break;

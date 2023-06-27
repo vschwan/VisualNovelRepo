@@ -11,6 +11,16 @@ namespace ACatInLimbo {
             background: "Images/Backgrounds/bay.png"
         },
 
+        bayClose: {
+            bayClose: "BayClose",
+            background: "Images/Background/bayClose.png"
+        },
+
+        bayGlow: {
+            bayGlow: "bayGlow",
+            background: "Images/Background/bayGlow.png"
+        },
+
         lake: {
             name: "Lake",
             background: "Images/Backgrounds/lake.png"
@@ -23,7 +33,7 @@ namespace ACatInLimbo {
 
         swamp: {
             name: "Swamp",
-            background: "Images/Backgrounds/swamp.png"
+            background: "Images/Backgrounds/swampFireflies.png"
         },
 
         river: {
@@ -33,13 +43,10 @@ namespace ACatInLimbo {
 
         map: {
             name: "Map",
-            background:"./Images/Map/map.png"
+            background: "./Images/Map/map.png"
         },
 
-        meadowForest: {
-            name: "MeadowForest", 
-            background: "./Images/Map/MeadowForest.png"
-        }
+
 
 
     };
