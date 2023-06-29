@@ -12,6 +12,7 @@ namespace ACatInLimbo {
         LakeWaves:"./Audio/Ambience/waves-on-the-lake-in-summer-time-in-wav-64379.mp3",
         swamp: "./Audio/Ambience/forest-swamp-6751.mp3",
         frogs: "./Audio/Ambience/frogs-48410.mp3",
+        river: "./Audio/Ambience/river-in-the-forest-17271.mp3",
     
         //catSounds
         cathissing: "./Audio/catAudio/cathisses.wav",

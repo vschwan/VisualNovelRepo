@@ -124,7 +124,7 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.derpy1, ƒS.positionPercent(80, 95));
-        await ƒS.update();
+        await ƒS.update(1);
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.crouchedLookingAway, ƒS.positionPercent(80, 95));
         await ƒS.update();
@@ -157,7 +157,7 @@ namespace ACatInLimbo {
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.thumbsUp, ƒS.positionPercent(80, 95));
-                await ƒS.update();
+                await ƒS.update(1);
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(80, 95));
                 await ƒS.update();
@@ -180,7 +180,7 @@ namespace ACatInLimbo {
                     case getSnails.dontGetSnails:
                         await ƒS.Speech.tell(characters.protagonist, "What? No. They don't belong to you and they don't hut the creature. Maybe it wants to keep them.")
                         await ƒS.update();
-                        dataForSave.catScore = -5;
+                        dataForSave.catScore -= 5;
                         await ƒS.Character.hide(characters.pinkCat);
                         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 95));
                         await ƒS.update();
@@ -189,7 +189,7 @@ namespace ACatInLimbo {
                         break;
                     case getSnails.getSnails:
                         await ƒS.Speech.tell(characters.protagonist, textSwamp.protagonist.TD24);
-                        dataForSave.catScore = +5;
+                        dataForSave.catScore += 5;
                         await ƒS.Speech.tell(characters.pinkCat, "Thanks!");
                         await ƒS.update();
                         await ƒS.Character.hide(characters.pinkCat);

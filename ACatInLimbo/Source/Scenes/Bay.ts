@@ -6,45 +6,48 @@ namespace ACatInLimbo {
         ƒS.Speech.hide(); //Sprachfenster ausblenden
         ƒS.Sound.play(sound.smallOceanWaves, 0.5, true);
         await ƒS.Location.show(locations.bay);
-        await ƒS.update(transition.dots.duration, transition.dots.alpha, transition.dots.edge);
+        await ƒS.update(transition.wildSwirl.duration, transition.wildSwirl.alpha, transition.wildSwirl.edge);
 
         //falls man das zweite mal bei bay war --> direkt weiterleiten zur nächsten Szene
         if (dataForSave.visitedBay == true) {
             if (dataForSave.visitedLakeTwice == true) {
-                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.fromBehindLookingAway, ƒS.positionPercent(80, 95));
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.fromBehindLookingAway, ƒS.positionPercent(80,95));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, "Hey, what's up!");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.bayCreature);
-                await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.headNormal, ƒS.positionPercent(80, 95));
+                await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.headNormal, ƒS.positionPercent(60,82));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.protagonist, "Lake creature was really happy to get it's heart back!");
                 await ƒS.update();
                 await ƒS.Sound.play(sound.dive, 1, false);
                 await ƒS.Character.hide(characters.bayCreature);
-                await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.happy, ƒS.positionPercent(80, 95));
+                await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.happy, ƒS.positionPercent(60,82));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.bayCreature, "blblblbHablppy!");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.bayCreature);
-                await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.normal, ƒS.positionPercent(80, 95));
+                await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.normal, ƒS.positionPercent(60,82));
                 await ƒS.update(1);
                 await ƒS.Character.hide(characters.bayCreature);
-                await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.coin, ƒS.positionPercent(80, 95));
+                await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.coin, ƒS.positionPercent(60,82));
                 await ƒS.update(1);
                 await ƒS.Speech.tell(characters.protagonist, "Is that for us? Thank you, that's really nice!");
+                await ƒS.Inventory.add(items.Coin);
                 await ƒS.update();
                 ƒS.Text.print("a coin has been added to your inventory");
                 await ƒS.Character.hide(characters.bayCreature);
-                await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.talking, ƒS.positionPercent(80, 95));
+                await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.talking, ƒS.positionPercent(60,82));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.bayCreature, "blblbl");
                 await ƒS.update();
                 await ƒS.Sound.play(sound.dive, 1, false);
                 await ƒS.Character.hide(characters.bayCreature);
-                await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.headNormal, ƒS.positionPercent(80, 95));
+                await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.headNormal, ƒS.positionPercent(60,82));
                 await ƒS.update();
                 await ƒS.Character.hide(characters.bayCreature);
+                await ƒS.Character.hide(characters.pinkCat);
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
                 await ƒS.update(2);
                 await ƒS.Speech.tell(characters.pinkCat, "A coin? That could be helpful. Let's move on now.");
                 await ƒS.update();
@@ -74,16 +77,6 @@ namespace ACatInLimbo {
         }
 
         dataForSave.visitedBay = true;
-
-        //delete later
-        ƒS.Inventory.add(items.Snail);
-        ƒS.Inventory.add(items.Snail);
-        ƒS.Inventory.add(items.Snail);
-        ƒS.Inventory.add(items.Snail);
-        ƒS.Inventory.add(items.Fly);
-        ƒS.Inventory.add(items.Fly);
-        ƒS.Inventory.add(items.Fly);
-        console.log(items.Snail);
 
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.sleeping, ƒS.positionPercent(80, 95));
         await ƒS.update();
@@ -148,7 +141,7 @@ namespace ACatInLimbo {
             case HowToTreatGrumpyCat.solution:
                 await ƒS.Speech.tell(characters.protagonist, "Maybe you should speak with HR, I don't know how it works, but...", false);
                 await ƒS.update();
-                dataForSave.catScore = -5;
+                dataForSave.catScore -= 5;
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.crouchedLookingAway, ƒS.positionPercent(80, 95));
                 await ƒS.update();
@@ -187,7 +180,7 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.play1Small, ƒS.positionPercent(51, 84));
-        await ƒS.update();
+        await ƒS.update(1);
         await ƒS.Sound.play(sound.cuteMeowMultiple, 1.5, false);
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.play2Small, ƒS.positionPercent(51, 84));
@@ -196,8 +189,8 @@ namespace ACatInLimbo {
         await ƒS.Sound.play(sound.cathissing, 1, false);
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.scaredSmallTurnedRight, ƒS.positionPercent(40, 86));
-        await ƒS.Character.hide(characters.bayCreature);
         await ƒS.Sound.play(sound.dive, 1, false);
+        await ƒS.Character.hide(characters.bayCreature);
         await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.attack, ƒS.positionPercent(60, 82));
         await ƒS.update(1);
         await ƒS.Character.hide(characters.bayCreature);
@@ -316,6 +309,7 @@ namespace ACatInLimbo {
                                     ƒS.Inventory.subtract(items.Snail);
                                 }
                                 if (ƒS.Inventory.getAmount(items.Snail) == 0) {
+                                    dataForSave.catScore -= 5; 
                                     pickedStop = true;
                                     await ƒS.Speech.tell(characters.pinkCat, "Awesome, you used all my snails. Thanks a lot. Idiot.")
                                     ƒS.update();
@@ -381,7 +375,7 @@ namespace ACatInLimbo {
             }
         } while (!dataForSave.pickedChoice);
 
-
+        await ƒS.Character.hide(characters.bayCreature);
         //conversation about helping or not helping
         let lakeCreatureDecision = {
             help: "bring heart to lake Creature",

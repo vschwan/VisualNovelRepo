@@ -106,6 +106,8 @@ namespace ACatInLimbo {
 
         switch (fightFlightRequest) {
             case FightFlight.flight:
+                await ƒS.Character.hide(characters.spiderCreature);
+                await ƒS.update();
                 let nextLocation = {
                     swamp: "Swamp",
                     lake: "Lake"
@@ -113,7 +115,7 @@ namespace ACatInLimbo {
                 if (dataForSave.visitedLake == true) {
                     delete nextLocation.lake
                 }
-                await ƒS.Character.hide(characters.spiderCreature);
+             
                 ƒS.Sound.fade(sound.scaryForest, 0, 2);
                 let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass")
                 switch (nextLocationRequest) {
@@ -233,7 +235,6 @@ namespace ACatInLimbo {
                         await ƒS.update();
                         await ƒS.Character.hide(characters.pinkCat);
                         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
-                        //
                         await ƒS.update();
                         break;
                 }
@@ -241,6 +242,8 @@ namespace ACatInLimbo {
         }
 
         await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0013);
+        await ƒS.update();
+        await ƒS.Character.hide(characters.pinkCat);
         await ƒS.update();
 
         let nextLocation = {

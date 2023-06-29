@@ -29,6 +29,8 @@ namespace ACatInLimbo {
     pathSwampRiver: false,
     pathBayCave: false,
     pathBayRiver: false,
+    pathRiverMountain: false,
+    pathRiverCave: false,
 
     nameProtagonist: "You",
     catScore: 10,
@@ -199,6 +201,16 @@ namespace ACatInLimbo {
         glow: "./Images/Characters/creatures/bayCreature/bayGlow.png",
         happyHeart: "./Images/Characters/creatures/bayCreature/bayCreatureHappyHeart.png"
 
+      }
+    },
+
+    death:  {
+      name: "death",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        fishingLookingDown: "./Images/Characters/death/deathFishingLookingDown.png",
+        fishingLookingUp: "./Images/Characters/death/deathFishingLookingUp.png",
+        close: "./Images/Characters/death/deathClose.png"
       }
     },
 
@@ -382,15 +394,16 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
+      { id: "River Scene", scene: River, name: "River" },
       { id: "Meadow Scene", scene: Meadow, name: "meadow" },
       { id: "Forest Scene", scene: Forest, name: "Forest" },
       { id: "Lake Scene", scene: Lake, name: "lake" },
       { id: "Map Scene", scene: Map, name: "map" },
       { id: "Swamp Scene", scene: Swamp, name: "Swamp", next: "" },
-     // { id: "River Scene", scene: River, name: "River" },
+    
       { id: "Bay Scene", scene: Bay, name: "Bay" },
       // { id: "Cave Scene", scene: Cave, name: "Cave" },
-      // { id: "Mountains Scene", scene: Mountains, name: "Mountains" },
+      // { id: "Mountain Scene", scene: Mountain, name: "Mountain" },
       // { id: "Clouds", scene: Clouds, name: "Clouds" },
       // { id: "Gate", scene: Gate, name: "Gate" },
       // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst

@@ -65,13 +65,13 @@ namespace ACatInLimbo {
             await ƒS.Speech.tell(characters.protagonist, "Buddy, we got your heart!");
             await ƒS.update();
             await ƒS.Sound.play(sound.dive, 1, false);
-            await ƒS.Character.hide(characters.bayCreature);
+            await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.smile, ƒS.positionPercent(50, 75));
-            await ƒS.update();
+            await ƒS.update(1);
             ƒS.Inventory.subtract(items.Heart);
-            await ƒS.Character.hide(characters.bayCreature);
+            await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.smileHeart, ƒS.positionPercent(50, 75));
-            await ƒS.update();
+            await ƒS.update(2);
             ƒS.Inventory.add(items.Fish);
             ƒS.Inventory.add(items.Fish);
             ƒS.Inventory.add(items.Fish);
@@ -82,10 +82,13 @@ namespace ACatInLimbo {
             await ƒS.Speech.tell(characters.pinkCat, "That's really sweet! I love fishies! Yum.");
             await ƒS.update();
             await ƒS.Sound.play(sound.dive, 1, false);
-            await ƒS.Character.hide(characters.bayCreature);
+            await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.hide, ƒS.positionPercent(50, 75));
             await ƒS.update();
             await ƒS.Speech.tell(characters.protagonist, "Mission accomplished. Alright. Bye Laky!");
+            await ƒS.update();
+            await ƒS.Character.hide(characters.lakeCreature);
+            await ƒS.Character.hide(characters.pinkCat);
         } else {
 
             dataForSave.visitedLake = true;
@@ -160,10 +163,10 @@ namespace ACatInLimbo {
             await ƒS.update();
             await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0010);
             await ƒS.update();
-            await ƒS.Character.hide(characters.lakeCreature);
-            await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.heartEyes, ƒS.positionPercent(50, 75));
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(80, 95));
+            await ƒS.Character.hide(characters.lakeCreature);
+            await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.heartEyes, ƒS.positionPercent(50, 75));
             await ƒS.update(1);
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.heartEyesBroken, ƒS.positionPercent(50, 75));

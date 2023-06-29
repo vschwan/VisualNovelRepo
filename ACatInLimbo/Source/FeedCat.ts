@@ -23,8 +23,8 @@ namespace ACatInLimbo {
 
             if (ƒS.Inventory.getAmount(items.Spider) < originAmountSpider) {
                 console.log("nomnomnom");
-                ƒS.Sound.play(sound.dryFood, 1, false);
-                ƒS.Sound.fade(sound.dryFood, 1, 3, false);
+                ƒS.Sound.play(sound.dryFood, 2, false);
+                ƒS.Sound.fade(sound.dryFood, 0, 4, false);
                 originAmountSpider = ƒS.Inventory.getAmount(items.Spider);
                 dataForSave.catScore += 2;
             } if (ƒS.Inventory.getAmount(items.Spider) != originAmountSpider) {

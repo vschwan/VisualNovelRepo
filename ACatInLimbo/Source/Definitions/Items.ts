@@ -34,7 +34,7 @@ namespace ACatInLimbo {
     Fireflies: {
       name: "Fireflies",
       description: "glowing Fireflies",
-      image: ".Images/Items/fireflies.png",
+      image: "./Images/Items/fireflies.png",
       static: true
     },
     Heart: {

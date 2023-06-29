@@ -47,7 +47,8 @@ namespace ACatInLimbo {
                 T0002: "No need to panic. You're in Limbo.",
                 T0003: "Uuuuuh, I don't know anything about that Christianity stuff. This is neither a good nor a bad place though. It's an in-between.",
                 T0004: "Well, you're dead, but your soul didn't get to afterlife.",
-                T0005: "Why do you care? You can't remember them. No, honestly I don't have a clue about what happens if you get through, but good thing is, you don't have to suffer for eternity.",
+                T0005: "Why do you care? You can't remember them.",
+                T00052: "No, honestly I don't have a clue about what happens if you get through, but good thing is, you don't have to suffer for eternity.",
                 T0006: "Does sound good, ey?",
                 T0007: "Okay, you're right, I forgot, it's only a neutral place for me personally.",
                 T0008: "That's cause I'm a guide. I can give you a tour if you want?",
@@ -125,12 +126,13 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0008);
                 await ƒS.update();
-                await ƒS.Sound.play(sound.yawn, 1, false);
                 await ƒS.Character.hide(characters.pinkCat);
                 //       await ƒS.Character.hide(characters.protagonist);
                 //     await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.scared, ƒS.positionPercent(10, 95));
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening4, ƒS.positionPercent(65, 85));
                 await ƒS.update(1)
+                await ƒS.Sound.play(sound.yawn, 1, false);
+                await ƒS.Sound.fade(sound.yawn, 0, 5);
                 await ƒS.Speech.hide();
                 await ƒS.Character.hide(characters.pinkCat);
                 //   await ƒS.Character.hide(characters.protagonist);
@@ -161,6 +163,20 @@ namespace ACatInLimbo {
         await ƒS.Sound.play(sound.cuteMeow, 1, false);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalSmall, ƒS.positionPercent(75, 85));
         await ƒS.update(1);
+
+        // let itemsSpider = ƒS.Inventory.getAmount(items.Spider);
+        // if (itemsSpider > 0) {
+        //     console.log(items.Spider.static);
+        //     ƒS.Inventory.subtract(items.Spider);
+        //     ƒS.Inventory.subtract(items.Spider);
+        //     ƒS.Inventory.subtract(items.Spider);
+        //     console.log("subtract")
+        //     items.Spider.static = false;
+        //     console.log(items.Spider.static);
+        //     ƒS.Inventory.add(items.Spider);
+        //     ƒS.Inventory.add(items.Spider);
+        //     ƒS.Inventory.add(items.Spider);
+        // }
 
         //Choices for how to act towards Cat
         let approachCat = {
@@ -307,16 +323,20 @@ namespace ACatInLimbo {
                 await ƒS.update();
                 await ƒS.Sound.fade(sound.purring, 0, 2);
                 break;
-                
+
         }
 
 
         await ƒS.Character.hide(characters.pinkCat);
         //  await ƒS.Character.hide(characters.protagonist);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(80, 95));
         //await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.handsInHips, ƒS.positionPercent(10, 95));
         await ƒS.update();
         await ƒS.Speech.tell(characters.protagonist, textIntro.protagonist.T0001);
+        await ƒS.update();
+        await ƒS.Character.hide(characters.pinkCat);
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
+        await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, textIntro.pinkCat.T0001);
         await ƒS.Speech.tell(characters.protagonist, textIntro.protagonist.T0002);
         await ƒS.update();
@@ -338,6 +358,7 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.pinkCat, textIntro.pinkCat.T0004);
         await ƒS.Speech.tell(characters.protagonist, textIntro.protagonist.T0005);
         await ƒS.Speech.tell(characters.pinkCat, textIntro.pinkCat.T0005);
+        await ƒS.Speech.tell(characters.pinkCat, textIntro.pinkCat.T00052);
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.curious, ƒS.positionPercent(80, 95));

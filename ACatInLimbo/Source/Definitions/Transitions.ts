@@ -2,31 +2,32 @@ namespace ACatInLimbo {
 
   //Transitions
   export let transition = {
-    puzzle: {
-      duration: 1,
-      alpha: "FreeTransitions/JigsawThemedTransitions/puzzle.png",
-      edge: 1
-    },
-
-    swirlStuff: {
+    
+    swirlStuff: { //meadow
       duration: 1,
       alpha: "FreeTransitions/Others/027.jpg",
       edge: 1
     },
 
-    circleSwirl: {
+    circleSwirl: { //forest
       duration: 2,
       alpha: "FreeTransitions/Others/009.jpg",
       edge: 1
     },
 
-    wet1: {
+    wet: { //river
+      duration: 2,
+      alpha: "./FreeTransitions/Others/wet.jpg",
+      edge: 1
+    },
+
+    wet1: { //lake
       duration: 2,
       alpha: "./FreeTransitions/Others/002.jpg",
       edge: 1
     },
 
-    wet2: {
+    wet2: { //swamp
       duration: 2,
       alpha: "./FreeTransitions/Others/wet.jpg",
       edge: 1
@@ -38,11 +39,18 @@ namespace ACatInLimbo {
       edge: 1
     },
 
-    straightLines: {
+    wildSwirl: { //bay
+      duration: 2,
+      alpha: "./FreeTransitions/Others/012.png",
+      edge: 1
+    },
+
+    straightLines: { //map
       duration: 1,
       alpha: "./FreeTransitions/Others/005.jpg",
       edge: 1
     }
+
   }
 
 };

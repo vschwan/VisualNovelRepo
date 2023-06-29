@@ -23,6 +23,8 @@ declare namespace ACatInLimbo {
         pathSwampRiver: boolean;
         pathBayCave: boolean;
         pathBayRiver: boolean;
+        pathRiverMountain: boolean;
+        pathRiverCave: boolean;
         nameProtagonist: string;
         catScore: number;
         points: number;
@@ -168,6 +170,15 @@ declare namespace ACatInLimbo {
                 happyHeart: string;
             };
         };
+        death: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                fishingLookingDown: string;
+                fishingLookingUp: string;
+                close: string;
+            };
+        };
         path: {
             name: string;
             origin: ƒ.ORIGIN2D;
@@ -211,6 +222,7 @@ declare namespace ACatInLimbo {
         LakeWaves: string;
         swamp: string;
         frogs: string;
+        river: string;
         cathissing: string;
         demandingmeow1: string;
         demandingMeow2: string;
@@ -329,17 +341,17 @@ declare namespace ACatInLimbo {
 }
 declare namespace ACatInLimbo {
     let transition: {
-        puzzle: {
-            duration: number;
-            alpha: string;
-            edge: number;
-        };
         swirlStuff: {
             duration: number;
             alpha: string;
             edge: number;
         };
         circleSwirl: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        wet: {
             duration: number;
             alpha: string;
             edge: number;
@@ -355,6 +367,11 @@ declare namespace ACatInLimbo {
             edge: number;
         };
         dots: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        wildSwirl: {
             duration: number;
             alpha: string;
             edge: number;
@@ -397,7 +414,7 @@ declare namespace ACatInLimbo {
     function Meadow(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
-    function Mountains(): ƒS.SceneReturn;
+    function Mountain(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function River(): ƒS.SceneReturn;
