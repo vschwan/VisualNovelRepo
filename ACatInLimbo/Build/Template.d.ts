@@ -25,9 +25,11 @@ declare namespace ACatInLimbo {
         pathBayRiver: boolean;
         pathRiverMountain: boolean;
         pathRiverCave: boolean;
+        pathCaveClouds: boolean;
+        pathMountainClouds: boolean;
+        pathCloudsGate: boolean;
         nameProtagonist: string;
         catScore: number;
-        points: number;
         pickedMeterBar: boolean;
         pickedChoice: boolean;
         currentPath: string;
@@ -43,11 +45,6 @@ declare namespace ACatInLimbo {
                 scared: string;
                 thinking: string;
             };
-        };
-        narrator: {
-            name: string;
-            origin: ƒ.ORIGIN2D;
-            pose: {};
         };
         pinkCat: {
             name: string;
@@ -170,6 +167,16 @@ declare namespace ACatInLimbo {
                 happyHeart: string;
             };
         };
+        caveCreature: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+                sound: string;
+                toungeOut: string;
+                attack: string;
+            };
+        };
         death: {
             name: string;
             origin: ƒ.ORIGIN2D;
@@ -199,9 +206,34 @@ declare namespace ACatInLimbo {
                 cloudsGate: string;
             };
         };
+        riverflow: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                plain: string;
+                flow1: string;
+                flow2: string;
+                flow3: string;
+                flowWaving3: string;
+                flow4: string;
+                flowWaving4: string;
+                flow5: string;
+                flow6: string;
+            };
+        };
+        snail: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+            };
+        };
     };
     function help(): void;
     function buttonFunctionalities(_option: string): Promise<void>;
+}
+declare namespace ACatInLimbo {
+    function Map(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function ScaredCatAnimation(): ƒS.AnimationDefinition;
@@ -210,6 +242,10 @@ declare namespace ACatInLimbo {
     function spiderAnimationDisappear(): ƒS.AnimationDefinition;
     function swampCreatureAppearance(): ƒS.AnimationDefinition;
     function swampCreatureDisappearance(): ƒS.AnimationDefinition;
+    function path(): ƒS.AnimationDefinition;
+    function pathWalked(): ƒS.AnimationDefinition;
+    function snailThrow(): ƒS.AnimationDefinition;
+    function deathSlide(): ƒS.AnimationDefinition;
 }
 declare namespace ACatInLimbo {
     let sound: {
@@ -223,6 +259,7 @@ declare namespace ACatInLimbo {
         swamp: string;
         frogs: string;
         river: string;
+        happyJazz: string;
         cathissing: string;
         demandingmeow1: string;
         demandingMeow2: string;
@@ -249,6 +286,11 @@ declare namespace ACatInLimbo {
         lightbubbling: string;
         footstepsForest: string;
         footstepsGrass: string;
+        frogQuak: string;
+        frogQuaks: string;
+        snailbreak: string;
+        monster: string;
+        goats: string;
     };
 }
 declare namespace ACatInLimbo {
@@ -337,6 +379,34 @@ declare namespace ACatInLimbo {
             name: string;
             background: string;
         };
+        riverflow: {
+            name: string;
+            background: string;
+        };
+        caveEntrance: {
+            name: string;
+            background: string;
+        };
+        caveInside: {
+            name: string;
+            background: string;
+        };
+        caveInsideDark: {
+            name: string;
+            background: string;
+        };
+        caveExit: {
+            name: string;
+            background: string;
+        };
+        mountains: {
+            name: string;
+            background: string;
+        };
+        mountainGoats: {
+            name: string;
+            background: string;
+        };
     };
 }
 declare namespace ACatInLimbo {
@@ -351,7 +421,7 @@ declare namespace ACatInLimbo {
             alpha: string;
             edge: number;
         };
-        wet: {
+        hardEdges: {
             duration: number;
             alpha: string;
             edge: number;
@@ -381,16 +451,40 @@ declare namespace ACatInLimbo {
             alpha: string;
             edge: number;
         };
+        maze: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        swirl: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        circleWipeCCW: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
     };
 }
 declare namespace ACatInLimbo {
-    function BadEnding(): ƒS.SceneReturn;
+    function BadEndingCave(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function BadEndingLostCat(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function Bay(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
-    function Cave(): ƒS.SceneReturn;
+    function CaveEntrance(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function CaveExit(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function CaveInside(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function Clouds(): ƒS.SceneReturn;
@@ -406,9 +500,6 @@ declare namespace ACatInLimbo {
 }
 declare namespace ACatInLimbo {
     function Lake(): ƒS.SceneReturn;
-}
-declare namespace ACatInLimbo {
-    function Map(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function Meadow(): ƒS.SceneReturn;

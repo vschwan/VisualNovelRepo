@@ -1157,6 +1157,12 @@ var FudgeStory;
         static setClass(_class) {
             Text.dialog.className = _class;
         }
+        //   /**
+        //  * sets the ide of the dialog to enable specific styling
+        //  */
+        // static setId(_id){
+        //     Text.dialog.id = _id;
+        // }
         /**
          * adds a classname to the classlist of the dialog to enable cascading styles
          */

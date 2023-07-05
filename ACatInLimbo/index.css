@@ -77,6 +77,23 @@ speech content {
   left: 30px;
 }
 
+speech.pinkCat{
+ text-align: right;
+
+}
+speech.pinkCat name{
+  margin-right: 2%;
+  color: #fa9cec;
+  /* text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; */
+}
+speech.pinkCat content{
+  text-align: right;
+  right: 30px;
+  position: relative;
+  margin-right: 70px;
+
+}
+
 input {
   width: 20%;
   height: 20%;
@@ -84,16 +101,18 @@ input {
   color: rgb(35, 18, 49);
   font-size: 2vmin;
   border-radius: 25px;
-  border-color: rgb(232, 146, 228);
+  border-color: rgb(255, 165, 251);
+  outline: none;
 }
 
 name {
   font-size: 3vmin;
   display: block;
-  color: rgb(238, 149, 233);
+  color: rgb(168, 196, 255);
   margin-bottom: 10px;
   margin-top: 10px;
   margin-left: 27px;
+  /* text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; */
 }
 
 dialog.choicesCSSClass {
@@ -126,8 +145,8 @@ dialog.choicesCSSClass {
   background-color: rgba(255, 255, 255, 0.24);
   border: 0ch;
   border-radius: 20px;
-  right: 75%;
-  top: 2%;
+  right: 78%;
+  top: 3%;
   padding: 1px;
   float: left;
 }
@@ -145,6 +164,15 @@ dialog.choicesCSSClass {
   margin: 3px;
   border-radius: 15px;
   background-color: rgb(180, 100, 176);
+}
+
+dialog[type="text"]{
+  background-color: #dcd3a5;
+  color: #452141;
+  border-color: aliceblue;
+  border-radius: 10px;
+  border-width: 5px;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 dialog[type=splash] {
@@ -183,6 +211,7 @@ dialog[type="inventory"]>ul>li {
   margin-bottom: 10px;
   font-size: 15px;
 }
+
 dialog[type="inventory"]>ul>li.name {
   color: rgb(143, 159, 201);
   font-size: 50px;
@@ -210,7 +239,7 @@ meter::-webkit-meter-bar {
 
 meter[id="catMeter"] {
   position: absolute;
-  bottom: 90%;
+  bottom: 89%;
   left: 63%;
   width: 35%;
   height: 10%;
@@ -232,13 +261,27 @@ meter[id="catMeter"]::-webkit-meter-optimum-value {
 }
 
 input[id="scoreForCat"] {
-  color: rgb(255, 248, 253);
-  font-size: 16pt;
+  color: rgb(255, 255, 255);
+  background-color: #e5cfda00;
+  font-size: 25pt;
   position: absolute;
-  bottom: 89%;
+  bottom: 93%;
   width: 3%;
   height: 2%;
+  left: 63%;
   margin-left: 1%;
-  border-color: #eedd7e;
-  border:0cap;
+  border: 0ch;
+}
+/* dialog.TextPrint{
+  background-color: #dcd3a5;
+  color: #452141;
+  border-color: aliceblue;
+  border-radius: 10px;
+  border-width: 5px;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
+} */
+
+dialog.credits {
+  color: rgb(12, 64, 64);
+  background-color: rgb(231, 179, 238);
 }

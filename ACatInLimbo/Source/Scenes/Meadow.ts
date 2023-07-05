@@ -43,7 +43,7 @@ namespace ACatInLimbo {
             },
 
             pinkCat: {
-                T0001: "A warm Hello to you too, good sir. You're dead!",
+                T0001: "A warm Hello to you too, good sir. Looks like you're pretty dead!",
                 T0002: "No need to panic. You're in Limbo.",
                 T0003: "Uuuuuh, I don't know anything about that Christianity stuff. This is neither a good nor a bad place though. It's an in-between.",
                 T0004: "Well, you're dead, but your soul didn't get to afterlife.",
@@ -55,15 +55,9 @@ namespace ACatInLimbo {
                 T0009: "To the gate to afterlife you dummy! Want to get out of here and avoid eternal suffering or do you want to stay?"
             }
         }
-        //Hide MeterBar
-        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
-        document.getElementById("scoreForCat").style.display = "none";
-        //  buttonFunctionalities("Open");
-
-        // if (dataForSave.openMap==false){
-        //     dataForSave.openMap = true;
-        //     openMap();
-        // }
+        // document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        // document.getElementById("scoreForCat").style.display = "";
+        // dataForSave.catScore += 5;
 
 
         //Intro
@@ -72,19 +66,15 @@ namespace ACatInLimbo {
         await ƒS.Location.show(locations.meadow);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening1, ƒS.positionPercent(65, 85));
         await ƒS.update(transition.swirlStuff.duration, transition.swirlStuff.alpha, transition.swirlStuff.edge);
-        // ƒS.update();
-        //  await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.front, ƒS.positionPercent(10, 95));
-        //  await ƒS.update(2);
         await new Promise(resolve => setTimeout(resolve, 3000));
-        // help();
-        // await new Promise(resolve => setTimeout(resolve, 4000));
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0001);
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0002);
-        await ƒS.update(1);
+        await ƒS.update();
         //  await ƒS.Character.hide(characters.protagonist);
         //  await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
         dataForSave.nameProtagonist = await ƒS.Speech.getInput();
         await ƒS.update();
+        // dataForSave.catScore -= 5;
         //UpdateName();
         characters.protagonist.name = dataForSave.nameProtagonist;  //Danke für nichts. Keine ahnung wie das gehen soll. Ich kann die protagonist figuren nciht mehr hiden wenn ich das mache 
         console.log(dataForSave.nameProtagonist);
@@ -126,18 +116,15 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0008);
                 await ƒS.update();
+                await ƒS.Speech.hide();
+                await ƒS.update();
+                await ƒS.Sound.play(sound.yawn, 1, false);
                 await ƒS.Character.hide(characters.pinkCat);
-                //       await ƒS.Character.hide(characters.protagonist);
-                //     await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.scared, ƒS.positionPercent(10, 95));
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening4, ƒS.positionPercent(65, 85));
                 await ƒS.update(1)
-                await ƒS.Sound.play(sound.yawn, 1, false);
-                await ƒS.Sound.fade(sound.yawn, 0, 5);
-                await ƒS.Speech.hide();
                 await ƒS.Character.hide(characters.pinkCat);
-                //   await ƒS.Character.hide(characters.protagonist);
-                // await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening5, ƒS.positionPercent(65, 85));
+                await ƒS.Sound.fade(sound.yawn, 0, 5);
                 await ƒS.update(1);
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening6, ƒS.positionPercent(65, 85));
@@ -189,19 +176,17 @@ namespace ACatInLimbo {
         let approachCatRequest = await ƒS.Menu.getInput(approachCat, "choicesCSSClass");
         //Show MeterBar 
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
-        //  document.getElementById("scoreForCat").style.display = "";
+        // document.getElementById("scoreForCat").style.display = "";
 
         switch (approachCatRequest) {
             case approachCat.approachCatCarefully:
                 console.log("Carefully approach cat");
                 dataForSave.catScore += 5;
                 await ƒS.Character.hide(characters.pinkCat);
-                //  await ƒS.Character.hide(characters.protagonist);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.curiousSmall, ƒS.positionPercent(75, 85));
-                //await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.side, ƒS.positionPercent(10, 95));
                 await ƒS.Sound.play(sound.purrMeow, 1, false);
                 await ƒS.update();
-                ƒS.Text.print("Hint: You just got some affection points. <p>The Lovemeter in the right corner shows how much the cat likes you.</p>Try to give it some food (if you have some) out of your Inventory (I) to please it.<p>If the cat doesn't like you anymore, it's gonna leave.</p>");
+                ƒS.Text.print("Hint: You just got some affection points. <p>The Lovemeter in the right corner shows how much the cat likes you.</p>Try to give it some food (if you have some) out of your Inventory to please it.<p>If the cat doesn't like you anymore, it's gonna leave.</p>");
                 await ƒS.Speech.tell(characters.pinkCat, textAwakening.pinkCat.T0005);
                 await ƒS.update();
                 break;
@@ -215,7 +200,7 @@ namespace ACatInLimbo {
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.scaredSmall, ƒS.positionPercent(75, 85));
                 // await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
                 await ƒS.update();
-                ƒS.Text.print("Hint: You just lost some affection points. <p>The Lovemeter in the right corner shows how much the cat likes you.</p><p>Try to give it some food (if you have some) out of your Inventory (I) to please it.</p><p>If the cat doesn't like you anymore, it's gonna leave.</p>");
+                ƒS.Text.print("Hint: You just lost some affection points. <p>The Lovemeter in the right corner shows how much the cat likes you.</p><p>Try to give it some food (if you have some) out of your Inventory to please it.</p><p>If the cat doesn't like you anymore, it's gonna leave.</p>");
                 await ƒS.Speech.tell(characters.pinkCat, textAwakening.pinkCat.T0001);
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0010);
                 await ƒS.Speech.tell(characters.pinkCat, textAwakening.pinkCat.T0002);
@@ -307,7 +292,7 @@ namespace ACatInLimbo {
                     }
                 } while (!dataForSave.pickedChoice);
 
-                await ƒS.update(3);
+                await ƒS.update(2);
                 console.log("cat is happy and you got +20 in lovebar");
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.hide(characters.stonePedestal);
@@ -315,7 +300,7 @@ namespace ACatInLimbo {
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.lovelySmall, ƒS.positionPercent(75, 85));
                 await ƒS.Character.show(characters.stonePedestal, characters.stonePedestal.pose.stonePedestal, ƒS.positionPercent(65, 85));
                 await ƒS.update();
-                ƒS.Text.print("Hint: You just got a lot of affection points. <p>The Lovemeter in the right corner shows how much the cat likes you.</p>Try to give it some food (if you have some) out of your Inventory (I) to please it.<p>If the cat doesn't like you anymore, it's gonna leave.</p>");
+                ƒS.Text.print("Hint: You just got a lot of affection points. <p>The Lovemeter in the right corner shows how much the cat likes you.</p>Try to give it some food (if you have some) out of your Inventory to please it.<p>If the cat doesn't like you anymore, it's gonna leave.</p>");
                 await ƒS.Speech.tell(characters.pinkCat, textAwakening.pinkCat.T0006);
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);

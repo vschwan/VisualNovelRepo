@@ -1,11 +1,10 @@
 namespace ACatInLimbo {
   export import ƒ = FudgeCore;
   export import ƒS = FudgeStory;
-  console.log("FudgeStory template Bitch starting");
+  console.log("FudgeStory template starting");
   let gameMenu: ƒS.Menu;
   //open entspricht Menu ist offen und false zu
   let menuIsOpen: boolean = true;
-  //export let toogleSnailUsability: boolean; 
 
   export let dataForSave = {
     // changeUsabilityItem: true,
@@ -31,11 +30,14 @@ namespace ACatInLimbo {
     pathBayRiver: false,
     pathRiverMountain: false,
     pathRiverCave: false,
+    pathCaveClouds: false,
+    pathMountainClouds: false,
+    pathCloudsGate: false,
 
     nameProtagonist: "You",
     catScore: 10,
-    // scoreForCat: "",
-    points: 0,
+    // scoreForCat: "0",
+    // points: 0,
     pickedMeterBar: false,
     pickedChoice: false,
     currentPath: "",
@@ -46,10 +48,16 @@ namespace ACatInLimbo {
     //hier auch Punkte verteilungssystem-Variable reinhauen
   };
 
+  //SCHEISSE
+  // export async function scheisse(): Promise<void> {
+  //   if (dataForSave.catScore < 7) {
+  //     alert("Be careful now. The cat is not fond of you at the moment.");
+  //     console.log("achtung");
+  //   }
+  // }
 
-
+  //CHARACTERS
   export let characters = {
-
     protagonist: {
       name: dataForSave.nameProtagonist,
       origin: ƒS.ORIGIN.BOTTOMCENTER,
@@ -62,15 +70,8 @@ namespace ACatInLimbo {
       }
     },
 
-    narrator: {
-      name: "Narrator",
-      origin: ƒS.ORIGIN.BOTTOMCENTER,
-      pose: {}
-    },
-
-
     pinkCat: {
-      name: "pink Cat",
+      name: "pinkCat",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         //pink Cat poses regular
@@ -183,7 +184,7 @@ namespace ACatInLimbo {
     },
 
     bayCreature: {
-      name: "bay Creature",
+      name: "Bay Creature",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         armSide: "./Images/Characters/creatures/bayCreature/bayCreatureArmsSide.png",
@@ -203,9 +204,20 @@ namespace ACatInLimbo {
 
       }
     },
+    caveCreature: {
+      name: "Cave Creature",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        normal: "./Images/Characters/creatures/caveCreature/CaveCreatureNormal.png",
+        sound: "./Images/Characters/creatures/caveCreature/CaveCreatureSound.png",
+        toungeOut: "./Images/Characters/creatures/caveCreature/CaveCreaturOpenMouth.png",
+        attack: "./Images/Characters/creatures/caveCreature/CaveCreatureAttack.png"
+      }
+    },
 
-    death:  {
-      name: "death",
+
+    death: {
+      name: "Death",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         fishingLookingDown: "./Images/Characters/death/deathFishingLookingDown.png",
@@ -233,37 +245,31 @@ namespace ACatInLimbo {
         caveClouds: "./Images/Map/CaveClouds.png",
         cloudsGate: "./Images/Map/CloudsGate.png"
       }
+    },
+    riverflow: {
+      name: "Riverflow",
+      origin: ƒS.ORIGIN.CENTER,
+      pose: {
+        plain: "./Images/Backgrounds/riverflow/riverflow.png",
+        flow1: "./Images/Backgrounds/riverflow/riverflow1.png",
+        flow2: "./Images/Backgrounds/riverflow/riverflow2.png",
+        flow3: "./Images/Backgrounds/riverflow/riverflow3.png",
+        flowWaving3: "./Images/Backgrounds/riverflow/riverflow3Waving.png",
+        flow4: "./Images/Backgrounds/riverflow/riverflow4.png",
+        flowWaving4: "./Images/Backgrounds/riverflow/riverflow4Waving.png",
+        flow5: "./Images/Backgrounds/riverflow/riverflow5.png",
+        flow6: "./Images/Backgrounds/riverflow/riverflow6.png"
+
+      }
+    },
+    snail: {
+      name: "Snail",
+      origin: ƒS.ORIGIN.BOTTOMCENTER,
+      pose: {
+        normal: "./Images/Items/snail.png"
+      }
     }
-    //Items as Characters
   };
-
-
-  // let map: HTMLImageElement = <HTMLImageElement>document.createElement("img")
-  // let getP: HTMLParagraphElement = <HTMLParagraphElement>document.querySelector("#mapHolder");
-  // map.src = "./Images/VN_map_vector.png";
-
-  // export function openMap() {
-  //   let map: HTMLImageElement = <HTMLImageElement>document.createElement("img")
-  //   let getP: HTMLParagraphElement = <HTMLParagraphElement>document.querySelector("#mapHolder");
-  //   map.src = "./Images/VN_map_vector.png";
-  //   dataForSave.openMap = true;
-  //   console.log("open map");
-  //   getP.appendChild(map);
-  //   ƒS.Text.print(dataForSave.currentPlace);
-  // }
-
-  // export function closeMap() {
-  //   dataForSave.openMap = false;
-  //   console.log("close map");
-  //   getP.removeChild(map);
-  // }
-  /*export function UpdateName(): void {
-    characters.protagonist.name = dataForSave.nameProtagonist;
-  }*/
-
-  // export function ItemUse(): void {
-
-  // }
 
   //INVENTORY
   // export function OpenInventory(): void {
@@ -279,15 +285,26 @@ namespace ACatInLimbo {
   */
 
 
-  //Credits
-  function credits(): void {
-    ƒS.Text.print("All characters are drawn by Valentina Schwan");
-  }
-
   //Help
   export function help(): void {
+    ƒS.Text.setClass("TextPrint");
     ƒS.Text.print("<p>In this game you can find a Lovemeter in the right corner of the screen. It shows the affection the pink Cat feels towards you.</p><p>Open your Inventory through the menu to feed your Cat with items you collect throughout the story to make it like you more.</p><p>Be careful it doesn't leave you!</p><p>Shortcuts:</p><p>Menu: M</p><p>Save: S</p><p>Load: L</p><p>Help: H</p><p>Credits: C</p>");
   }
+
+  //Credits
+  function credits(): void {
+    ƒS.Text.addClass("credits");
+    ƒS.Text.print("Credits: All characters are drawn by Valentina Schwan");
+  }
+
+
+  // if (dataForSave.scoreForCat != dataForSave.catScore.toString()) {
+  //   //show score in meter bar
+  //   dataForSave.scoreForCat = dataForSave.catScore.toString();
+  //   // let showScore: HTMLInputElement = <HTMLInputElement>document.getElementById("scoreForCat");
+  //   // document.getElementById("scoreForCat").setAttribute("value", dataForSave.scoreForCat);
+  //   // showScore.setAttribute("value", dataForSave.catScore.toString());
+  // }
 
   //MENU
   let inGameMenuButtons = {
@@ -383,28 +400,34 @@ namespace ACatInLimbo {
         break;
     }
   }
+
   window.addEventListener("load", start);
   function start(_event: Event): void {
     //Menu
     gameMenu = ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenuCSS");
     // buttonFunctionalities("Close");
 
+
     //Hide MeterBar
     document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
-    document.getElementById("scoreForCat").style.display = "none";
+    // document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
-      { id: "River Scene", scene: River, name: "River" },
       { id: "Meadow Scene", scene: Meadow, name: "meadow" },
       { id: "Forest Scene", scene: Forest, name: "Forest" },
       { id: "Lake Scene", scene: Lake, name: "lake" },
       { id: "Map Scene", scene: Map, name: "map" },
       { id: "Swamp Scene", scene: Swamp, name: "Swamp", next: "" },
-    
+      { id: "River Scene", scene: River, name: "River" },
       { id: "Bay Scene", scene: Bay, name: "Bay" },
-      // { id: "Cave Scene", scene: Cave, name: "Cave" },
-      // { id: "Mountain Scene", scene: Mountain, name: "Mountain" },
-      // { id: "Clouds", scene: Clouds, name: "Clouds" },
+      { id: "Mountain Scene", scene: Mountain, name: "Mountain" },
+      { id: "Cave Entrance Scene", scene: CaveEntrance, name: "Cave Entrance" },
+      { id: "Cave Inside Scene", scene: CaveInside, name: "Cave Inside" },
+      { id: "Cave Exit Scene", scene: CaveExit, name: "Cave Exit" },
+      { id: "BadEnding Cave Scene", scene: BadEndingCave, name: "BadEnding Cave" },
+      { id: "BadEnding LostCat Scene", scene: BadEndingLostCat, name: "BadEnding Frog" },
+
+      // { id: "Clouds Scene", scene: Clouds, name: "Clouds" },
       // { id: "Gate", scene: Gate, name: "Gate" },
       // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
       // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 

@@ -38,13 +38,49 @@ namespace ACatInLimbo {
 
         river: {
             name: "River",
-            background: "Images/Backgrounds/swampRiver.png"
+            background: "Images/Backgrounds/river.png"
         },
 
         map: {
             name: "Map",
             background: "./Images/Map/map.png"
         },
+        riverflow: {
+            name: "Riverflow",
+            background: "./Images/Backgrounds/riverflow/riverflow.png"
+        },
+
+        caveEntrance: {
+            name: "CaveEntrance",
+            background: "./Images/Backgrounds/entranceCave.png"
+        },
+
+        caveInside: {
+            name: "CaveInside",
+            background: "./Images/Backgrounds/insideCave.png"
+        },
+
+        caveInsideDark:{
+            name: "CaveInsideDark",
+            background: "./Images/Backgrounds/insideCaveDark.png"
+        },
+
+        caveExit: {
+            name: "CaveExit",
+            background: "./Images/Backgrounds/exitCave.png"
+        },
+
+        mountains: {
+            name:"Mountains",
+            background: "./Images/Backgrounds/mountains.png"
+        },
+        mountainGoats: {
+            name:"MountainGoats",
+            background: "./Images/Backgrounds/mountainsGoats.png"
+        }
+       
+
+
 
 
 

@@ -2,6 +2,7 @@ namespace ACatInLimbo {
 
     export async function Swamp(): ƒS.SceneReturn {
         console.log("Scene starting: Swamp");
+        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
 
         let textSwamp = {
             protagonist: {
@@ -190,6 +191,10 @@ namespace ACatInLimbo {
                     case getSnails.getSnails:
                         await ƒS.Speech.tell(characters.protagonist, textSwamp.protagonist.TD24);
                         dataForSave.catScore += 5;
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.pinkCat);
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.lovely, ƒS.positionPercent(80, 95));
+                        await ƒS.update();
                         await ƒS.Speech.tell(characters.pinkCat, "Thanks!");
                         await ƒS.update();
                         await ƒS.Character.hide(characters.pinkCat);
@@ -216,6 +221,7 @@ namespace ACatInLimbo {
                 await ƒS.update(2);
                 await ƒS.Speech.tell(characters.protagonist, textSwamp.protagonist.TD25);
                 await ƒS.update();
+                await ƒS.Sound.play(sound.lightbubbling, 1, false);
                 await ƒS.Character.hide(characters.swampCreature);
                 await ƒS.Character.show(characters.swampCreature, characters.swampCreature.pose.smile, ƒS.positionPercent(30, 85));
                 await ƒS.Character.hide(characters.pinkCat);
@@ -244,7 +250,7 @@ namespace ACatInLimbo {
 
                 break;
             case helpSwampCreature.dontHelp:
-                dataForSave.catScore -= 5;
+                dataForSave.catScore -= 15;
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(80, 95));
                 await ƒS.update();

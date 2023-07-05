@@ -31,9 +31,12 @@ namespace ACatInLimbo {
         //  ƒS.Sound.fade(sound.forestSound, 1, 0.0, true);
 
         await ƒS.Location.show(locations.forest);
-        await ƒS.update(transition.puzzle.duration, transition.puzzle.alpha, transition.puzzle.edge);
+        await ƒS.update(transition.wet2.duration, transition.wet2.alpha, transition.wet2.edge);
 
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(60, 90));
+        await ƒS.update();
+        await ƒS.Character.animate(characters.pinkCat, characters.pinkCat.pose.scared, ScaredCatAnimation());
+
 
         await ƒS.update(); //nach jeder location updaten 
         await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0001); //maßstabgetreue Grafiken verwenden! 

@@ -39,10 +39,10 @@ namespace ACatInLimbo {
                 T0014: "See, we're nice! Do you remember me?",
                 T0015: "Ui, that's gonna be difficult.",
                 T0016: "It got lost here. Like you, if we don't stay on our path.",
-                T0017: "Not exactly, but yeah. You're probably not gonna turn into a spider I think. Everyone's different.",
+                T0017: "Not exactly, but yeah. You're probably not gonna turn into a spider, I think. Everyone's different.",
                 T0018: "Yeah. So, buddy have you got any treats for me maybe?",
                 T0019: "OMD, that was almost a word!",
-                T0020: "Thank you my friend. Take it easy okay?"
+                T0020: "Thank you, my friend. Take it easy, okay?"
             },
 
             spiderCreature: {
@@ -61,6 +61,9 @@ namespace ACatInLimbo {
         ƒS.Sound.play(sound.scaryForest, 2, true);
         await ƒS.Location.show(locations.forest);
         await ƒS.update(transition.circleSwirl.duration, transition.circleSwirl.alpha, transition.circleSwirl.edge);
+
+        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+
         await ƒS.update(2);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.walking, ƒS.positionPercent(80, 95));
         await ƒS.update(1);
@@ -75,7 +78,7 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0002);
         await ƒS.update();
         //creature can be seen
-        await ƒS.Character.animate(characters.spiderCreature, characters.spiderCreature.pose.normal, spiderAnimationHide())
+        await ƒS.Character.animate(characters.spiderCreature, characters.spiderCreature.pose.normal, spiderAnimationHide());
         await ƒS.Sound.play(sound.horrorDrum1, 1);
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
@@ -85,7 +88,7 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0004);
         await ƒS.update();
         //Creature appears
-        await ƒS.Character.animate(characters.spiderCreature, characters.spiderCreature.pose.normal, spiderAnimationAppear())
+        await ƒS.Character.animate(characters.spiderCreature, characters.spiderCreature.pose.normal, spiderAnimationAppear());
         await ƒS.update(2);
         await ƒS.Character.hideAll();
         await ƒS.Sound.play(sound.horrorDrum2, 1);
@@ -150,7 +153,15 @@ namespace ACatInLimbo {
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(80, 95));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0007);
+                await ƒS.update();
+                await ƒS.Character.hide(characters.pinkCat);
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
+                await ƒS.update();
                 await ƒS.Speech.tell(characters.protagonist, textForest.protagonist.T0004);
+                await ƒS.update();
+                await ƒS.Character.hide(characters.pinkCat);
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(80, 95));
+                await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0008);
                 await ƒS.Speech.tell(characters.protagonist, textForest.protagonist.T0005);
                 await ƒS.update();
@@ -161,13 +172,13 @@ namespace ACatInLimbo {
                 await ƒS.update();
 
                 let HowToTreatSpider = {
-                    berate: "berate spider creature",
+                    insult: "berate spider creature",
                     console: "console spider creature"
                 }
                 let HowToTreatSpiderRequest = await ƒS.Menu.getInput(HowToTreatSpider, "choicesCSSClass")
 
                 switch (HowToTreatSpiderRequest) {
-                    case HowToTreatSpider.berate:
+                    case HowToTreatSpider.insult:
                         await ƒS.Character.hideAll();
                         await ƒS.Character.show(characters.spiderCreature, characters.spiderCreature.pose.sad, ƒS.positionPercent(50, 50));
                         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 95))
@@ -186,7 +197,7 @@ namespace ACatInLimbo {
                         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(80, 95));
                         await ƒS.update();
                         await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0011);
-                        dataForSave.catScore -= 5;
+                        dataForSave.catScore -= 10;
                         await ƒS.update();
                         await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0012);
                         await ƒS.update();

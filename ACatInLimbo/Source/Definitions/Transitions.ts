@@ -2,9 +2,9 @@ namespace ACatInLimbo {
 
   //Transitions
   export let transition = {
-    
+
     swirlStuff: { //meadow
-      duration: 1,
+      duration: 2,
       alpha: "FreeTransitions/Others/027.jpg",
       edge: 1
     },
@@ -15,13 +15,13 @@ namespace ACatInLimbo {
       edge: 1
     },
 
-    wet: { //river
-      duration: 2,
-      alpha: "./FreeTransitions/Others/wet.jpg",
+    hardEdges: { //mountains
+      duration: 3,
+      alpha: "./FreeTransitions/Others/024.jpg",
       edge: 1
     },
 
-    wet1: { //lake
+    wet1: { //lake, mountains:riverflow
       duration: 2,
       alpha: "./FreeTransitions/Others/002.jpg",
       edge: 1
@@ -31,9 +31,9 @@ namespace ACatInLimbo {
       duration: 2,
       alpha: "./FreeTransitions/Others/wet.jpg",
       edge: 1
-    }, 
+    },
 
-    dots: {
+    dots: { //river
       duration: 2,
       alpha: "./FreeTransitions/Others/017.png",
       edge: 1
@@ -41,13 +41,31 @@ namespace ACatInLimbo {
 
     wildSwirl: { //bay
       duration: 2,
-      alpha: "./FreeTransitions/Others/012.png",
+      alpha: "./FreeTransitions/Others/012.jpg",
       edge: 1
     },
 
     straightLines: { //map
       duration: 1,
       alpha: "./FreeTransitions/Others/005.jpg",
+      edge: 1
+    },
+
+    maze: { //Cave Entrance
+      duration: 1,
+      alpha: "./FreeTransitions/Others/003.jpg",
+      edge: 1
+    },
+
+    swirl: { //Cave Inside
+      duration: 1,
+      alpha: "./FreeTransitions/Others/swirl.png",
+      edge: 1
+    },
+
+    circleWipeCCW: { //Cave Exit
+      duration: 1,
+      alpha: "./FreeTransitions/WipesAndOther/circlewipe-ccw.jpg",
       edge: 1
     }
 

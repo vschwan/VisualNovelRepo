@@ -4,9 +4,7 @@ namespace ACatInLimbo {
     export let originAmountSpider: number = 0;
     export let originAmountFly: number = 0;
   //  export let originAmountSnail: number = 0;
-
     export let bayCreatureFed = false;
-
     let startGame: boolean = true;
 
     setInterval(() => {

@@ -2,6 +2,7 @@ namespace ACatInLimbo {
 
     export async function Lake(): ƒS.SceneReturn {
         console.log("Scene starting: Lake");
+        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
 
         let textLake = {
             protagonist: {
@@ -135,10 +136,17 @@ namespace ACatInLimbo {
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.sideEye, ƒS.positionPercent(50, 75));
             await ƒS.Character.hide(characters.pinkCat);
+            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
+            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0006);
+            await ƒS.update();
+            await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(80, 95));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0006);
             await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0007);
+            await ƒS.update();
+            await ƒS.Character.hide(characters.pinkCat);
+            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
+            await ƒS.update();
             await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0007);
             await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0008);
             await ƒS.update();
@@ -178,6 +186,9 @@ namespace ACatInLimbo {
             await ƒS.update();
             await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0011);
             await ƒS.update();
+            await ƒS.Character.hide(characters.pinkCat);
+            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(80, 95));
+            await ƒS.update();
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.hardCry, ƒS.positionPercent(50, 75));
             await ƒS.update();
@@ -196,7 +207,7 @@ namespace ACatInLimbo {
 
             switch (JudgeStatementRequest) {
                 case JudgeStatement.agree:
-                    dataForSave.catScore += 2;
+                    dataForSave.catScore += 5;
                     await ƒS.update();
                     await ƒS.Character.hide(characters.pinkCat);
                     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));

@@ -2,12 +2,15 @@ namespace ACatInLimbo {
 
     export async function River(): ƒS.SceneReturn {
         console.log("Scene starting: River");
+        // ƒS.Inventory.add(items.Coin);
+        // dataForSave.visitedRiver = true;
+        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
 
         ƒS.Speech.hide(); //Sprachfenster ausblenden
         ƒS.Sound.play(sound.river, 1, true);
         await ƒS.Location.show(locations.river);
-        await ƒS.update(transition.wet.duration, transition.wet.alpha, transition.wet.edge);
-        await ƒS.Character.show(characters.death, characters.death.pose.fishingLookingDown, ƒS.positionPercent(50, 50));
+        await ƒS.update(transition.dots.duration, transition.dots.alpha, transition.dots.edge);
+        await ƒS.Character.show(characters.death, characters.death.pose.fishingLookingDown, ƒS.positionPercent(45, 82));
         await ƒS.update();
 
         //second time river
@@ -16,7 +19,7 @@ namespace ACatInLimbo {
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
                 await ƒS.update();
                 await ƒS.Character.hide(characters.death);
-                await ƒS.Character.show(characters.death, characters.death.pose.close, ƒS.positionPercent(50, 50));
+                await ƒS.Character.show(characters.death, characters.death.pose.close, ƒS.positionPercent(20,100));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.death, "So?");
                 await ƒS.update();
@@ -68,7 +71,7 @@ namespace ACatInLimbo {
             await ƒS.update();
             await ƒS.Sound.play(sound.horrorDrum2, 1, false);
             await ƒS.Character.hide(characters.death);
-            await ƒS.Character.show(characters.death, characters.death.pose.fishingLookingUp, ƒS.positionPercent(50, 50));
+            await ƒS.Character.show(characters.death, characters.death.pose.fishingLookingUp, ƒS.positionPercent(45, 82));
             await ƒS.update();
             await new Promise(resolve => setTimeout(resolve, 3000));
             await ƒS.Speech.tell(characters.protagonist, "Why is he not answering?");
@@ -125,8 +128,12 @@ namespace ACatInLimbo {
             let payDeathDecisionRequest = await ƒS.Menu.getInput(payDeathDecision, "choicesCSSClass");
             switch (payDeathDecisionRequest) {
                 case payDeathDecision.accept:
+                    dataForSave.catScore += 5;
                     await ƒS.Speech.tell(characters.protagonist, "Whatever. Let's go!");
                     ƒS.Inventory.subtract(items.Coin);
+                    await ƒS.update();
+                    await ƒS.Character.hide(characters.pinkCat);
+                    await ƒS.Character.hide(characters.death);
                     await ƒS.update();
 
                     dataForSave.currentPath = "RiverToMountain";
@@ -140,7 +147,7 @@ namespace ACatInLimbo {
                     await ƒS.Speech.tell(characters.death, "Pah! Good luck.");
                     await ƒS.update();
                     await ƒS.Character.hide(characters.death);
-                    await ƒS.Character.show(characters.death, characters.death.pose.fishingLookingDown, ƒS.positionPercent(50, 50));
+                    await ƒS.Character.show(characters.death, characters.death.pose.fishingLookingDown, ƒS.positionPercent(45, 82));
                     await ƒS.Character.hide(characters.pinkCat);
                     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(80, 95));
                     await ƒS.update();
@@ -174,7 +181,7 @@ namespace ACatInLimbo {
             await ƒS.Speech.tell(characters.protagonist, "What?");
             await ƒS.update();
             await ƒS.Character.hide(characters.death);
-            await ƒS.Character.show(characters.death, characters.death.pose.fishingLookingDown, ƒS.positionPercent(50, 50));
+            await ƒS.Character.show(characters.death, characters.death.pose.fishingLookingDown, ƒS.positionPercent(45, 82));
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(80, 95));
             await ƒS.update();
