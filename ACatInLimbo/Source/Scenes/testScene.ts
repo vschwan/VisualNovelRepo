@@ -101,7 +101,7 @@ namespace ACatInLimbo {
             case dialogue.iSayBla:
                 //continue path here
                 console.log("answer: Bla");
-                ƒS.Sound.play(sound.demandingmeow1, 1, false);
+                ƒS.Sound.play(sound.demanding, 1, false);
                 await ƒS.Speech.tell(characters.pinkCat, text.pinkCat.T0004);
 
                 //METERBAR

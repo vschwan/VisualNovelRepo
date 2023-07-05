@@ -51,8 +51,7 @@ namespace ACatInLimbo {
         }
 
         ƒS.Speech.hide(); //Sprachfenster ausblenden
-        ƒS.Sound.play(sound.lakeSound, 1, true);
-        ƒS.Sound.play(sound.LakeWaves, 0.5, true);
+        ƒS.Sound.play(sound.LakeWaves, 1, true);
         await ƒS.Location.show(locations.lake);
         await ƒS.update(transition.wet1.duration, transition.wet1.alpha, transition.wet1.edge);
 
@@ -283,7 +282,6 @@ namespace ACatInLimbo {
         }
 
         ƒS.Sound.fade(sound.LakeWaves, 0, 2);
-        ƒS.Sound.fade(sound.lakeSound, 0, 2);
         let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass")
         switch (nextLocationRequest) {
             case nextLocation.forest:

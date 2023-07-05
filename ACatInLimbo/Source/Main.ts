@@ -295,8 +295,8 @@ namespace ACatInLimbo {
   function credits(): void {
     ƒS.Text.addClass("credits");
     ƒS.Text.print("Credits: All characters are drawn by Valentina Schwan");
-  }
 
+  }
 
   // if (dataForSave.scoreForCat != dataForSave.catScore.toString()) {
   //   //show score in meter bar

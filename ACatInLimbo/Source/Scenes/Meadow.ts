@@ -196,7 +196,7 @@ namespace ACatInLimbo {
                 dataForSave.catScore -= 5;
                 await ƒS.Character.hide(characters.pinkCat);
                 //   await ƒS.Character.hide(characters.protagonist);
-                await ƒS.Sound.play(sound.growling3, 1, false);
+                await ƒS.Sound.play(sound.growling, 1, false);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.scaredSmall, ƒS.positionPercent(75, 85));
                 // await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
                 await ƒS.update();
