@@ -4,6 +4,7 @@ namespace ACatInLimbo {
 
         ƒS.Speech.hide();
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
+        document.getElementById("scoreForCat").style.display = "none";
         ƒS.Location.show(locations.map);
         await ƒS.update(transition.straightLines.duration, transition.straightLines.alpha, transition.straightLines.edge);
         await ƒS.update(1);

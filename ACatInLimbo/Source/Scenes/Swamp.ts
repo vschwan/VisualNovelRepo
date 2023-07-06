@@ -3,6 +3,7 @@ namespace ACatInLimbo {
     export async function Swamp(): ƒS.SceneReturn {
         console.log("Scene starting: Swamp");
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
 
         let textSwamp = {
             protagonist: {

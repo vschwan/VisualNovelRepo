@@ -2,7 +2,6 @@ declare namespace ACatInLimbo {
     let originAmountFish: number;
     let originAmountSpider: number;
     let originAmountFly: number;
-    let bayCreatureFed: boolean;
 }
 declare namespace ACatInLimbo {
     export import ƒ = FudgeCore;
@@ -29,11 +28,82 @@ declare namespace ACatInLimbo {
         pathMountainClouds: boolean;
         pathCloudsGate: boolean;
         nameProtagonist: string;
+        catLeaving: boolean;
         catScore: number;
+        scoreForCat: number;
         pickedMeterBar: boolean;
         pickedChoice: boolean;
         currentPath: string;
     };
+}
+declare namespace ACatInLimbo {
+    function Map(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    let gameMenu: ƒS.Menu;
+    let menuIsOpen: boolean;
+    let inGameMenuButtons: {
+        save: string;
+        load: string;
+        inventory: string;
+        credits: string;
+        help: string;
+        close: string;
+    };
+    function buttonFunctionalities(_option: string): Promise<void>;
+    function help(): void;
+    function credits(): Promise<void>;
+}
+declare namespace ACatInLimbo {
+    function ScaredCatAnimation(): ƒS.AnimationDefinition;
+    function spiderAnimationHide(): ƒS.AnimationDefinition;
+    function spiderAnimationAppear(): ƒS.AnimationDefinition;
+    function spiderAnimationDisappear(): ƒS.AnimationDefinition;
+    function swampCreatureAppearance(): ƒS.AnimationDefinition;
+    function swampCreatureDisappearance(): ƒS.AnimationDefinition;
+    function path(): ƒS.AnimationDefinition;
+    function pathWalked(): ƒS.AnimationDefinition;
+    function snailThrow(): ƒS.AnimationDefinition;
+    function deathSlide(): ƒS.AnimationDefinition;
+}
+declare namespace ACatInLimbo {
+    let sound: {
+        forestWind: string;
+        scaryForest: string;
+        meadowSound: string;
+        DrippingInCave: string;
+        smallOceanWaves: string;
+        LakeWaves: string;
+        swamp: string;
+        frogs: string;
+        river: string;
+        happyJazz: string;
+        cathissing: string;
+        demanding: string;
+        cuteMeow: string;
+        cuteMeowMultiple: string;
+        purrMeow: string;
+        purring: string;
+        growling: string;
+        yawn: string;
+        horrorDrum1: string;
+        horrorDrum2: string;
+        dive: string;
+        slimeSound: string;
+        chompEat: string;
+        fishEat: string;
+        dryFood: string;
+        bubblingInTheDeep: string;
+        lightbubbling: string;
+        footstepsGrass: string;
+        frogQuak: string;
+        frogQuaks: string;
+        snailbreak: string;
+        monster: string;
+        goats: string;
+    };
+}
+declare namespace ACatInLimbo {
     let characters: {
         protagonist: {
             name: string;
@@ -229,62 +299,6 @@ declare namespace ACatInLimbo {
             };
         };
     };
-    function help(): void;
-    function buttonFunctionalities(_option: string): Promise<void>;
-}
-declare namespace ACatInLimbo {
-    function Map(): ƒS.SceneReturn;
-}
-declare namespace ACatInLimbo {
-    function ScaredCatAnimation(): ƒS.AnimationDefinition;
-    function spiderAnimationHide(): ƒS.AnimationDefinition;
-    function spiderAnimationAppear(): ƒS.AnimationDefinition;
-    function spiderAnimationDisappear(): ƒS.AnimationDefinition;
-    function swampCreatureAppearance(): ƒS.AnimationDefinition;
-    function swampCreatureDisappearance(): ƒS.AnimationDefinition;
-    function path(): ƒS.AnimationDefinition;
-    function pathWalked(): ƒS.AnimationDefinition;
-    function snailThrow(): ƒS.AnimationDefinition;
-    function deathSlide(): ƒS.AnimationDefinition;
-}
-declare namespace ACatInLimbo {
-    let sound: {
-        forestWind: string;
-        scaryForest: string;
-        meadowSound: string;
-        DrippingInCave: string;
-        smallOceanWaves: string;
-        LakeWaves: string;
-        swamp: string;
-        frogs: string;
-        river: string;
-        happyJazz: string;
-        cathissing: string;
-        demanding: string;
-        cuteMeow: string;
-        cuteMeowMultiple: string;
-        purrMeow: string;
-        purring: string;
-        growling: string;
-        yawn: string;
-        horrorDrum1: string;
-        horrorDrum2: string;
-        dive: string;
-        slimeSound: string;
-        chompEat: string;
-        fishEat: string;
-        dryFood: string;
-        bubblingInTheDeep: string;
-        lightbubbling: string;
-        footstepsGrass: string;
-        frogQuak: string;
-        frogQuaks: string;
-        snailbreak: string;
-        monster: string;
-        goats: string;
-    };
-}
-declare namespace ACatInLimbo {
 }
 declare namespace ACatInLimbo {
     let items: {

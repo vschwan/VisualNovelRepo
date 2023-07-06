@@ -16,6 +16,39 @@ h1 {
   font-size: 9vmin;
 }
 
+td {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+a{
+  color: rgb(85, 10, 104);
+  text-decoration: underline;
+}
+
+td:first-of-type {
+  font-weight: bold;
+  font-family: CalliCat;
+}
+
+h3 {
+  font-size: 5vmin;
+  font-family: Kablammo;
+  padding: 10px;
+  margin: 1%;
+}
+
+td {
+  min-width: 5vw;
+  padding: 10px;
+  vertical-align: top;
+}
+
+th {
+  text-align: left;
+  font-size: 3vmin;
+  padding: 10px;
+}
+
+
 html,
 body {
   width: 100vw;
@@ -36,10 +69,6 @@ scene {
   height: 1080px;
   display: inline-block;
   position: absolute;
-}
-
-#credits{
-  
 }
 
 #Background {
@@ -81,16 +110,18 @@ speech content {
   left: 30px;
 }
 
-speech.pinkCat{
- text-align: right;
+speech.pinkCat {
+  text-align: right;
 
 }
-speech.pinkCat name{
+
+speech.pinkCat name {
   margin-right: 2%;
   color: #fa9cec;
   /* text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; */
 }
-speech.pinkCat content{
+
+speech.pinkCat content {
   text-align: right;
   right: 30px;
   position: relative;
@@ -146,12 +177,12 @@ dialog.choicesCSSClass {
 /*MENU*/
 .gameMenuCSS {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.24);
+  background-color: rgba(255, 255, 255, 0);
   border: 0ch;
   border-radius: 20px;
-  right: 78%;
-  top: 3%;
-  padding: 1px;
+  right: 75%;
+  top: 2%;
+  padding: 4px;
   float: left;
 }
 
@@ -159,18 +190,18 @@ dialog.choicesCSSClass {
   font-size: 15px;
   border-radius: 15px;
   border-style: none;
-  background-color: rgb(143, 159, 201);
-  margin: 3px;
-  padding: 3px;
+  background-color: rgb(100, 122, 180);
+  margin: 6px;
+  padding: 7px;
 }
 
 .gameMenuCSS button:hover {
-  margin: 3px;
+  margin: 6px;
   border-radius: 15px;
   background-color: rgb(180, 100, 176);
 }
 
-dialog[type="text"]{
+dialog[type="text"] {
   background-color: #dcd3a5;
   color: #452141;
   border-color: aliceblue;
@@ -250,8 +281,8 @@ meter[id="catMeter"] {
 }
 
 meter[id="catMeter"]::-webkit-meter-optimum-value {
-  /*background-image: linear-gradient(90deg,
-      #ce3a30 5%,
+  background-image: linear-gradient(90deg,
+      #ce3a30 0%,
       #ea9847 15%,
       #e6d450 25%,
       #87e650 35%,
@@ -259,9 +290,10 @@ meter[id="catMeter"]::-webkit-meter-optimum-value {
       #689ff2 70%,
       #ac72ce 80%,
       #d251c1 100%,
-    );*/
+    );
   background-color: rgb(238, 149, 233);
   border-radius: 50px;
+  /* background: none; */
 }
 
 input[id="scoreForCat"] {
@@ -276,6 +308,7 @@ input[id="scoreForCat"] {
   margin-left: 1%;
   border: 0ch;
 }
+
 /* dialog.TextPrint{
   background-color: #dcd3a5;
   color: #452141;
@@ -289,3 +322,28 @@ dialog.credits {
   color: rgb(12, 64, 64);
   background-color: rgb(231, 179, 238);
 }
+
+/* navigation buttons for credits */
+.creditsNav {
+  position: absolute;
+  bottom:65%;
+  background: none;
+  border: none;
+}
+
+.creditsNav button {
+  background-color: rgb(100, 122, 180);
+  color: white;
+  border: 0ch;
+  border-radius: 25px;
+  margin: 10px;
+  padding: 20px;
+  font-family: CalliCat;
+  font-size: 3vmin;
+  top: 50%;
+  left: 50%;
+}
+.creditsNav button:hover {
+  background-color: rgb(180, 100, 176);
+}
+

@@ -55,14 +55,13 @@ namespace ACatInLimbo {
 
 
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
         // document.getElementById("scoreForCat").style.display = "";
 
         ƒS.Speech.hide(); //Sprachfenster ausblenden
         ƒS.Sound.play(sound.scaryForest, 2, true);
         await ƒS.Location.show(locations.forest);
         await ƒS.update(transition.circleSwirl.duration, transition.circleSwirl.alpha, transition.circleSwirl.edge);
-
-        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
 
         await ƒS.update(2);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.walking, ƒS.positionPercent(80, 95));
@@ -163,16 +162,20 @@ namespace ACatInLimbo {
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(80, 95));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0008);
-                await ƒS.Speech.tell(characters.protagonist, textForest.protagonist.T0005);
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
+                await ƒS.update();
+                await ƒS.Speech.tell(characters.protagonist, textForest.protagonist.T0005);
+                await ƒS.update();
+                await ƒS.Character.hide(characters.pinkCat);
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(80, 95));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, textForest.pinkCat.T0009);
                 await ƒS.update();
 
                 let HowToTreatSpider = {
-                    insult: "berate spider creature",
+                    insult: "insult spider creature",
                     console: "console spider creature"
                 }
                 let HowToTreatSpiderRequest = await ƒS.Menu.getInput(HowToTreatSpider, "choicesCSSClass")

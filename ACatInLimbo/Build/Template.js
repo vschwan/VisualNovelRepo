@@ -5,7 +5,7 @@ var ACatInLimbo;
     ACatInLimbo.originAmountSpider = 0;
     ACatInLimbo.originAmountFly = 0;
     //  export let originAmountSnail: number = 0;
-    ACatInLimbo.bayCreatureFed = false;
+    //export let bayCreatureFed = false;
     let startGame = true;
     setInterval(() => {
         // console.log("hello from timeout");
@@ -54,21 +54,15 @@ var ACatInLimbo;
             //originAmountSnail = ƒS.Inventory.getAmount(items.Snail);
             startGame = false;
         }
-    }, 100);
+    }, 1000);
 })(ACatInLimbo || (ACatInLimbo = {}));
 var ACatInLimbo;
 (function (ACatInLimbo) {
     ACatInLimbo.ƒ = FudgeCore;
     ACatInLimbo.ƒS = FudgeStory;
     console.log("FudgeStory template starting");
-    let gameMenu;
-    //open entspricht Menu ist offen und false zu
-    let menuIsOpen = true;
     ACatInLimbo.dataForSave = {
-        // changeUsabilityItem: true,
-        //snailUsability: true,
-        // currentPlace: "Current Location: Lake",
-        //boolean for scenes visited --> for Location-Decisions
+        //booleans for scenes visited --> for Location-Decisions
         visitedLake: false,
         visitedLakeTwice: false,
         visitedForest: false,
@@ -91,8 +85,9 @@ var ACatInLimbo;
         pathMountainClouds: false,
         pathCloudsGate: false,
         nameProtagonist: "You",
+        catLeaving: false,
         catScore: 10,
-        // scoreForCat: "0",
+        scoreForCat: 0,
         // points: 0,
         pickedMeterBar: false,
         pickedChoice: false,
@@ -109,333 +104,35 @@ var ACatInLimbo;
     //     console.log("achtung");
     //   }
     // }
-    //CHARACTERS
-    ACatInLimbo.characters = {
-        protagonist: {
-            name: ACatInLimbo.dataForSave.nameProtagonist,
-            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
-            pose: {
-                front: "./Images/Characters/protagonist/protagonistFront.png",
-                side: "./Images/Characters/protagonist/protagonistSide.png",
-                handsInHips: "./Images/Characters/protagonist/protagonistHandsInHips.png",
-                scared: "./Images/Characters/protagonist/protagonistScared.png",
-                thinking: "./Images/Characters/protagonist/protagonistThinking.png"
-            }
-        },
-        pinkCat: {
-            name: "pinkCat",
-            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
-            pose: {
-                //pink Cat poses regular
-                normal: "./Images/Characters/pinkCat/pinkCatNormal.png",
-                normalLookingAway: "./Images/Characters/pinkCat/pinkCatNormalFromBehind.png",
-                normalAngry: "./Images/Characters/pinkCat/pinkCatNormalAngry.png",
-                fromBehindLookingAway: "./Images/Characters/pinkCat/pinkCatBehind.png",
-                fromBehindLookingBack: "./Images/Characters/pinkCat/pinkCatBehindLook.png",
-                scared: "./Images/Characters/pinkCat/pinkCatScared.png",
-                cleaningAss: "./Images/Characters/pinkCat/pinkCatCleaningAss.png",
-                cleaningPaw: "./Images/Characters/pinkCat/pinkCatCleaningPaw.png",
-                curious: "./Images/Characters/pinkCat/pinkCatCurious.png",
-                derpy1: "./Images/Characters/pinkCat/pinkCatDerp1.png",
-                derpy2: "./Images/Characters/pinkCat/pinkCatDerp2.png",
-                lovely: "./Images/Characters/pinkCat/pinkCatLove.png",
-                layingOnBack: "./Images/Characters/pinkCat/pinkCatOnBack.png",
-                sleeping: "./Images/Characters/pinkCat/pinkCatSleeping.png",
-                stretching: "./Images/Characters/pinkCat/pinkCatStretching.png",
-                talking: "./Images/Characters/pinkCat/pinkCatTalking.png",
-                talkingAngry: "./Images/Characters/pinkCat/pinkCatTalkingAngry.png",
-                thoughtful1: "./Images/Characters/pinkCat/pinkCatThoughtful1.png",
-                thoughtful2: "./Images/Characters/pinkCat/pinkCatThoughtful2.png",
-                thumbsUp: "./Images/Characters/pinkCat/pinkCatThumbsUp.png",
-                walking: "./Images/Characters/pinkCat/pinkCatWalking.png",
-                yawning: "./Images/Characters/pinkCat/pinkCatYawning.png",
-                crouched: "./Images/Characters/pinkCat/pinkCatCrouched.png",
-                crouchedLookingAway: "./Images/Characters/pinkCat/pinkCatCrouchedLookingAway.png",
-                crouchedSad: "./Images/Characters/pinkCat/pinkCatCrouchedSad.png",
-                proud: "./Images/Characters/pinkCat/proud.png",
-                play1: "./Images/Characters/pinkCat/pinkCatplay1.png",
-                play2: "./Images/Characters/pinkCat/pinkCatplay2.png",
-                normal2: "./Images/Characters/pinkCat/normal2.png",
-                normal2Sad: "./Images/Characters/pinkCat/normal2Sad.png",
-                //pink Cat poses small 
-                normalSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatNormalSmall.png",
-                scaredSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatScaredSmall.png",
-                scaredSmallTurnedRight: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatScaredSmallTurnedRight.png",
-                curiousSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatCuriousSmall.png",
-                lovelySmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatLoveSmall.png",
-                layingOnBackSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatOnBackSmall.png",
-                stretchingSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatStretchingSmall.png",
-                play1Small: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatPlay1Small.png",
-                play2Small: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatPlay2Small.png",
-                //pink Cat as stone Statue awakes
-                awakening1: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening1.png",
-                awakening2: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening2.png",
-                awakening3: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening3.png",
-                awakening4: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening4.png",
-                awakening5: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening5.png",
-                awakening6: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening6.png",
-                awakening7: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening7.png",
-                awakening8: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening8.png"
-            }
-        },
-        stonePedestal: {
-            name: "stonePedestal",
-            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
-            pose: {
-                stonePedestal: "./Images/Characters/pinkCat/pinkCatAwakening/stonePedestal.png"
-            }
-        },
-        spiderCreature: {
-            name: "Spider Creature",
-            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
-            pose: {
-                attack: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightAttack.png",
-                attackBig: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightAttackBig.png",
-                normal: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightNormal.png",
-                sad: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightSad.png",
-                smile: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightSmile.png"
-            }
-        },
-        swampCreature: {
-            name: "Swamp Creature",
-            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
-            pose: {
-                normal: "./Images/Characters/creatures/swampCreature/swampCreatureNormal.png",
-                asleep: "./Images/Characters/creatures/swampCreature/swampCreatureAsleep.png",
-                lessWood1: "./Images/Characters/creatures/swampCreature/swampCreatureLessWood1.png",
-                lessWood2: "./Images/Characters/creatures/swampCreature/swampCreatureLessWood2.png",
-                noSnails: "./Images/Characters/creatures/swampCreature/swampCreatureNoSnails.png",
-                smile: "./Images/Characters/creatures/swampCreature/swampCreatureSmile.png"
-            }
-        },
-        lakeCreature: {
-            name: "Lake Creature",
-            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
-            pose: {
-                normal: "./Images/Characters/creatures/lakeCreature/lakeCreatureNormal.png",
-                sideEye: "./Images/Characters/creatures/lakeCreature/lakeCreatureSideEye.png",
-                hide: "./Images/Characters/creatures/lakeCreature/lakeCreatureHide.png",
-                attack: "./Images/Characters/creatures/lakeCreature/lakeCreatureAttack.png",
-                bait: "./Images/Characters/creatures/lakeCreature/lakeCreatureBait.png",
-                smile: "./Images/Characters/creatures/lakeCreature/lakeCreatureSmile.png",
-                cry: "./Images/Characters/creatures/lakeCreature/lakeCreatureCry.png",
-                hardCry: "./Images/Characters/creatures/lakeCreature/lakeCreatureHardCry.png",
-                heartEyes: "./Images/Characters/creatures/lakeCreature/lakeCreatureHeartEyes.png",
-                heartEyesBroken: "./Images/Characters/creatures/lakeCreature/lakeCreatureHeartEyesBroken.png",
-                hideSad: "./Images/Characters/creatures/lakeCreature/lakeCreatureHideSad.png",
-                smileHeart: "./Images/Characters/creatures/lakeCreature/lakeCreatureSmileHeart.png",
-            }
-        },
-        bayCreature: {
-            name: "Bay Creature",
-            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
-            pose: {
-                armSide: "./Images/Characters/creatures/bayCreature/bayCreatureArmsSide.png",
-                attack: "./Images/Characters/creatures/bayCreature/bayCreatureAttack.png",
-                coin: "./Images/Characters/creatures/bayCreature/bayCreatureCoin.png",
-                happy: "./Images/Characters/creatures/bayCreature/bayCreatureHappy.png",
-                headAngry: "./Images/Characters/creatures/bayCreature/bayCreatureHeadAngry.png",
-                headNormal: "./Images/Characters/creatures/bayCreature/bayCreatureHeadNormal.png",
-                heart: "./Images/Characters/creatures/bayCreature/bayCreatureHeart.png",
-                lookingDownSad: "./Images/Characters/creatures/bayCreature/bayCreatureLookindDownSad.png",
-                lookingDown: "./Images/Characters/creatures/bayCreature/bayCreatureLookingDown.png",
-                normal: "./Images/Characters/creatures/bayCreature/bayCreatureNormal.png",
-                talking: "./Images/Characters/creatures/bayCreature/bayCreatureTalking.png",
-                talkingAngry: "./Images/Characters/creatures/bayCreature/bayCreatureTalkingAngry.png",
-                glow: "./Images/Characters/creatures/bayCreature/bayGlow.png",
-                happyHeart: "./Images/Characters/creatures/bayCreature/bayCreatureHappyHeart.png"
-            }
-        },
-        caveCreature: {
-            name: "Cave Creature",
-            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
-            pose: {
-                normal: "./Images/Characters/creatures/caveCreature/CaveCreatureNormal.png",
-                sound: "./Images/Characters/creatures/caveCreature/CaveCreatureSound.png",
-                toungeOut: "./Images/Characters/creatures/caveCreature/CaveCreaturOpenMouth.png",
-                attack: "./Images/Characters/creatures/caveCreature/CaveCreatureAttack.png"
-            }
-        },
-        death: {
-            name: "Death",
-            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
-            pose: {
-                fishingLookingDown: "./Images/Characters/death/deathFishingLookingDown.png",
-                fishingLookingUp: "./Images/Characters/death/deathFishingLookingUp.png",
-                close: "./Images/Characters/death/deathClose.png"
-            }
-        },
-        path: {
-            name: "Path",
-            origin: ACatInLimbo.ƒS.ORIGIN.CENTER,
-            pose: {
-                meadowForest: "./Images/Map/MeadowForest.png",
-                meadowLake: "./Images/Map/MeadowLake.png",
-                forestLake: "./Images/Map/ForestLake.png",
-                forestSwamp: "./Images/Map/ForestSwamp.png",
-                lakeSwamp: "./Images/Map/LakeSwamp.png",
-                swampRiver: "./Images/Map/SwampRiver.png",
-                swampBay: "./Images/Map/SwampBay.png",
-                bayRiver: "./Images/Map/BayRiver.png",
-                bayCave: "./Images/Map/BayCave.png",
-                riverCave: "./Images/Map/RiverCave.png",
-                riverMountains: "./Images/Map/RiverMountains.png",
-                mountainsClouds: "./Images/Map/MountainsClouds.png",
-                caveClouds: "./Images/Map/CaveClouds.png",
-                cloudsGate: "./Images/Map/CloudsGate.png"
-            }
-        },
-        riverflow: {
-            name: "Riverflow",
-            origin: ACatInLimbo.ƒS.ORIGIN.CENTER,
-            pose: {
-                plain: "./Images/Backgrounds/riverflow/riverflow.png",
-                flow1: "./Images/Backgrounds/riverflow/riverflow1.png",
-                flow2: "./Images/Backgrounds/riverflow/riverflow2.png",
-                flow3: "./Images/Backgrounds/riverflow/riverflow3.png",
-                flowWaving3: "./Images/Backgrounds/riverflow/riverflow3Waving.png",
-                flow4: "./Images/Backgrounds/riverflow/riverflow4.png",
-                flowWaving4: "./Images/Backgrounds/riverflow/riverflow4Waving.png",
-                flow5: "./Images/Backgrounds/riverflow/riverflow5.png",
-                flow6: "./Images/Backgrounds/riverflow/riverflow6.png"
-            }
-        },
-        snail: {
-            name: "Snail",
-            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
-            pose: {
-                normal: "./Images/Items/snail.png"
-            }
-        }
-    };
     //INVENTORY
     // export function OpenInventory(): void {
     // }
-    /*
-      export function checkForCatScore() {
-        if (dataForSave.catScore === 0 || dataForSave.catScore < 0) {
-          return "Bad End";
+    setInterval(() => {
+        //show score
+        let showScore = document.getElementById("scoreForCat");
+        showScore.setAttribute("value", ACatInLimbo.dataForSave.catScore.toString());
+        //check for score
+        if (ACatInLimbo.dataForSave.catScore <= 0) {
+            console.log("Cat is leaving, cause ", ACatInLimbo.dataForSave.catScore);
+            ACatInLimbo.dataForSave.catLeaving = true;
+            // return "BadEnding LostCat Scene";
         }
-      }
-    */
-    //Help
-    function help() {
-        ACatInLimbo.ƒS.Text.setClass("TextPrint");
-        ACatInLimbo.ƒS.Text.print("<p>In this game you can find a Lovemeter in the right corner of the screen. It shows the affection the pink Cat feels towards you.</p><p>Open your Inventory through the menu to feed your Cat with items you collect throughout the story to make it like you more.</p><p>Be careful it doesn't leave you!</p><p>Shortcuts:</p><p>Menu: M</p><p>Save: S</p><p>Load: L</p><p>Help: H</p><p>Credits: C</p>");
-    }
-    ACatInLimbo.help = help;
-    //Credits
-    function credits() {
-        ACatInLimbo.ƒS.Text.addClass("credits");
-        ACatInLimbo.ƒS.Text.print("Credits: All characters are drawn by Valentina Schwan");
-    }
-    // if (dataForSave.scoreForCat != dataForSave.catScore.toString()) {
-    //   //show score in meter bar
-    //   dataForSave.scoreForCat = dataForSave.catScore.toString();
-    //   // let showScore: HTMLInputElement = <HTMLInputElement>document.getElementById("scoreForCat");
-    //   // document.getElementById("scoreForCat").setAttribute("value", dataForSave.scoreForCat);
-    //   // showScore.setAttribute("value", dataForSave.catScore.toString());
-    // }
-    //MENU
-    let inGameMenuButtons = {
-        save: "Save",
-        load: "Load",
-        inventory: "Inventory",
-        credits: "Credits",
-        help: "Help",
-        close: "Close",
-        //   map: "Map"
-    };
-    async function buttonFunctionalities(_option) {
-        console.log(_option);
-        switch (_option) {
-            case inGameMenuButtons.save:
-                await ACatInLimbo.ƒS.Progress.save();
-                break;
-            case inGameMenuButtons.load:
-                await ACatInLimbo.ƒS.Progress.load();
-                break;
-            case inGameMenuButtons.close:
-                gameMenu.close();
-                menuIsOpen = false;
-                break;
-            case inGameMenuButtons.credits:
-                credits();
-                break;
-            // case inGameMenuButtons.map:
-            //   if (dataForSave.openMap === false) {
-            //     openMap()
-            //   } else {
-            //     closeMap();
-            //   }
-            //   break;
-            case inGameMenuButtons.help:
-                help();
-                break;
-            case inGameMenuButtons.inventory:
-                await ACatInLimbo.ƒS.Inventory.open();
+        else if (ACatInLimbo.dataForSave.catScore <= 5) {
+            console.log("Cat's still there, but be careful. Feed items, if you can.");
+            // ƒS.Text.print("Be careful. The cat doesn't like you very much right now.")
         }
-    }
-    ACatInLimbo.buttonFunctionalities = buttonFunctionalities;
-    /*//ƒS.Inventory.add(items.Fly);
-   export let originAmount: number;
-    console.log("click bitch");
-    let inventoryDialog: HTMLDialogElement = document.querySelector("#invent");
-    document.addEventListener("pointerdown", checkInventoryFeeding);
-    async function checkInventoryFeeding():Promise<void> {
-      console.log("click bitch");
-      setTimeout(() => {
-        if(ƒS.Inventory.getAmount(items.Fish) < originAmount) {
-            console.log("nomnomnom");
-            originAmount = ƒS.Inventory.getAmount(items.Fish);
-          }},100);
-  }*/
-    // Menu shortcuts
-    document.addEventListener("keydown", handleKeyPress);
-    async function handleKeyPress(_event) {
-        switch (_event.code) {
-            case ACatInLimbo.ƒ.KEYBOARD_CODE.S:
-                console.log("Save Scene");
-                await ACatInLimbo.ƒS.Progress.save();
-                break;
-            case ACatInLimbo.ƒ.KEYBOARD_CODE.C:
-                console.log("Credits");
-                credits();
-                break;
-            case ACatInLimbo.ƒ.KEYBOARD_CODE.L:
-                console.log("Load Scene");
-                await ACatInLimbo.ƒS.Progress.load();
-                break;
-            case ACatInLimbo.ƒ.KEYBOARD_CODE.H:
-                console.log("Help");
-                help();
-                break;
-            // case ƒ.KEYBOARD_CODE.I:
-            //   console.log("open Inventory");
-            //   await ƒS.Inventory.open();
-            //   break;
-            case ACatInLimbo.ƒ.KEYBOARD_CODE.M:
-                if (menuIsOpen) {
-                    console.log("Menu closed");
-                    gameMenu.close();
-                    menuIsOpen = false;
-                }
-                else {
-                    console.log("Menu open");
-                    gameMenu.open();
-                    menuIsOpen = true;
-                }
-                break;
+        else {
+            console.log("all good, cat likes you.");
         }
-    }
+    }, 3000);
     window.addEventListener("load", start);
     function start(_event) {
         //Menu
-        gameMenu = ACatInLimbo.ƒS.Menu.create(inGameMenuButtons, buttonFunctionalities, "gameMenuCSS");
+        ACatInLimbo.gameMenu = ACatInLimbo.ƒS.Menu.create(ACatInLimbo.inGameMenuButtons, ACatInLimbo.buttonFunctionalities, "gameMenuCSS");
         // buttonFunctionalities("Close");
         //Hide MeterBar
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
-        // document.getElementById("scoreForCat").style.display = "none";
+        document.getElementById("scoreForCat").style.display = "none";
         let scenes = [
             { id: "Meadow Scene", scene: ACatInLimbo.Meadow, name: "meadow" },
             { id: "Forest Scene", scene: ACatInLimbo.Forest, name: "Forest" },
@@ -449,7 +146,7 @@ var ACatInLimbo;
             { id: "Cave Inside Scene", scene: ACatInLimbo.CaveInside, name: "Cave Inside" },
             { id: "Cave Exit Scene", scene: ACatInLimbo.CaveExit, name: "Cave Exit" },
             { id: "BadEnding Cave Scene", scene: ACatInLimbo.BadEndingCave, name: "BadEnding Cave" },
-            { id: "BadEnding LostCat Scene", scene: ACatInLimbo.BadEndingLostCat, name: "BadEnding Frog" },
+            { id: "BadEnding LostCat Scene", scene: ACatInLimbo.BadEndingLostCat, name: "BadEnding LostCat" },
             // { id: "Clouds Scene", scene: Clouds, name: "Clouds" },
             // { id: "Gate", scene: Gate, name: "Gate" },
             // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
@@ -469,6 +166,7 @@ var ACatInLimbo;
     async function Map() {
         ACatInLimbo.ƒS.Speech.hide();
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
+        document.getElementById("scoreForCat").style.display = "none";
         ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.map);
         await ACatInLimbo.ƒS.update(ACatInLimbo.transition.straightLines.duration, ACatInLimbo.transition.straightLines.alpha, ACatInLimbo.transition.straightLines.edge);
         await ACatInLimbo.ƒS.update(1);
@@ -766,6 +464,259 @@ var ACatInLimbo;
 })(ACatInLimbo || (ACatInLimbo = {}));
 var ACatInLimbo;
 (function (ACatInLimbo) {
+    ACatInLimbo.menuIsOpen = true;
+    //MENU
+    ACatInLimbo.inGameMenuButtons = {
+        save: "Save",
+        load: "Load",
+        inventory: "Inventory",
+        credits: "Credits",
+        help: "Help",
+        close: "Close",
+        //   map: "Map"
+    };
+    async function buttonFunctionalities(_option) {
+        console.log(_option);
+        switch (_option) {
+            case ACatInLimbo.inGameMenuButtons.save:
+                await ACatInLimbo.ƒS.Progress.save();
+                break;
+            case ACatInLimbo.inGameMenuButtons.load:
+                await ACatInLimbo.ƒS.Progress.load();
+                break;
+            case ACatInLimbo.inGameMenuButtons.close:
+                ACatInLimbo.gameMenu.close();
+                ACatInLimbo.menuIsOpen = false;
+                break;
+            case ACatInLimbo.inGameMenuButtons.credits:
+                credits();
+                break;
+            // case inGameMenuButtons.map:
+            //   if (dataForSave.openMap === false) {
+            //     openMap()
+            //   } else {
+            //     closeMap();
+            //   }
+            //   break;
+            case ACatInLimbo.inGameMenuButtons.help:
+                help();
+                break;
+            case ACatInLimbo.inGameMenuButtons.inventory:
+                await ACatInLimbo.ƒS.Inventory.open();
+        }
+    }
+    ACatInLimbo.buttonFunctionalities = buttonFunctionalities;
+    // Menu shortcuts
+    document.addEventListener("keydown", handleKeyPress);
+    async function handleKeyPress(_event) {
+        switch (_event.code) {
+            case ACatInLimbo.ƒ.KEYBOARD_CODE.S:
+                console.log("Save Scene");
+                await ACatInLimbo.ƒS.Progress.save();
+                break;
+            case ACatInLimbo.ƒ.KEYBOARD_CODE.C:
+                console.log("Credits");
+                credits();
+                break;
+            case ACatInLimbo.ƒ.KEYBOARD_CODE.L:
+                console.log("Load Scene");
+                await ACatInLimbo.ƒS.Progress.load();
+                break;
+            case ACatInLimbo.ƒ.KEYBOARD_CODE.H:
+                console.log("Help");
+                help();
+                break;
+            // case ƒ.KEYBOARD_CODE.I:
+            //   console.log("open Inventory");
+            //   await ƒS.Inventory.open();
+            //   break;
+            case ACatInLimbo.ƒ.KEYBOARD_CODE.M:
+                if (ACatInLimbo.menuIsOpen) {
+                    console.log("Menu closed");
+                    ACatInLimbo.gameMenu.close();
+                    ACatInLimbo.menuIsOpen = false;
+                }
+                else {
+                    console.log("Menu open");
+                    ACatInLimbo.gameMenu.open();
+                    ACatInLimbo.menuIsOpen = true;
+                }
+                break;
+        }
+    }
+    //Help
+    function help() {
+        ACatInLimbo.ƒS.Text.setClass("TextPrint");
+        ACatInLimbo.ƒS.Text.print("<p>In this game you can find a Lovemeter in the right corner of the screen. It shows the affection the pink Cat feels towards you.</p><p>Open your Inventory through the menu to feed your Cat with items you collect throughout the story to make it like you more.</p><p>Be careful it doesn't leave you!</p><p>Shortcuts:</p><p>Menu: M</p><p>Save: S</p><p>Load: L</p><p>Help: H</p><p>Credits: C</p>");
+    }
+    ACatInLimbo.help = help;
+    //Credits
+    async function credits() {
+        ACatInLimbo.ƒS.Text.setClass("credits");
+        let credits = ["<h3>Images</h3>\
+        <table>\
+        <tr>\
+        <th></th>\
+        <th>Asset</th>\
+        <th>Source</th>\
+        </tr>\
+        <tr>\
+        <td>Characters</td>\
+        <td>All characters</td>\
+        <td>by Valentina Schwan</td>\
+        </tr>\
+        <tr>\
+        <td>Backgrounds</td>\
+        <td>lake.png (modified)</td>\
+        <td><a href:https://www.pexels.com/de-de/foto/szenische-ansicht-des-sees-im-wald-247600/>Pixabay</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>meadow.png,<br>mainBackground.png,<br>map.png + paths</td>\
+        <td>by Valentina Schwan</td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>Remaining (modified)</td>\
+        <td>AI-generated with generative Fill Option in Adobe Photoshop (Beta)</td>\
+        </tr>\
+        <tr>\
+        <td>Items</td>\
+        <td>All items</td>\
+        <td>by Valentina Schwan</td>\
+        </tr>\
+        </table>\
+        ",
+            "<h3>Audio</h3>\
+        <table>\
+        <tr>\
+        <th></th>\
+        <th>Asset</th>\
+        <th>Source</th>\
+        </tr>\
+        <tr>\
+        <td>Ambience</td>\
+        <td>forest-swamp-6751,<br>forest-wind-and-birds-6881,<br>frogs-48410,<br>river-in-the-forest-17271,<br>waves-on-the-lake-in-summer-time-in-wav-64379</td>\
+        <td><a href:https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694>Pixabay</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>Dripping Water in Cave</td>\
+        <td>Sound effect by <a href:'https://pixabay.com/de/users/solarmusic-27851065/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>solarmusic</a><br>from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>Pixabay</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>small-waves-onto-the-sand-143040</td>\
+        <td>Sound Effect by <a href:'https://pixabay.com/de/users/dennish18-26151496/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=143040'>Dennis</a><br>from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>Pixabay</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>jazz-happy-110855</td>\
+        <td>Music by <a href:'https://pixabay.com/de/users/music_for_videos-26992513/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=110855'>Kirilkov</a><br>from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>Pixabay</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>spring-forest-birds-sounds</td>\
+        <td><a href:'https://www.freesoundslibrary.com/'>Free Sounds Library</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>mixkit-scary-forest-at-night-2486</td>\
+        <td><a href:'https://mixkit.co/free-sound-effects/scary-woods/'>Free Scary Woods Sound Effects</a><br>from Mixkit, Envato Elements</td>\
+        </tr>\
+        ",
+            "<h3>Audio</h3>\
+        <table>\
+        <tr>\
+        <th></th>\
+        <th>Asset</th>\
+        <th>Source</th>\
+        </tr>\
+        <tr>\
+        <td>FX</td>\
+        <td>BlubbernInDerTiefe,<br>Originaltitel: In der Tiefe und nah blubberndes Wasser;<br>BlubbernLeisesPlanschen<br>Originaltitel: Blubbern und leises Planschen</td>\
+        <td><a href:https://hoerspielbox.de/>hoerspielbox.de</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>5-meters-dive-6070,<br>eating-sound-effect-36186,<br>finger-cracking-40991,<br>frog_quak-81741,<br>frog-qua-cry-36013,<br>monster-rumble-99026,<br>sheep-bleating-31117,<br>slimey-97605</td>\
+        <td>Sound Effect from <a href:https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=36186>Pixabay</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>cat-eating-dry-food-133130</td>\
+        <td>Sound Effect by <a href:'https://pixabay.com/de/users/soundsforyou-4861230/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=133130'>Micheal</a><br>from <a href:https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=36186>Pixabay</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>mixkit-hard-horror-hit-drum-565,<br>mixkit-horror-deep-drum-heartbeat-559</td>\
+        <td><a href:'https://mixkit.co/free-sound-effects/horror/'>Free Horror Sound Effects</a><br>from Mixkit, Envato Elements</td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>mixkit-walking-on-grass-1921</td>\
+        <td><a href:'https://mixkit.co/free-sound-effects/footsteps/'>Free Footsteps Sound Effects</a><br>from Mixkit, Envato Elements</td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>Fish Eat (Nr. 2  Fortnite Sound) - Sound Effect for editing</td>\
+        <td><a href:'https://www.file-upload.net/download-13974100/FishEatNr.2FortniteSound-SoundEffectforediting.mp3.html'>File-Upload.net</a></td>\
+        </tr>\
+        ",
+            "<h3>Audio</h3>\
+        <table>\
+        <tr>\
+        <th></th>\
+        <th>Asset</th>\
+        <th>Source</th>\
+        </tr>\
+        <tr>\
+        <td>FX<br>Cat-Sounds</td>\
+        <td>a-yawn-7011,<br>catmeow1-89814,<br>shari_meow-47485,<br>purring-cat-77928</td>\
+        <td><a href:'https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=7011'>Pixabay</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>cat-purr-meow-8327</td>\
+        <td>Sound Effect by <a href:'https://pixabay.com/es/users/edr-1177074/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=8327'>EdR</a><br>from <a href:https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=36186>Pixabay</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>ANMLCat_Growling cat 3 (ID 1887)_BSB,<br>ANMLCat_Meow cat 7 (ID 1895)_BSB</td>\
+        <td>Joseph Sardin,<br><a href:'https://bigsoundbank.com/'>BigSoundBank</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>Cat-hissing-sound</td>\
+        <td>Cat Hissing Sound Effect by Alexander,<br><a href:'https://orangefreesounds.com/cat-hissing-sound-effect/'>OrangeFreeSounds</a></td>\
+        </tr>\
+        "
+        ];
+        let creditsNav = {
+            back: "«",
+            next: "»",
+            done: "x"
+        };
+        let choice;
+        let current = 0;
+        do {
+            ACatInLimbo.ƒS.Text.print(credits[current]);
+            choice = await ACatInLimbo.ƒS.Menu.getInput(creditsNav, "creditsNav");
+            switch (choice) {
+                case creditsNav.back:
+                    current = Math.max(0, current - 1);
+                    break;
+                case creditsNav.next:
+                    current = Math.min(3, current + 1);
+                    break;
+            }
+        } while (choice != creditsNav.done);
+        ACatInLimbo.ƒS.Text.close();
+    }
+    ACatInLimbo.credits = credits;
+})(ACatInLimbo || (ACatInLimbo = {}));
+var ACatInLimbo;
+(function (ACatInLimbo) {
     //ANIMATIONS
     function ScaredCatAnimation() {
         //something
@@ -892,7 +843,7 @@ var ACatInLimbo;
         //catSounds
         cathissing: "./Audio/catAudio/Cat-hissing-sound.mp3",
         demanding: "./Audio/catAudio/catmeow1-89814.mp3",
-        cuteMeow: "./Audio/catAudio/cuteMeow.wav",
+        cuteMeow: "./Audio/catAudio/ANMLCat_Meow cat 7 (ID 1895)_BSB.wav",
         cuteMeowMultiple: "./Audio/catAudio/shari_meow-47485.mp3",
         purrMeow: "./Audio/catAudio/cat-purr-meow-8327.mp3",
         purring: "Audio/catAudio/purring-cat-77928.mp3",
@@ -915,6 +866,211 @@ var ACatInLimbo;
         monster: "./Audio/FX/monster-rumble-99026.mp3",
         goats: "./Audio/FX/sheep-bleating-31117.mp3"
     };
+})(ACatInLimbo || (ACatInLimbo = {}));
+var ACatInLimbo;
+(function (ACatInLimbo) {
+    //CHARACTERS
+    ACatInLimbo.characters = {
+        protagonist: {
+            name: ACatInLimbo.dataForSave.nameProtagonist,
+            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                front: "./Images/Characters/protagonist/protagonistFront.png",
+                side: "./Images/Characters/protagonist/protagonistSide.png",
+                handsInHips: "./Images/Characters/protagonist/protagonistHandsInHips.png",
+                scared: "./Images/Characters/protagonist/protagonistScared.png",
+                thinking: "./Images/Characters/protagonist/protagonistThinking.png"
+            }
+        },
+        pinkCat: {
+            name: "pinkCat",
+            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                //pink Cat poses regular
+                normal: "./Images/Characters/pinkCat/pinkCatNormal.png",
+                normalLookingAway: "./Images/Characters/pinkCat/pinkCatNormalFromBehind.png",
+                normalAngry: "./Images/Characters/pinkCat/pinkCatNormalAngry.png",
+                fromBehindLookingAway: "./Images/Characters/pinkCat/pinkCatBehind.png",
+                fromBehindLookingBack: "./Images/Characters/pinkCat/pinkCatBehindLook.png",
+                scared: "./Images/Characters/pinkCat/pinkCatScared.png",
+                cleaningAss: "./Images/Characters/pinkCat/pinkCatCleaningAss.png",
+                cleaningPaw: "./Images/Characters/pinkCat/pinkCatCleaningPaw.png",
+                curious: "./Images/Characters/pinkCat/pinkCatCurious.png",
+                derpy1: "./Images/Characters/pinkCat/pinkCatDerp1.png",
+                derpy2: "./Images/Characters/pinkCat/pinkCatDerp2.png",
+                lovely: "./Images/Characters/pinkCat/pinkCatLove.png",
+                layingOnBack: "./Images/Characters/pinkCat/pinkCatOnBack.png",
+                sleeping: "./Images/Characters/pinkCat/pinkCatSleeping.png",
+                stretching: "./Images/Characters/pinkCat/pinkCatStretching.png",
+                talking: "./Images/Characters/pinkCat/pinkCatTalking.png",
+                talkingAngry: "./Images/Characters/pinkCat/pinkCatTalkingAngry.png",
+                thoughtful1: "./Images/Characters/pinkCat/pinkCatThoughtful1.png",
+                thoughtful2: "./Images/Characters/pinkCat/pinkCatThoughtful2.png",
+                thumbsUp: "./Images/Characters/pinkCat/pinkCatThumbsUp.png",
+                walking: "./Images/Characters/pinkCat/pinkCatWalking.png",
+                yawning: "./Images/Characters/pinkCat/pinkCatYawning.png",
+                crouched: "./Images/Characters/pinkCat/pinkCatCrouched.png",
+                crouchedLookingAway: "./Images/Characters/pinkCat/pinkCatCrouchedLookingAway.png",
+                crouchedSad: "./Images/Characters/pinkCat/pinkCatCrouchedSad.png",
+                proud: "./Images/Characters/pinkCat/proud.png",
+                play1: "./Images/Characters/pinkCat/pinkCatplay1.png",
+                play2: "./Images/Characters/pinkCat/pinkCatplay2.png",
+                normal2: "./Images/Characters/pinkCat/normal2.png",
+                normal2Sad: "./Images/Characters/pinkCat/normal2Sad.png",
+                //pink Cat poses small 
+                normalSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatNormalSmall.png",
+                scaredSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatScaredSmall.png",
+                scaredSmallTurnedRight: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatScaredSmallTurnedRight.png",
+                curiousSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatCuriousSmall.png",
+                lovelySmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatLoveSmall.png",
+                layingOnBackSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatOnBackSmall.png",
+                stretchingSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatStretchingSmall.png",
+                play1Small: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatPlay1Small.png",
+                play2Small: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatPlay2Small.png",
+                //pink Cat as stone Statue awakes
+                awakening1: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening1.png",
+                awakening2: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening2.png",
+                awakening3: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening3.png",
+                awakening4: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening4.png",
+                awakening5: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening5.png",
+                awakening6: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening6.png",
+                awakening7: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening7.png",
+                awakening8: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening8.png"
+            }
+        },
+        stonePedestal: {
+            name: "stonePedestal",
+            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                stonePedestal: "./Images/Characters/pinkCat/pinkCatAwakening/stonePedestal.png"
+            }
+        },
+        spiderCreature: {
+            name: "Spider Creature",
+            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                attack: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightAttack.png",
+                attackBig: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightAttackBig.png",
+                normal: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightNormal.png",
+                sad: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightSad.png",
+                smile: "./Images/Characters/creatures/spiderCreature/spiderCreatureLightSmile.png"
+            }
+        },
+        swampCreature: {
+            name: "Swamp Creature",
+            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                normal: "./Images/Characters/creatures/swampCreature/swampCreatureNormal.png",
+                asleep: "./Images/Characters/creatures/swampCreature/swampCreatureAsleep.png",
+                lessWood1: "./Images/Characters/creatures/swampCreature/swampCreatureLessWood1.png",
+                lessWood2: "./Images/Characters/creatures/swampCreature/swampCreatureLessWood2.png",
+                noSnails: "./Images/Characters/creatures/swampCreature/swampCreatureNoSnails.png",
+                smile: "./Images/Characters/creatures/swampCreature/swampCreatureSmile.png"
+            }
+        },
+        lakeCreature: {
+            name: "Lake Creature",
+            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                normal: "./Images/Characters/creatures/lakeCreature/lakeCreatureNormal.png",
+                sideEye: "./Images/Characters/creatures/lakeCreature/lakeCreatureSideEye.png",
+                hide: "./Images/Characters/creatures/lakeCreature/lakeCreatureHide.png",
+                attack: "./Images/Characters/creatures/lakeCreature/lakeCreatureAttack.png",
+                bait: "./Images/Characters/creatures/lakeCreature/lakeCreatureBait.png",
+                smile: "./Images/Characters/creatures/lakeCreature/lakeCreatureSmile.png",
+                cry: "./Images/Characters/creatures/lakeCreature/lakeCreatureCry.png",
+                hardCry: "./Images/Characters/creatures/lakeCreature/lakeCreatureHardCry.png",
+                heartEyes: "./Images/Characters/creatures/lakeCreature/lakeCreatureHeartEyes.png",
+                heartEyesBroken: "./Images/Characters/creatures/lakeCreature/lakeCreatureHeartEyesBroken.png",
+                hideSad: "./Images/Characters/creatures/lakeCreature/lakeCreatureHideSad.png",
+                smileHeart: "./Images/Characters/creatures/lakeCreature/lakeCreatureSmileHeart.png",
+            }
+        },
+        bayCreature: {
+            name: "Bay Creature",
+            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                armSide: "./Images/Characters/creatures/bayCreature/bayCreatureArmsSide.png",
+                attack: "./Images/Characters/creatures/bayCreature/bayCreatureAttack.png",
+                coin: "./Images/Characters/creatures/bayCreature/bayCreatureCoin.png",
+                happy: "./Images/Characters/creatures/bayCreature/bayCreatureHappy.png",
+                headAngry: "./Images/Characters/creatures/bayCreature/bayCreatureHeadAngry.png",
+                headNormal: "./Images/Characters/creatures/bayCreature/bayCreatureHeadNormal.png",
+                heart: "./Images/Characters/creatures/bayCreature/bayCreatureHeart.png",
+                lookingDownSad: "./Images/Characters/creatures/bayCreature/bayCreatureLookindDownSad.png",
+                lookingDown: "./Images/Characters/creatures/bayCreature/bayCreatureLookingDown.png",
+                normal: "./Images/Characters/creatures/bayCreature/bayCreatureNormal.png",
+                talking: "./Images/Characters/creatures/bayCreature/bayCreatureTalking.png",
+                talkingAngry: "./Images/Characters/creatures/bayCreature/bayCreatureTalkingAngry.png",
+                glow: "./Images/Characters/creatures/bayCreature/bayGlow.png",
+                happyHeart: "./Images/Characters/creatures/bayCreature/bayCreatureHappyHeart.png"
+            }
+        },
+        caveCreature: {
+            name: "Cave Creature",
+            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                normal: "./Images/Characters/creatures/caveCreature/CaveCreatureNormal.png",
+                sound: "./Images/Characters/creatures/caveCreature/CaveCreatureSound.png",
+                toungeOut: "./Images/Characters/creatures/caveCreature/CaveCreaturOpenMouth.png",
+                attack: "./Images/Characters/creatures/caveCreature/CaveCreatureAttack.png"
+            }
+        },
+        death: {
+            name: "Death",
+            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                fishingLookingDown: "./Images/Characters/death/deathFishingLookingDown.png",
+                fishingLookingUp: "./Images/Characters/death/deathFishingLookingUp.png",
+                close: "./Images/Characters/death/deathClose.png"
+            }
+        },
+        path: {
+            name: "Path",
+            origin: ACatInLimbo.ƒS.ORIGIN.CENTER,
+            pose: {
+                meadowForest: "./Images/Map/MeadowForest.png",
+                meadowLake: "./Images/Map/MeadowLake.png",
+                forestLake: "./Images/Map/ForestLake.png",
+                forestSwamp: "./Images/Map/ForestSwamp.png",
+                lakeSwamp: "./Images/Map/LakeSwamp.png",
+                swampRiver: "./Images/Map/SwampRiver.png",
+                swampBay: "./Images/Map/SwampBay.png",
+                bayRiver: "./Images/Map/BayRiver.png",
+                bayCave: "./Images/Map/BayCave.png",
+                riverCave: "./Images/Map/RiverCave.png",
+                riverMountains: "./Images/Map/RiverMountains.png",
+                mountainsClouds: "./Images/Map/MountainsClouds.png",
+                caveClouds: "./Images/Map/CaveClouds.png",
+                cloudsGate: "./Images/Map/CloudsGate.png"
+            }
+        },
+        riverflow: {
+            name: "Riverflow",
+            origin: ACatInLimbo.ƒS.ORIGIN.CENTER,
+            pose: {
+                plain: "./Images/Backgrounds/riverflow/riverflow.png",
+                flow1: "./Images/Backgrounds/riverflow/riverflow1.png",
+                flow2: "./Images/Backgrounds/riverflow/riverflow2.png",
+                flow3: "./Images/Backgrounds/riverflow/riverflow3.png",
+                flowWaving3: "./Images/Backgrounds/riverflow/riverflow3Waving.png",
+                flow4: "./Images/Backgrounds/riverflow/riverflow4.png",
+                flowWaving4: "./Images/Backgrounds/riverflow/riverflow4Waving.png",
+                flow5: "./Images/Backgrounds/riverflow/riverflow5.png",
+                flow6: "./Images/Backgrounds/riverflow/riverflow6.png"
+            }
+        },
+        snail: {
+            name: "Snail",
+            origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                normal: "./Images/Items/snail.png"
+            }
+        }
+    };
+    /* export function UpdateName(): void {
+         characters.protagonist.name = dataForSave.nameProtagonist;
+     }*/
 })(ACatInLimbo || (ACatInLimbo = {}));
 var ACatInLimbo;
 (function (ACatInLimbo) {
@@ -1113,6 +1269,7 @@ var ACatInLimbo;
     async function Bay() {
         console.log("Scene starting: Bay");
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.smallOceanWaves, 0.5, true);
         await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.bay);
@@ -1509,6 +1666,7 @@ var ACatInLimbo;
     async function CaveEntrance() {
         console.log("Scene starting: Cave Entrance");
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.meadowSound, 0.5, true);
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.forestWind, 1, true);
@@ -1826,12 +1984,12 @@ var ACatInLimbo;
             }
         };
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
         // document.getElementById("scoreForCat").style.display = "";
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.scaryForest, 2, true);
         await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.forest);
         await ACatInLimbo.ƒS.update(ACatInLimbo.transition.circleSwirl.duration, ACatInLimbo.transition.circleSwirl.alpha, ACatInLimbo.transition.circleSwirl.edge);
-        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         await ACatInLimbo.ƒS.update(2);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.walking, ACatInLimbo.ƒS.positionPercent(80, 95));
         await ACatInLimbo.ƒS.update(1);
@@ -1925,15 +2083,19 @@ var ACatInLimbo;
                 await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talkingAngry, ACatInLimbo.ƒS.positionPercent(80, 95));
                 await ACatInLimbo.ƒS.update();
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textForest.pinkCat.T0008);
-                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textForest.protagonist.T0005);
                 await ACatInLimbo.ƒS.update();
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
                 await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal, ACatInLimbo.ƒS.positionPercent(80, 95));
                 await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textForest.protagonist.T0005);
+                await ACatInLimbo.ƒS.update();
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talking, ACatInLimbo.ƒS.positionPercent(80, 95));
+                await ACatInLimbo.ƒS.update();
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, textForest.pinkCat.T0009);
                 await ACatInLimbo.ƒS.update();
                 let HowToTreatSpider = {
-                    insult: "berate spider creature",
+                    insult: "insult spider creature",
                     console: "console spider creature"
                 };
                 let HowToTreatSpiderRequest = await ACatInLimbo.ƒS.Menu.getInput(HowToTreatSpider, "choicesCSSClass");
@@ -2045,6 +2207,7 @@ var ACatInLimbo;
     async function Lake() {
         console.log("Scene starting: Lake");
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
         let textLake = {
             protagonist: {
                 T0001: "Uh, what a beautiful lake!",
@@ -2375,7 +2538,6 @@ var ACatInLimbo;
         };
         // document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         // document.getElementById("scoreForCat").style.display = "";
-        // dataForSave.catScore += 5;
         //Intro
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.meadowSound, 1, true);
@@ -2390,14 +2552,15 @@ var ACatInLimbo;
         //  await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
         ACatInLimbo.dataForSave.nameProtagonist = await ACatInLimbo.ƒS.Speech.getInput();
         await ACatInLimbo.ƒS.update();
-        // dataForSave.catScore -= 5;
-        //UpdateName();
+        //delete later
+        ACatInLimbo.dataForSave.catScore -= 5;
         ACatInLimbo.characters.protagonist.name = ACatInLimbo.dataForSave.nameProtagonist; //Danke für nichts. Keine ahnung wie das gehen soll. Ich kann die protagonist figuren nciht mehr hiden wenn ich das mache 
         console.log(ACatInLimbo.dataForSave.nameProtagonist);
         await ACatInLimbo.ƒS.update(1);
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textAwakening.protagonist.T0003 + ACatInLimbo.dataForSave.nameProtagonist + "!");
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, textAwakening.protagonist.T0004);
         await ACatInLimbo.ƒS.update();
+        ACatInLimbo.dataForSave.catScore -= 5;
         let firstAction = {
             awakeCat: "Touch the Stone-Cat",
             lookAround: "First, take a look around"
@@ -2485,7 +2648,7 @@ var ACatInLimbo;
         let approachCatRequest = await ACatInLimbo.ƒS.Menu.getInput(approachCat, "choicesCSSClass");
         //Show MeterBar 
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
-        // document.getElementById("scoreForCat").style.display = "";
+        document.getElementById("scoreForCat").style.display = "";
         switch (approachCatRequest) {
             case approachCat.approachCatCarefully:
                 console.log("Carefully approach cat");
@@ -2765,6 +2928,7 @@ var ACatInLimbo;
         await ACatInLimbo.ƒS.update(1);
         ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.happyJazz, 0, 5);
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
         //Mountains
         await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.mountains);
         await ACatInLimbo.ƒS.update(ACatInLimbo.transition.hardEdges.duration, ACatInLimbo.transition.hardEdges.alpha, ACatInLimbo.transition.hardEdges.edge);
@@ -2854,6 +3018,7 @@ var ACatInLimbo;
         // ƒS.Inventory.add(items.Coin);
         // dataForSave.visitedRiver = true;
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.river, 1, true);
         await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.river);
@@ -3052,6 +3217,7 @@ var ACatInLimbo;
     async function Swamp() {
         console.log("Scene starting: Swamp");
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
         let textSwamp = {
             protagonist: {
                 T0001: "Bah, it really doesn't smell  good here!",

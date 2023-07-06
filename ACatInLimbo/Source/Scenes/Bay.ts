@@ -3,6 +3,7 @@ namespace ACatInLimbo {
     export async function Bay(): ƒS.SceneReturn {
         console.log("Scene starting: Bay");
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
 
         ƒS.Speech.hide(); //Sprachfenster ausblenden
         ƒS.Sound.play(sound.smallOceanWaves, 0.5, true);

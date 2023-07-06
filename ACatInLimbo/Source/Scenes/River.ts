@@ -5,6 +5,7 @@ namespace ACatInLimbo {
         // ƒS.Inventory.add(items.Coin);
         // dataForSave.visitedRiver = true;
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
 
         ƒS.Speech.hide(); //Sprachfenster ausblenden
         ƒS.Sound.play(sound.river, 1, true);

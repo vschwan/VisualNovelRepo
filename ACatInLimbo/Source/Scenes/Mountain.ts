@@ -74,6 +74,7 @@ namespace ACatInLimbo {
         ƒS.Sound.fade(sound.happyJazz, 0, 5);
 
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
         //Mountains
         await ƒS.Location.show(locations.mountains);
         await ƒS.update(transition.hardEdges.duration, transition.hardEdges.alpha, transition.hardEdges.edge);

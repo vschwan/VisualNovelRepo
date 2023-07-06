@@ -3,6 +3,7 @@ namespace ACatInLimbo {
     export async function CaveEntrance(): ƒS.SceneReturn {
         console.log("Scene starting: Cave Entrance");
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
 
         ƒS.Speech.hide(); //Sprachfenster ausblenden
         ƒS.Sound.play(sound.meadowSound, 0.5, true);

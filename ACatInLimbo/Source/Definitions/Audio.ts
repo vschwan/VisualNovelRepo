@@ -19,7 +19,7 @@ namespace ACatInLimbo {
     //catSounds
     cathissing: "./Audio/catAudio/Cat-hissing-sound.mp3",
     demanding: "./Audio/catAudio/catmeow1-89814.mp3",
-    cuteMeow: "./Audio/catAudio/cuteMeow.wav",
+    cuteMeow: "./Audio/catAudio/ANMLCat_Meow cat 7 (ID 1895)_BSB.wav",
     cuteMeowMultiple: "./Audio/catAudio/shari_meow-47485.mp3",
     purrMeow: "./Audio/catAudio/cat-purr-meow-8327.mp3",
     purring: "Audio/catAudio/purring-cat-77928.mp3",

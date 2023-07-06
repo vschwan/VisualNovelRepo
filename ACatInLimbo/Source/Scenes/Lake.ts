@@ -3,6 +3,7 @@ namespace ACatInLimbo {
     export async function Lake(): ƒS.SceneReturn {
         console.log("Scene starting: Lake");
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
 
         let textLake = {
             protagonist: {

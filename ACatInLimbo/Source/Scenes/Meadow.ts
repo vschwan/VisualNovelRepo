@@ -57,8 +57,6 @@ namespace ACatInLimbo {
         }
         // document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         // document.getElementById("scoreForCat").style.display = "";
-        // dataForSave.catScore += 5;
-
 
         //Intro
         ƒS.Speech.hide(); //Sprachfenster ausblenden
@@ -74,14 +72,19 @@ namespace ACatInLimbo {
         //  await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
         dataForSave.nameProtagonist = await ƒS.Speech.getInput();
         await ƒS.update();
-        // dataForSave.catScore -= 5;
-        //UpdateName();
+
+        //delete later
+        dataForSave.catScore -= 5;
+
+
         characters.protagonist.name = dataForSave.nameProtagonist;  //Danke für nichts. Keine ahnung wie das gehen soll. Ich kann die protagonist figuren nciht mehr hiden wenn ich das mache 
         console.log(dataForSave.nameProtagonist);
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0003 + dataForSave.nameProtagonist + "!");
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0004);
         await ƒS.update();
+
+        dataForSave.catScore -= 5;
 
         let firstAction = {
             awakeCat: "Touch the Stone-Cat",
@@ -176,7 +179,7 @@ namespace ACatInLimbo {
         let approachCatRequest = await ƒS.Menu.getInput(approachCat, "choicesCSSClass");
         //Show MeterBar 
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
-        // document.getElementById("scoreForCat").style.display = "";
+        document.getElementById("scoreForCat").style.display = "";
 
         switch (approachCatRequest) {
             case approachCat.approachCatCarefully:
