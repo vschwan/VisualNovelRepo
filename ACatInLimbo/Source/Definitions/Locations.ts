@@ -74,11 +74,7 @@ namespace ACatInLimbo {
             name:"Mountains",
             background: "./Images/Backgrounds/mountains.png"
         },
-        mountainGoats: {
-            name:"MountainGoats",
-            background: "./Images/Backgrounds/mountainsGoats.png"
-        }
-       
+     
 
 
 

@@ -92,6 +92,8 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
+      { id: "Mountain Scene", scene: Mountain, name: "Mountain" },
+
       { id: "Meadow Scene", scene: Meadow, name: "meadow" },
       { id: "Forest Scene", scene: Forest, name: "Forest" },
       { id: "Lake Scene", scene: Lake, name: "lake" },

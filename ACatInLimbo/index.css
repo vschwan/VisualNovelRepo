@@ -298,15 +298,16 @@ meter[id="catMeter"]::-webkit-meter-optimum-value {
 
 input[id="scoreForCat"] {
   color: rgb(255, 255, 255);
-  background-color: #e5cfda00;
-  font-size: 25pt;
+  background-color: #79114500;
+  font-size: 23pt;
   position: absolute;
-  bottom: 93%;
-  width: 3%;
-  height: 2%;
-  left: 63%;
-  margin-left: 1%;
+  bottom: 92%;
+  width: 4%;
+  height: 2.5%;
+  left: 61.5%;
+  /* margin-left: 1%; */
   border: 0ch;
+  padding: 8px;
 }
 
 /* dialog.TextPrint{

@@ -386,7 +386,7 @@ namespace ACatInLimbo {
         let lakeCreatureDecisionRequest = await ƒS.Menu.getInput(lakeCreatureDecision, "choicesCSSClass");
         switch (lakeCreatureDecisionRequest) {
             case lakeCreatureDecision.help:
-                dataForSave.catScore += 5;
+                dataForSave.catScore += 10;
                 await ƒS.Character.hide(characters.pinkCat);
                 ƒS.Sound.fade(sound.smallOceanWaves, 0, 2);
                 dataForSave.currentPath = "BayToLake"
@@ -394,7 +394,7 @@ namespace ACatInLimbo {
                 break;
 
             case lakeCreatureDecision.dontHelp:
-                dataForSave.catScore -= 5;
+                dataForSave.catScore -= 10;
                 await ƒS.Speech.tell(characters.protagonist, "You're right, I kind of want to get out of here. Let's move on.");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);

@@ -91,7 +91,6 @@ namespace ACatInLimbo {
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.hide(characters.pinkCat);
         } else {
-
             dataForSave.visitedLake = true;
             await ƒS.update(1);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.fromBehindLookingBack, ƒS.positionPercent(80, 95));

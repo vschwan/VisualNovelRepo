@@ -150,6 +150,7 @@ declare namespace ACatInLimbo {
                 play2: string;
                 normal2: string;
                 normal2Sad: string;
+                lookingUp: string;
                 normalSmall: string;
                 scaredSmall: string;
                 scaredSmallTurnedRight: string;
@@ -159,6 +160,12 @@ declare namespace ACatInLimbo {
                 stretchingSmall: string;
                 play1Small: string;
                 play2Small: string;
+                cleaningAssTiny: string;
+                cleaningPawTiny: string;
+                lookingUpTiny: string;
+                onBackTiny: string;
+                proudTiny: string;
+                loveTiny: string;
                 awakening1: string;
                 awakening2: string;
                 awakening3: string;
@@ -254,6 +261,14 @@ declare namespace ACatInLimbo {
                 fishingLookingDown: string;
                 fishingLookingUp: string;
                 close: string;
+            };
+        };
+        goats: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                allGoats: string;
+                singleGoat: string;
             };
         };
         path: {
@@ -405,10 +420,6 @@ declare namespace ACatInLimbo {
             background: string;
         };
         mountains: {
-            name: string;
-            background: string;
-        };
-        mountainGoats: {
             name: string;
             background: string;
         };

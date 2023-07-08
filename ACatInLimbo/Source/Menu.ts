@@ -1,11 +1,11 @@
 namespace ACatInLimbo {
 
-    export let gameMenu: ƒS.Menu;
-    export let menuIsOpen: boolean = true;
+  export let gameMenu: ƒS.Menu;
+  export let menuIsOpen: boolean = true;
 
 
   //MENU
- export let inGameMenuButtons = {
+  export let inGameMenuButtons = {
     save: "Save",
     load: "Load",
     inventory: "Inventory",
@@ -46,7 +46,7 @@ namespace ACatInLimbo {
     }
   }
 
-  
+
   // Menu shortcuts
   document.addEventListener("keydown", handleKeyPress);
   async function handleKeyPress(_event: KeyboardEvent): Promise<void> {
@@ -94,8 +94,8 @@ namespace ACatInLimbo {
   }
 
 
- //Credits
- export async function credits() {
+  //Credits
+  export async function credits() {
 
     ƒS.Text.setClass("credits");
     let credits: string[] =
@@ -118,7 +118,7 @@ namespace ACatInLimbo {
         </tr>\
         <tr>\
         <td></td>\
-        <td>meadow.png,<br>mainBackground.png,<br>map.png + paths</td>\
+        <td>meadow.png,<br>mainBackground.png,<br>clouds.png,<br>map.png + paths</td>\
         <td>by Valentina Schwan</td>\
         </tr>\
         <tr>\
@@ -171,7 +171,7 @@ namespace ACatInLimbo {
         <td>mixkit-scary-forest-at-night-2486</td>\
         <td><a href:'https://mixkit.co/free-sound-effects/scary-woods/'>Free Scary Woods Sound Effects</a><br>from Mixkit, Envato Elements</td>\
         </tr>\
-        ", 
+        ",
 
         "<h3>Audio</h3>\
         <table>\
@@ -210,7 +210,7 @@ namespace ACatInLimbo {
         <td>Fish Eat (Nr. 2  Fortnite Sound) - Sound Effect for editing</td>\
         <td><a href:'https://www.file-upload.net/download-13974100/FishEatNr.2FortniteSound-SoundEffectforediting.mp3.html'>File-Upload.net</a></td>\
         </tr>\
-        ", 
+        ",
 
         "<h3>Audio</h3>\
         <table>\

@@ -45,12 +45,12 @@ namespace ACatInLimbo {
         crouched: "./Images/Characters/pinkCat/pinkCatCrouched.png",
         crouchedLookingAway: "./Images/Characters/pinkCat/pinkCatCrouchedLookingAway.png",
         crouchedSad: "./Images/Characters/pinkCat/pinkCatCrouchedSad.png",
-        proud: "./Images/Characters/pinkCat/proud.png",
+        proud: "./Images/Characters/pinkCat/pinkCatProud.png",
         play1: "./Images/Characters/pinkCat/pinkCatplay1.png",
         play2: "./Images/Characters/pinkCat/pinkCatplay2.png",
-        normal2: "./Images/Characters/pinkCat/normal2.png",
-        normal2Sad: "./Images/Characters/pinkCat/normal2Sad.png",
-
+        normal2: "./Images/Characters/pinkCat/pinkCatNormal2.png",
+        normal2Sad: "./Images/Characters/pinkCat/pinkCatNormal2Sad.png",
+        lookingUp: "./Images/Characters/pinkCat/pinkCatLookingUp.png",
 
         //pink Cat poses small 
         normalSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatNormalSmall.png",
@@ -62,6 +62,14 @@ namespace ACatInLimbo {
         stretchingSmall: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatStretchingSmall.png",
         play1Small: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatPlay1Small.png",
         play2Small: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatPlay2Small.png",
+
+        //pink Cat tiny (mountain scene with goats)
+        cleaningAssTiny:"./Images/Characters/pinkCat/pinkCatTiny/pinkCatCleaningAssTiny.png",
+        cleaningPawTiny: "./Images/Characters/pinkCat/pinkCatTiny/pinkCatCleaningPawTiny.png",
+        lookingUpTiny:"./Images/Characters/pinkCat/pinkCatTiny/pinkCatLookingUpTiny.png",
+        onBackTiny:"./Images/Characters/pinkCat/pinkCatTiny/pinkCatOnBackTiny.png",
+        proudTiny:"./Images/Characters/pinkCat/pinkCatTiny/pinkCatProudTiny.png",
+        loveTiny: "./Images/Characters/pinkCat/pinkCatTiny/pinkCatLoveTiny.png",
 
         //pink Cat as stone Statue awakes
         awakening1: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening1.png",
@@ -168,6 +176,15 @@ namespace ACatInLimbo {
         fishingLookingDown: "./Images/Characters/death/deathFishingLookingDown.png",
         fishingLookingUp: "./Images/Characters/death/deathFishingLookingUp.png",
         close: "./Images/Characters/death/deathClose.png"
+      }
+    },
+
+    goats:{
+      name:"Goats",
+      origin: ƒS.ORIGIN.CENTER,
+      pose:{
+        allGoats: "./Images/Characters/creatures/goats/mountainGoats.png",
+        singleGoat: "./Images/Characters/creatures/goats/singleGoatLookingAtCat.png"
       }
     },
 
