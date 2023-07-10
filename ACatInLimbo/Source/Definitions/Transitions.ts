@@ -67,6 +67,13 @@ namespace ACatInLimbo {
       duration: 1,
       alpha: "./FreeTransitions/WipesAndOther/circlewipe-ccw.jpg",
       edge: 1
+    },
+
+    fuzzyPatches: {
+      duration: 5,
+      alpha: "./FreeTransitions/WipesAndOther/12.jpg",
+      edge: 1
+
     }
 
   }

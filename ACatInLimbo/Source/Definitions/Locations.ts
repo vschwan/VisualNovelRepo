@@ -74,6 +74,11 @@ namespace ACatInLimbo {
             name:"Mountains",
             background: "./Images/Backgrounds/mountains.png"
         },
+        
+        clouds: {
+            name:"Clouds",
+            background: "./Images/Backgrounds/clouds.png"
+        },
      
 
 

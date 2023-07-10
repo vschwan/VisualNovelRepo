@@ -82,7 +82,7 @@ var ACatInLimbo;
         pathRiverMountain: false,
         pathRiverCave: false,
         pathCaveClouds: false,
-        pathMountainClouds: false,
+        pathMountainClouds: true,
         pathCloudsGate: false,
         nameProtagonist: "You",
         catLeaving: false,
@@ -134,7 +134,7 @@ var ACatInLimbo;
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
         let scenes = [
-            { id: "Mountain Scene", scene: ACatInLimbo.Mountain, name: "Mountain" },
+            { id: "Clouds Scene", scene: ACatInLimbo.Clouds, name: "Gate Scene" },
             { id: "Meadow Scene", scene: ACatInLimbo.Meadow, name: "meadow" },
             { id: "Forest Scene", scene: ACatInLimbo.Forest, name: "Forest" },
             { id: "Lake Scene", scene: ACatInLimbo.Lake, name: "lake" },
@@ -146,10 +146,10 @@ var ACatInLimbo;
             { id: "Cave Entrance Scene", scene: ACatInLimbo.CaveEntrance, name: "Cave Entrance" },
             { id: "Cave Inside Scene", scene: ACatInLimbo.CaveInside, name: "Cave Inside" },
             { id: "Cave Exit Scene", scene: ACatInLimbo.CaveExit, name: "Cave Exit" },
+            { id: "Clouds Scene", scene: ACatInLimbo.Clouds, name: "Clouds", next: "Gate Scene" },
+            { id: "Gate Scene", scene: ACatInLimbo.Gate, name: "Gate" },
             { id: "BadEnding Cave Scene", scene: ACatInLimbo.BadEndingCave, name: "BadEnding Cave" },
             { id: "BadEnding LostCat Scene", scene: ACatInLimbo.BadEndingLostCat, name: "BadEnding LostCat" },
-            // { id: "Clouds Scene", scene: Clouds, name: "Clouds" },
-            // { id: "Gate", scene: Gate, name: "Gate" },
             // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
             // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
             // {id: "Bad End", scene: BadEnding, name: "Bad"},
@@ -573,7 +573,7 @@ var ACatInLimbo;
         </tr>\
         <tr>\
         <td></td>\
-        <td>meadow.png,<br>mainBackground.png,<br>map.png + paths</td>\
+        <td>meadow.png,<br>mainBackground.png,<br>clouds.png,<br>map.png + paths</td>\
         <td>by Valentina Schwan</td>\
         </tr>\
         <tr>\
@@ -617,6 +617,11 @@ var ACatInLimbo;
         </tr>\
         <tr>\
         <td></td>\
+        <td></td>\
+        <td>Music by <a href:'https://pixabay.com/es/users/john_kensy_music-26026995/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=22174'>Dank John_Kensy_Music</a><br>from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>Pixabay</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
         <td>spring-forest-birds-sounds</td>\
         <td><a href:'https://www.freesoundslibrary.com/'>Free Sounds Library</a></td>\
         </tr>\
@@ -652,6 +657,11 @@ var ACatInLimbo;
         <td></td>\
         <td>mixkit-hard-horror-hit-drum-565,<br>mixkit-horror-deep-drum-heartbeat-559</td>\
         <td><a href:'https://mixkit.co/free-sound-effects/horror/'>Free Horror Sound Effects</a><br>from Mixkit, Envato Elements</td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>mixkit-big-wild-cat-slow-moan-90</td>\
+        <td><a href:'https://mixkit.co/free-sound-effects/monster/'>Free Monster Sound Effects</a><br>from Mixkit, Envato Elements</td>\
         </tr>\
         <tr>\
         <td></td>\
@@ -816,15 +826,34 @@ var ACatInLimbo;
         }; //scaling hinzufügen?
     }
     ACatInLimbo.deathSlide = deathSlide;
-    /*
-      export function getAnimation(): ƒS.AnimationDefinition {
+    function skywormAppearing() {
+        //something
         return {
-          start: { translation: ƒS.positions.bottomleft, rotation: -20, scaling: new ƒS.Position(0.5, 1.5), color: ƒS.Color.CSS("white", 0.3) },
-          end: { translation: ƒS.positions.bottomright, rotation: 20, scaling: new ƒS.Position(1.5, 0.5), color: ƒS.Color.CSS("red") },
-          duration: 1,
-          playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCESTOPAFTER
-        };
-      }*/
+            start: { translation: ACatInLimbo.ƒS.positionPercent(50, 100), color: ACatInLimbo.ƒS.Color.CSS("", 1) },
+            end: { translation: ACatInLimbo.ƒS.positionPercent(50, 50), color: ACatInLimbo.ƒS.Color.CSS("", 1) },
+            duration: 2,
+            playmode: ACatInLimbo.ƒS.ANIMATION_PLAYMODE.PLAYONCE
+        }; //scaling hinzufügen?
+    }
+    ACatInLimbo.skywormAppearing = skywormAppearing;
+    function skywormDisappearing() {
+        //something
+        return {
+            start: { translation: ACatInLimbo.ƒS.positionPercent(50, 50), color: ACatInLimbo.ƒS.Color.CSS("", 1) },
+            end: { translation: ACatInLimbo.ƒS.positionPercent(50, 50), color: ACatInLimbo.ƒS.Color.CSS("#ea9847", 0) },
+            duration: 4,
+            playmode: ACatInLimbo.ƒS.ANIMATION_PLAYMODE.PLAYONCE
+        }; //scaling hinzufügen?
+    }
+    ACatInLimbo.skywormDisappearing = skywormDisappearing;
+    // export function getAnimation(): ƒS.AnimationDefinition {
+    //   return {
+    //     start: { translation: ƒS.positions.bottomleft, rotation: -20, scaling: new ƒS.Position(0.5, 1.5), color: ƒS.Color.CSS("white", 0.3) },
+    //     end: { translation: ƒS.positions.bottomright, rotation: 20, scaling: new ƒS.Position(1.5, 0.5), color: ƒS.Color.CSS("red") },
+    //     duration: 1,
+    //     playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCESTOPAFTER
+    //   };
+    // }
 })(ACatInLimbo || (ACatInLimbo = {}));
 var ACatInLimbo;
 (function (ACatInLimbo) {
@@ -839,6 +868,7 @@ var ACatInLimbo;
         swamp: "./Audio/Ambience/forest-swamp-6751.mp3",
         frogs: "./Audio/Ambience/frogs-48410.mp3",
         river: "./Audio/Ambience/river-in-the-forest-17271.mp3",
+        relaxMusic: "./Audio/Ambience/mindfulness-relaxation-amp-meditation-music-22174.mp3",
         //music
         happyJazz: "./Audio/Ambience/jazz-happy-110855.mp3",
         //catSounds
@@ -865,7 +895,8 @@ var ACatInLimbo;
         frogQuaks: "./Audio/FX/frog_quak-81741.mp3",
         snailbreak: "./Audio/FX/finger-cracking-40991.mp3",
         monster: "./Audio/FX/monster-rumble-99026.mp3",
-        goats: "./Audio/FX/sheep-bleating-31117.mp3"
+        goats: "./Audio/FX/sheep-bleating-31117.mp3",
+        wildRoar: "./Audio/FX/mixkit-big-wild-cat-slow-moan-90.wav"
     };
 })(ACatInLimbo || (ACatInLimbo = {}));
 var ACatInLimbo;
@@ -913,6 +944,7 @@ var ACatInLimbo;
                 crouched: "./Images/Characters/pinkCat/pinkCatCrouched.png",
                 crouchedLookingAway: "./Images/Characters/pinkCat/pinkCatCrouchedLookingAway.png",
                 crouchedSad: "./Images/Characters/pinkCat/pinkCatCrouchedSad.png",
+                crouchedAngry: "./Images/Characters/pinkCat/pinkCatCrouchedAngry.png",
                 proud: "./Images/Characters/pinkCat/pinkCatProud.png",
                 play1: "./Images/Characters/pinkCat/pinkCatplay1.png",
                 play2: "./Images/Characters/pinkCat/pinkCatplay2.png",
@@ -1083,6 +1115,28 @@ var ACatInLimbo;
             pose: {
                 normal: "./Images/Items/snail.png"
             }
+        },
+        skyworm: {
+            name: "Skyworm",
+            origin: ACatInLimbo.ƒS.ORIGIN.CENTER,
+            pose: {
+                normal: "./Images/Characters/creatures/skyworm/skywormNormal.png",
+                friendly: "./Images/Characters/creatures/skyworm/skywormFriendly.png",
+                thinking: "./Images/Characters/creatures/skyworm/skywormThinking.png",
+                evil: "./Images/Characters/creatures/skyworm/skywormEvil.png",
+                excited: "./Images/Characters/creatures/skyworm/skywormExcited.png",
+                cheeky: "./Images/Characters/creatures/skyworm/skywormCheeky.png",
+                dreaming: "./Images/Characters/creatures/skyworm/skywormDreaming.png",
+                smelling: "./Images/Characters/creatures/skyworm/skywormSmelling.png",
+                persuading: "./Images/Characters/creatures/skyworm/skyWormPersuading.png",
+                fin: "./Images/Characters/creatures/skyworm/skywormFin.png",
+                bye: "./Images/Characters/creatures/skyworm/skywormBye.png",
+                disappearing: "./Images/Characters/creatures/skyworm/sykwormDisappearing.png",
+                angry: "./Images/Characters/creatures/skyworm/skywormAngry.png",
+                angry2: "./Images/Characters/creatures/skyworm/skywormAngry2.png",
+                cliffEdge: "./Images/Characters/creatures/skyworm/skywormCliffEdge.png"
+                // multiple: "./Images/Characters/creatures/skyworm/worms.png"
+            }
         }
     };
     /* export function UpdateName(): void {
@@ -1199,6 +1253,10 @@ var ACatInLimbo;
             name: "Mountains",
             background: "./Images/Backgrounds/mountains.png"
         },
+        clouds: {
+            name: "Clouds",
+            background: "./Images/Backgrounds/clouds.png"
+        },
     };
 })(ACatInLimbo || (ACatInLimbo = {}));
 var ACatInLimbo;
@@ -1258,6 +1316,11 @@ var ACatInLimbo;
         circleWipeCCW: {
             duration: 1,
             alpha: "./FreeTransitions/WipesAndOther/circlewipe-ccw.jpg",
+            edge: 1
+        },
+        fuzzyPatches: {
+            duration: 5,
+            alpha: "./FreeTransitions/WipesAndOther/12.jpg",
             edge: 1
         }
     };
@@ -1940,6 +2003,344 @@ var ACatInLimbo;
 (function (ACatInLimbo) {
     async function Clouds() {
         console.log("Scene starting: Clouds");
+        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
+        ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
+        // ƒS.Sound.play(sound.forestWind, 1, true);
+        ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.relaxMusic, 0.1, true);
+        await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.clouds);
+        // await ƒS.Character.show(characters.skyworm, characters.skyworm.pose.multiple, ƒS.positionPercent(50, 50));
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.crouchedLookingAway, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update(ACatInLimbo.transition.fuzzyPatches.duration, ACatInLimbo.transition.fuzzyPatches.alpha, ACatInLimbo.transition.fuzzyPatches.edge);
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Wow!");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.crouched, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Pretty great, huh?");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.crouchedLookingAway, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "It's amazing!");
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "What are these things in the sky?");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.thoughtful2, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Skyworms, I think.");
+        if (ACatInLimbo.dataForSave.pathMountainClouds == true) {
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalLookingAway, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.update(1);
+            //geile spannende  mucke hier rein
+            await ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.relaxMusic, 0, 1);
+            await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.wildRoar, 0.4, false);
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.scared, ACatInLimbo.ƒS.positionPercent(85, 105));
+            await ACatInLimbo.ƒS.Character.animate(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.evil, ACatInLimbo.skywormAppearing());
+            await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.cathissing, 0.5, false);
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Whoa!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hideAll();
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talkingAngry, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.evil, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "For fuck's sake!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hideAll();
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.scared, ACatInLimbo.ƒS.positionPercent(85, 105));
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.evil, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "I'm smelling something!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.excited, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "I'm smelling...");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.smelling, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "my FAVOURITE THING!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Please don't eat us!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hideAll();
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.fromBehindLookingAway, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.persuading, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Cats, pink cats especially, taste like rotten mice, I swear!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.thinking, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "Cats? No shit! Blargh! I haven't tried a pink one, but you guys taste like litter box leftovers!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hideAll();
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.crouchedSad, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.thinking, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Ouch?");
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Lol, why do you feel offended?");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hideAll();
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.thinking, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            await ACatInLimbo.ƒS.Character.hideAll();
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalLookingAway, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.thinking, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update(1);
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.friendly, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "No, what I'm smelling is...");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.excited, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "GOATS!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.friendly, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "You smell like goats.");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hideAll();
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.derpy1, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.friendly, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Whispering: <i>Oh no.</i>");
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Whispering: <i>Just because you couldn't leave them alone.</i>");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal2Sad, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.thinking, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Whispering: <i>Sorry, I love goats.</i>");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.fromBehindLookingAway, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.evil, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "WHAT ARE YOU WHISPERING ABOUT?!");
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "I'm hearing goat-talk.");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.excited, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "You probably know where they are, right? RIGHT?!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.normal, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, " I'm always smelling them, but they are sneaky. Somehow they always get away from me.");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hideAll();
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.normal, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Whispering: <i>Lucky goats.</i>");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalLookingAway, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.dreaming, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "Except this one time. It was DELICIOUS!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.smelling, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "DELICIOUS!!!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.persuading, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "Tell me, where are they?");
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "If we knew, why would we tell you? You're gonna eat them!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.cheeky, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "Well, you know, I am good friends with a certain…ruler. I could whisper in his ear about how you've helped me out!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.dreaming, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "Also, ha, it's just some goats! Kill one animal for the possibility of a happy afterlife? What do you say? Suddenly, a goat's life gets precious? I don't think so.");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hideAll();
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.dreaming, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Mhmm.");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.angry2, ACatInLimbo.ƒS.positionPercent(50, 50));
+            await ACatInLimbo.ƒS.update();
+            let betrayGoats = {
+                betrayGoats: "reveal goat hideout",
+                dontBetrayGoats: "don't reveal goat hideout"
+            };
+            let betrayGoatsRequest = await ACatInLimbo.ƒS.Menu.getInput(betrayGoats, "choicesCSSClass");
+            switch (betrayGoatsRequest) {
+                case betrayGoats.betrayGoats:
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "They live in small caves further down the mountain.");
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.excited, ACatInLimbo.ƒS.positionPercent(50, 50));
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "Caaaaves?");
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Small holes in the big stone we stand on:");
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talkingAngry, ACatInLimbo.ƒS.positionPercent(80, 99));
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.evil, ACatInLimbo.ƒS.positionPercent(50, 50));
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "You're a bitch.");
+                    ACatInLimbo.dataForSave.catScore -= 20;
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(80, 99));
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.persuading, ACatInLimbo.ƒS.positionPercent(50, 50));
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Huh? Me?");
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Dude, I just want to live a peaceful afterlife!");
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talkingAngry, ACatInLimbo.ƒS.positionPercent(80, 99));
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.cheeky, ACatInLimbo.ƒS.positionPercent(50, 50));
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "You think they're gonna eat just one goat?");
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "It's gonna be a fucking massacre!");
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(80, 99));
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.fin, ACatInLimbo.ƒS.positionPercent(50, 50));
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "But they're all already dead! We're in Limbo, are we not?");
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.crouchedAngry, ACatInLimbo.ƒS.positionPercent(80, 99));
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.bye, ACatInLimbo.ƒS.positionPercent(50, 50));
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Of course we are, but just because someone is already suffering does not excuse being an asshole to them or torturing and killing them fucking AGAIN!");
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.crouchedLookingAway, ACatInLimbo.ƒS.positionPercent(80, 99));
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+                    await ACatInLimbo.ƒS.Character.animate(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.disappearing, ACatInLimbo.skywormDisappearing());
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Fuck this.");
+                    await ACatInLimbo.ƒS.update();
+                    break;
+                case betrayGoats.dontBetrayGoats:
+                    ACatInLimbo.dataForSave.catScore += 15;
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Nah, sorry, we don't really know where they are, right?");
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.lovely, ACatInLimbo.ƒS.positionPercent(80, 99));
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.angry, ACatInLimbo.ƒS.positionPercent(50, 50));
+                    await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.purrMeow, 1, false);
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    await ACatInLimbo.ƒS.update(1);
+                    await ACatInLimbo.ƒS.Character.hideAll();
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalLookingAway, ACatInLimbo.ƒS.positionPercent(80, 99));
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.angry, ACatInLimbo.ƒS.positionPercent(50, 50));
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Nooo, sorry! We met them but they were so damn fast!");
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.wildRoar, 1, false);
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.evil, ACatInLimbo.ƒS.positionPercent(50, 50));
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "What?! You're lying!");
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Nooo, we wouldn't! We like to eat goats, same as you! If you see them, could you do <i>us</i> a favor and tell us where they're hiding?");
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.angry, ACatInLimbo.ƒS.positionPercent(50, 50));
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "Hmpf, alright.");
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.thinking, ACatInLimbo.ƒS.positionPercent(50, 50));
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "Maybe...");
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.angry2, ACatInLimbo.ƒS.positionPercent(50, 50));
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.skyworm, "Damn little hiding artists.");
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.fin, ACatInLimbo.ƒS.positionPercent(50, 50));
+                    await ACatInLimbo.ƒS.update(2);
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.skyworm);
+                    await ACatInLimbo.ƒS.Character.animate(ACatInLimbo.characters.skyworm, ACatInLimbo.characters.skyworm.pose.disappearing, ACatInLimbo.skywormDisappearing());
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal, ACatInLimbo.ƒS.positionPercent(80, 99));
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Damn, for a moment I thought you would betray those cute little goats.");
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Well, I thought about it, but it didn't seem right.");
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talking, ACatInLimbo.ƒS.positionPercent(80, 99));
+                    await ACatInLimbo.ƒS.update();
+                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "It wouldn't have been right.");
+                    await ACatInLimbo.ƒS.update();
+                    break;
+            }
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Let's get you to that damn gate.");
+            await ACatInLimbo.ƒS.update();
+        }
+        else {
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "They're pretty");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.curious, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "From far away maybe... Once, i saw one up close.");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talking, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "It was terrifying.");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Mhm.");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.cleaningAss, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "We should get going.");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.cleaningPaw, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Before one notices us.");
+            await ACatInLimbo.ƒS.update();
+        }
+        // ƒS.Sound.fade(sound.forestWind, 0, 4);
+        // ƒS.Sound.fade(sound.relaxMusic, 0, 7);
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        return "Gate Scene";
     }
     ACatInLimbo.Clouds = Clouds;
 })(ACatInLimbo || (ACatInLimbo = {}));

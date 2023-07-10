@@ -163,6 +163,11 @@ namespace ACatInLimbo {
         </tr>\
         <tr>\
         <td></td>\
+        <td></td>\
+        <td>Music by <a href:'https://pixabay.com/es/users/john_kensy_music-26026995/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=22174'>Dank John_Kensy_Music</a><br>from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>Pixabay</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
         <td>spring-forest-birds-sounds</td>\
         <td><a href:'https://www.freesoundslibrary.com/'>Free Sounds Library</a></td>\
         </tr>\
@@ -199,6 +204,11 @@ namespace ACatInLimbo {
         <td></td>\
         <td>mixkit-hard-horror-hit-drum-565,<br>mixkit-horror-deep-drum-heartbeat-559</td>\
         <td><a href:'https://mixkit.co/free-sound-effects/horror/'>Free Horror Sound Effects</a><br>from Mixkit, Envato Elements</td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>mixkit-big-wild-cat-slow-moan-90</td>\
+        <td><a href:'https://mixkit.co/free-sound-effects/monster/'>Free Monster Sound Effects</a><br>from Mixkit, Envato Elements</td>\
         </tr>\
         <tr>\
         <td></td>\

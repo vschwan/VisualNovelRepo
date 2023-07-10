@@ -12,6 +12,7 @@ namespace ACatInLimbo {
     swamp: "./Audio/Ambience/forest-swamp-6751.mp3",
     frogs: "./Audio/Ambience/frogs-48410.mp3",
     river: "./Audio/Ambience/river-in-the-forest-17271.mp3",
+    relaxMusic: "./Audio/Ambience/mindfulness-relaxation-amp-meditation-music-22174.mp3",
 
     //music
     happyJazz: "./Audio/Ambience/jazz-happy-110855.mp3",
@@ -42,7 +43,8 @@ namespace ACatInLimbo {
     frogQuaks: "./Audio/FX/frog_quak-81741.mp3",
     snailbreak: "./Audio/FX/finger-cracking-40991.mp3",
     monster: "./Audio/FX/monster-rumble-99026.mp3",
-    goats: "./Audio/FX/sheep-bleating-31117.mp3"
+    goats: "./Audio/FX/sheep-bleating-31117.mp3",
+    wildRoar: "./Audio/FX/mixkit-big-wild-cat-slow-moan-90.wav"
 
 
   };

@@ -25,7 +25,7 @@ namespace ACatInLimbo {
     pathRiverMountain: false,
     pathRiverCave: false,
     pathCaveClouds: false,
-    pathMountainClouds: false,
+    pathMountainClouds: true,
     pathCloudsGate: false,
 
     nameProtagonist: "You",
@@ -78,7 +78,7 @@ namespace ACatInLimbo {
   }
     , 3000);
 
-  
+
 
 
   window.addEventListener("load", start);
@@ -92,7 +92,7 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
-      { id: "Mountain Scene", scene: Mountain, name: "Mountain" },
+      { id: "Clouds Scene", scene: Clouds, name: "Gate Scene" },
 
       { id: "Meadow Scene", scene: Meadow, name: "meadow" },
       { id: "Forest Scene", scene: Forest, name: "Forest" },
@@ -105,11 +105,11 @@ namespace ACatInLimbo {
       { id: "Cave Entrance Scene", scene: CaveEntrance, name: "Cave Entrance" },
       { id: "Cave Inside Scene", scene: CaveInside, name: "Cave Inside" },
       { id: "Cave Exit Scene", scene: CaveExit, name: "Cave Exit" },
+      { id: "Clouds Scene", scene: Clouds, name: "Clouds", next: "Gate Scene" },
+      { id: "Gate Scene", scene: Gate, name: "Gate" },
       { id: "BadEnding Cave Scene", scene: BadEndingCave, name: "BadEnding Cave" },
       { id: "BadEnding LostCat Scene", scene: BadEndingLostCat, name: "BadEnding LostCat" },
 
-      // { id: "Clouds Scene", scene: Clouds, name: "Clouds" },
-      // { id: "Gate", scene: Gate, name: "Gate" },
       // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
       // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
       // {id: "Bad End", scene: BadEnding, name: "Bad"},

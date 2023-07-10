@@ -65,6 +65,8 @@ declare namespace ACatInLimbo {
     function pathWalked(): ƒS.AnimationDefinition;
     function snailThrow(): ƒS.AnimationDefinition;
     function deathSlide(): ƒS.AnimationDefinition;
+    function skywormAppearing(): ƒS.AnimationDefinition;
+    function skywormDisappearing(): ƒS.AnimationDefinition;
 }
 declare namespace ACatInLimbo {
     let sound: {
@@ -77,6 +79,7 @@ declare namespace ACatInLimbo {
         swamp: string;
         frogs: string;
         river: string;
+        relaxMusic: string;
         happyJazz: string;
         cathissing: string;
         demanding: string;
@@ -101,6 +104,7 @@ declare namespace ACatInLimbo {
         snailbreak: string;
         monster: string;
         goats: string;
+        wildRoar: string;
     };
 }
 declare namespace ACatInLimbo {
@@ -145,6 +149,7 @@ declare namespace ACatInLimbo {
                 crouched: string;
                 crouchedLookingAway: string;
                 crouchedSad: string;
+                crouchedAngry: string;
                 proud: string;
                 play1: string;
                 play2: string;
@@ -313,6 +318,27 @@ declare namespace ACatInLimbo {
                 normal: string;
             };
         };
+        skyworm: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+                friendly: string;
+                thinking: string;
+                evil: string;
+                excited: string;
+                cheeky: string;
+                dreaming: string;
+                smelling: string;
+                persuading: string;
+                fin: string;
+                bye: string;
+                disappearing: string;
+                angry: string;
+                angry2: string;
+                cliffEdge: string;
+            };
+        };
     };
 }
 declare namespace ACatInLimbo {
@@ -423,6 +449,10 @@ declare namespace ACatInLimbo {
             name: string;
             background: string;
         };
+        clouds: {
+            name: string;
+            background: string;
+        };
     };
 }
 declare namespace ACatInLimbo {
@@ -478,6 +508,11 @@ declare namespace ACatInLimbo {
             edge: number;
         };
         circleWipeCCW: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        fuzzyPatches: {
             duration: number;
             alpha: string;
             edge: number;

@@ -45,6 +45,7 @@ namespace ACatInLimbo {
         crouched: "./Images/Characters/pinkCat/pinkCatCrouched.png",
         crouchedLookingAway: "./Images/Characters/pinkCat/pinkCatCrouchedLookingAway.png",
         crouchedSad: "./Images/Characters/pinkCat/pinkCatCrouchedSad.png",
+        crouchedAngry:"./Images/Characters/pinkCat/pinkCatCrouchedAngry.png",
         proud: "./Images/Characters/pinkCat/pinkCatProud.png",
         play1: "./Images/Characters/pinkCat/pinkCatplay1.png",
         play2: "./Images/Characters/pinkCat/pinkCatplay2.png",
@@ -64,11 +65,11 @@ namespace ACatInLimbo {
         play2Small: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatPlay2Small.png",
 
         //pink Cat tiny (mountain scene with goats)
-        cleaningAssTiny:"./Images/Characters/pinkCat/pinkCatTiny/pinkCatCleaningAssTiny.png",
+        cleaningAssTiny: "./Images/Characters/pinkCat/pinkCatTiny/pinkCatCleaningAssTiny.png",
         cleaningPawTiny: "./Images/Characters/pinkCat/pinkCatTiny/pinkCatCleaningPawTiny.png",
-        lookingUpTiny:"./Images/Characters/pinkCat/pinkCatTiny/pinkCatLookingUpTiny.png",
-        onBackTiny:"./Images/Characters/pinkCat/pinkCatTiny/pinkCatOnBackTiny.png",
-        proudTiny:"./Images/Characters/pinkCat/pinkCatTiny/pinkCatProudTiny.png",
+        lookingUpTiny: "./Images/Characters/pinkCat/pinkCatTiny/pinkCatLookingUpTiny.png",
+        onBackTiny: "./Images/Characters/pinkCat/pinkCatTiny/pinkCatOnBackTiny.png",
+        proudTiny: "./Images/Characters/pinkCat/pinkCatTiny/pinkCatProudTiny.png",
         loveTiny: "./Images/Characters/pinkCat/pinkCatTiny/pinkCatLoveTiny.png",
 
         //pink Cat as stone Statue awakes
@@ -179,10 +180,10 @@ namespace ACatInLimbo {
       }
     },
 
-    goats:{
-      name:"Goats",
+    goats: {
+      name: "Goats",
       origin: ƒS.ORIGIN.CENTER,
-      pose:{
+      pose: {
         allGoats: "./Images/Characters/creatures/goats/mountainGoats.png",
         singleGoat: "./Images/Characters/creatures/goats/singleGoatLookingAtCat.png"
       }
@@ -229,6 +230,29 @@ namespace ACatInLimbo {
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         normal: "./Images/Items/snail.png"
+      }
+    },
+
+    skyworm: {
+      name: "Skyworm",
+      origin: ƒS.ORIGIN.CENTER,
+      pose: {
+        normal: "./Images/Characters/creatures/skyworm/skywormNormal.png",
+        friendly: "./Images/Characters/creatures/skyworm/skywormFriendly.png",
+        thinking: "./Images/Characters/creatures/skyworm/skywormThinking.png",
+        evil: "./Images/Characters/creatures/skyworm/skywormEvil.png",
+        excited: "./Images/Characters/creatures/skyworm/skywormExcited.png",
+        cheeky: "./Images/Characters/creatures/skyworm/skywormCheeky.png",
+        dreaming: "./Images/Characters/creatures/skyworm/skywormDreaming.png",
+        smelling: "./Images/Characters/creatures/skyworm/skywormSmelling.png",
+        persuading: "./Images/Characters/creatures/skyworm/skyWormPersuading.png",
+        fin: "./Images/Characters/creatures/skyworm/skywormFin.png",
+        bye: "./Images/Characters/creatures/skyworm/skywormBye.png",
+        disappearing: "./Images/Characters/creatures/skyworm/sykwormDisappearing.png",
+        angry: "./Images/Characters/creatures/skyworm/skywormAngry.png",
+        angry2: "./Images/Characters/creatures/skyworm/skywormAngry2.png",
+        cliffEdge: "./Images/Characters/creatures/skyworm/skywormCliffEdge.png"
+        // multiple: "./Images/Characters/creatures/skyworm/worms.png"
       }
     }
   };
