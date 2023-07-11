@@ -217,6 +217,8 @@ namespace ACatInLimbo {
                 break;
             case "BayToLake":
                 console.log("Bay to Lake");
+                dataForSave.pathSwampBay = true;
+                dataForSave.pathLakeSwamp = true;
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.swampBay, path());
                 await ƒS.update(2);

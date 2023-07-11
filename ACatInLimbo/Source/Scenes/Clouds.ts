@@ -37,8 +37,10 @@ namespace ACatInLimbo {
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(80, 99));
             await ƒS.update(1);
+            await new Promise(resolve => setTimeout(resolve, 1000));
             //geile spannende  mucke hier rein
-            await ƒS.Sound.fade(sound.relaxMusic, 0, 1);
+            ƒS.Sound.play(sound.taikoDrum, 1, false);
+            ƒS.Sound.fade(sound.relaxMusic, 0, 1);
             await ƒS.Sound.play(sound.wildRoar, 0.4, false);
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.scared, ƒS.positionPercent(85, 105));
@@ -51,6 +53,8 @@ namespace ACatInLimbo {
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(80, 99));
             await ƒS.Character.show(characters.skyworm, characters.skyworm.pose.evil, ƒS.positionPercent(50, 50));
             await ƒS.update();
+            ƒS.Sound.fade(sound.taikoDrum, 0, 2);
+            ƒS.Sound.play(sound.anxiousMarch, 0.3, true);
             await ƒS.Speech.tell(characters.pinkCat, "For fuck's sake!");
             await ƒS.update();
             await ƒS.Character.hideAll();
@@ -80,6 +84,7 @@ namespace ACatInLimbo {
             await ƒS.Character.hide(characters.skyworm);
             await ƒS.Character.show(characters.skyworm, characters.skyworm.pose.thinking, ƒS.positionPercent(50, 50));
             await ƒS.update();
+            ƒS.Sound.fade(sound.anxiousMarch, 0.1, 2);
             await ƒS.Speech.tell(characters.skyworm, "Cats? No shit! Blargh! I haven't tried a pink one, but you guys taste like litter box leftovers!");
             await ƒS.update();
             await ƒS.Character.hideAll();
@@ -149,7 +154,7 @@ namespace ACatInLimbo {
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 99));
             await ƒS.Character.show(characters.skyworm, characters.skyworm.pose.normal, ƒS.positionPercent(50, 50));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.pinkCat, "Whispering: <i>Lucky goats.</i>");
+            await ƒS.Speech.tell(characters.pinkCat, "Whispering: <i>Poor guy.</i>");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(80, 99));
@@ -313,6 +318,7 @@ namespace ACatInLimbo {
                     break;
             }
 
+            ƒS.Sound.fade(sound.anxiousMarch, 0, 7);
             await ƒS.Speech.tell(characters.pinkCat, "Let's get you to that damn gate.");
             await ƒS.update();
 
@@ -344,10 +350,10 @@ namespace ACatInLimbo {
             await ƒS.update();
             await ƒS.Speech.tell(characters.pinkCat, "Before one notices us.");
             await ƒS.update();
+            ƒS.Sound.fade(sound.relaxMusic, 0, 4);
         }
 
         // ƒS.Sound.fade(sound.forestWind, 0, 4);
-        // ƒS.Sound.fade(sound.relaxMusic, 0, 7);
         await ƒS.Character.hide(characters.pinkCat);
         return "Gate Scene";
 

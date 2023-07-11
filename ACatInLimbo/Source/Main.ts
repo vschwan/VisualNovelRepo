@@ -25,13 +25,13 @@ namespace ACatInLimbo {
     pathRiverMountain: false,
     pathRiverCave: false,
     pathCaveClouds: false,
-    pathMountainClouds: true,
+    pathMountainClouds: false,
     pathCloudsGate: false,
 
     nameProtagonist: "You",
     catLeaving: false,
     catScore: 10,
-    scoreForCat: 0,
+    scoreForCat: 10,
     // points: 0,
     pickedMeterBar: false,
     pickedChoice: false,
@@ -92,8 +92,6 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
-      { id: "Clouds Scene", scene: Clouds, name: "Gate Scene" },
-
       { id: "Meadow Scene", scene: Meadow, name: "meadow" },
       { id: "Forest Scene", scene: Forest, name: "Forest" },
       { id: "Lake Scene", scene: Lake, name: "lake" },

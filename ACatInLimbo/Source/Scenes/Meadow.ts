@@ -68,23 +68,16 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0001);
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0002);
         await ƒS.update();
-        //  await ƒS.Character.hide(characters.protagonist);
-        //  await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.thinking, ƒS.positionPercent(10, 95));
+
         dataForSave.nameProtagonist = await ƒS.Speech.getInput();
         await ƒS.update();
 
-        //delete later
-        dataForSave.catScore -= 5;
-
-
-        characters.protagonist.name = dataForSave.nameProtagonist;  //Danke für nichts. Keine ahnung wie das gehen soll. Ich kann die protagonist figuren nciht mehr hiden wenn ich das mache 
+        characters.protagonist.name = dataForSave.nameProtagonist;  
         console.log(dataForSave.nameProtagonist);
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0003 + dataForSave.nameProtagonist + "!");
         await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0004);
         await ƒS.update();
-
-        dataForSave.catScore -= 5;
 
         let firstAction = {
             awakeCat: "Touch the Stone-Cat",
@@ -102,8 +95,6 @@ namespace ACatInLimbo {
                 ƒS.Text.print("Three spiders have been added to your Inventory");
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0005);
                 await ƒS.update();
-                // ƒS.Text.print("Hint: Never forget to keep the cat happy. Try to give it some food out of your Inventory (I) to make it like you more.");
-                // await ƒS.update();
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0006);
                 await ƒS.Speech.tell(characters.protagonist, textAwakening.protagonist.T0007);
                 await ƒS.update();
@@ -153,20 +144,6 @@ namespace ACatInLimbo {
         await ƒS.Sound.play(sound.cuteMeow, 1, false);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalSmall, ƒS.positionPercent(75, 85));
         await ƒS.update(1);
-
-        // let itemsSpider = ƒS.Inventory.getAmount(items.Spider);
-        // if (itemsSpider > 0) {
-        //     console.log(items.Spider.static);
-        //     ƒS.Inventory.subtract(items.Spider);
-        //     ƒS.Inventory.subtract(items.Spider);
-        //     ƒS.Inventory.subtract(items.Spider);
-        //     console.log("subtract")
-        //     items.Spider.static = false;
-        //     console.log(items.Spider.static);
-        //     ƒS.Inventory.add(items.Spider);
-        //     ƒS.Inventory.add(items.Spider);
-        //     ƒS.Inventory.add(items.Spider);
-        // }
 
         //Choices for how to act towards Cat
         let approachCat = {

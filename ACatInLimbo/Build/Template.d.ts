@@ -80,6 +80,7 @@ declare namespace ACatInLimbo {
         frogs: string;
         river: string;
         relaxMusic: string;
+        anxiousMarch: string;
         happyJazz: string;
         cathissing: string;
         demanding: string;
@@ -105,6 +106,7 @@ declare namespace ACatInLimbo {
         monster: string;
         goats: string;
         wildRoar: string;
+        taikoDrum: string;
     };
 }
 declare namespace ACatInLimbo {
