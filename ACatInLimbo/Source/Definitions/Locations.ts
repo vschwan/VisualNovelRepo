@@ -10,17 +10,7 @@ namespace ACatInLimbo {
             name: "Bay",
             background: "Images/Backgrounds/bay.png"
         },
-
-        bayClose: {
-            bayClose: "BayClose",
-            background: "Images/Background/bayClose.png"
-        },
-
-        bayGlow: {
-            bayGlow: "bayGlow",
-            background: "Images/Background/bayGlow.png"
-        },
-
+      
         lake: {
             name: "Lake",
             background: "Images/Backgrounds/lake.png"

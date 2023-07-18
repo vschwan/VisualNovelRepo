@@ -164,10 +164,10 @@ namespace ACatInLimbo {
       name: "Cave Creature",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
-        normal: "./Images/Characters/creatures/caveCreature/CaveCreatureNormal.png",
-        sound: "./Images/Characters/creatures/caveCreature/CaveCreatureSound.png",
-        toungeOut: "./Images/Characters/creatures/caveCreature/CaveCreaturOpenMouth.png",
-        attack: "./Images/Characters/creatures/caveCreature/CaveCreatureAttack.png"
+        normal: "./Images/Characters/creatures/caveCreature/caveCreatureNormal.png",
+        sound: "./Images/Characters/creatures/caveCreature/caveCreatureSound.png",
+        toungeOut: "./Images/Characters/creatures/caveCreature/caveCreaturOpenMouth.png",
+        attack: "./Images/Characters/creatures/caveCreature/caveCreatureAttack.png"
       }
     },
 
@@ -182,7 +182,7 @@ namespace ACatInLimbo {
         evilSmile: "./Images/Characters/death/deathEvilSmile.png",
         angry: "./Images/Characters/death/deathAngry.png",
         surprised: "./Images/Characters/death/deathSurprised.png",
-        DeathBigAtGate: "./Images/Characters/death/bigAtGate.png",
+        DeathBigAtGate: "./Images/Characters/death/deathBigAtGate.png",
       }
     },
 
@@ -190,11 +190,11 @@ namespace ACatInLimbo {
       name: "GateCLoser",
       origin: ƒS.ORIGIN.CENTER,
       pose: {
-        closer1: "./Images/Backgrounds/gateDeathCloser1.png",
-        closer2: "./Images/Backgrounds/gateDeathCloser2.png",
-        closer3: "./Images/Backgrounds/gateDeathCloser3.png",
-        closer4: "./Images/Backgrounds/gateDeathCloser4.png",
-        closer5: "./Images/Backgrounds/gateDeathCloser5.png"
+        closer1: "./Images/Backgrounds/gateCloser/gateDeathCloser1.png",
+        closer2: "./Images/Backgrounds/gateCloser/gateDeathCloser2.png",
+        closer3: "./Images/Backgrounds/gateCloser/gateDeathCloser3.png",
+        closer4: "./Images/Backgrounds/gateCloser/gateDeathCloser4.png",
+        closer5: "./Images/Backgrounds/gateCloser/gateDeathCloser5.png"
       }
     },
 
@@ -211,22 +211,23 @@ namespace ACatInLimbo {
       name: "Path",
       origin: ƒS.ORIGIN.CENTER,
       pose: {
-        meadowForest: "./Images/Map/MeadowForest.png",
-        meadowLake: "./Images/Map/MeadowLake.png",
-        forestLake: "./Images/Map/ForestLake.png",
-        forestSwamp: "./Images/Map/ForestSwamp.png",
-        lakeSwamp: "./Images/Map/LakeSwamp.png",
-        swampRiver: "./Images/Map/SwampRiver.png",
-        swampBay: "./Images/Map/SwampBay.png",
-        bayRiver: "./Images/Map/BayRiver.png",
-        bayCave: "./Images/Map/BayCave.png",
-        riverCave: "./Images/Map/RiverCave.png",
-        riverMountains: "./Images/Map/RiverMountains.png",
-        mountainsClouds: "./Images/Map/MountainsClouds.png",
-        caveClouds: "./Images/Map/CaveClouds.png",
-        cloudsGate: "./Images/Map/CloudsGate.png"
+        meadowForest: "./Images/Map/meadowForest.png",
+        meadowLake: "./Images/Map/meadowLake.png",
+        forestLake: "./Images/Map/forestLake.png",
+        forestSwamp: "./Images/Map/forestSwamp.png",
+        lakeSwamp: "./Images/Map/lakeSwamp.png",
+        swampRiver: "./Images/Map/swampRiver.png",
+        swampBay: "./Images/Map/swampBay.png",
+        bayRiver: "./Images/Map/bayRiver.png",
+        bayCave: "./Images/Map/bayCave.png",
+        riverCave: "./Images/Map/riverCave.png",
+        riverMountains: "./Images/Map/riverMountains.png",
+        mountainsClouds: "./Images/Map/mountainsClouds.png",
+        caveClouds: "./Images/Map/caveClouds.png",
+        cloudsGate: "./Images/Map/cloudsGate.png"
       }
     },
+    
     riverflow: {
       name: "Riverflow",
       origin: ƒS.ORIGIN.CENTER,

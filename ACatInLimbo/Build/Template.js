@@ -601,7 +601,7 @@ var ACatInLimbo;
         </tr>\
         <tr>\
         <td>Ambience</td>\
-        <td>forest-swamp-6751,<br>forest-wind-and-birds-6881,<br>frogs-48410,<br>river-in-the-forest-17271,<br>waves-on-the-lake-in-summer-time-in-wav-64379</td>\
+        <td>forest-swamp-6751,<br>forest-wind-and-birds-6881,<br>frogs-48410,<br>river-in-the-forest-17271,<br>waves-on-the-lake-in-summer-time-in-wav-64379, <br> celestial-melody-18337 </td>\
         <td><a href:https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694>Pixabay</a></td>\
         </tr>\
         <tr>\
@@ -626,7 +626,7 @@ var ACatInLimbo;
         </tr>\
         <tr>\
         <td></td>\
-        <td></td>\
+        <td>mindfulness-relaxation-amp-meditation-music-22174</td>\
         <td>Music by <a href:'https://pixabay.com/es/users/john_kensy_music-26026995/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=22174'>Dank John_Kensy_Music</a><br>from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>Pixabay</a></td>\
         </tr>\
         <tr>\
@@ -654,7 +654,7 @@ var ACatInLimbo;
         </tr>\
         <tr>\
         <td></td>\
-        <td>5-meters-dive-6070,<br>eating-sound-effect-36186,<br>finger-cracking-40991,<br>frog_quak-81741,<br>frog-qua-cry-36013,<br>monster-rumble-99026,<br>sheep-bleating-31117,<br>slimey-97605,<br>taiko-drumloop-001-120-97780</td>\
+        <td>5-meters-dive-6070,<br>eating-sound-effect-36186,<br>finger-cracking-40991,<br>frog_quak-81741,<br>frog-qua-cry-36013,<br>monster-rumble-99026,<br>sheep-bleating-31117,<br>slimey-97605,<br>taiko-drumloop-001-120-97780, fear-breathing-14825<br></td>\
         <td>Sound Effect from <a href:https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=36186>Pixabay</a></td>\
         </tr>\
         <tr>\
@@ -1066,10 +1066,10 @@ var ACatInLimbo;
             name: "Cave Creature",
             origin: ACatInLimbo.ƒS.ORIGIN.BOTTOMCENTER,
             pose: {
-                normal: "./Images/Characters/creatures/caveCreature/CaveCreatureNormal.png",
-                sound: "./Images/Characters/creatures/caveCreature/CaveCreatureSound.png",
-                toungeOut: "./Images/Characters/creatures/caveCreature/CaveCreaturOpenMouth.png",
-                attack: "./Images/Characters/creatures/caveCreature/CaveCreatureAttack.png"
+                normal: "./Images/Characters/creatures/caveCreature/caveCreatureNormal.png",
+                sound: "./Images/Characters/creatures/caveCreature/caveCreatureSound.png",
+                toungeOut: "./Images/Characters/creatures/caveCreature/caveCreaturOpenMouth.png",
+                attack: "./Images/Characters/creatures/caveCreature/caveCreatureAttack.png"
             }
         },
         death: {
@@ -1083,18 +1083,18 @@ var ACatInLimbo;
                 evilSmile: "./Images/Characters/death/deathEvilSmile.png",
                 angry: "./Images/Characters/death/deathAngry.png",
                 surprised: "./Images/Characters/death/deathSurprised.png",
-                DeathBigAtGate: "./Images/Characters/death/bigAtGate.png",
+                DeathBigAtGate: "./Images/Characters/death/deathBigAtGate.png",
             }
         },
         gateCloser: {
             name: "GateCLoser",
             origin: ACatInLimbo.ƒS.ORIGIN.CENTER,
             pose: {
-                closer1: "./Images/Backgrounds/gateDeathCloser1.png",
-                closer2: "./Images/Backgrounds/gateDeathCloser2.png",
-                closer3: "./Images/Backgrounds/gateDeathCloser3.png",
-                closer4: "./Images/Backgrounds/gateDeathCloser4.png",
-                closer5: "./Images/Backgrounds/gateDeathCloser5.png"
+                closer1: "./Images/Backgrounds/gateCloser/gateDeathCloser1.png",
+                closer2: "./Images/Backgrounds/gateCloser/gateDeathCloser2.png",
+                closer3: "./Images/Backgrounds/gateCloser/gateDeathCloser3.png",
+                closer4: "./Images/Backgrounds/gateCloser/gateDeathCloser4.png",
+                closer5: "./Images/Backgrounds/gateCloser/gateDeathCloser5.png"
             }
         },
         goats: {
@@ -1109,20 +1109,20 @@ var ACatInLimbo;
             name: "Path",
             origin: ACatInLimbo.ƒS.ORIGIN.CENTER,
             pose: {
-                meadowForest: "./Images/Map/MeadowForest.png",
-                meadowLake: "./Images/Map/MeadowLake.png",
-                forestLake: "./Images/Map/ForestLake.png",
-                forestSwamp: "./Images/Map/ForestSwamp.png",
-                lakeSwamp: "./Images/Map/LakeSwamp.png",
-                swampRiver: "./Images/Map/SwampRiver.png",
-                swampBay: "./Images/Map/SwampBay.png",
-                bayRiver: "./Images/Map/BayRiver.png",
-                bayCave: "./Images/Map/BayCave.png",
-                riverCave: "./Images/Map/RiverCave.png",
-                riverMountains: "./Images/Map/RiverMountains.png",
-                mountainsClouds: "./Images/Map/MountainsClouds.png",
-                caveClouds: "./Images/Map/CaveClouds.png",
-                cloudsGate: "./Images/Map/CloudsGate.png"
+                meadowForest: "./Images/Map/meadowForest.png",
+                meadowLake: "./Images/Map/meadowLake.png",
+                forestLake: "./Images/Map/forestLake.png",
+                forestSwamp: "./Images/Map/forestSwamp.png",
+                lakeSwamp: "./Images/Map/lakeSwamp.png",
+                swampRiver: "./Images/Map/swampRiver.png",
+                swampBay: "./Images/Map/swampBay.png",
+                bayRiver: "./Images/Map/bayRiver.png",
+                bayCave: "./Images/Map/bayCave.png",
+                riverCave: "./Images/Map/riverCave.png",
+                riverMountains: "./Images/Map/riverMountains.png",
+                mountainsClouds: "./Images/Map/mountainsClouds.png",
+                caveClouds: "./Images/Map/caveClouds.png",
+                cloudsGate: "./Images/Map/cloudsGate.png"
             }
         },
         riverflow: {
@@ -1231,14 +1231,6 @@ var ACatInLimbo;
         bay: {
             name: "Bay",
             background: "Images/Backgrounds/bay.png"
-        },
-        bayClose: {
-            bayClose: "BayClose",
-            background: "Images/Background/bayClose.png"
-        },
-        bayGlow: {
-            bayGlow: "bayGlow",
-            background: "Images/Background/bayGlow.png"
         },
         lake: {
             name: "Lake",

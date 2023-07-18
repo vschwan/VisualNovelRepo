@@ -420,14 +420,6 @@ declare namespace ACatInLimbo {
             name: string;
             background: string;
         };
-        bayClose: {
-            bayClose: string;
-            background: string;
-        };
-        bayGlow: {
-            bayGlow: string;
-            background: string;
-        };
         lake: {
             name: string;
             background: string;
