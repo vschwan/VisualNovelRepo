@@ -60,7 +60,7 @@ namespace ACatInLimbo {
             background: "./Images/Backgrounds/insideCave.png"
         },
 
-        caveInsideDark:{
+        caveInsideDark: {
             name: "CaveInsideDark",
             background: "./Images/Backgrounds/insideCaveDark.png"
         },
@@ -71,15 +71,22 @@ namespace ACatInLimbo {
         },
 
         mountains: {
-            name:"Mountains",
+            name: "Mountains",
             background: "./Images/Backgrounds/mountains.png"
         },
-        
+
         clouds: {
-            name:"Clouds",
+            name: "Clouds",
             background: "./Images/Backgrounds/clouds.png"
         },
-     
+
+        gate: {
+            name: "Gate",
+            background: "./Images/Backgrounds/gate.png",
+        },
+
+
+
 
 
 

@@ -23,6 +23,7 @@ namespace ACatInLimbo {
         normal: "./Images/Characters/pinkCat/pinkCatNormal.png",
         normalLookingAway: "./Images/Characters/pinkCat/pinkCatNormalFromBehind.png",
         normalAngry: "./Images/Characters/pinkCat/pinkCatNormalAngry.png",
+        normalSad: "./Images/Characters/pinkCat/pinkCatNormalSad.png",
         fromBehindLookingAway: "./Images/Characters/pinkCat/pinkCatBehind.png",
         fromBehindLookingBack: "./Images/Characters/pinkCat/pinkCatBehindLook.png",
         scared: "./Images/Characters/pinkCat/pinkCatScared.png",
@@ -37,6 +38,7 @@ namespace ACatInLimbo {
         stretching: "./Images/Characters/pinkCat/pinkCatStretching.png",
         talking: "./Images/Characters/pinkCat/pinkCatTalking.png",
         talkingAngry: "./Images/Characters/pinkCat/pinkCatTalkingAngry.png",
+        talkingSad: "./Images/Characters/pinkCat/pinkCatTalkingSad.png",
         thoughtful1: "./Images/Characters/pinkCat/pinkCatThoughtful1.png",
         thoughtful2: "./Images/Characters/pinkCat/pinkCatThoughtful2.png",
         thumbsUp: "./Images/Characters/pinkCat/pinkCatThumbsUp.png",
@@ -45,7 +47,7 @@ namespace ACatInLimbo {
         crouched: "./Images/Characters/pinkCat/pinkCatCrouched.png",
         crouchedLookingAway: "./Images/Characters/pinkCat/pinkCatCrouchedLookingAway.png",
         crouchedSad: "./Images/Characters/pinkCat/pinkCatCrouchedSad.png",
-        crouchedAngry:"./Images/Characters/pinkCat/pinkCatCrouchedAngry.png",
+        crouchedAngry: "./Images/Characters/pinkCat/pinkCatCrouchedAngry.png",
         proud: "./Images/Characters/pinkCat/pinkCatProud.png",
         play1: "./Images/Characters/pinkCat/pinkCatplay1.png",
         play2: "./Images/Characters/pinkCat/pinkCatplay2.png",
@@ -169,14 +171,30 @@ namespace ACatInLimbo {
       }
     },
 
-
     death: {
       name: "Death",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
       pose: {
         fishingLookingDown: "./Images/Characters/death/deathFishingLookingDown.png",
         fishingLookingUp: "./Images/Characters/death/deathFishingLookingUp.png",
-        close: "./Images/Characters/death/deathClose.png"
+        normal: "./Images/Characters/death/deathNormal.png",
+        smile: "./Images/Characters/death/deathSmile.png",
+        evilSmile: "./Images/Characters/death/deathEvilSmile.png",
+        angry: "./Images/Characters/death/deathAngry.png",
+        surprised: "./Images/Characters/death/deathSurprised.png",
+        DeathBigAtGate: "./Images/Characters/death/bigAtGate.png",
+      }
+    },
+
+    gateCloser: {
+      name: "GateCLoser",
+      origin: ƒS.ORIGIN.CENTER,
+      pose: {
+        closer1: "./Images/Backgrounds/gateDeathCloser1.png",
+        closer2: "./Images/Backgrounds/gateDeathCloser2.png",
+        closer3: "./Images/Backgrounds/gateDeathCloser3.png",
+        closer4: "./Images/Backgrounds/gateDeathCloser4.png",
+        closer5: "./Images/Backgrounds/gateDeathCloser5.png"
       }
     },
 
@@ -255,7 +273,7 @@ namespace ACatInLimbo {
         // multiple: "./Images/Characters/creatures/skyworm/worms.png"
       }
     }
-  };
+  }
 
   /* export function UpdateName(): void {
        characters.protagonist.name = dataForSave.nameProtagonist;

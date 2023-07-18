@@ -28,6 +28,8 @@ namespace ACatInLimbo {
     pathMountainClouds: false,
     pathCloudsGate: false,
 
+    betrayGoats: false,
+
     nameProtagonist: "You",
     catLeaving: false,
     catScore: 10,
@@ -96,7 +98,7 @@ namespace ACatInLimbo {
       { id: "Forest Scene", scene: Forest, name: "Forest" },
       { id: "Lake Scene", scene: Lake, name: "lake" },
       { id: "Map Scene", scene: Map, name: "map" },
-      { id: "Swamp Scene", scene: Swamp, name: "Swamp", next: "" },
+      { id: "Swamp Scene", scene: Swamp, name: "Swamp" },
       { id: "River Scene", scene: River, name: "River" },
       { id: "Bay Scene", scene: Bay, name: "Bay" },
       { id: "Mountain Scene", scene: Mountain, name: "Mountain" },
@@ -105,12 +107,16 @@ namespace ACatInLimbo {
       { id: "Cave Exit Scene", scene: CaveExit, name: "Cave Exit" },
       { id: "Clouds Scene", scene: Clouds, name: "Clouds", next: "Gate Scene" },
       { id: "Gate Scene", scene: Gate, name: "Gate" },
-      { id: "BadEnding Cave Scene", scene: BadEndingCave, name: "BadEnding Cave" },
-      { id: "BadEnding LostCat Scene", scene: BadEndingLostCat, name: "BadEnding LostCat" },
+
+      { id: "BadEnding Cave Scene", scene: BadEndingFrog, name: "BadEnding Cave", next: "Empty Scene" },
+      { id: "BadEnding LostCat Scene", scene: BadEndingLostCat, name: "BadEnding LostCat", next: "Empty Scene" },
+      { id: "BadEnding Hell Scene", scene: BadEndingHell, name: "BadEnding Hell", next: "Empty Scene" },
+      { id: "NeutralEnding Scene", scene: NeutralEnding, name: "NeutralEnding", next: "Empty Scene" },
+      { id: "GoodEnding Scene", scene: GoodEnding, name: "GoodEnding", next: "Empty Scene" },
 
       // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
       // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
-      // {id: "Bad End", scene: BadEnding, name: "Bad"},
+
       // Empty ending scene to stop the program
       { id: "Empty Scene", scene: Empty, name: "END" }  //Progamm kann nicht stopenn, deswegen empty Scene zum Schluss erstellen, ohne Inhalt
     ];

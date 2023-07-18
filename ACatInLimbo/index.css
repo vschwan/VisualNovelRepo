@@ -129,6 +129,11 @@ speech.pinkCat content {
 
 }
 
+/* speech.You name {
+  color: #1fd32e;
+  /* text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF; */
+
+
 input {
   width: 20%;
   height: 20%;

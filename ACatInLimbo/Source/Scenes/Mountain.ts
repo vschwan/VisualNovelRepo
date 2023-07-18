@@ -79,7 +79,7 @@ namespace ACatInLimbo {
         await ƒS.Location.show(locations.mountains);
         await ƒS.update(transition.hardEdges.duration, transition.hardEdges.alpha, transition.hardEdges.edge);
         ƒS.Sound.play(sound.forestWind, 2, true);
-        await ƒS.Character.show(characters.death, characters.death.pose.close, ƒS.positionPercent(20, 100));
+        await ƒS.Character.show(characters.death, characters.death.pose.normal, ƒS.positionPercent(20, 100));
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.derpy1, ƒS.positionPercent(80, 95));
         await ƒS.update();
         await ƒS.Speech.tell(characters.death, "Fun, fun, FUN! Now, this is where we part ways.");
@@ -105,7 +105,7 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Speech.tell(characters.death, "Byyyeee!");
         await ƒS.update();
-        await ƒS.Character.animate(characters.death, characters.death.pose.close, deathSlide());
+        await ƒS.Character.animate(characters.death, characters.death.pose.normal, deathSlide());
         await ƒS.update(2);
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.curious, ƒS.positionPercent(80, 95));

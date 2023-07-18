@@ -20,7 +20,7 @@ namespace ACatInLimbo {
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
                 await ƒS.update();
                 await ƒS.Character.hide(characters.death);
-                await ƒS.Character.show(characters.death, characters.death.pose.close, ƒS.positionPercent(20,100));
+                await ƒS.Character.show(characters.death, characters.death.pose.normal, ƒS.positionPercent(20,100));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.death, "So?");
                 await ƒS.update();
@@ -83,7 +83,7 @@ namespace ACatInLimbo {
             await ƒS.Speech.tell(characters.protagonist, "You know him?");
             await ƒS.update();
             await ƒS.Character.hide(characters.death);
-            await ƒS.Character.show(characters.death, characters.death.pose.close, ƒS.positionPercent(20, 100));
+            await ƒS.Character.show(characters.death, characters.death.pose.normal, ƒS.positionPercent(20, 100));
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 95));
             await ƒS.update();

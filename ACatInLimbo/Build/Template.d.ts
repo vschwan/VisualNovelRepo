@@ -27,6 +27,7 @@ declare namespace ACatInLimbo {
         pathCaveClouds: boolean;
         pathMountainClouds: boolean;
         pathCloudsGate: boolean;
+        betrayGoats: boolean;
         nameProtagonist: string;
         catLeaving: boolean;
         catScore: number;
@@ -81,6 +82,7 @@ declare namespace ACatInLimbo {
         river: string;
         relaxMusic: string;
         anxiousMarch: string;
+        celestial: string;
         happyJazz: string;
         cathissing: string;
         demanding: string;
@@ -107,6 +109,7 @@ declare namespace ACatInLimbo {
         goats: string;
         wildRoar: string;
         taikoDrum: string;
+        breathing: string;
     };
 }
 declare namespace ACatInLimbo {
@@ -129,6 +132,7 @@ declare namespace ACatInLimbo {
                 normal: string;
                 normalLookingAway: string;
                 normalAngry: string;
+                normalSad: string;
                 fromBehindLookingAway: string;
                 fromBehindLookingBack: string;
                 scared: string;
@@ -143,6 +147,7 @@ declare namespace ACatInLimbo {
                 stretching: string;
                 talking: string;
                 talkingAngry: string;
+                talkingSad: string;
                 thoughtful1: string;
                 thoughtful2: string;
                 thumbsUp: string;
@@ -267,7 +272,23 @@ declare namespace ACatInLimbo {
             pose: {
                 fishingLookingDown: string;
                 fishingLookingUp: string;
-                close: string;
+                normal: string;
+                smile: string;
+                evilSmile: string;
+                angry: string;
+                surprised: string;
+                DeathBigAtGate: string;
+            };
+        };
+        gateCloser: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                closer1: string;
+                closer2: string;
+                closer3: string;
+                closer4: string;
+                closer5: string;
             };
         };
         goats: {
@@ -455,6 +476,10 @@ declare namespace ACatInLimbo {
             name: string;
             background: string;
         };
+        gate: {
+            name: string;
+            background: string;
+        };
     };
 }
 declare namespace ACatInLimbo {
@@ -519,13 +544,12 @@ declare namespace ACatInLimbo {
             alpha: string;
             edge: number;
         };
+        sunCatcher: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
     };
-}
-declare namespace ACatInLimbo {
-    function BadEndingCave(): ƒS.SceneReturn;
-}
-declare namespace ACatInLimbo {
-    function BadEndingLostCat(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function Bay(): ƒS.SceneReturn;
@@ -568,4 +592,19 @@ declare namespace ACatInLimbo {
 }
 declare namespace ACatInLimbo {
     function testScene(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function BadEndingFrog(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function BadEndingHell(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function BadEndingLostCat(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function GoodEnding(): ƒS.SceneReturn;
+}
+declare namespace ACatInLimbo {
+    function NeutralEnding(): ƒS.SceneReturn;
 }

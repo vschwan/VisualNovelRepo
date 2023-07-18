@@ -202,6 +202,7 @@ namespace ACatInLimbo {
 
             switch (betrayGoatsRequest) {
                 case betrayGoats.betrayGoats:
+                    dataForSave.betrayGoats = true;
                     await ƒS.Speech.tell(characters.protagonist, "They live in small caves further down the mountain.");
                     await ƒS.update();
                     await ƒS.Character.hide(characters.skyworm);
