@@ -10,8 +10,9 @@ namespace ACatInLimbo {
         await ƒS.Location.show(locations.bay);
         await ƒS.update(transition.wildSwirl.duration, transition.wildSwirl.alpha, transition.wildSwirl.edge);
 
-        //falls man das zweite mal bei bay war --> direkt weiterleiten zur nächsten Szene
+        //if you have already visited bay and not visited lake twice to give lake creature heart back: choose next location
         if (dataForSave.visitedBay == true) {
+            //if you have visited lake twice and have given lake creature heart back
             if (dataForSave.visitedLakeTwice == true) {
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.fromBehindLookingAway, ƒS.positionPercent(80, 95));
                 await ƒS.update();
@@ -36,12 +37,15 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Speech.tell(characters.protagonist, "Is that for us? Thank you, that's really nice!");
                 await ƒS.Inventory.add(items.Coin);
+                await ƒS.Inventory.add(items.Fish);
+                await ƒS.Inventory.add(items.Fish);
+                await ƒS.Inventory.add(items.Fish);
                 await ƒS.update();
-                ƒS.Text.print("a coin has been added to your inventory");
+                ƒS.Text.print("A coin an three fishes have been added to your inventory");
                 await ƒS.Character.hide(characters.bayCreature);
                 await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.talking, ƒS.positionPercent(60, 82));
                 await ƒS.update();
-                await ƒS.Speech.tell(characters.bayCreature, "blblbl");
+                await ƒS.Speech.tell(characters.bayCreature, "Blblbl");
                 await ƒS.update();
                 await ƒS.Sound.play(sound.dive, 1, false);
                 await ƒS.Character.hide(characters.bayCreature);
@@ -51,11 +55,11 @@ namespace ACatInLimbo {
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
                 await ƒS.update(2);
-                await ƒS.Speech.tell(characters.pinkCat, "A coin? That could be helpful. Let's move on now.");
+                await ƒS.Speech.tell(characters.pinkCat, "A coin? That could be helpful!");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
-
             }
+
             //pick next Location
             let nextLocation = {
                 river: "River",
@@ -79,7 +83,6 @@ namespace ACatInLimbo {
         }
 
         dataForSave.visitedBay = true;
-
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.sleeping, ƒS.positionPercent(80, 95));
         await ƒS.update();
         await ƒS.Speech.tell(characters.protagonist, "Aaah, the sea. Salt air. Cool Breeze. Adventure in my soul.");
@@ -133,14 +136,14 @@ namespace ACatInLimbo {
         await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.glow, ƒS.positionPercent(60, 82));
         await ƒS.update(3);
 
-        let HowToTreatGrumpyCat = {
+        let howToTreatGrumpyCat = {
             solution: "Offer solution.",
             ask: "Ask for more info about the job"
         }
 
-        let HowToTreatGrumpyCatRequest = await ƒS.Menu.getInput(HowToTreatGrumpyCat, "choicesCSSClass");
-        switch (HowToTreatGrumpyCatRequest) {
-            case HowToTreatGrumpyCat.solution:
+        let howToTreatGrumpyCatRequest = await ƒS.Menu.getInput(howToTreatGrumpyCat, "choicesCSSClass");
+        switch (howToTreatGrumpyCatRequest) {
+            case howToTreatGrumpyCat.solution:
                 await ƒS.Speech.tell(characters.protagonist, "Maybe you should speak with HR, I don't know how it works, but...", false);
                 await ƒS.update();
                 dataForSave.catScore -= 5;
@@ -149,35 +152,34 @@ namespace ACatInLimbo {
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, "Forget it.");
                 await ƒS.update();
-
                 break;
 
-            case HowToTreatGrumpyCat.ask:
+            case howToTreatGrumpyCat.ask:
                 await ƒS.Speech.tell(characters.protagonist, "Who's your boss?");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(80, 95));
                 await ƒS.update();
-                await ƒS.Speech.tell(characters.pinkCat, "Oh, you're eventually gonna meet him... probably.");
+                await ƒS.Speech.tell(characters.pinkCat, "Oh, you know him.");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
                 await ƒS.update();
-                await ƒS.Speech.tell(characters.protagonist, "Why do you not quit?");
+                await ƒS.Speech.tell(characters.protagonist, "Okaayyyy....Why do you not quit?");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(80, 95));
                 await ƒS.update();
-                await ƒS.Speech.tell(characters.pinkCat, "Good idea! Thanks for reminding me of the option!");
+                await ƒS.Speech.tell(characters.pinkCat, "Good idea " + dataForSave.nameProtagonist + "! Thanks for reminding me of the option!");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.crouchedLookingAway, ƒS.positionPercent(80, 95));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, "It's complicated, okay?");
                 await ƒS.update();
-
                 break;
         }
+
         await ƒS.Speech.tell(characters.protagonist, "Wait, what's that in the water?");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
@@ -239,7 +241,7 @@ namespace ACatInLimbo {
 
         let feedBayCreature = {
             feed: "Feed snails",
-            talk: "try to talk it out"
+            talk: "Try to talk it out"
         }
 
         let pickedFeed: boolean;
@@ -311,7 +313,7 @@ namespace ACatInLimbo {
                                     ƒS.Inventory.subtract(items.Snail);
                                 }
                                 if (ƒS.Inventory.getAmount(items.Snail) == 0) {
-                                    dataForSave.catScore -= 5;
+                                    dataForSave.catScore -= 10;
                                     pickedStop = true;
                                     await ƒS.Speech.tell(characters.pinkCat, "Awesome, you used all my snails. Thanks a lot. Idiot.")
                                     ƒS.update();
@@ -342,7 +344,7 @@ namespace ACatInLimbo {
                     await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.talking, ƒS.positionPercent(60, 82));
                     await ƒS.update();
                     await ƒS.Speech.tell(characters.bayCreature, "blblblLake?");
-                    await ƒS.Speech.tell(characters.pinkCat, "Yes, Lake! big, a bit slimy and very dramatic character! Also, very sad.");
+                    await ƒS.Speech.tell(characters.pinkCat, "Yes, Lake! Big, a bit slimy and very dramatic character! Also, very very sad.");
                     await ƒS.update();
                     await ƒS.Character.hide(characters.bayCreature);
                     await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.lookingDown, ƒS.positionPercent(60, 82));
@@ -360,17 +362,18 @@ namespace ACatInLimbo {
                     await ƒS.Character.hide(characters.bayCreature);
                     await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.heart, ƒS.positionPercent(60, 82));
                     await ƒS.update(1);
+                    //add lake creatures heart
                     await ƒS.Inventory.add(items.Heart);
                     await ƒS.Speech.tell(characters.protagonist, "Wow, we really got it! Thanks!");
                     await ƒS.update();
                     await ƒS.Character.hide(characters.bayCreature);
                     await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.happyHeart, ƒS.positionPercent(60, 82));
                     await ƒS.update(1);
-                    ƒS.Text.print("a heart has been added to your inventory");
+                    ƒS.Text.print("A heart has been added to your inventory");
                     await ƒS.Character.hide(characters.pinkCat);
                     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(80, 95));
                     await ƒS.update();
-                    await ƒS.Speech.tell(characters.pinkCat, "Great. We don't have any time to lose. do you still want to help the Lake Creature?");
+                    await ƒS.Speech.tell(characters.pinkCat, "Great. We don't have any time to lose. Do you still want to help the Lake Creature?");
                     await ƒS.update();
                     await ƒS.Character.hide(characters.bayCreature);
                     break;
@@ -395,7 +398,7 @@ namespace ACatInLimbo {
 
             case lakeCreatureDecision.dontHelp:
                 dataForSave.catScore -= 10;
-                await ƒS.Speech.tell(characters.protagonist, "You're right, I kind of want to get out of here. Let's move on.");
+                await ƒS.Speech.tell(characters.protagonist, "Well, we should hurry. Come on.");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.update();

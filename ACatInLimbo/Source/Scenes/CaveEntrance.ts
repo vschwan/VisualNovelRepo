@@ -13,10 +13,16 @@ namespace ACatInLimbo {
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.walking, ƒS.positionPercent(80, 95));
         await ƒS.update(1);
         await ƒS.Character.hide(characters.pinkCat);
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalSad, ƒS.positionPercent(80, 95))
+        await ƒS.update();
+        await ƒS.Speech.tell(characters.pinkCat, "I hate caves.");
+        await ƒS.update();
+        await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(80, 95))
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "It's gonna be dark in there. Do we have anything that can provide some light?");
         await ƒS.update();
+
         if (ƒS.Inventory.getAmount(items.Fireflies) < 1) {
             await ƒS.Speech.tell(characters.protagonist, "Unfortunately, we don't. what should we do?");
             await ƒS.update();
@@ -50,6 +56,7 @@ namespace ACatInLimbo {
         let getInCaveRequest = await ƒS.Menu.getInput(getInCave, "choicesCSSClass");
         switch (getInCaveRequest) {
             case getInCave.enter:
+                dataForSave.catScore -= 10;
                 ƒS.Sound.fade(sound.forestWind, 0, 2);
                 ƒS.Sound.fade(sound.meadowSound, 0, 2);
                 await ƒS.Character.hide(characters.pinkCat);
@@ -80,10 +87,6 @@ namespace ACatInLimbo {
                 }
                 break;
         }
-
-
-
-
 
     }
 }

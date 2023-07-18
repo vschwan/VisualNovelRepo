@@ -122,7 +122,6 @@ namespace ACatInLimbo {
         await ƒS.Character.show(characters.goats, characters.goats.pose.allGoats, ƒS.positionPercent(50, 50));
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "Look, goats! Oh, I LOVE goats!");
-        dataForSave.catScore += 5;
         await ƒS.update();
         await ƒS.Sound.play(sound.purring, 1, false);
         await ƒS.Character.hide(characters.goats);
@@ -132,7 +131,7 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Speech.tell(characters.protagonist, "Really?");
         await ƒS.Sound.fade(sound.purring, 0, 2);
-        await ƒS.Speech.tell(characters.pinkCat, "They can jump very high, climb absolutely everywhere and the make cute sounds");
+        await ƒS.Speech.tell(characters.pinkCat, "They can jump very high, climb absolutely everywhere and the make cute sounds.");
         await ƒS.Sound.play(sound.purrMeow, 1, false);
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
@@ -155,22 +154,49 @@ namespace ACatInLimbo {
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(80, 95));
         await ƒS.update();
-        await ƒS.Speech.tell(characters.pinkCat, "Waiiit, I want to say a quick hello at least!");
+        await ƒS.Speech.tell(characters.pinkCat, "Waiiit! I know we're in a hurry, but do you mind if I say a quick hello at least?");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(80, 95));
         await new Promise(resolve => setTimeout(resolve, 1000));
+        await ƒS.update();
+        await ƒS.Character.hide(characters.pinkCat);
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.proud, ƒS.positionPercent(80, 95));
         await ƒS.update();
         await ƒS.Speech.tell(characters.protagonist, "...");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2Sad, ƒS.positionPercent(80, 95));
         await ƒS.update();
-        await ƒS.Speech.tell(characters.protagonist, "Knock yourself out.");
-        await ƒS.update();
-        await ƒS.Sound.play(sound.purrMeow, 1, false);
-        await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.proud, ƒS.positionPercent(80, 95));
+
+        let catApproachGoats = {
+            allow: "Allow Cat to approach goats",
+            dontAllow: "Don't allow Cat to approach goats"
+        }
+        let catApproachGoatsRequest = await ƒS.Menu.getInput(catApproachGoats, "choicesCSSClass");
+        switch (catApproachGoatsRequest) {
+            case catApproachGoats.allow:
+                dataForSave.catScore += 5;
+                await ƒS.Speech.tell(characters.protagonist, "Knock yourself out.");
+                await ƒS.update();
+                await ƒS.Sound.play(sound.purrMeow, 1, false);
+                await ƒS.Character.hide(characters.pinkCat);
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.lovely, ƒS.positionPercent(80, 95));
+                break;
+
+            case catApproachGoats.dontAllow:
+                dataForSave.catScore -= 5;
+                await ƒS.Speech.tell(characters.protagonist, "Naaah, we're wasting time.");
+                await ƒS.Speech.tell(characters.protagonist, "Come on, I want to get going!");
+                await ƒS.update();
+                await ƒS.Sound.play(sound.demanding, 1, false);
+                await ƒS.Character.hide(characters.pinkCat);
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(80, 95));
+                await ƒS.update();
+                await ƒS.Speech.tell(characters.pinkCat, "Oh, fuck you, I'm gonna do it anyways!");
+                break;
+        }
+
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.proudTiny, ƒS.positionPercent(62, 86));

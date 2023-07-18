@@ -37,7 +37,7 @@ namespace ACatInLimbo {
             await ƒS.Character.hide(characters.death);
             await ƒS.Character.show(characters.death, characters.death.pose.angry, ƒS.positionPercent(20, 100));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.death, "Why would you do that?");
+            await ƒS.Speech.tell(characters.death, "Why would you do that, " + dataForSave.nameProtagonist + " ?");
             await ƒS.update();
             await ƒS.Speech.tell(characters.protagonist, "For real? What is it about these goats?");
             await ƒS.update();
@@ -229,7 +229,7 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.death, dataForSave.nameProtagonist + ", you choose first whether to allow Kitty to accompany you at all.");
         await ƒS.Speech.tell(characters.death, "Choose wisely.");
         await ƒS.update();
-        
+
 
         let allowCat = {
             toFollow: "allow cat to follow you",
@@ -241,6 +241,8 @@ namespace ACatInLimbo {
 
         switch (allowcatRequest) {
             case allowCat.toFollow:
+                dataForSave.catScore += 10;
+
                 if (dataForSave.catScore >= 60) {
                     await ƒS.Sound.play(sound.purring, 1, false);
                     await ƒS.Character.hide(characters.death);
@@ -301,8 +303,9 @@ namespace ACatInLimbo {
                 await ƒS.Character.hide(characters.death);
                 await ƒS.Character.show(characters.death, characters.death.pose.angry, ƒS.positionPercent(20, 100));
                 await ƒS.update();
+                
                 if (dataForSave.catScore >= 60) {
-                    await ƒS.Speech.tell(characters.pinkCat, "Wow, I really underestimated the shittiness of your character.");
+                    await ƒS.Speech.tell(characters.pinkCat, "Wow, " + dataForSave.nameProtagonist + ". I really underestimated the shittiness of your character.");
                     await ƒS.update();
                     await ƒS.Character.hide(characters.pinkCat);
                     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 99));
@@ -356,9 +359,9 @@ namespace ACatInLimbo {
         await ƒS.Sound.fade(sound.breathing, 0, 5);
 
         if (betrayCat == true) {
-           return "BadEnding Hell Scene"
+            return "BadEnding Hell Scene"
         }
-        if(dataForSave.catScore < 60){
+        if (dataForSave.catScore < 60) {
             return "BadEnding Hell Scene"
         }
         if (dataForSave.catScore >= 60 && dataForSave.catScore < 90) {

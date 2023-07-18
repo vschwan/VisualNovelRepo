@@ -5,59 +5,14 @@ namespace ACatInLimbo {
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
 
-        let textLake = {
-            protagonist: {
-                T0001: "Uh, what a beautiful lake!",
-                T0002: "Oh, come on...",
-                T0003: "Ehm, okay, you were right.",
-                T0004: "We're not alone.",
-                T0005: "Whispering: <i>He seems a bit simple.</i>",
-                T0006: "Down here?",
-                T0007: "Oh.",
-                T0008: "Whispering: <i>What's that hole in his body?</i>",
-                T0009: "You mean 'Good God', right?",
-                T0010: "Is it Lost Love maybe?",
-                T0011: "Omg, that's kind of sweet!",
-
-                TD11: "Wow, very wise.",
-                TD21: "Nah, I think it's the ultimate goal to be able to fall in love and give your all to someone.",
-
-                T0012: "Hey, maybe we can get it's heart back!",
-                T0013: "It should be worth it, right!",
-                T0014: "Then let's not waste time and move on!"
-
-            },
-            pinkCat: {
-                T0001: "You never know...",
-                T0002: "What?",
-                T0003: "Ah. Hi!",
-                T0004: "Buddy, that's the worst bait I've ever seen. Maybe you should just, you know, first, show the fish, and then, if somebody is trying to get it, you could show yourself?",
-                T0005: "Yeah, like that!",
-                T0006: "Down here, all creatures are a bit dumb.",
-                T0007: "Those that don't make it far into the mountains turn into idiots.",
-                T0008: "Good Question. Ey, why's that hole in your body?",
-                T0009: "Good Death.",
-                T0010: "No. We're in Limbo. God has no place here. I don't even know him.",
-                T0011: "Ooooh, of course, now I get it! It gave his heart to someone!",
-                T0012: "Sweet? You're delusional. You should never give your heart away. It belongs to you and you only. First person you should love is yourself.",
-
-                TD11: "Call me Sokracat.",
-                TD21: "How unprogressive and disappointing…",
-
-                T0013: "Maybe…if we can find it on our way…But then we have to go back again…",
-                T0014: "…Ok. If we can reduce some of this creatures suffering I guess it can be worth it.",
-                T0015: "Jeez, alright, you goody-goody."
-            },
-
-        }
-
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide();
         ƒS.Sound.play(sound.LakeWaves, 1, true);
         await ƒS.Location.show(locations.lake);
         await ƒS.update(transition.wet1.duration, transition.wet1.alpha, transition.wet1.edge);
 
+        //second time visiting lake --> lake creature gets it's heart back
         if (dataForSave.visitedLake == true) {
-            //show stuff for when lake creature gets it's heart back
+            //set visitedLakeTwice to true to check for boolean in Bay Scene
             dataForSave.visitedLakeTwice = true;
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.hide, ƒS.positionPercent(50, 75));
             await ƒS.update();
@@ -90,7 +45,8 @@ namespace ACatInLimbo {
             await ƒS.update();
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.hide(characters.pinkCat);
-        } else {
+
+        } else {//first time visiting lake
             dataForSave.visitedLake = true;
             await ƒS.update(1);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.fromBehindLookingBack, ƒS.positionPercent(80, 95));
@@ -98,16 +54,17 @@ namespace ACatInLimbo {
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.cleaningAss, ƒS.positionPercent(80, 95));
             await ƒS.update(1);
-            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0001);
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0001);
-            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0002);
+            await ƒS.Speech.tell(characters.protagonist, "Uh, what a beautiful lake!");
+            await ƒS.Speech.tell(characters.pinkCat, "You never know, " + dataForSave.nameProtagonist + ".");
+            await ƒS.Speech.tell(characters.protagonist, "Oh, come on...");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.hide, ƒS.positionPercent(50, 75));
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.cleaningPaw, ƒS.positionPercent(80, 95));
             await ƒS.update(1);
-            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0003);
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0002);
+            await ƒS.Speech.tell(characters.protagonist, "Ehm, okay, you were right.");
+            await ƒS.Speech.tell(characters.pinkCat, "What?");
+            await ƒS.Speech.tell(characters.protagonist, "We're not alone.");
             await ƒS.update();
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.bait, ƒS.positionPercent(50, 75));
@@ -115,8 +72,8 @@ namespace ACatInLimbo {
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.crouchedLookingAway, ƒS.positionPercent(80, 95));
             await ƒS.update(1);
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0003)
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0004);
+            await ƒS.Speech.tell(characters.pinkCat, "Ah. Hi!")
+            await ƒS.Speech.tell(characters.pinkCat, "Buddy, that's the worst bait I've ever seen. Maybe you should just, you know, first, show the fish, and then, if somebody is trying to get it, you could show yourself?");
             await ƒS.update();
             await ƒS.Sound.play(sound.dive, 1, false);
             await ƒS.Character.hide(characters.lakeCreature);
@@ -124,37 +81,37 @@ namespace ACatInLimbo {
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(80, 95));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0005);
+            await ƒS.Speech.tell(characters.pinkCat, "Yeah, like that!");
             await ƒS.update();
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.normal, ƒS.positionPercent(50, 75));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0005);
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0006);
+            await ƒS.Speech.tell(characters.protagonist, "Whispering: <i>He seems a bit simple.</i>");
+            await ƒS.Speech.tell(characters.pinkCat, "Down here, all creatures are a bit dumb.");
             await ƒS.update();
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.sideEye, ƒS.positionPercent(50, 75));
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
-            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0006);
+            await ƒS.Speech.tell(characters.protagonist, "Down here?");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(80, 95));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0007);
+            await ƒS.Speech.tell(characters.pinkCat, "Those that don't make it far into the mountains turn into idiots.");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0007);
-            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0008);
+            await ƒS.Speech.tell(characters.protagonist, "Oh.");
+            await ƒS.Speech.tell(characters.protagonist, "Whispering: <i>What's that hole in his body?</i>");
             await ƒS.update();
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.normal, ƒS.positionPercent(50, 75));
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.fromBehindLookingAway, ƒS.positionPercent(80, 95));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0008);
+            await ƒS.Speech.tell(characters.pinkCat, "Good Question. Ey, why's that hole in your body?");
             await ƒS.update();
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.sideEye, ƒS.positionPercent(50, 75));
@@ -162,13 +119,13 @@ namespace ACatInLimbo {
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.cry, ƒS.positionPercent(50, 75));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0009);
-            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0009);
+            await ƒS.Speech.tell(characters.pinkCat, "Good Death.");
+            await ƒS.Speech.tell(characters.protagonist, "You mean 'Good God', right?");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0010);
+            await ƒS.Speech.tell(characters.pinkCat, "No. We're in Limbo. God has no place here. I don't even know him.");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(80, 95));
@@ -178,12 +135,12 @@ namespace ACatInLimbo {
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.heartEyesBroken, ƒS.positionPercent(50, 75));
             await ƒS.update(1);
-            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0010);
+            await ƒS.Speech.tell(characters.protagonist, "Is it Lost Love maybe?");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(80, 95));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0011);
+            await ƒS.Speech.tell(characters.pinkCat, "Ooooh, of course, now I get it! It gave his heart to someone!");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(80, 95));
@@ -191,46 +148,46 @@ namespace ACatInLimbo {
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.hardCry, ƒS.positionPercent(50, 75));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0011);
+            await ƒS.Speech.tell(characters.protagonist, "Omg, that's kind of sweet!");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(80, 95));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0012);
+            await ƒS.Speech.tell(characters.pinkCat, "Sweet? " + dataForSave.nameProtagonist + ", you're delusional. You should never give your heart away. It belongs to you and you only. First person you should love is yourself.");
 
-            let JudgeStatement = {
+            let judgeStatement = {
                 agree: "Agree with statement",
                 disagree: "Disagree with statement"
             }
-            let JudgeStatementRequest = await ƒS.Menu.getInput(JudgeStatement, "choicesCSSClass")
+            let judgeStatementRequest = await ƒS.Menu.getInput(judgeStatement, "choicesCSSClass")
 
-            switch (JudgeStatementRequest) {
-                case JudgeStatement.agree:
+            switch (judgeStatementRequest) {
+                case judgeStatement.agree:
                     dataForSave.catScore += 5;
                     await ƒS.update();
                     await ƒS.Character.hide(characters.pinkCat);
                     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
                     await ƒS.update();
-                    await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.TD11);
+                    await ƒS.Speech.tell(characters.protagonist, "Wow, very wise.");
                     await ƒS.update();
                     await ƒS.Character.hide(characters.pinkCat);
                     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.thumbsUp, ƒS.positionPercent(80, 95));
                     await ƒS.update();
-                    await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.TD11);
+                    await ƒS.Speech.tell(characters.pinkCat, "Call me Sokracat.");
                     break;
 
-                case JudgeStatement.disagree:
+                case judgeStatement.disagree:
                     dataForSave.catScore -= 5;
                     await ƒS.update();
                     await ƒS.Character.hide(characters.pinkCat);
                     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 95));
                     await ƒS.update();
-                    await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.TD21);
+                    await ƒS.Speech.tell(characters.protagonist, "Nah, I think it's the ultimate goal to be able to fall in love and give your all to someone.");
                     await ƒS.update();
                     await ƒS.Character.hide(characters.pinkCat);
                     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 95));
                     await ƒS.update();
-                    await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.TD21);
+                    await ƒS.Speech.tell(characters.pinkCat, "How unprogressive and disappointing…");
                     break;
             }
 
@@ -240,24 +197,24 @@ namespace ACatInLimbo {
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.normal, ƒS.positionPercent(50, 75));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0012);
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0013);
+            await ƒS.Speech.tell(characters.protagonist, "Hey, maybe we can get it's heart back!");
+            await ƒS.Speech.tell(characters.pinkCat, "Maybe…if we can find it on our way…But then we have to go back again…");
             await ƒS.update();
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.sideEye, ƒS.positionPercent(50, 75));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0013);
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0014);
+            await ƒS.Speech.tell(characters.protagonist, "It should be worth it, right?");
+            await ƒS.Speech.tell(characters.pinkCat, "…Ok. If we can reduce some of this creatures suffering I guess it can be worth it.");
             await ƒS.update();
             await ƒS.Character.hide(characters.lakeCreature);
             await ƒS.Character.show(characters.lakeCreature, characters.lakeCreature.pose.cry, ƒS.positionPercent(50, 75));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.protagonist, textLake.protagonist.T0014);
+            await ƒS.Speech.tell(characters.protagonist, "Then let's not waste time and move on!");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(80, 95));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.pinkCat, textLake.pinkCat.T0015);
+            await ƒS.Speech.tell(characters.pinkCat, "Jeez, alright, you goody-goody.");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.update();
@@ -271,7 +228,6 @@ namespace ACatInLimbo {
             await ƒS.Character.hide(characters.lakeCreature)
             await ƒS.update(2);
         }
-
 
         let nextLocation = {
             swamp: "Swamp",

@@ -139,8 +139,6 @@ namespace ACatInLimbo {
 
                     dataForSave.currentPath = "RiverToMountain";
                     return "Map Scene"
-
-
                     break;
 
                 case payDeathDecision.refuse:
@@ -163,7 +161,6 @@ namespace ACatInLimbo {
 
                     dataForSave.currentPath = "RiverToCave";
                     return "Map Scene"
-
                     break;
             }
 

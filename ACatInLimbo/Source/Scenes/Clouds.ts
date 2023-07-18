@@ -216,7 +216,7 @@ namespace ACatInLimbo {
                     await ƒS.Character.hide(characters.skyworm);
                     await ƒS.Character.show(characters.skyworm, characters.skyworm.pose.evil, ƒS.positionPercent(50, 50));
                     await ƒS.update();
-                    await ƒS.Speech.tell(characters.pinkCat, "You're a bitch.");
+                    await ƒS.Speech.tell(characters.pinkCat, "You're a bitch, " + dataForSave.nameProtagonist + ".");
                     dataForSave.catScore -= 20;
                     await ƒS.update();
                     await ƒS.Character.hide(characters.pinkCat);
@@ -256,7 +256,6 @@ namespace ACatInLimbo {
                     await ƒS.update();
                     await ƒS.Speech.tell(characters.pinkCat, "Fuck this.");
                     await ƒS.update();
-
                     break;
 
                 case betrayGoats.dontBetrayGoats:
@@ -307,7 +306,7 @@ namespace ACatInLimbo {
                     await ƒS.Character.hide(characters.pinkCat);
                     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 99));
                     await ƒS.update();
-                    await ƒS.Speech.tell(characters.pinkCat, "Damn, for a moment I thought you would betray those cute little goats.");
+                    await ƒS.Speech.tell(characters.pinkCat, "Damn, " + dataForSave.nameProtagonist + ", for a moment I thought you would betray those cute little goats.");
                     await ƒS.Speech.tell(characters.protagonist, "Well, I thought about it, but it didn't seem right.");
                     await ƒS.update();
                     await ƒS.Character.hide(characters.pinkCat);
@@ -315,7 +314,6 @@ namespace ACatInLimbo {
                     await ƒS.update();
                     await ƒS.Speech.tell(characters.pinkCat, "It wouldn't have been right.");
                     await ƒS.update();
-
                     break;
             }
 
