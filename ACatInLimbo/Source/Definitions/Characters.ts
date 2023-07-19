@@ -227,7 +227,7 @@ namespace ACatInLimbo {
         cloudsGate: "./Images/Map/cloudsGate.png"
       }
     },
-    
+
     riverflow: {
       name: "Riverflow",
       origin: ƒS.ORIGIN.CENTER,
@@ -272,6 +272,22 @@ namespace ACatInLimbo {
         angry2: "./Images/Characters/creatures/skyworm/skywormAngry2.png",
         cliffEdge: "./Images/Characters/creatures/skyworm/skywormCliffEdge.png"
         // multiple: "./Images/Characters/creatures/skyworm/worms.png"
+      }
+    },
+
+    catsInHeaven: {
+      name: "CatsInHeaven",
+      origin: ƒS.ORIGIN.CENTER,
+      pose: {
+        catGodNormal: "./Images/Characters/catsInHeaven/catGodNormal.png",
+        catGodSmile: "./Images/Characters/catsInHeaven/catGodSmile.png",
+        curiousCats: "./Images/Characters/catsInHeaven/curiousCats.png",
+        flyingCatRose: "./Images/Characters/catsInHeaven/flyingCatRose.png",
+        flyingCatBlue: "./Images/Characters/catsInHeaven/flyingCatBlue.png",
+        flyingCats: "./Images/Characters/catsInHeaven/flyingCats.png",
+        orangeCatLooking: "./Images/Characters/catsInHeaven/orangeCatLooking.png",
+        orangeCatReading: "./Images/Characters/catsInHeaven/orangeCatReading.png",
+        orangeCatWaving: "./Images/Characters/catsInHeaven/orangeCatWaving.png"
       }
     }
   }

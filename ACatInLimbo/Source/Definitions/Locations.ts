@@ -77,11 +77,40 @@ namespace ACatInLimbo {
 
 
 
+        //Endings Screens
+        badEndingFrog: {
+            name: "BadEndingFrog",
+            background: "./Images/Backgrounds/endingScreens/badEndingFrogStomach.png",
+        },
 
+        badEndingHell: {
+            name: "BadEndingHell",
+            background: "./Images/Backgrounds/endingScreens/badEndingHell.png",
+        },
 
+        badEndingLostCat: {
+            name: "BadEndingLostCat",
+            background: "./Images/Backgrounds/endingScreens/badEndingLostCat.png",
+        },
 
+       neutralEnding: {
+            name: "NeutralEnding",
+            background: "./Images/Backgrounds/endingScreens/neutralEnding.png",
+        },
 
+        goodEnding: {
+            name: "GoodEnding",
+            background: "./Images/Backgrounds/endingScreens/goodEnding.png",
+        },
 
+        goodEndingCats: {
+            name: "GoodEndingCats",
+            background: "./Images/Backgrounds/endingScreens/goodEndingCats.png",
+        },
 
+        goodEndingClean: {
+            name: "GoodEndingClean",
+            background: "./Images/Backgrounds/endingScreens/goodEndingClean.png",
+        },
     };
 }
