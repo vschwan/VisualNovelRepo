@@ -29,6 +29,7 @@ namespace ACatInLimbo {
     pathCloudsGate: false,
 
     betrayGoats: false,
+    betrayCat: false,
 
     nameProtagonist: "You",
     catLeaving: false,
@@ -88,8 +89,7 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
-      
-      { id: "GoodEnding Scene", scene: GoodEnding, name: "GoodEnding", next: "Empty Scene" },
+      { id: "BadEnding Hell Scene", scene: BadEndingHell, name: "BadEnding Hell", next: "Empty Scene" },
 
       { id: "Meadow Scene", scene: Meadow, name: "meadow" },
       { id: "Forest Scene", scene: Forest, name: "Forest" },

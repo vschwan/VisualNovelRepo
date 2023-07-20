@@ -2,8 +2,6 @@ namespace ACatInLimbo {
 
     export async function GoodEnding(): ƒS.SceneReturn {
         console.log("Scene starting: Good Ending: Cat's Heaven");
-        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
-        document.getElementById("scoreForCat").style.display = "none";
         await ƒS.Character.hideAll();
         await ƒS.update();
 
@@ -95,12 +93,13 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Speech.tell(characters.protagonist, "Come on, " + dataForSave.nameProtagonist + ". It's time to move into our new home.");
         await ƒS.update();
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
 
-    
+        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Text.print("Because you treated the cat very well and your destinies are linked, you both end up in Cat's Heaven. <br>By entering this realm you obviously got turned into a cat as well, otherwise, what would be the point of you being in cat heaven? <br>Enjoy endless streams of milk and tuna as far as the eye can see."); 
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
         await ƒS.Location.show(locations.goodEndingFin);
         await ƒS.update(4);
-
 
         await new Promise(resolve => setTimeout(resolve, 5000));
         let endingCaption = document.getElementById("endingCaption");

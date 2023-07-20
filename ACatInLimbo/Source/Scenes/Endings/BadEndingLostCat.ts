@@ -43,7 +43,8 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.protagonist, "What happened?");
         await ƒS.update();
         await ƒS.Location.show(locations.badEndingLostCatFin);
-        ƒS.Text.print("You have to stay in Limbo. Seems like you're not a cat-person.");
+        await ƒS.update(4);
+        ƒS.Text.print("You have to stay in Limbo.<br>Seems like you're not a cat-person.");
         await ƒS.update();
         ƒS.Speech.hide(); //Sprachfenster ausblenden
 

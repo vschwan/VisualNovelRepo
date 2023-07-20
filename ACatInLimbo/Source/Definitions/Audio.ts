@@ -18,6 +18,9 @@ namespace ACatInLimbo {
     slowInsanity: "./Audio/Ambience/horror-music-box-2-145144.mp3",
     happyJazz: "./Audio/Ambience/jazz-happy-110855.mp3",
     backgroundJazz: "./Audio/Ambience/dreamy-jazz-slow-background-jazz-music-piano-and-seattle-strings-9998.mp3",
+    clockTicking: "./Audio/Ambience/clock-ticking-natural-room-verb-17249.mp3",
+    frogStomach: "./Audio/Ambience/croaking-70573.mp3",
+    hell: "./Audio/Ambience/haunted-house-ambience-21831.mp3",
 
     //catSounds
     cathissing: "./Audio/catAudio/Cat-hissing-sound.mp3",

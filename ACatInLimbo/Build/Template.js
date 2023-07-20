@@ -85,6 +85,7 @@ var ACatInLimbo;
         pathMountainClouds: false,
         pathCloudsGate: false,
         betrayGoats: false,
+        betrayCat: false,
         nameProtagonist: "You",
         catLeaving: false,
         catScore: 5,
@@ -133,7 +134,7 @@ var ACatInLimbo;
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
         let scenes = [
-            { id: "GoodEnding Scene", scene: ACatInLimbo.GoodEnding, name: "GoodEnding", next: "Empty Scene" },
+            { id: "BadEnding Hell Scene", scene: ACatInLimbo.BadEndingHell, name: "BadEnding Hell", next: "Empty Scene" },
             { id: "Meadow Scene", scene: ACatInLimbo.Meadow, name: "meadow" },
             { id: "Forest Scene", scene: ACatInLimbo.Forest, name: "Forest" },
             { id: "Lake Scene", scene: ACatInLimbo.Lake, name: "lake" },
@@ -902,6 +903,9 @@ var ACatInLimbo;
         slowInsanity: "./Audio/Ambience/horror-music-box-2-145144.mp3",
         happyJazz: "./Audio/Ambience/jazz-happy-110855.mp3",
         backgroundJazz: "./Audio/Ambience/dreamy-jazz-slow-background-jazz-music-piano-and-seattle-strings-9998.mp3",
+        clockTicking: "./Audio/Ambience/clock-ticking-natural-room-verb-17249.mp3",
+        frogStomach: "./Audio/Ambience/croaking-70573.mp3",
+        hell: "./Audio/Ambience/haunted-house-ambience-21831.mp3",
         //catSounds
         cathissing: "./Audio/catAudio/Cat-hissing-sound.mp3",
         demanding: "./Audio/catAudio/catmeow1-89814.mp3",
@@ -1383,15 +1387,15 @@ var ACatInLimbo;
         },
         goodEndingNoCats: {
             name: "GoodEndingCats",
-            background: "ACatInLimbo/Images/Backgrounds/EndingScreens/goodEndingNoCats.png",
+            background: "./Images/Backgrounds/EndingScreens/goodEndingNoCats.png",
         },
         goodEnding: {
             name: "GoodEnding",
-            background: "ACatInLimbo/Images/Backgrounds/EndingScreens/goodEnding.png",
+            background: "./Images/Backgrounds/EndingScreens/goodEnding.png",
         },
         goodEndingFin: {
             name: "GoodEndingClean",
-            background: "ACatInLimbo/Images/Backgrounds/EndingScreens/goodEndingFin.png",
+            background: "./Images/Backgrounds/EndingScreens/goodEndingFin.png",
         },
     };
 })(ACatInLimbo || (ACatInLimbo = {}));
@@ -1473,12 +1477,23 @@ var ACatInLimbo;
             duration: 3,
             alpha: "./FreeTransitions/Others/021.png",
             edge: 1
+        },
+        neutralEnding: {
+            duration: 3,
+            alpha: "./FreeTransitions/Others/015.jpg",
+            edge: 1
+        },
+        badEndingFrog: {
+            duration: 6,
+            alpha: "./FreeTransitions/Others/040.jpg",
+            edge: 1
+        },
+        badEndingHell: {
+            duration: 4,
+            alpha: "./FreeTransitions/Others/023.png",
+            edge: 1
         }
         // ./FreeTransitions/Others/015.jpg
-        // ./FreeTransitions/Others/021.png --> heaven
-        // ./FreeTransitions/Others/023.png --> hell
-        // ./FreeTransitions/Others/040.jpg
-        // ./FreeTransitions/WipesAndOther/1.jpg --> LostCat
     };
 })(ACatInLimbo || (ACatInLimbo = {}));
 ;
@@ -2562,20 +2577,20 @@ var ACatInLimbo;
         console.log("THE VISUAL NOVEL ENDS HERE");
         let title = document.getElementById("title");
         title.innerText = "A Cat in Limbo";
-        await new Promise(resolve => setTimeout(resolve, 5000));
-        let endButtons = {
-            replay: "Play again",
-            replayFromLastScene: "Replay from last Scene"
-        };
-        let endButtonsRequest = await ACatInLimbo.ƒS.Menu.getInput(endButtons, "choicesCSSClass");
-        switch (endButtonsRequest) {
-            case endButtons.replay:
-                window.location.reload();
-                break;
-            case endButtons.replayFromLastScene:
-                await ACatInLimbo.ƒS.Progress.load();
-                break;
-        }
+        // await new Promise(resolve => setTimeout(resolve, 5000));
+        // let endButtons = {
+        //   replay: "Play again",
+        //   replayFromLastScene: "Replay from last Scene"
+        // }
+        // let endButtonsRequest = await ƒS.Menu.getInput(endButtons, "choicesCSSClass");
+        // switch (endButtonsRequest) {
+        //   case endButtons.replay:
+        //     window.location.reload();
+        //     break;
+        //   case endButtons.replayFromLastScene:
+        //     await ƒS.Progress.load();
+        //     break;
+        // }
     }
     ACatInLimbo.Empty = Empty;
 })(ACatInLimbo || (ACatInLimbo = {}));
@@ -2832,215 +2847,215 @@ var ACatInLimbo;
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalLookingAway, ACatInLimbo.ƒS.positionPercent(80, 99));
         await ACatInLimbo.ƒS.update();
-        // if (dataForSave.pathMountainClouds == true && dataForSave.betrayGoats == true) {
-        //     await ƒS.Speech.tell(characters.pinkCat, "My buddy here has just made sure that quite a few goats are going to die.");
-        //     await ƒS.update();
-        //     await ƒS.Character.hide(characters.pinkCat);
-        //     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 99));
-        //     await ƒS.Character.hide(characters.death);
-        //     await ƒS.Character.show(characters.death, characters.death.pose.surprised, ƒS.positionPercent(20, 100));
-        //     await ƒS.update();
-        //     await ƒS.Speech.tell(characters.death, "Noooooo. I love those goats!");
-        //     await ƒS.update();
-        //     await ƒS.Character.hide(characters.death);
-        //     await ƒS.Character.show(characters.death, characters.death.pose.angry, ƒS.positionPercent(20, 100));
-        //     await ƒS.update();
-        //     await ƒS.Speech.tell(characters.death, "Why would you do that, " + dataForSave.nameProtagonist + " ?");
-        //     await ƒS.update();
-        //     await ƒS.Speech.tell(characters.protagonist, "For real? What is it about these goats?");
-        //     await ƒS.update();
-        //     await ƒS.Character.hide(characters.death);
-        //     await ƒS.Character.show(characters.death, characters.death.pose.normal, ƒS.positionPercent(20, 100));
-        //     await ƒS.Character.hide(characters.pinkCat);
-        //     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.crouchedAngry, ƒS.positionPercent(80, 99));
-        //     await ƒS.update();
-        //     await ƒS.Speech.tell(characters.death, "What's done is done.");
-        //     await ƒS.update();
-        // } else if (dataForSave.pathMountainClouds == true && dataForSave.betrayGoats == false) {
-        //     await ƒS.Speech.tell(characters.pinkCat, "Yeah, I mean, my buddy here just saved quite a few goats from a skyworm, so I am pleased.");
-        //     await ƒS.update();
-        //     await ƒS.Character.hide(characters.pinkCat);
-        //     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.proud, ƒS.positionPercent(80, 99));
-        //     await ƒS.Character.hide(characters.death);
-        //     await ƒS.Character.show(characters.death, characters.death.pose.smile, ƒS.positionPercent(20, 100));
-        //     await ƒS.update();
-        //     await ƒS.Speech.tell(characters.death, "Woohoo! I love those goats!");
-        //     await ƒS.update();
-        //     await ƒS.Character.hide(characters.pinkCat);
-        //     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.lovely, ƒS.positionPercent(80, 99));
-        //     await ƒS.update();
-        //     await ƒS.Speech.tell(characters.pinkCat, "I know.");
-        //     await ƒS.Speech.tell(characters.death, "I'm glad I did the right thing.");
-        //     await ƒS.update();
-        // }
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.evilSmile, ƒS.positionPercent(20, 100));
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 99));
-        // await ƒS.update(1);
-        // await ƒS.Speech.tell(characters.death, "Now that you made it up here you need to leave this place and take one last step through this gate.");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(80, 99));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.protagonist, "What happens when I step through the gate?");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(80, 99));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.pinkCat, "Either something very good or very bad.");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.normal, ƒS.positionPercent(20, 100));
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 99));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.protagonist, "So heaven or hell?");
-        // await ƒS.Speech.tell(characters.death, "Yes. There's also the possibility of sweet nothingness. There will be no pain or sorrow. You will find peace in an endless sleep.");
-        // await ƒS.Speech.tell(characters.protagonist, "How is it decided what's gonna happen?");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.smile, ƒS.positionPercent(20, 100));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.death, " It depends on your past actions of course. - How you've treated my little kitty here!");
-        // await ƒS.update();
-        // await ƒS.Sound.play(sound.cuteMeow, 1, false);
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.lovely, ƒS.positionPercent(80, 99));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.protagonist, "Oh. Wait. What?");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.proud, ƒS.positionPercent(80, 99));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.pinkCat, "Yep.");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 99));
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.normal, ƒS.positionPercent(20, 100));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.death, "This cat was not only your guide, but a means to test your character.");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.evilSmile, ƒS.positionPercent(20, 100));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.death, "Surprised? Well, that was expected. Humans are not the brightest.");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.angry, ƒS.positionPercent(20, 100));
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(80, 99));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.death, "Now walk through the gate!");
-        // await ƒS.Speech.tell(characters.protagonist, "Okay okay…It's… goodbye I guess.");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2Sad, ƒS.positionPercent(80, 99));
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.DeathBigAtGate, ƒS.positionPercent(50, 100));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.pinkCat, "Goodbye.");
-        // await ƒS.Sound.fade(sound.celestial, 1, 3);
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Sound.play(sound.breathing, 3, true);
-        // await ƒS.Character.show(characters.gateCloser, characters.gateCloser.pose.closer1, ƒS.positionPercent(50, 50));
-        // await ƒS.update(2);
-        // await ƒS.Character.hide(characters.gateCloser);
-        // await ƒS.Character.show(characters.gateCloser, characters.gateCloser.pose.closer2, ƒS.positionPercent(50, 50));
-        // await ƒS.update(2);
-        // await ƒS.Character.hide(characters.gateCloser);
-        // await ƒS.Character.show(characters.gateCloser, characters.gateCloser.pose.closer3, ƒS.positionPercent(50, 50));
-        // await ƒS.update(2);
-        // await ƒS.Sound.play(sound.demanding, 1, false);
-        // await ƒS.Speech.tell(characters.pinkCat, "WAIT!", false);
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.gateCloser);
-        // await ƒS.Character.show(characters.death, characters.death.pose.DeathBigAtGate, ƒS.positionPercent(50, 100));
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.fromBehindLookingAway, ƒS.positionPercent(80, 99));
-        // await ƒS.update();
-        // await ƒS.Sound.fade(sound.breathing, 0, 0.1);
-        // await ƒS.Sound.fade(sound.celestial, 0.05, 0.1);
-        // await ƒS.Speech.tell(characters.death, "What is it?");
-        // await ƒS.Speech.tell(characters.pinkCat, "Death, may I come along?");
-        // await ƒS.Speech.tell(characters.death, "What? No!");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.crouchedSad, ƒS.positionPercent(80, 99));
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.angry, ƒS.positionPercent(20, 100));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.death, "You know very well that you are not allowed to do so!");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingSad, ƒS.positionPercent(80, 99));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.pinkCat, "But I want to die already! This place is so boring and guiding souls fucking sucks!");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalSad, ƒS.positionPercent(80, 99));
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.normal, ƒS.positionPercent(20, 100));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.death, "Mhm. I got to admit, you've been here for quite some time.");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.angry, ƒS.positionPercent(20, 100));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.death, "You've been complaining a lot though. That got on my nerves a little bit…");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingSad, ƒS.positionPercent(80, 99));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.pinkCat, "I'm soooorry, I was just not made for this!");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalSad, ƒS.positionPercent(80, 99));
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.normal, ƒS.positionPercent(20, 100));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.death, "Actually, you were solely made to be a guide in limbo.");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.crouchedSad, ƒS.positionPercent(80, 99));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.pinkCat, "Oh no.");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.smile, ƒS.positionPercent(20, 100));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.death, "Ah, what the hell. I'm feeling generous today!");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.lovely, ƒS.positionPercent(80, 99));
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.normal, ƒS.positionPercent(20, 100));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.death, "But I won't let you go so easily cause you're causing me more work! I will have to craft a new guide if I lose you.");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 99));
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.evilSmile, ƒS.positionPercent(20, 100));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.death, "If " + dataForSave.nameProtagonist + " takes you with them, both your fates are linked to those of your companion!");
-        // await ƒS.update();
-        // await ƒS.Character.hide(characters.pinkCat);
-        // await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(80, 99));
-        // await ƒS.Character.hide(characters.death);
-        // await ƒS.Character.show(characters.death, characters.death.pose.normal, ƒS.positionPercent(20, 100));
-        // await ƒS.update();
-        // await ƒS.Speech.tell(characters.death, dataForSave.nameProtagonist + ", you choose first whether to allow Kitty to accompany you at all.");
-        // await ƒS.Speech.tell(characters.death, "Choose wisely.");
-        // await ƒS.update();
+        if (ACatInLimbo.dataForSave.pathMountainClouds == true && ACatInLimbo.dataForSave.betrayGoats == true) {
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "My buddy here has just made sure that quite a few goats are going to die.");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.surprised, ACatInLimbo.ƒS.positionPercent(20, 100));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "Noooooo. I love those goats!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.angry, ACatInLimbo.ƒS.positionPercent(20, 100));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "Why would you do that, " + ACatInLimbo.dataForSave.nameProtagonist + " ?");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "For real? What is it about these goats?");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.normal, ACatInLimbo.ƒS.positionPercent(20, 100));
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.crouchedAngry, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "What's done is done.");
+            await ACatInLimbo.ƒS.update();
+        }
+        else if (ACatInLimbo.dataForSave.pathMountainClouds == true && ACatInLimbo.dataForSave.betrayGoats == false) {
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Yeah, I mean, my buddy here just saved quite a few goats from a skyworm, so I am pleased.");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.proud, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.smile, ACatInLimbo.ƒS.positionPercent(20, 100));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "Woohoo! I love those goats!");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.lovely, ACatInLimbo.ƒS.positionPercent(80, 99));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "I know.");
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "I'm glad I did the right thing.");
+            await ACatInLimbo.ƒS.update();
+        }
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.evilSmile, ACatInLimbo.ƒS.positionPercent(20, 100));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update(1);
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "Now that you made it up here you need to leave this place and take one last step through this gate.");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal2, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "What happens when I step through the gate?");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talking, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Either something very good or very bad.");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.normal, ACatInLimbo.ƒS.positionPercent(20, 100));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "So heaven or hell?");
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "Yes. There's also the possibility of sweet nothingness. There will be no pain or sorrow. You will find peace in an endless sleep.");
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "How is it decided what's gonna happen?");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.smile, ACatInLimbo.ƒS.positionPercent(20, 100));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, " It depends on your past actions of course. - How you've treated my little kitty here!");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.cuteMeow, 1, false);
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.lovely, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Oh. Wait. What?");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.proud, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Yep.");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.normal, ACatInLimbo.ƒS.positionPercent(20, 100));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "This cat was not only your guide, but a means to test your character.");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.evilSmile, ACatInLimbo.ƒS.positionPercent(20, 100));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "Surprised? Well, that was expected. Humans are not the brightest.");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.angry, ACatInLimbo.ƒS.positionPercent(20, 100));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal2, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "Now walk through the gate!");
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Okay okay…It's… goodbye I guess.");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal2Sad, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.DeathBigAtGate, ACatInLimbo.ƒS.positionPercent(50, 100));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Goodbye.");
+        await ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.celestial, 1, 3);
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.breathing, 3, true);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.gateCloser, ACatInLimbo.characters.gateCloser.pose.closer1, ACatInLimbo.ƒS.positionPercent(50, 50));
+        await ACatInLimbo.ƒS.update(2);
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.gateCloser);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.gateCloser, ACatInLimbo.characters.gateCloser.pose.closer2, ACatInLimbo.ƒS.positionPercent(50, 50));
+        await ACatInLimbo.ƒS.update(2);
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.gateCloser);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.gateCloser, ACatInLimbo.characters.gateCloser.pose.closer3, ACatInLimbo.ƒS.positionPercent(50, 50));
+        await ACatInLimbo.ƒS.update(2);
+        await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.demanding, 1, false);
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "WAIT!", false);
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.gateCloser);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.DeathBigAtGate, ACatInLimbo.ƒS.positionPercent(50, 100));
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.fromBehindLookingAway, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.breathing, 0, 0.1);
+        await ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.celestial, 0.05, 0.1);
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "What is it?");
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Death, may I come along?");
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "What? No!");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.crouchedSad, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.angry, ACatInLimbo.ƒS.positionPercent(20, 100));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "You know very well that you are not allowed to do so!");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talkingSad, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "But I want to die already! This place is so boring and guiding souls fucking sucks!");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalSad, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.normal, ACatInLimbo.ƒS.positionPercent(20, 100));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "Mhm. I got to admit, you've been here for quite some time.");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.angry, ACatInLimbo.ƒS.positionPercent(20, 100));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "You've been complaining a lot though. That got on my nerves a little bit…");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talkingSad, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "I'm soooorry, I was just not made for this!");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalSad, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.normal, ACatInLimbo.ƒS.positionPercent(20, 100));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "Actually, you were solely made to be a guide in limbo.");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.crouchedSad, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Oh no.");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.smile, ACatInLimbo.ƒS.positionPercent(20, 100));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "Ah, what the hell. I'm feeling generous today!");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.lovely, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.normal, ACatInLimbo.ƒS.positionPercent(20, 100));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "But I won't let you go so easily cause you're causing me more work! I will have to craft a new guide if I lose you.");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.evilSmile, ACatInLimbo.ƒS.positionPercent(20, 100));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "If " + ACatInLimbo.dataForSave.nameProtagonist + " takes you with them, both your fates are linked to those of your companion!");
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal2, ACatInLimbo.ƒS.positionPercent(80, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.death, ACatInLimbo.characters.death.pose.normal, ACatInLimbo.ƒS.positionPercent(20, 100));
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, ACatInLimbo.dataForSave.nameProtagonist + ", you choose first whether to allow Kitty to accompany you at all.");
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.death, "Choose wisely.");
+        await ACatInLimbo.ƒS.update();
         let allowCat = {
             toFollow: "allow cat to follow you",
             notToFollow: "don't allow cat to follow you"
         };
         let allowcatRequest = await ACatInLimbo.ƒS.Menu.getInput(allowCat, "choicesCSSClass");
-        let betrayCat = false;
         switch (allowcatRequest) {
             case allowCat.toFollow:
                 ACatInLimbo.dataForSave.catScore += 10;
@@ -3096,7 +3111,7 @@ var ACatInLimbo;
                 }
                 break;
             case allowCat.notToFollow:
-                betrayCat = true;
+                ACatInLimbo.dataForSave.betrayCat = true;
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
                 await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talkingAngry, ACatInLimbo.ƒS.positionPercent(80, 99));
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.death);
@@ -3156,7 +3171,7 @@ var ACatInLimbo;
         await ACatInLimbo.ƒS.update(2);
         await ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.celestial, 0, 4);
         await ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.breathing, 0, 5);
-        if (betrayCat == true) {
+        if (ACatInLimbo.dataForSave.betrayCat == true) {
             return "BadEnding Hell Scene";
         }
         if (ACatInLimbo.dataForSave.catScore < 60) {
@@ -4492,6 +4507,23 @@ var ACatInLimbo;
 (function (ACatInLimbo) {
     async function BadEndingFrog() {
         console.log("Scene starting: Bad Ending - Frog");
+        await ACatInLimbo.ƒS.Character.hideAll();
+        await ACatInLimbo.ƒS.update();
+        ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.frogStomach, 0.3, true);
+        await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.badEndingFrog);
+        await ACatInLimbo.ƒS.update(ACatInLimbo.transition.badEndingFrog.duration, ACatInLimbo.transition.badEndingFrog.alpha, ACatInLimbo.transition.badEndingFrog.edge);
+        await ACatInLimbo.ƒS.update(1);
+        ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ACatInLimbo.ƒS.Text.print("Your soul got devoured by a huge frog and now you're not only dead and in Limbo, but also trapped in a creature's body.<br>Congratulations.<br>Maybe you shouldn't have gone in there.<br>If it's any consolation: The cat will probably make sure that the monster from the cave gets a proper kick in the arse.");
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.frogStomach, 0.6, 4);
+        await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.badEndingFrogFin);
+        await ACatInLimbo.ƒS.update(4);
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        let endingCaption = document.getElementById("endingCaption");
+        endingCaption.innerText = "Bad Ending: Hungry Frog";
     }
     ACatInLimbo.BadEndingFrog = BadEndingFrog;
 })(ACatInLimbo || (ACatInLimbo = {}));
@@ -4499,6 +4531,28 @@ var ACatInLimbo;
 (function (ACatInLimbo) {
     async function BadEndingHell() {
         console.log("Scene starting: Bad Ending - Hell");
+        ACatInLimbo.dataForSave.betrayCat = true;
+        await ACatInLimbo.ƒS.Character.hideAll();
+        await ACatInLimbo.ƒS.update();
+        ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.hell, 0.3, true);
+        await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.badEndingHell);
+        await ACatInLimbo.ƒS.update(ACatInLimbo.transition.badEndingHell.duration, ACatInLimbo.transition.badEndingHell.alpha, ACatInLimbo.transition.badEndingHell.edge);
+        await ACatInLimbo.ƒS.update(1);
+        ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
+        if (ACatInLimbo.dataForSave.betrayCat == true) {
+            ACatInLimbo.ƒS.Text.print("Death has his twisted ways to test the kindness of souls trapped in Limbo.<br>What were you thinking, leaving the cat behind? I mean, this whole story was a test, were you not aware?<br>Death has kept his little cat, of course.<br>Though it now has to stay in Limbo and pursue it's boring job as a guide (thanks to you) it at least doesn't have to endure endless torture in hell.<br><p>Have fun in here.</p>");
+        }
+        else {
+            ACatInLimbo.ƒS.Text.print("Apparently you haven't been very nice to the cat and other creatures in Limbo.<br>I mean, this whole story was a test, were you not aware?<br>Of course the cat didn't want to go with you!<br>Though it now has to stay in Limbo and pursue it's boring job as a guide (thanks to you) it at least doesn't have to endure endless torture in hell.<br><p>Have fun in here.</p>");
+        }
+        await new Promise(resolve => setTimeout(resolve, 7000));
+        ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.hell, 0.6, 4);
+        await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.badEndingHellFin);
+        await ACatInLimbo.ƒS.update(4);
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        let endingCaption = document.getElementById("endingCaption");
+        endingCaption.innerText = "Bad Ending: Burn in Hell!";
     }
     ACatInLimbo.BadEndingHell = BadEndingHell;
 })(ACatInLimbo || (ACatInLimbo = {}));
@@ -4544,7 +4598,8 @@ var ACatInLimbo;
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "What happened?");
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.badEndingLostCatFin);
-        ACatInLimbo.ƒS.Text.print("You have to stay in Limbo. Seems like you're not a cat-person.");
+        await ACatInLimbo.ƒS.update(4);
+        ACatInLimbo.ƒS.Text.print("You have to stay in Limbo.<br>Seems like you're not a cat-person.");
         await ACatInLimbo.ƒS.update();
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
         await new Promise(resolve => setTimeout(resolve, 5000));
@@ -4557,8 +4612,6 @@ var ACatInLimbo;
 (function (ACatInLimbo) {
     async function GoodEnding() {
         console.log("Scene starting: Good Ending: Cat's Heaven");
-        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
-        document.getElementById("scoreForCat").style.display = "none";
         await ACatInLimbo.ƒS.Character.hideAll();
         await ACatInLimbo.ƒS.update();
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
@@ -4649,6 +4702,8 @@ var ACatInLimbo;
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Come on, " + ACatInLimbo.dataForSave.nameProtagonist + ". It's time to move into our new home.");
         await ACatInLimbo.ƒS.update();
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ACatInLimbo.ƒS.Text.print("Because you treated the cat very well and your destinies are linked, you both end up in Cat's Heaven. <br>By entering this realm you obviously got turned into a cat as well, otherwise, what would be the point of you being in cat heaven? <br>Enjoy endless streams of milk and tuna as far as the eye can see.");
+        await new Promise(resolve => setTimeout(resolve, 5000));
         await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.goodEndingFin);
         await ACatInLimbo.ƒS.update(4);
         await new Promise(resolve => setTimeout(resolve, 5000));
@@ -4661,6 +4716,22 @@ var ACatInLimbo;
 (function (ACatInLimbo) {
     async function NeutralEnding() {
         console.log("Scene starting: Neutral Ending");
+        await ACatInLimbo.ƒS.Character.hideAll();
+        await ACatInLimbo.ƒS.update();
+        ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.clockTicking, 0.3, true);
+        await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.neutralEnding);
+        await ACatInLimbo.ƒS.update(ACatInLimbo.transition.neutralEnding.duration, ACatInLimbo.transition.neutralEnding.alpha, ACatInLimbo.transition.neutralEnding.edge);
+        await ACatInLimbo.ƒS.update(1);
+        ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ACatInLimbo.ƒS.Text.print("Because you treated the cat decently well and your destinies are linked, you both end up in Sweet Nothingness.<br>Let's face it, there is probably neither heaven nor hell.<br>Now you are properly dead, just like the cat.<br> Maybe you'll be reincarnated, maybe this is the final end.<br><p>Who knows what's to come?</p>");
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.clockTicking, 0.6, 4);
+        await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.neutralEndingFin);
+        await ACatInLimbo.ƒS.update(4);
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        let endingCaption = document.getElementById("endingCaption");
+        endingCaption.innerText = "Neutral Ending: Sweet Nothingness";
     }
     ACatInLimbo.NeutralEnding = NeutralEnding;
 })(ACatInLimbo || (ACatInLimbo = {}));

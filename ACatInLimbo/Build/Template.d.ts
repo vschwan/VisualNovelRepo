@@ -28,6 +28,7 @@ declare namespace ACatInLimbo {
         pathMountainClouds: boolean;
         pathCloudsGate: boolean;
         betrayGoats: boolean;
+        betrayCat: boolean;
         nameProtagonist: string;
         catLeaving: boolean;
         catScore: number;
@@ -87,6 +88,9 @@ declare namespace ACatInLimbo {
         slowInsanity: string;
         happyJazz: string;
         backgroundJazz: string;
+        clockTicking: string;
+        frogStomach: string;
+        hell: string;
         cathissing: string;
         demanding: string;
         cuteMeow: string;
@@ -639,6 +643,21 @@ declare namespace ACatInLimbo {
             edge: number;
         };
         goodEnding: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        neutralEnding: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        badEndingFrog: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        badEndingHell: {
             duration: number;
             alpha: string;
             edge: number;

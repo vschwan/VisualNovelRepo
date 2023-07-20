@@ -127,15 +127,15 @@ namespace ACatInLimbo {
     
         goodEndingNoCats: {
             name: "GoodEndingCats",
-            background: "ACatInLimbo/Images/Backgrounds/EndingScreens/goodEndingNoCats.png",
+            background: "./Images/Backgrounds/EndingScreens/goodEndingNoCats.png",
         },
         goodEnding: {
             name: "GoodEnding",
-            background: "ACatInLimbo/Images/Backgrounds/EndingScreens/goodEnding.png",
+            background: "./Images/Backgrounds/EndingScreens/goodEnding.png",
         },
         goodEndingFin: {
             name: "GoodEndingClean",
-            background: "ACatInLimbo/Images/Backgrounds/EndingScreens/goodEndingFin.png",
+            background: "./Images/Backgrounds/EndingScreens/goodEndingFin.png",
         },
     };
 }
