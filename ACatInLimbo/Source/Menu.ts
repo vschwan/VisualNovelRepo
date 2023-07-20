@@ -31,13 +31,6 @@ namespace ACatInLimbo {
       case inGameMenuButtons.credits:
         credits();
         break;
-      // case inGameMenuButtons.map:
-      //   if (dataForSave.openMap === false) {
-      //     openMap()
-      //   } else {
-      //     closeMap();
-      //   }
-      //   break;
       case inGameMenuButtons.help:
         help();
         break;
@@ -67,10 +60,10 @@ namespace ACatInLimbo {
         console.log("Help");
         help();
         break;
-      // case ƒ.KEYBOARD_CODE.I:
-      //   console.log("open Inventory");
-      //   await ƒS.Inventory.open();
-      //   break;
+      case ƒ.KEYBOARD_CODE.I:
+        console.log("open Inventory");
+        await ƒS.Inventory.open();
+        break;
       case ƒ.KEYBOARD_CODE.M:
         if (menuIsOpen) {
           console.log("Menu closed");
@@ -118,7 +111,7 @@ namespace ACatInLimbo {
         </tr>\
         <tr>\
         <td></td>\
-        <td>meadow.png,<br>mainBackground.png,<br>clouds.png,<br>map.png + paths</td>\
+        <td>meadow.png,<br>mainBackground.png,<br>clouds.png,<br>all riverflow.pngs,<br>map.png + paths</td>\
         <td>by Valentina Schwan</td>\
         </tr>\
         <tr>\
@@ -143,33 +136,48 @@ namespace ACatInLimbo {
         </tr>\
         <tr>\
         <td>Ambience</td>\
-        <td>forest-swamp-6751,<br>forest-wind-and-birds-6881,<br>frogs-48410,<br>river-in-the-forest-17271,<br>waves-on-the-lake-in-summer-time-in-wav-64379, <br> celestial-melody-18337 </td>\
+        <td>forest-swamp-6751, forest-wind-and-birds-6881,<br>frogs-48410, river-in-the-forest-17271,<br>waves-on-the-lake-in-summer-time-in-wav-64379, <br> celestial-melody-18337 </td>\
         <td><a href:https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694>Pixabay</a></td>\
         </tr>\
         <tr>\
         <td></td>\
         <td>Dripping Water in Cave</td>\
-        <td>Sound effect by <a href:'https://pixabay.com/de/users/solarmusic-27851065/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>solarmusic</a><br>from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>Pixabay</a></td>\
+        <td>Sound effect by <a href:'https://pixabay.com/de/users/solarmusic-27851065/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>solarmusic</a> from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>Pixabay</a></td>\
         </tr>\
         <tr>\
         <td></td>\
         <td>small-waves-onto-the-sand-143040</td>\
-        <td>Sound Effect by <a href:'https://pixabay.com/de/users/dennish18-26151496/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=143040'>Dennis</a><br>from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>Pixabay</a></td>\
+        <td>Sound Effect by <a href:'https://pixabay.com/de/users/dennish18-26151496/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=143040'>Dennis</a> from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>Pixabay</a></td>\
         </tr>\
         <tr>\
         <td></td>\
         <td>jazz-happy-110855</td>\
-        <td>Music by <a href:'https://pixabay.com/de/users/music_for_videos-26992513/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=110855'>Kirilkov</a><br>from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>Pixabay</a></td>\
+        <td>Music by <a href:'https://pixabay.com/de/users/music_for_videos-26992513/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=110855'>Kirilkov</a> from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>Pixabay</a></td>\
         </tr>\
         <tr>\
         <td></td>\
         <td>anxious-march-full-15523</td>\
-        <td>Music by <a href:'https://pixabay.com/de/users/litesaturation-17654080/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=15523'>LiteSaturation</a><br>from <a href:https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=36186>Pixabay</a></td>\
+        <td>Music by <a href:'https://pixabay.com/de/users/litesaturation-17654080/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=15523'>LiteSaturation</a> from <a href:https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=36186>Pixabay</a></td>\
         </tr>\
         <tr>\
         <td></td>\
         <td>mindfulness-relaxation-amp-meditation-music-22174</td>\
-        <td>Music by <a href:'https://pixabay.com/es/users/john_kensy_music-26026995/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=22174'>Dank John_Kensy_Music</a><br>from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>Pixabay</a></td>\
+        <td>Music by <a href:'https://pixabay.com/es/users/john_kensy_music-26026995/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=22174'>Dank John_Kensy_Music</a> from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114694'>Pixabay</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>horror-music-box-2-145144</td>\
+        <td>Music by <a href:'https://pixabay.com/de/users/universfield-28281460/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=145144'>UNIVERSFIELD</a> from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=145144'>Pixabay</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>dreamy-jazz-slow-background-jazz-music-piano-and-seattle-strings-9998</td>\
+        <td>Music by <a href:'https://pixabay.com/de/users/juliush-3921568/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=9998'>JuliusH</a> from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=145144'>Pixabay</a></td>\
+        </tr>\
+        <tr>\
+        <td></td>\
+        <td>haunted-house-ambience-21831</td>\
+        <td>Music by <a href:'https://pixabay.com/de/users/placidplace-25572496/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=21831'>Placidplace</a> from <a href:'https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=145144'>Pixabay</a></td>\
         </tr>\
         <tr>\
         <td></td>\
@@ -197,13 +205,13 @@ namespace ACatInLimbo {
         </tr>\
         <tr>\
         <td></td>\
-        <td>5-meters-dive-6070,<br>eating-sound-effect-36186,<br>finger-cracking-40991,<br>frog_quak-81741,<br>frog-qua-cry-36013,<br>monster-rumble-99026,<br>sheep-bleating-31117,<br>slimey-97605,<br>taiko-drumloop-001-120-97780, fear-breathing-14825<br></td>\
-        <td>Sound Effect from <a href:https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=36186>Pixabay</a></td>\
+        <td>5-meters-dive-6070, eating-sound-effect-36186,<br>finger-cracking-40991, frog_quak-81741,<br>frog-qua-cry-36013, monster-rumble-99026,<br>sheep-bleating-31117, slimey-97605,<br>taiko-drumloop-001-120-97780, fear-breathing-14825,<br>scary-wood-74661, clock-ticking-natural-room-verb-17249,<br>croaking-70573</td>\
+        <td>Sound Effects from <a href:https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=36186>Pixabay</a></td>\
         </tr>\
         <tr>\
         <td></td>\
         <td>cat-eating-dry-food-133130</td>\
-        <td>Sound Effect by <a href:'https://pixabay.com/de/users/soundsforyou-4861230/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=133130'>Micheal</a><br>from <a href:https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=36186>Pixabay</a></td>\
+        <td>Sound Effect by <a href:'https://pixabay.com/de/users/soundsforyou-4861230/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=133130'>Micheal</a> from <a href:https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=36186>Pixabay</a></td>\
         </tr>\
         <tr>\
         <td></td>\

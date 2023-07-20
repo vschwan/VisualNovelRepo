@@ -95,13 +95,13 @@ namespace ACatInLimbo {
         await ƒS.update();
 
         ƒS.Speech.hide(); //Sprachfenster ausblenden
-        ƒS.Text.print("Because you treated the cat very well and your destinies are linked, you both end up in Cat's Heaven. <br>By entering this realm you obviously got turned into a cat as well, otherwise, what would be the point of you being in cat heaven? <br>Enjoy endless streams of milk and tuna as far as the eye can see."); 
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await ƒS.Text.print("Because you treated the cat very well and your destinies are linked, you both end up in Cat's Heaven. <br>By entering this realm you obviously got turned into a cat as well, otherwise, what would be the point of you being in cat heaven? <br>Enjoy endless streams of milk and tuna as far as the eye can see.");
+        await new Promise(resolve => setTimeout(resolve, 2000));
 
         await ƒS.Location.show(locations.goodEndingFin);
         await ƒS.update(4);
 
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
         let endingCaption = document.getElementById("endingCaption");
         endingCaption.innerText = "Good Ending: Cat's Heaven";
     }

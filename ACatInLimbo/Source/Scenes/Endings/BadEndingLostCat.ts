@@ -37,18 +37,18 @@ namespace ACatInLimbo {
         await ƒS.update(transition.badEndingLostCat.duration, transition.badEndingLostCat.alpha, transition.badEndingLostCat.edge);
         await new Promise(resolve => setTimeout(resolve, 2000));
         await ƒS.Sound.play(sound.Howling, 0.4, false);
-        ƒS.Text.print("You've pissed off the pink cat and it's abandoning you.<br>The second it leaves, you get dizzy, your vision gets blurry and you see things that definitely weren't there before.");
+        await ƒS.Text.print("You've pissed off the pink cat and it's abandoning you.<br>The second it leaves, you get dizzy, your vision gets blurry and you see things that definitely weren't there before.");
         await ƒS.Speech.tell(characters.protagonist, "What are those sounds?");
         await ƒS.Speech.tell(characters.protagonist, "Where am I?");
         await ƒS.Speech.tell(characters.protagonist, "What happened?");
         await ƒS.update();
         await ƒS.Location.show(locations.badEndingLostCatFin);
         await ƒS.update(4);
-        ƒS.Text.print("You have to stay in Limbo.<br>Seems like you're not a cat-person.");
+        await ƒS.Text.print("You have to stay in Limbo.<br>Seems like you're not a cat-person.");
         await ƒS.update();
         ƒS.Speech.hide(); //Sprachfenster ausblenden
 
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        await new Promise(resolve => setTimeout(resolve, 2000));
         let endingCaption = document.getElementById("endingCaption");
         endingCaption.innerText = "Bad Ending: Lost Cat";
 

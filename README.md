@@ -9,4 +9,7 @@
 
 Speichern: <kbd>S</kbd>  
 Laden: <kbd>L</kbd>  
+Inventar: <kbd>I</kbd>  
+Credits: <kbd>C</kbd>  
+Help: <kbd>H</kbd>  
 Menü: <kbd>M</kbd>  
