@@ -42,6 +42,7 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.protagonist, "Where am I?");
         await ƒS.Speech.tell(characters.protagonist, "What happened?");
         await ƒS.update();
+        await ƒS.Location.show(locations.badEndingLostCatFin);
         ƒS.Text.print("You have to stay in Limbo. Seems like you're not a cat-person.");
         await ƒS.update();
         ƒS.Speech.hide(); //Sprachfenster ausblenden
@@ -49,11 +50,6 @@ namespace ACatInLimbo {
         await new Promise(resolve => setTimeout(resolve, 5000));
         let endingCaption = document.getElementById("endingCaption");
         endingCaption.innerText = "Bad Ending: Lost Cat";
-
-
-
-
-
 
     }
 }

@@ -37,7 +37,7 @@ namespace ACatInLimbo {
         },
         riverflow: {
             name: "Riverflow",
-            background: "./Images/Backgrounds/riverflow/riverflow.png"
+            background: "./Images/Backgrounds/Riverflow/riverflow.png"
         },
 
         caveEntrance: {
@@ -79,44 +79,63 @@ namespace ACatInLimbo {
         //GateCloser
         gateCloser5: {
             name: "Gate",
-            background: "./Images/Backgrounds/gateCloser/gateDeathCloser5.png",
+            background: "./Images/Backgrounds/GateCloser/gateDeathCloser5.png",
         },
       
 
         //Endings Screens
         badEndingFrog: {
             name: "BadEndingFrog",
-            background: "./Images/Backgrounds/endingScreens/badEndingFrogStomach.png",
+            background: "./Images/Backgrounds/EndingScreens/badEndingFrog.png",
         },
+        badEndingFrogFin: {
+            name: "BadEndingFrogFin",
+            background: "./Images/Backgrounds/EndingScreens/badEndingFrogFin.png",
+        },
+
 
         badEndingHell: {
             name: "BadEndingHell",
-            background: "./Images/Backgrounds/endingScreens/badEndingHell.png",
+            background: "./Images/Backgrounds/EndingScreens/badEndingHell.png",
         },
+        badEndingHellFin: {
+            name: "BadEndingHellFin",
+            background: "./Images/Backgrounds/EndingScreens/badEndingHellFin.png",
+        },
+
+
+        neutralEnding: {
+            name: "NeutralEnding",
+            background: "./Images/Backgrounds/EndingScreens/neutralEnding.png",
+        },
+        neutralEndingFin: {
+            name: "NeutralEndingFin",
+            background: "./Images/Backgrounds/EndingScreens/neutralEndingFin.png",
+        },
+
+
 
         badEndingLostCat: {
             name: "BadEndingLostCat",
-            background: "./Images/Backgrounds/endingScreens/badEndingLostCat.png",
+            background: "./Images/Backgrounds/EndingScreens/badEndingLostCat.png",
+        },
+        badEndingLostCatFin: {
+            name: "BadEndingLostCatFin",
+            background: "./Images/Backgrounds/EndingScreens/badEndingLostCatFin.png",
         },
 
-       neutralEnding: {
-            name: "NeutralEnding",
-            background: "./Images/Backgrounds/endingScreens/neutralEnding.png",
+    
+        goodEndingNoCats: {
+            name: "GoodEndingCats",
+            background: "ACatInLimbo/Images/Backgrounds/EndingScreens/goodEndingNoCats.png",
         },
-
         goodEnding: {
             name: "GoodEnding",
-            background: "./Images/Backgrounds/endingScreens/goodEnding.png",
+            background: "ACatInLimbo/Images/Backgrounds/EndingScreens/goodEnding.png",
         },
-
-        goodEndingCats: {
-            name: "GoodEndingCats",
-            background: "./Images/Backgrounds/endingScreens/goodEndingCats.png",
-        },
-
-        goodEndingClean: {
+        goodEndingFin: {
             name: "GoodEndingClean",
-            background: "./Images/Backgrounds/endingScreens/goodEndingClean.png",
+            background: "ACatInLimbo/Images/Backgrounds/EndingScreens/goodEndingFin.png",
         },
     };
 }

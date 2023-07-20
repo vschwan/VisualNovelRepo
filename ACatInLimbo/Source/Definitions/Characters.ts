@@ -190,11 +190,11 @@ namespace ACatInLimbo {
       name: "GateCLoser",
       origin: ƒS.ORIGIN.CENTER,
       pose: {
-        closer1: "./Images/Backgrounds/gateCloser/gateDeathCloser1.png",
-        closer2: "./Images/Backgrounds/gateCloser/gateDeathCloser2.png",
-        closer3: "./Images/Backgrounds/gateCloser/gateDeathCloser3.png",
-        closer4: "./Images/Backgrounds/gateCloser/gateDeathCloser4.png",
-        closer5: "./Images/Backgrounds/gateCloser/gateDeathCloser5.png"
+        closer1: "./Images/Backgrounds/GateCloser/gateDeathCloser1.png",
+        closer2: "./Images/Backgrounds/GateCloser/gateDeathCloser2.png",
+        closer3: "./Images/Backgrounds/GateCloser/gateDeathCloser3.png",
+        closer4: "./Images/Backgrounds/GateCloser/gateDeathCloser4.png",
+        closer5: "./Images/Backgrounds/GateCloser/gateDeathCloser5.png"
       }
     },
 
@@ -232,15 +232,15 @@ namespace ACatInLimbo {
       name: "Riverflow",
       origin: ƒS.ORIGIN.CENTER,
       pose: {
-        plain: "./Images/Backgrounds/riverflow/riverflow.png",
-        flow1: "./Images/Backgrounds/riverflow/riverflow1.png",
-        flow2: "./Images/Backgrounds/riverflow/riverflow2.png",
-        flow3: "./Images/Backgrounds/riverflow/riverflow3.png",
-        flowWaving3: "./Images/Backgrounds/riverflow/riverflow3Waving.png",
-        flow4: "./Images/Backgrounds/riverflow/riverflow4.png",
-        flowWaving4: "./Images/Backgrounds/riverflow/riverflow4Waving.png",
-        flow5: "./Images/Backgrounds/riverflow/riverflow5.png",
-        flow6: "./Images/Backgrounds/riverflow/riverflow6.png"
+        plain: "./Images/Backgrounds/Riverflow/riverflow.png",
+        flow1: "./Images/Backgrounds/Riverflow/riverflow1.png",
+        flow2: "./Images/Backgrounds/Riverflow/riverflow2.png",
+        flow3: "./Images/Backgrounds/Riverflow/riverflow3.png",
+        flowWaving3: "./Images/Backgrounds/Riverflow/riverflow3Waving.png",
+        flow4: "./Images/Backgrounds/Riverflow/riverflow4.png",
+        flowWaving4: "./Images/Backgrounds/Riverflow/riverflow4Waving.png",
+        flow5: "./Images/Backgrounds/Riverflow/riverflow5.png",
+        flow6: "./Images/Backgrounds/Riverflow/riverflow6.png"
 
       }
     },

@@ -114,9 +114,9 @@ namespace ACatInLimbo {
   export function flyingCatBlue(): ƒS.AnimationDefinition {
     //something
     return {
-      start: { translation: ƒS.positionPercent(-100, 60), color: ƒS.Color.CSS("", 1) },
+      start: { translation: ƒS.positionPercent(20, 60), color: ƒS.Color.CSS("", 1) },
       end: { translation: ƒS.positionPercent(50, 50), color: ƒS.Color.CSS("", 1) },
-      duration: 8,
+      duration: 6,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
     };
   }
@@ -124,9 +124,9 @@ namespace ACatInLimbo {
   export function flyingCatRose(): ƒS.AnimationDefinition {
     //something
     return {
-      start: { translation: ƒS.positionPercent(100, 60), color: ƒS.Color.CSS("", 1) },
+      start: { translation: ƒS.positionPercent(70, 60), color: ƒS.Color.CSS("", 1) },
       end: { translation: ƒS.positionPercent(50, 50), color: ƒS.Color.CSS("", 1) },
-      duration: 8,
+      duration: 6,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
     };
   }

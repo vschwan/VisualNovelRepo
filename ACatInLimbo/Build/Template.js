@@ -857,9 +857,9 @@ var ACatInLimbo;
     function flyingCatBlue() {
         //something
         return {
-            start: { translation: ACatInLimbo.ƒS.positionPercent(-100, 60), color: ACatInLimbo.ƒS.Color.CSS("", 1) },
+            start: { translation: ACatInLimbo.ƒS.positionPercent(20, 60), color: ACatInLimbo.ƒS.Color.CSS("", 1) },
             end: { translation: ACatInLimbo.ƒS.positionPercent(50, 50), color: ACatInLimbo.ƒS.Color.CSS("", 1) },
-            duration: 8,
+            duration: 6,
             playmode: ACatInLimbo.ƒS.ANIMATION_PLAYMODE.PLAYONCE
         };
     }
@@ -867,9 +867,9 @@ var ACatInLimbo;
     function flyingCatRose() {
         //something
         return {
-            start: { translation: ACatInLimbo.ƒS.positionPercent(100, 60), color: ACatInLimbo.ƒS.Color.CSS("", 1) },
+            start: { translation: ACatInLimbo.ƒS.positionPercent(70, 60), color: ACatInLimbo.ƒS.Color.CSS("", 1) },
             end: { translation: ACatInLimbo.ƒS.positionPercent(50, 50), color: ACatInLimbo.ƒS.Color.CSS("", 1) },
-            duration: 8,
+            duration: 6,
             playmode: ACatInLimbo.ƒS.ANIMATION_PLAYMODE.PLAYONCE
         };
     }
@@ -1111,11 +1111,11 @@ var ACatInLimbo;
             name: "GateCLoser",
             origin: ACatInLimbo.ƒS.ORIGIN.CENTER,
             pose: {
-                closer1: "./Images/Backgrounds/gateCloser/gateDeathCloser1.png",
-                closer2: "./Images/Backgrounds/gateCloser/gateDeathCloser2.png",
-                closer3: "./Images/Backgrounds/gateCloser/gateDeathCloser3.png",
-                closer4: "./Images/Backgrounds/gateCloser/gateDeathCloser4.png",
-                closer5: "./Images/Backgrounds/gateCloser/gateDeathCloser5.png"
+                closer1: "./Images/Backgrounds/GateCloser/gateDeathCloser1.png",
+                closer2: "./Images/Backgrounds/GateCloser/gateDeathCloser2.png",
+                closer3: "./Images/Backgrounds/GateCloser/gateDeathCloser3.png",
+                closer4: "./Images/Backgrounds/GateCloser/gateDeathCloser4.png",
+                closer5: "./Images/Backgrounds/GateCloser/gateDeathCloser5.png"
             }
         },
         goats: {
@@ -1150,15 +1150,15 @@ var ACatInLimbo;
             name: "Riverflow",
             origin: ACatInLimbo.ƒS.ORIGIN.CENTER,
             pose: {
-                plain: "./Images/Backgrounds/riverflow/riverflow.png",
-                flow1: "./Images/Backgrounds/riverflow/riverflow1.png",
-                flow2: "./Images/Backgrounds/riverflow/riverflow2.png",
-                flow3: "./Images/Backgrounds/riverflow/riverflow3.png",
-                flowWaving3: "./Images/Backgrounds/riverflow/riverflow3Waving.png",
-                flow4: "./Images/Backgrounds/riverflow/riverflow4.png",
-                flowWaving4: "./Images/Backgrounds/riverflow/riverflow4Waving.png",
-                flow5: "./Images/Backgrounds/riverflow/riverflow5.png",
-                flow6: "./Images/Backgrounds/riverflow/riverflow6.png"
+                plain: "./Images/Backgrounds/Riverflow/riverflow.png",
+                flow1: "./Images/Backgrounds/Riverflow/riverflow1.png",
+                flow2: "./Images/Backgrounds/Riverflow/riverflow2.png",
+                flow3: "./Images/Backgrounds/Riverflow/riverflow3.png",
+                flowWaving3: "./Images/Backgrounds/Riverflow/riverflow3Waving.png",
+                flow4: "./Images/Backgrounds/Riverflow/riverflow4.png",
+                flowWaving4: "./Images/Backgrounds/Riverflow/riverflow4Waving.png",
+                flow5: "./Images/Backgrounds/Riverflow/riverflow5.png",
+                flow6: "./Images/Backgrounds/Riverflow/riverflow6.png"
             }
         },
         snail: {
@@ -1313,7 +1313,7 @@ var ACatInLimbo;
         },
         riverflow: {
             name: "Riverflow",
-            background: "./Images/Backgrounds/riverflow/riverflow.png"
+            background: "./Images/Backgrounds/Riverflow/riverflow.png"
         },
         caveEntrance: {
             name: "CaveEntrance",
@@ -1346,36 +1346,52 @@ var ACatInLimbo;
         //GateCloser
         gateCloser5: {
             name: "Gate",
-            background: "./Images/Backgrounds/gateCloser/gateDeathCloser5.png",
+            background: "./Images/Backgrounds/GateCloser/gateDeathCloser5.png",
         },
         //Endings Screens
         badEndingFrog: {
             name: "BadEndingFrog",
-            background: "./Images/Backgrounds/endingScreens/badEndingFrogStomach.png",
+            background: "./Images/Backgrounds/EndingScreens/badEndingFrog.png",
+        },
+        badEndingFrogFin: {
+            name: "BadEndingFrogFin",
+            background: "./Images/Backgrounds/EndingScreens/badEndingFrogFin.png",
         },
         badEndingHell: {
             name: "BadEndingHell",
-            background: "./Images/Backgrounds/endingScreens/badEndingHell.png",
+            background: "./Images/Backgrounds/EndingScreens/badEndingHell.png",
         },
-        badEndingLostCat: {
-            name: "BadEndingLostCat",
-            background: "./Images/Backgrounds/endingScreens/badEndingLostCat.png",
+        badEndingHellFin: {
+            name: "BadEndingHellFin",
+            background: "./Images/Backgrounds/EndingScreens/badEndingHellFin.png",
         },
         neutralEnding: {
             name: "NeutralEnding",
-            background: "./Images/Backgrounds/endingScreens/neutralEnding.png",
+            background: "./Images/Backgrounds/EndingScreens/neutralEnding.png",
+        },
+        neutralEndingFin: {
+            name: "NeutralEndingFin",
+            background: "./Images/Backgrounds/EndingScreens/neutralEndingFin.png",
+        },
+        badEndingLostCat: {
+            name: "BadEndingLostCat",
+            background: "./Images/Backgrounds/EndingScreens/badEndingLostCat.png",
+        },
+        badEndingLostCatFin: {
+            name: "BadEndingLostCatFin",
+            background: "./Images/Backgrounds/EndingScreens/badEndingLostCatFin.png",
+        },
+        goodEndingNoCats: {
+            name: "GoodEndingCats",
+            background: "ACatInLimbo/Images/Backgrounds/EndingScreens/goodEndingNoCats.png",
         },
         goodEnding: {
             name: "GoodEnding",
-            background: "./Images/Backgrounds/endingScreens/goodEnding.png",
+            background: "ACatInLimbo/Images/Backgrounds/EndingScreens/goodEnding.png",
         },
-        goodEndingCats: {
-            name: "GoodEndingCats",
-            background: "./Images/Backgrounds/endingScreens/goodEndingCats.png",
-        },
-        goodEndingClean: {
+        goodEndingFin: {
             name: "GoodEndingClean",
-            background: "./Images/Backgrounds/endingScreens/goodEndingClean.png",
+            background: "ACatInLimbo/Images/Backgrounds/EndingScreens/goodEndingFin.png",
         },
     };
 })(ACatInLimbo || (ACatInLimbo = {}));
@@ -4527,6 +4543,7 @@ var ACatInLimbo;
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Where am I?");
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "What happened?");
         await ACatInLimbo.ƒS.update();
+        await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.badEndingLostCatFin);
         ACatInLimbo.ƒS.Text.print("You have to stay in Limbo. Seems like you're not a cat-person.");
         await ACatInLimbo.ƒS.update();
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
@@ -4546,7 +4563,7 @@ var ACatInLimbo;
         await ACatInLimbo.ƒS.update();
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.backgroundJazz, 0.1, true);
-        await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.goodEndingClean);
+        await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.goodEndingNoCats);
         await ACatInLimbo.ƒS.update(ACatInLimbo.transition.goodEnding.duration, ACatInLimbo.transition.goodEnding.alpha, ACatInLimbo.transition.goodEnding.edge);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.lovely, ACatInLimbo.ƒS.positionPercent(87, 103));
         await ACatInLimbo.ƒS.update(1);
@@ -4625,14 +4642,15 @@ var ACatInLimbo;
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "This is the best day of my life.");
         await ACatInLimbo.ƒS.update();
+        ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.backgroundJazz, 0.5, 9);
         await ACatInLimbo.ƒS.Character.hideAll();
-        await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.goodEndingCats);
+        await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.goodEnding);
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Come on, " + ACatInLimbo.dataForSave.nameProtagonist + ". It's time to move into our new home.");
         await ACatInLimbo.ƒS.update();
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
-        ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.backgroundJazz, 0.5, 4);
-        await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.goodEnding);
+        await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.goodEndingFin);
+        await ACatInLimbo.ƒS.update(4);
         await new Promise(resolve => setTimeout(resolve, 5000));
         let endingCaption = document.getElementById("endingCaption");
         endingCaption.innerText = "Good Ending: Cat's Heaven";

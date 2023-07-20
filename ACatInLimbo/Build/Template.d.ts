@@ -524,11 +524,15 @@ declare namespace ACatInLimbo {
             name: string;
             background: string;
         };
+        badEndingFrogFin: {
+            name: string;
+            background: string;
+        };
         badEndingHell: {
             name: string;
             background: string;
         };
-        badEndingLostCat: {
+        badEndingHellFin: {
             name: string;
             background: string;
         };
@@ -536,15 +540,27 @@ declare namespace ACatInLimbo {
             name: string;
             background: string;
         };
+        neutralEndingFin: {
+            name: string;
+            background: string;
+        };
+        badEndingLostCat: {
+            name: string;
+            background: string;
+        };
+        badEndingLostCatFin: {
+            name: string;
+            background: string;
+        };
+        goodEndingNoCats: {
+            name: string;
+            background: string;
+        };
         goodEnding: {
             name: string;
             background: string;
         };
-        goodEndingCats: {
-            name: string;
-            background: string;
-        };
-        goodEndingClean: {
+        goodEndingFin: {
             name: string;
             background: string;
         };

@@ -9,7 +9,7 @@ namespace ACatInLimbo {
 
         ƒS.Speech.hide(); //Sprachfenster ausblenden
         ƒS.Sound.play(sound.backgroundJazz, 0.1, true);
-        await ƒS.Location.show(locations.goodEndingClean);
+        await ƒS.Location.show(locations.goodEndingNoCats);
         await ƒS.update(transition.goodEnding.duration, transition.goodEnding.alpha, transition.goodEnding.edge);
 
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.lovely, ƒS.positionPercent(87, 103));
@@ -89,15 +89,18 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Speech.tell(characters.protagonist, "This is the best day of my life.");
         await ƒS.update();
+        ƒS.Sound.fade(sound.backgroundJazz, 0.5, 9);
         await ƒS.Character.hideAll();
-        await ƒS.Location.show(locations.goodEndingCats);
+        await ƒS.Location.show(locations.goodEnding);
         await ƒS.update();
         await ƒS.Speech.tell(characters.protagonist, "Come on, " + dataForSave.nameProtagonist + ". It's time to move into our new home.");
         await ƒS.update();
         ƒS.Speech.hide(); //Sprachfenster ausblenden
 
-        ƒS.Sound.fade(sound.backgroundJazz, 0.5, 4);
-        await ƒS.Location.show(locations.goodEnding);
+    
+        await ƒS.Location.show(locations.goodEndingFin);
+        await ƒS.update(4);
+
 
         await new Promise(resolve => setTimeout(resolve, 5000));
         let endingCaption = document.getElementById("endingCaption");
