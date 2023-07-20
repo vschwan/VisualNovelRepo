@@ -14,10 +14,10 @@ namespace ACatInLimbo {
     river: "./Audio/Ambience/river-in-the-forest-17271.mp3",
     relaxMusic: "./Audio/Ambience/mindfulness-relaxation-amp-meditation-music-22174.mp3",
     anxiousMarch: "./Audio/Ambience/anxious-march-full-15523.mp3",
-    celestial: "./Audio/Ambience/celestial-melody-18337.mp3", //add to credits
-
-    //music
+    celestial: "./Audio/Ambience/celestial-melody-18337.mp3",
+    slowInsanity: "./Audio/Ambience/horror-music-box-2-145144.mp3",
     happyJazz: "./Audio/Ambience/jazz-happy-110855.mp3",
+    backgroundJazz: "./Audio/Ambience/dreamy-jazz-slow-background-jazz-music-piano-and-seattle-strings-9998.mp3",
 
     //catSounds
     cathissing: "./Audio/catAudio/Cat-hissing-sound.mp3",
@@ -48,6 +48,7 @@ namespace ACatInLimbo {
     goats: "./Audio/FX/sheep-bleating-31117.mp3",
     wildRoar: "./Audio/FX/mixkit-big-wild-cat-slow-moan-90.wav",
     taikoDrum: "./Audio/FX/taiko-drumloop-001-120-97780.mp3",
-    breathing: "./Audio/FX/fear-breathing-14825.mp3" //add to credits
+    breathing: "./Audio/FX/fear-breathing-14825.mp3",
+    Howling: "./Audio/FX/scary-wood-74661.mp3"
   };
 }

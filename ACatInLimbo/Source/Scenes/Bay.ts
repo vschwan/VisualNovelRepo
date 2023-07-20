@@ -152,6 +152,17 @@ namespace ACatInLimbo {
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, "Forget it.");
                 await ƒS.update();
+
+                //check for catScore and hndl badEnding LostCat
+                if (dataForSave.catScore >= 0) {
+                    console.log("cat is not running away");
+                } else {
+                    ƒS.Sound.fade(sound.smallOceanWaves, 0, 2);
+                    await ƒS.Progress.save();
+                    console.log("cat should run away");
+                    return "BadEnding LostCat Scene";
+                }
+
                 break;
 
             case howToTreatGrumpyCat.ask:
@@ -318,6 +329,17 @@ namespace ACatInLimbo {
                                     await ƒS.Speech.tell(characters.pinkCat, "Awesome, you used all my snails. Thanks a lot. Idiot.")
                                     ƒS.update();
                                 }
+
+                                //check for catScore and hndl badEnding LostCat
+                                if (dataForSave.catScore >= 0) {
+                                    console.log("cat is not running away");
+                                } else {
+                                    ƒS.Sound.fade(sound.smallOceanWaves, 0, 2);
+                                    await ƒS.Progress.save();
+                                    console.log("cat should run away");
+                                    return "BadEnding LostCat Scene";
+                                }
+
                                 break;
 
                             case feedSnails.stop:
@@ -400,6 +422,17 @@ namespace ACatInLimbo {
                 dataForSave.catScore -= 10;
                 await ƒS.Speech.tell(characters.protagonist, "Well, we should hurry. Come on.");
                 await ƒS.update();
+
+                //check for catScore and hndl badEnding LostCat
+                if (dataForSave.catScore >= 0) {
+                    console.log("cat is not running away");
+                } else {
+                    ƒS.Sound.fade(sound.smallOceanWaves, 0, 2);
+                    await ƒS.Progress.save();
+                    console.log("cat should run away");
+                    return "BadEnding LostCat Scene";
+                }
+
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.update();
                 let nextLocation = {

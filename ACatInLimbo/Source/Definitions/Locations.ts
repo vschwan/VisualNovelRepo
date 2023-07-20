@@ -70,12 +70,18 @@ namespace ACatInLimbo {
             background: "./Images/Backgrounds/clouds.png"
         },
 
+
         gate: {
             name: "Gate",
             background: "./Images/Backgrounds/gate.png",
         },
 
-
+        //GateCloser
+        gateCloser5: {
+            name: "Gate",
+            background: "./Images/Backgrounds/gateCloser/gateDeathCloser5.png",
+        },
+      
 
         //Endings Screens
         badEndingFrog: {

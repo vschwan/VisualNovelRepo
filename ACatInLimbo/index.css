@@ -19,7 +19,8 @@ h1 {
 td {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-a{
+
+a {
   color: rgb(85, 10, 104);
   text-decoration: underline;
 }
@@ -332,7 +333,7 @@ dialog.credits {
 /* navigation buttons for credits */
 .creditsNav {
   position: absolute;
-  bottom:65%;
+  bottom: 65%;
   background: none;
   border: none;
 }
@@ -349,7 +350,28 @@ dialog.credits {
   top: 50%;
   left: 50%;
 }
+
 .creditsNav button:hover {
   background-color: rgb(180, 100, 176);
 }
 
+#title {
+  font-family: Kablammo;
+  color: #eedd7e;
+  position: relative;
+  bottom: 105%;
+  text-align: center;
+  font-size: 5vmin;
+  text-shadow: 0 0 10px #000000, 0 0 10px #000000;
+}
+
+#endingCaption {
+  font-family: Kablammo;
+  color: #eedd7e;
+  position: relative;
+  bottom: 100%;
+  text-align: center;
+  font-size: 10vmin;
+  text-shadow: 0 0 10px #000000, 0 0 10px #000000;
+
+}

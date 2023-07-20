@@ -80,18 +80,29 @@ namespace ACatInLimbo {
       duration: 3,
       alpha: "./FreeTransitions/Others/019.png",
       edge: 1
+    },
 
-      // ./FreeTransitions/Others/015.jpg
-      // ./FreeTransitions/Others/021.png
-      // ./FreeTransitions/Others/023.png
-      // ./FreeTransitions/Others/040.jpg
-      // ./FreeTransitions/WipesAndOther/1.jpg
+    badEndingLostCat: { //badEnding LostCat
+      duration: 4,
+      alpha: "./FreeTransitions/WipesAndOther/1.jpg",
+      edge: 1
+    },
 
+    goodEnding: { //goodEnding
+      duration: 3,
+      alpha: "./FreeTransitions/Others/021.png",
+      edge: 1
     }
 
 
 
 
+
+    // ./FreeTransitions/Others/015.jpg
+    // ./FreeTransitions/Others/021.png --> heaven
+    // ./FreeTransitions/Others/023.png --> hell
+    // ./FreeTransitions/Others/040.jpg
+    // ./FreeTransitions/WipesAndOther/1.jpg --> LostCat
 
   }
 

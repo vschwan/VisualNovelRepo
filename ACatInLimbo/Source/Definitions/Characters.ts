@@ -275,24 +275,50 @@ namespace ACatInLimbo {
       }
     },
 
-    catsInHeaven: {
-      name: "CatsInHeaven",
+    //Cats in Heaven
+    orangeCat: {
+      name: "OrangeCat",
       origin: ƒS.ORIGIN.CENTER,
       pose: {
-        catGodNormal: "./Images/Characters/catsInHeaven/catGodNormal.png",
-        catGodSmile: "./Images/Characters/catsInHeaven/catGodSmile.png",
-        curiousCats: "./Images/Characters/catsInHeaven/curiousCats.png",
-        flyingCatRose: "./Images/Characters/catsInHeaven/flyingCatRose.png",
-        flyingCatBlue: "./Images/Characters/catsInHeaven/flyingCatBlue.png",
-        flyingCats: "./Images/Characters/catsInHeaven/flyingCats.png",
-        orangeCatLooking: "./Images/Characters/catsInHeaven/orangeCatLooking.png",
-        orangeCatReading: "./Images/Characters/catsInHeaven/orangeCatReading.png",
-        orangeCatWaving: "./Images/Characters/catsInHeaven/orangeCatWaving.png"
+        looking: "./Images/Characters/catsInHeaven/orangeCatLooking.png",
+        reading: "./Images/Characters/catsInHeaven/orangeCatReading.png",
+        waving: "./Images/Characters/catsInHeaven/orangeCatWaving.png"
       }
-    }
+    },
+    blueCat: {
+      name: "BlueCat",
+      origin: ƒS.ORIGIN.CENTER,
+      pose: {
+        flying: "./Images/Characters/catsInHeaven/flyingCatBlue.png",
+      }
+    },
+    roseCat: {
+      name: "RoseCat",
+      origin: ƒS.ORIGIN.CENTER,
+      pose: {
+        flying: "./Images/Characters/catsInHeaven/flyingCatRose.png",
+      }
+    },
+    catGod: {
+      name: "CatGod",
+      origin: ƒS.ORIGIN.CENTER,
+      pose: {
+        normal: "./Images/Characters/catsInHeaven/catGodNormal.png",
+        smile: "./Images/Characters/catsInHeaven/catGodSmile.png",
+        lookingLeft: "./Images/Characters/catsInHeaven/catGodLeft.png",
+        lookingRight: "./Images/Characters/catsInHeaven/catGodRight.png"
+      }
+    },
+    multipleCats: {
+      name: "MultipleCats",
+      origin: ƒS.ORIGIN.CENTER,
+      pose: {
+        curious: "./Images/Characters/catsInHeaven/curiousCats.png"
+      }
+    },
+
+
+
   }
 
-  /* export function UpdateName(): void {
-       characters.protagonist.name = dataForSave.nameProtagonist;
-   }*/
 }

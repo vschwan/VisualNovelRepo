@@ -188,6 +188,17 @@ namespace ACatInLimbo {
                     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 95));
                     await ƒS.update();
                     await ƒS.Speech.tell(characters.pinkCat, "How unprogressive and disappointing…");
+
+                    //check for catScore and hndl badEnding LostCat
+                    if (dataForSave.catScore >= 0) {
+                        console.log("cat is not running away");
+                    } else {
+                        ƒS.Sound.fade(sound.LakeWaves, 0, 10);
+                        await ƒS.Progress.save();
+                        console.log("cat should run away");
+                        return "BadEnding LostCat Scene";
+                    }
+
                     break;
             }
 

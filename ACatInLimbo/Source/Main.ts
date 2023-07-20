@@ -32,8 +32,8 @@ namespace ACatInLimbo {
 
     nameProtagonist: "You",
     catLeaving: false,
-    catScore: 10,
-    scoreForCat: 10,
+    catScore: 5,
+    //scoreForCat: 10,
     // points: 0,
     pickedMeterBar: false,
     pickedChoice: false,
@@ -41,22 +41,16 @@ namespace ACatInLimbo {
     // openMap: false
     // started: false,
     // ended: false
-
-    //hier auch Punkte verteilungssystem-Variable reinhauen
   };
 
-  //SCHEISSE
-  // export async function scheisse(): Promise<void> {
-  //   if (dataForSave.catScore < 7) {
-  //     alert("Be careful now. The cat is not fond of you at the moment.");
-  //     console.log("achtung");
+  //check for catScore and hndl badEnding LostCat --> Szene wird nicht wiedergegeben wenn Funktion in anderer Szene aufgerufne wird :(
+  // export async function handleLostCat(): Promise<string> {
+  //   if (dataForSave.catScore >= 0) {
+  //     console.log("cat is not running away");
+  //   } else {
+  //     console.log("cat should run away");
+  //     return "BadEnding LostCat Scene";
   //   }
-  // }
-
-
-  //INVENTORY
-  // export function OpenInventory(): void {
-
   // }
 
 
@@ -94,6 +88,9 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
+      
+      { id: "GoodEnding Scene", scene: GoodEnding, name: "GoodEnding", next: "Empty Scene" },
+
       { id: "Meadow Scene", scene: Meadow, name: "meadow" },
       { id: "Forest Scene", scene: Forest, name: "Forest" },
       { id: "Lake Scene", scene: Lake, name: "lake" },

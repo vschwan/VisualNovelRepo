@@ -6,7 +6,6 @@ namespace ACatInLimbo {
 
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
-        // document.getElementById("scoreForCat").style.display = "";
 
         ƒS.Speech.hide(); //Sprachfenster ausblenden
         ƒS.Sound.play(sound.scaryForest, 2, true);
@@ -157,6 +156,17 @@ namespace ACatInLimbo {
                         await ƒS.update();
                         await ƒS.Speech.tell(characters.pinkCat, "You're kind of an idiot, you know?");
                         await ƒS.update();
+
+                        //check for catScore and hndl badEnding LostCat
+                        if (dataForSave.catScore >= 0) {
+                            console.log("cat is not running away");
+                        } else {
+                            ƒS.Sound.fade(sound.scaryForest, 0, 10);
+                            await ƒS.Progress.save();
+                            console.log("cat should run away");
+                            return "BadEnding LostCat Scene";
+                        }
+
                         break;
 
                     case howToTreatSpider.console:

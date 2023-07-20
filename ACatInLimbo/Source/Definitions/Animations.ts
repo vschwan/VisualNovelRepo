@@ -78,7 +78,7 @@ namespace ACatInLimbo {
       end: { translation: ƒS.positionPercent(5, 50), color: ƒS.Color.CSS("black", 0) },
       duration: 1,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
-    }; //scaling hinzufügen?
+    };
   }
 
   export function deathSlide(): ƒS.AnimationDefinition {
@@ -88,7 +88,7 @@ namespace ACatInLimbo {
       end: { translation: ƒS.positionPercent(-20, 100), color: ƒS.Color.CSS("", 0) },
       duration: 2,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
-    }; //scaling hinzufügen?
+    };
   }
 
 
@@ -99,7 +99,7 @@ namespace ACatInLimbo {
       end: { translation: ƒS.positionPercent(50, 50), color: ƒS.Color.CSS("", 1) },
       duration: 2,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
-    }; //scaling hinzufügen?
+    };
   }
   export function skywormDisappearing(): ƒS.AnimationDefinition {
     //something
@@ -108,9 +108,28 @@ namespace ACatInLimbo {
       end: { translation: ƒS.positionPercent(50, 50), color: ƒS.Color.CSS("#ea9847", 0) },
       duration: 4,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
-    }; //scaling hinzufügen?
+    };
   }
 
+  export function flyingCatBlue(): ƒS.AnimationDefinition {
+    //something
+    return {
+      start: { translation: ƒS.positionPercent(-100, 60), color: ƒS.Color.CSS("", 1) },
+      end: { translation: ƒS.positionPercent(50, 50), color: ƒS.Color.CSS("", 1) },
+      duration: 8,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+    };
+  }
+
+  export function flyingCatRose(): ƒS.AnimationDefinition {
+    //something
+    return {
+      start: { translation: ƒS.positionPercent(100, 60), color: ƒS.Color.CSS("", 1) },
+      end: { translation: ƒS.positionPercent(50, 50), color: ƒS.Color.CSS("", 1) },
+      duration: 8,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+    };
+  }
 
 
 

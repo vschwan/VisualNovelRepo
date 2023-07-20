@@ -256,6 +256,18 @@ namespace ACatInLimbo {
                     await ƒS.update();
                     await ƒS.Speech.tell(characters.pinkCat, "Fuck this.");
                     await ƒS.update();
+
+                    //check for catScore and hndl badEnding LostCat
+                    if (dataForSave.catScore >= 0) {
+                        console.log("cat is not running away");
+                    } else {
+                        ƒS.Sound.fade(sound.relaxMusic, 0, 10);
+                        ƒS.Sound.fade(sound.anxiousMarch, 0, 10);
+                        await ƒS.Progress.save();
+                        console.log("cat should run away");
+                        return "BadEnding LostCat Scene";
+                    }
+
                     break;
 
                 case betrayGoats.dontBetrayGoats:

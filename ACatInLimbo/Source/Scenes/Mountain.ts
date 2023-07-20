@@ -241,7 +241,19 @@ namespace ACatInLimbo {
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 95));
         await ƒS.update(1);
-        await ƒS.Speech.tell(characters.pinkCat, "You're a real party pooper. Let's go.");
+        await ƒS.Speech.tell(characters.pinkCat, "You're a real party pooper.");
+
+        //check for catScore and hndl badEnding LostCat
+        if (dataForSave.catScore >= 0) {
+            console.log("cat is not running away");
+        } else {
+            ƒS.Sound.fade(sound.forestWind, 0, 10);
+            ƒS.Sound.fade(sound.goats, 0, 10)
+            await ƒS.Progress.save();
+            console.log("cat should run away");
+            return "BadEnding LostCat Scene";
+        }
+
         await ƒS.update();
 
         ƒS.Sound.fade(sound.forestWind, 0, 3);

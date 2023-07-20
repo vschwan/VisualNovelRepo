@@ -31,7 +31,6 @@ declare namespace ACatInLimbo {
         nameProtagonist: string;
         catLeaving: boolean;
         catScore: number;
-        scoreForCat: number;
         pickedMeterBar: boolean;
         pickedChoice: boolean;
         currentPath: string;
@@ -68,6 +67,8 @@ declare namespace ACatInLimbo {
     function deathSlide(): ƒS.AnimationDefinition;
     function skywormAppearing(): ƒS.AnimationDefinition;
     function skywormDisappearing(): ƒS.AnimationDefinition;
+    function flyingCatBlue(): ƒS.AnimationDefinition;
+    function flyingCatRose(): ƒS.AnimationDefinition;
 }
 declare namespace ACatInLimbo {
     let sound: {
@@ -83,7 +84,9 @@ declare namespace ACatInLimbo {
         relaxMusic: string;
         anxiousMarch: string;
         celestial: string;
+        slowInsanity: string;
         happyJazz: string;
+        backgroundJazz: string;
         cathissing: string;
         demanding: string;
         cuteMeow: string;
@@ -110,6 +113,7 @@ declare namespace ACatInLimbo {
         wildRoar: string;
         taikoDrum: string;
         breathing: string;
+        Howling: string;
     };
 }
 declare namespace ACatInLimbo {
@@ -362,6 +366,46 @@ declare namespace ACatInLimbo {
                 cliffEdge: string;
             };
         };
+        orangeCat: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                looking: string;
+                reading: string;
+                waving: string;
+            };
+        };
+        blueCat: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                flying: string;
+            };
+        };
+        roseCat: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                flying: string;
+            };
+        };
+        catGod: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                normal: string;
+                smile: string;
+                lookingLeft: string;
+                lookingRight: string;
+            };
+        };
+        multipleCats: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                curious: string;
+            };
+        };
     };
 }
 declare namespace ACatInLimbo {
@@ -472,6 +516,38 @@ declare namespace ACatInLimbo {
             name: string;
             background: string;
         };
+        gateCloser5: {
+            name: string;
+            background: string;
+        };
+        badEndingFrog: {
+            name: string;
+            background: string;
+        };
+        badEndingHell: {
+            name: string;
+            background: string;
+        };
+        badEndingLostCat: {
+            name: string;
+            background: string;
+        };
+        neutralEnding: {
+            name: string;
+            background: string;
+        };
+        goodEnding: {
+            name: string;
+            background: string;
+        };
+        goodEndingCats: {
+            name: string;
+            background: string;
+        };
+        goodEndingClean: {
+            name: string;
+            background: string;
+        };
     };
 }
 declare namespace ACatInLimbo {
@@ -541,6 +617,16 @@ declare namespace ACatInLimbo {
             alpha: string;
             edge: number;
         };
+        badEndingLostCat: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
+        goodEnding: {
+            duration: number;
+            alpha: string;
+            edge: number;
+        };
     };
 }
 declare namespace ACatInLimbo {
@@ -581,9 +667,6 @@ declare namespace ACatInLimbo {
 }
 declare namespace ACatInLimbo {
     function Swamp(): ƒS.SceneReturn;
-}
-declare namespace ACatInLimbo {
-    function testScene(): ƒS.SceneReturn;
 }
 declare namespace ACatInLimbo {
     function BadEndingFrog(): ƒS.SceneReturn;

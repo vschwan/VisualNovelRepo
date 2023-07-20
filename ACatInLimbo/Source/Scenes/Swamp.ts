@@ -154,6 +154,18 @@ namespace ACatInLimbo {
                         await ƒS.update();
                         await ƒS.Speech.tell(characters.pinkCat, "Wow, thanks for nothing.")
                         await ƒS.update();
+
+                        //check for catScore and hndl badEnding LostCat
+                        if (dataForSave.catScore >= 0) {
+                            console.log("cat is not running away");
+                        } else {
+                            ƒS.Sound.fade(sound.frogs, 0, 10);
+                            ƒS.Sound.fade(sound.swamp, 0, 10);
+                            await ƒS.Progress.save();
+                            console.log("cat should run away");
+                            return "BadEnding LostCat Scene";
+                        }
+
                         break;
                     case getSnails.getSnails:
                         await ƒS.Speech.tell(characters.protagonist, "Noice. Maybe it's gonna be of use. Please let's move forward now, this place stinks like hell!");
@@ -227,6 +239,18 @@ namespace ACatInLimbo {
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 95));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.protagonist, "Sorry, I just think it looks a bit nasty.");
+
+                //check for catScore and hndl badEnding LostCat
+                if (dataForSave.catScore >= 0) {
+                    console.log("cat is not running away");
+                } else {
+                    ƒS.Sound.fade(sound.frogs, 0, 10);
+                    ƒS.Sound.fade(sound.swamp, 0, 10);
+                    await ƒS.Progress.save();
+                    console.log("cat should run away");
+                    return "BadEnding LostCat Scene";
+                }
+
                 await ƒS.Speech.tell(characters.pinkCat, "Then let's go, I guess. I would drown If I tried to help him.");
                 await ƒS.update();
                 await ƒS.Sound.play(sound.bubblingInTheDeep, 1, false);

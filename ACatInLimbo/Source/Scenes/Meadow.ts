@@ -120,6 +120,17 @@ namespace ACatInLimbo {
             case approachCat.walk:
                 console.log("Walk towards cat");
                 dataForSave.catScore -= 10;
+             
+                //check for catScore and hndl badEnding LostCat
+                if (dataForSave.catScore >= 0) {
+                    console.log("cat is not running away");
+                  } else {
+                    ƒS.Sound.fade(sound.meadowSound, 0, 10);
+                    await ƒS.Progress.save();
+                    console.log("cat should run away");
+                    return "BadEnding LostCat Scene";  //not possible yet to lose cat
+                  }
+
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Sound.play(sound.growling, 1, false);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.scaredSmall, ƒS.positionPercent(75, 85));
