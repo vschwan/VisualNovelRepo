@@ -1678,7 +1678,7 @@ var ACatInLimbo;
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
                 await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talkingAngry, ACatInLimbo.ƒS.positionPercent(83, 99));
                 await ACatInLimbo.ƒS.update();
-                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Good idea " + ACatInLimbo.dataForSave.nameProtagonist + "! Thanks for reminding me of the option!");
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Good idea, " + ACatInLimbo.dataForSave.nameProtagonist + "! Thanks for reminding me of the option!");
                 await ACatInLimbo.ƒS.update();
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
                 await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.crouchedLookingAway, ACatInLimbo.ƒS.positionPercent(83, 99));
@@ -1744,148 +1744,178 @@ var ACatInLimbo;
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal, ACatInLimbo.ƒS.positionPercent(83, 99));
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "This creature seems less compromise-oriented though.");
-        let feedBayCreature = {
-            feed: "Feed snails",
-            talk: "Try to talk it out"
-        };
-        let pickedFeed;
-        let pickedTalk;
-        do {
-            // if (pickedFeed == true) {
-            //     delete feedBayCreature.feed;
-            //     delete feedBayCreature.talk;
-            //     console.log("delete feed");
-            // }
-            if (pickedTalk == true) {
-                delete feedBayCreature.talk;
-                console.log("delete talk");
-            }
-            let feedBayCreatureRequest = await ACatInLimbo.ƒS.Menu.getInput(feedBayCreature, "choicesCSSClass");
-            switch (feedBayCreatureRequest) {
-                case feedBayCreature.talk:
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
-                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalLookingAway, ACatInLimbo.ƒS.positionPercent(83, 99));
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Listen, we've met a friend from a lake who is really really sad. It lost its heart. We thought you could have it, as you have two hearts!");
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
-                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.bayCreature, ACatInLimbo.characters.bayCreature.pose.talkingAngry, ACatInLimbo.ƒS.positionPercent(60, 82));
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.bayCreature, "blblbllb get blblost!");
-                    await ACatInLimbo.ƒS.update();
-                    pickedTalk = true;
-                case feedBayCreature.feed:
-                    ACatInLimbo.dataForSave.pickedChoice = true;
-                    pickedFeed = true;
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Let's give it some snails or something...");
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
-                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(83, 99));
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "They're MY snails!");
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
-                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal2Sad, ACatInLimbo.ƒS.positionPercent(83, 99));
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "...We only have four. Maybe don't use all of them up, okay?");
-                    let feedSnails = {
-                        feed: "Feed a snail",
-                        stop: "Stop Feeding"
-                    };
-                    let pickedStop = false;
-                    let pickedSnail = false;
-                    do {
-                        if (pickedStop == true) {
-                            delete feedSnails.feed;
-                            delete feedSnails.stop;
-                        }
-                        let feedSnailsRequest = await ACatInLimbo.ƒS.Menu.getInput(feedSnails, "choicesCSSClass");
-                        switch (feedSnailsRequest) {
-                            case feedSnails.feed:
-                                ACatInLimbo.ƒS.Speech.hide();
-                                pickedSnail = true;
-                                if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Snail) > 0) {
-                                    ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.slimeSound, 1, false);
-                                    ACatInLimbo.ƒS.Inventory.subtract(ACatInLimbo.items.Snail);
-                                }
-                                if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Snail) == 0) {
-                                    ACatInLimbo.dataForSave.catScore -= 10;
-                                    pickedStop = true;
-                                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Awesome, you used all my snails. Thanks a lot. Idiot.");
-                                    ACatInLimbo.ƒS.update();
-                                }
-                                //check for catScore and hndl badEnding LostCat
-                                if (ACatInLimbo.dataForSave.catScore >= 0) {
-                                    console.log("cat is not running away");
-                                }
-                                else {
-                                    ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.smallOceanWaves, 0, 2);
-                                    await ACatInLimbo.ƒS.Progress.save();
-                                    console.log("cat should run away");
-                                    return "BadEnding LostCat Scene";
-                                }
-                                break;
-                            case feedSnails.stop:
-                                if (pickedSnail == true) {
-                                    pickedStop = true;
-                                }
-                                else {
-                                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "I don't like it, but I guess it's important the creature trusts us. We need to feed it at least one snail.");
-                                    ACatInLimbo.ƒS.update();
-                                }
-                                break;
-                        }
-                    } while (!pickedStop);
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
-                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalLookingAway, ACatInLimbo.ƒS.positionPercent(83, 99));
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
-                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.bayCreature, ACatInLimbo.characters.bayCreature.pose.happy, ACatInLimbo.ƒS.positionPercent(60, 82));
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Okay, now it looks definitely happier. So, do you know anything about a friend we met in a lake? He is looking for his heart.");
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
-                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.bayCreature, ACatInLimbo.characters.bayCreature.pose.talking, ACatInLimbo.ƒS.positionPercent(60, 82));
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.bayCreature, "blblblLake?");
-                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Yes, Lake! Big, a bit slimy and very dramatic character! Also, very very sad.");
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
-                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.bayCreature, ACatInLimbo.characters.bayCreature.pose.lookingDown, ACatInLimbo.ƒS.positionPercent(60, 82));
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.bayCreature, "bbllblblb");
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
-                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.bayCreature, ACatInLimbo.characters.bayCreature.pose.lookingDownSad, ACatInLimbo.ƒS.positionPercent(60, 82));
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.bayCreature, "blbllSaaad");
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "What is it doing?");
-                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "I think...");
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
-                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.bayCreature, ACatInLimbo.characters.bayCreature.pose.heart, ACatInLimbo.ƒS.positionPercent(60, 82));
-                    await ACatInLimbo.ƒS.update(1);
-                    //add lake creatures heart
-                    await ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Heart);
-                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Wow, we really got it! Thanks!");
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
-                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.bayCreature, ACatInLimbo.characters.bayCreature.pose.happyHeart, ACatInLimbo.ƒS.positionPercent(60, 82));
-                    await ACatInLimbo.ƒS.update(1);
-                    ACatInLimbo.ƒS.Text.print("A heart has been added to your inventory");
-                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
-                    await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal2, ACatInLimbo.ƒS.positionPercent(83, 99));
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Great. We don't have any time to lose. Do you still want to help the Lake Creature?");
-                    await ACatInLimbo.ƒS.update();
-                    await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
+        //had to implement cause what's if items get lost due to saving --> loading game? --> no snails, though they would normally be there, cause they're not consumable
+        if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Snail) <= 0) {
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Mhm, we don't really have anything to feed it...To bad we lost those snails, huh?");
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(83, 99));
+            await ACatInLimbo.ƒS.update();
+            await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Yeah, too bad.");
+            await ACatInLimbo.ƒS.update();
+            let nextLocation = {
+                river: "River",
+                cave: "Cave",
+            };
+            ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.smallOceanWaves, 0, 2);
+            let nextLocationRequest = await ACatInLimbo.ƒS.Menu.getInput(nextLocation, "choicesCSSClass");
+            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.smallOceanWaves, 0, 2);
+            switch (nextLocationRequest) {
+                case nextLocation.river:
+                    ACatInLimbo.dataForSave.currentPath = "BayToRiver";
+                    return "Map Scene";
+                    break;
+                case nextLocation.cave:
+                    ACatInLimbo.dataForSave.currentPath = "BayToCave";
+                    return "Map Scene";
                     break;
             }
-        } while (!ACatInLimbo.dataForSave.pickedChoice);
+        }
+        else {
+            let feedBayCreature = {
+                feed: "Feed snails",
+                talk: "Try to talk it out"
+            };
+            let pickedFeed;
+            let pickedTalk;
+            do {
+                // if (pickedFeed == true) {
+                //     delete feedBayCreature.feed;
+                //     delete feedBayCreature.talk;
+                //     console.log("delete feed");
+                // }
+                if (pickedTalk == true) {
+                    delete feedBayCreature.talk;
+                    console.log("delete talk");
+                }
+                let feedBayCreatureRequest = await ACatInLimbo.ƒS.Menu.getInput(feedBayCreature, "choicesCSSClass");
+                switch (feedBayCreatureRequest) {
+                    case feedBayCreature.talk:
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalLookingAway, ACatInLimbo.ƒS.positionPercent(83, 99));
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Listen, we've met a friend from a lake who is really really sad. It lost its heart. We thought you could have it, as you have two hearts!");
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
+                        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.bayCreature, ACatInLimbo.characters.bayCreature.pose.talkingAngry, ACatInLimbo.ƒS.positionPercent(60, 82));
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.bayCreature, "blblbllb get blblost!");
+                        await ACatInLimbo.ƒS.update();
+                        pickedTalk = true;
+                    case feedBayCreature.feed:
+                        // dataForSave.pickedChoice = true;
+                        pickedFeed = true;
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Let's give it some snails or something...");
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(83, 99));
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "They're MY snails!");
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal2Sad, ACatInLimbo.ƒS.positionPercent(83, 99));
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "...We only have four. Maybe don't use all of them up, okay?");
+                        let feedSnails = {
+                            feed: "Feed a snail",
+                            stop: "Stop Feeding"
+                        };
+                        let pickedStop = false;
+                        let pickedSnail = false;
+                        do {
+                            if (pickedStop == true) {
+                                delete feedSnails.feed;
+                                delete feedSnails.stop;
+                            }
+                            let feedSnailsRequest = await ACatInLimbo.ƒS.Menu.getInput(feedSnails, "choicesCSSClass");
+                            switch (feedSnailsRequest) {
+                                case feedSnails.feed:
+                                    ACatInLimbo.ƒS.Speech.hide();
+                                    pickedSnail = true;
+                                    if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Snail) > 0) {
+                                        ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.slimeSound, 1, false);
+                                        ACatInLimbo.ƒS.Inventory.subtract(ACatInLimbo.items.Snail);
+                                    }
+                                    if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Snail) == 0) {
+                                        ACatInLimbo.dataForSave.catScore -= 10;
+                                        pickedStop = true;
+                                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Awesome, you used all my snails. Thanks a lot. Idiot.");
+                                        ACatInLimbo.ƒS.update();
+                                    }
+                                    //check for catScore and hndl badEnding LostCat
+                                    if (ACatInLimbo.dataForSave.catScore >= 0) {
+                                        console.log("cat is not running away");
+                                    }
+                                    else {
+                                        ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.smallOceanWaves, 0, 2);
+                                        await ACatInLimbo.ƒS.Progress.save();
+                                        console.log("cat should run away");
+                                        return "BadEnding LostCat Scene";
+                                    }
+                                    break;
+                                case feedSnails.stop:
+                                    if (pickedSnail == true) {
+                                        pickedStop = true;
+                                    }
+                                    else {
+                                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "I don't like it, but I guess it's important the creature trusts us. We need to feed it at least one snail.");
+                                        ACatInLimbo.ƒS.update();
+                                    }
+                                    break;
+                            }
+                        } while (!pickedStop);
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalLookingAway, ACatInLimbo.ƒS.positionPercent(83, 99));
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
+                        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.bayCreature, ACatInLimbo.characters.bayCreature.pose.happy, ACatInLimbo.ƒS.positionPercent(60, 82));
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Okay, now it looks definitely happier. So, do you know anything about a friend we met in a lake? He is looking for his heart.");
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
+                        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.bayCreature, ACatInLimbo.characters.bayCreature.pose.talking, ACatInLimbo.ƒS.positionPercent(60, 82));
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.bayCreature, "blblblLake?");
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Yes, Lake! Big, a bit slimy and very dramatic character! Also, very very sad.");
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
+                        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.bayCreature, ACatInLimbo.characters.bayCreature.pose.lookingDown, ACatInLimbo.ƒS.positionPercent(60, 82));
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.bayCreature, "bbllblblb");
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
+                        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.bayCreature, ACatInLimbo.characters.bayCreature.pose.lookingDownSad, ACatInLimbo.ƒS.positionPercent(60, 82));
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.bayCreature, "blbllSaaad");
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "What is it doing?");
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "I think...");
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
+                        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.bayCreature, ACatInLimbo.characters.bayCreature.pose.heart, ACatInLimbo.ƒS.positionPercent(60, 82));
+                        await ACatInLimbo.ƒS.update(1);
+                        //add lake creatures heart
+                        await ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Heart);
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Wow, we really got it! Thanks!");
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
+                        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.bayCreature, ACatInLimbo.characters.bayCreature.pose.happyHeart, ACatInLimbo.ƒS.positionPercent(60, 82));
+                        await ACatInLimbo.ƒS.update(1);
+                        ACatInLimbo.ƒS.Text.print("A heart has been added to your inventory");
+                        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+                        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal2, ACatInLimbo.ƒS.positionPercent(83, 99));
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Great. We don't have any time to lose. Do you still want to help the Lake Creature?");
+                        await ACatInLimbo.ƒS.update();
+                        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
+                        break;
+                }
+            } while (!ACatInLimbo.dataForSave.pickedChoice);
+        }
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
         //conversation about helping or not helping
         let helpLakeCreature = {
@@ -4462,7 +4492,7 @@ var ACatInLimbo;
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
                 await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talkingAngry, ACatInLimbo.ƒS.positionPercent(83, 99));
                 await ACatInLimbo.ƒS.update();
-                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "What?!" + ACatInLimbo.dataForSave.nameProtagonist + ", how can you be so heartless?");
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "What?! " + ACatInLimbo.dataForSave.nameProtagonist + ", how can you be so heartless?");
                 await ACatInLimbo.ƒS.update();
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
                 await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(83, 99));

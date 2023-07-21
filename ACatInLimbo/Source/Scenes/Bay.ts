@@ -179,7 +179,7 @@ namespace ACatInLimbo {
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(83, 99));
                 await ƒS.update();
-                await ƒS.Speech.tell(characters.pinkCat, "Good idea " + dataForSave.nameProtagonist + "! Thanks for reminding me of the option!");
+                await ƒS.Speech.tell(characters.pinkCat, "Good idea, " + dataForSave.nameProtagonist + "! Thanks for reminding me of the option!");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.crouchedLookingAway, ƒS.positionPercent(83, 99));
@@ -244,161 +244,197 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99));
-
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "This creature seems less compromise-oriented though.");
 
-        let feedBayCreature = {
-            feed: "Feed snails",
-            talk: "Try to talk it out"
-        }
+        //had to implement cause what's if items get lost due to saving --> loading game? --> no snails, though they would normally be there, cause they're not consumable
+        if (ƒS.Inventory.getAmount(items.Snail) <= 0) {
+            await ƒS.Speech.tell(characters.protagonist, "Mhm, we don't really have anything to feed it...To bad we lost those snails, huh?");
+            await ƒS.update();
+            await ƒS.Character.hide(characters.pinkCat);
+            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(83, 99));
+            await ƒS.update();
+            await ƒS.Speech.tell(characters.pinkCat, "Yeah, too bad.");
+            await ƒS.update();
 
-        let pickedFeed: boolean;
-        let pickedTalk: boolean;
-
-        do {
-            // if (pickedFeed == true) {
-            //     delete feedBayCreature.feed;
-            //     delete feedBayCreature.talk;
-            //     console.log("delete feed");
-            // }
-            if (pickedTalk == true) {
-                delete feedBayCreature.talk;
-                console.log("delete talk");
+            let nextLocation = {
+                river: "River",
+                cave: "Cave",
             }
+            ƒS.Sound.fade(sound.smallOceanWaves, 0, 2);
+            let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass");
 
-            let feedBayCreatureRequest = await ƒS.Menu.getInput(feedBayCreature, "choicesCSSClass");
-            switch (feedBayCreatureRequest) {
-                case feedBayCreature.talk:
-                    await ƒS.update();
-                    await ƒS.Character.hide(characters.pinkCat);
-                    await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(83, 99));
-                    await ƒS.update();
-                    await ƒS.Speech.tell(characters.protagonist, "Listen, we've met a friend from a lake who is really really sad. It lost its heart. We thought you could have it, as you have two hearts!");
-                    await ƒS.update();
-                    await ƒS.Character.hide(characters.bayCreature);
-                    await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.talkingAngry, ƒS.positionPercent(60, 82));
-                    await ƒS.update();
-                    await ƒS.Speech.tell(characters.bayCreature, "blblbllb get blblost!");
-                    await ƒS.update();
-                    pickedTalk = true;
+            await ƒS.Character.hide(characters.pinkCat);
+            ƒS.Sound.fade(sound.smallOceanWaves, 0, 2);
 
-                case feedBayCreature.feed:
-                    dataForSave.pickedChoice = true;
-                    pickedFeed = true;
-                    await ƒS.update();
-                    await ƒS.Speech.tell(characters.protagonist, "Let's give it some snails or something...");
-                    await ƒS.update();
-                    await ƒS.Character.hide(characters.pinkCat);
-                    await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(83, 99));
-                    await ƒS.update();
-                    await ƒS.Speech.tell(characters.pinkCat, "They're MY snails!");
-                    await ƒS.update();
-                    await ƒS.Character.hide(characters.pinkCat);
-                    await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2Sad, ƒS.positionPercent(83, 99));
-                    await ƒS.update();
-                    await ƒS.Speech.tell(characters.pinkCat, "...We only have four. Maybe don't use all of them up, okay?");
+            switch (nextLocationRequest) {
+                case nextLocation.river:
+                    dataForSave.currentPath = "BayToRiver";
+                    return "Map Scene"
+                    break;
 
-                    let feedSnails = {
-                        feed: "Feed a snail",
-                        stop: "Stop Feeding"
-                    }
-                    let pickedStop: boolean = false;
-                    let pickedSnail: boolean = false;
-
-                    do {
-                        if (pickedStop == true) {
-                            delete feedSnails.feed;
-                            delete feedSnails.stop;
-                        }
-
-                        let feedSnailsRequest = await ƒS.Menu.getInput(feedSnails, "choicesCSSClass");
-                        switch (feedSnailsRequest) {
-                            case feedSnails.feed:
-                                ƒS.Speech.hide();
-                                pickedSnail = true;
-                                if (ƒS.Inventory.getAmount(items.Snail) > 0) {
-                                    ƒS.Sound.play(sound.slimeSound, 1, false);
-                                    ƒS.Inventory.subtract(items.Snail);
-                                }
-                                if (ƒS.Inventory.getAmount(items.Snail) == 0) {
-                                    dataForSave.catScore -= 10;
-                                    pickedStop = true;
-                                    await ƒS.Speech.tell(characters.pinkCat, "Awesome, you used all my snails. Thanks a lot. Idiot.")
-                                    ƒS.update();
-                                }
-
-                                //check for catScore and hndl badEnding LostCat
-                                if (dataForSave.catScore >= 0) {
-                                    console.log("cat is not running away");
-                                } else {
-                                    ƒS.Sound.fade(sound.smallOceanWaves, 0, 2);
-                                    await ƒS.Progress.save();
-                                    console.log("cat should run away");
-                                    return "BadEnding LostCat Scene";
-                                }
-
-                                break;
-
-                            case feedSnails.stop:
-                                if (pickedSnail == true) {
-                                    pickedStop = true;
-                                } else {
-                                    await ƒS.Speech.tell(characters.pinkCat, "I don't like it, but I guess it's important the creature trusts us. We need to feed it at least one snail.")
-                                    ƒS.update();
-                                }
-                                break;
-                        }
-                    } while (!pickedStop);
-
-                    await ƒS.update();
-                    await ƒS.Character.hide(characters.pinkCat);
-                    await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(83, 99));
-                    await ƒS.update();
-                    await ƒS.Character.hide(characters.bayCreature);
-                    await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.happy, ƒS.positionPercent(60, 82));
-                    await ƒS.update();
-                    await ƒS.Speech.tell(characters.protagonist, "Okay, now it looks definitely happier. So, do you know anything about a friend we met in a lake? He is looking for his heart.");
-                    await ƒS.update();
-                    await ƒS.Character.hide(characters.bayCreature);
-                    await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.talking, ƒS.positionPercent(60, 82));
-                    await ƒS.update();
-                    await ƒS.Speech.tell(characters.bayCreature, "blblblLake?");
-                    await ƒS.Speech.tell(characters.pinkCat, "Yes, Lake! Big, a bit slimy and very dramatic character! Also, very very sad.");
-                    await ƒS.update();
-                    await ƒS.Character.hide(characters.bayCreature);
-                    await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.lookingDown, ƒS.positionPercent(60, 82));
-                    await ƒS.update();
-                    await ƒS.Speech.tell(characters.bayCreature, "bbllblblb");
-                    await ƒS.update();
-                    await ƒS.Character.hide(characters.bayCreature);
-                    await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.lookingDownSad, ƒS.positionPercent(60, 82));
-                    await ƒS.update();
-                    await ƒS.Speech.tell(characters.bayCreature, "blbllSaaad");
-                    await ƒS.update();
-                    await ƒS.Speech.tell(characters.protagonist, "What is it doing?");
-                    await ƒS.Speech.tell(characters.pinkCat, "I think...");
-                    await ƒS.update();
-                    await ƒS.Character.hide(characters.bayCreature);
-                    await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.heart, ƒS.positionPercent(60, 82));
-                    await ƒS.update(1);
-                    //add lake creatures heart
-                    await ƒS.Inventory.add(items.Heart);
-                    await ƒS.Speech.tell(characters.protagonist, "Wow, we really got it! Thanks!");
-                    await ƒS.update();
-                    await ƒS.Character.hide(characters.bayCreature);
-                    await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.happyHeart, ƒS.positionPercent(60, 82));
-                    await ƒS.update(1);
-                    ƒS.Text.print("A heart has been added to your inventory");
-                    await ƒS.Character.hide(characters.pinkCat);
-                    await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(83, 99));
-                    await ƒS.update();
-                    await ƒS.Speech.tell(characters.pinkCat, "Great. We don't have any time to lose. Do you still want to help the Lake Creature?");
-                    await ƒS.update();
-                    await ƒS.Character.hide(characters.bayCreature);
+                case nextLocation.cave:
+                    dataForSave.currentPath = "BayToCave";
+                    return "Map Scene"
                     break;
             }
-        } while (!dataForSave.pickedChoice);
+
+        } else {
+
+            let feedBayCreature = {
+                feed: "Feed snails",
+                talk: "Try to talk it out"
+            }
+
+            let pickedFeed: boolean;
+            let pickedTalk: boolean;
+
+            do {
+                // if (pickedFeed == true) {
+                //     delete feedBayCreature.feed;
+                //     delete feedBayCreature.talk;
+                //     console.log("delete feed");
+                // }
+                if (pickedTalk == true) {
+                    delete feedBayCreature.talk;
+                    console.log("delete talk");
+                }
+
+                let feedBayCreatureRequest = await ƒS.Menu.getInput(feedBayCreature, "choicesCSSClass");
+                switch (feedBayCreatureRequest) {
+                    case feedBayCreature.talk:
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.pinkCat);
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(83, 99));
+                        await ƒS.update();
+                        await ƒS.Speech.tell(characters.protagonist, "Listen, we've met a friend from a lake who is really really sad. It lost its heart. We thought you could have it, as you have two hearts!");
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.bayCreature);
+                        await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.talkingAngry, ƒS.positionPercent(60, 82));
+                        await ƒS.update();
+                        await ƒS.Speech.tell(characters.bayCreature, "blblbllb get blblost!");
+                        await ƒS.update();
+                        pickedTalk = true;
+
+                    case feedBayCreature.feed:
+                        // dataForSave.pickedChoice = true;
+                        pickedFeed = true;
+                        await ƒS.update();
+                        await ƒS.Speech.tell(characters.protagonist, "Let's give it some snails or something...");
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.pinkCat);
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(83, 99));
+                        await ƒS.update();
+                        await ƒS.Speech.tell(characters.pinkCat, "They're MY snails!");
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.pinkCat);
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2Sad, ƒS.positionPercent(83, 99));
+                        await ƒS.update();
+                        await ƒS.Speech.tell(characters.pinkCat, "...We only have four. Maybe don't use all of them up, okay?");
+
+                        let feedSnails = {
+                            feed: "Feed a snail",
+                            stop: "Stop Feeding"
+                        }
+                        let pickedStop: boolean = false;
+                        let pickedSnail: boolean = false;
+
+                        do {
+                            if (pickedStop == true) {
+                                delete feedSnails.feed;
+                                delete feedSnails.stop;
+                            }
+
+                            let feedSnailsRequest = await ƒS.Menu.getInput(feedSnails, "choicesCSSClass");
+                            switch (feedSnailsRequest) {
+                                case feedSnails.feed:
+                                    ƒS.Speech.hide();
+                                    pickedSnail = true;
+                                    if (ƒS.Inventory.getAmount(items.Snail) > 0) {
+                                        ƒS.Sound.play(sound.slimeSound, 1, false);
+                                        ƒS.Inventory.subtract(items.Snail);
+                                    }
+                                    if (ƒS.Inventory.getAmount(items.Snail) == 0) {
+                                        dataForSave.catScore -= 10;
+                                        pickedStop = true;
+                                        await ƒS.Speech.tell(characters.pinkCat, "Awesome, you used all my snails. Thanks a lot. Idiot.")
+                                        ƒS.update();
+                                    }
+
+                                    //check for catScore and hndl badEnding LostCat
+                                    if (dataForSave.catScore >= 0) {
+                                        console.log("cat is not running away");
+                                    } else {
+                                        ƒS.Sound.fade(sound.smallOceanWaves, 0, 2);
+                                        await ƒS.Progress.save();
+                                        console.log("cat should run away");
+                                        return "BadEnding LostCat Scene";
+                                    }
+
+                                    break;
+
+                                case feedSnails.stop:
+                                    if (pickedSnail == true) {
+                                        pickedStop = true;
+                                    } else {
+                                        await ƒS.Speech.tell(characters.pinkCat, "I don't like it, but I guess it's important the creature trusts us. We need to feed it at least one snail.")
+                                        ƒS.update();
+                                    }
+                                    break;
+                            }
+                        } while (!pickedStop);
+
+
+
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.pinkCat);
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(83, 99));
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.bayCreature);
+                        await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.happy, ƒS.positionPercent(60, 82));
+                        await ƒS.update();
+                        await ƒS.Speech.tell(characters.protagonist, "Okay, now it looks definitely happier. So, do you know anything about a friend we met in a lake? He is looking for his heart.");
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.bayCreature);
+                        await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.talking, ƒS.positionPercent(60, 82));
+                        await ƒS.update();
+                        await ƒS.Speech.tell(characters.bayCreature, "blblblLake?");
+                        await ƒS.Speech.tell(characters.pinkCat, "Yes, Lake! Big, a bit slimy and very dramatic character! Also, very very sad.");
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.bayCreature);
+                        await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.lookingDown, ƒS.positionPercent(60, 82));
+                        await ƒS.update();
+                        await ƒS.Speech.tell(characters.bayCreature, "bbllblblb");
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.bayCreature);
+                        await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.lookingDownSad, ƒS.positionPercent(60, 82));
+                        await ƒS.update();
+                        await ƒS.Speech.tell(characters.bayCreature, "blbllSaaad");
+                        await ƒS.update();
+                        await ƒS.Speech.tell(characters.protagonist, "What is it doing?");
+                        await ƒS.Speech.tell(characters.pinkCat, "I think...");
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.bayCreature);
+                        await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.heart, ƒS.positionPercent(60, 82));
+                        await ƒS.update(1);
+                        //add lake creatures heart
+                        await ƒS.Inventory.add(items.Heart);
+                        await ƒS.Speech.tell(characters.protagonist, "Wow, we really got it! Thanks!");
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.bayCreature);
+                        await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.happyHeart, ƒS.positionPercent(60, 82));
+                        await ƒS.update(1);
+                        ƒS.Text.print("A heart has been added to your inventory");
+                        await ƒS.Character.hide(characters.pinkCat);
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(83, 99));
+                        await ƒS.update();
+                        await ƒS.Speech.tell(characters.pinkCat, "Great. We don't have any time to lose. Do you still want to help the Lake Creature?");
+                        await ƒS.update();
+                        await ƒS.Character.hide(characters.bayCreature);
+                        break;
+                }
+            } while (!dataForSave.pickedChoice);
+        }
 
         await ƒS.Character.hide(characters.bayCreature);
         //conversation about helping or not helping

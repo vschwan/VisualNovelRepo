@@ -234,7 +234,7 @@ namespace ACatInLimbo {
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(83, 99));
                 await ƒS.update();
-                await ƒS.Speech.tell(characters.pinkCat, "What?!" + dataForSave.nameProtagonist + ", how can you be so heartless?");
+                await ƒS.Speech.tell(characters.pinkCat, "What?! " + dataForSave.nameProtagonist + ", how can you be so heartless?");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(83, 99));
