@@ -12,6 +12,7 @@ declare namespace ACatInLimbo {
         visitedForest: boolean;
         visitedSwamp: boolean;
         visitedBay: boolean;
+        visitedBayCreatureTwice: boolean;
         visitedRiver: boolean;
         pathMeadowForest: boolean;
         pathMeadowLake: boolean;
@@ -99,6 +100,7 @@ declare namespace ACatInLimbo {
         purring: string;
         growling: string;
         yawn: string;
+        reowr: string;
         horrorDrum1: string;
         horrorDrum2: string;
         dive: string;

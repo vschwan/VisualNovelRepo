@@ -5,47 +5,47 @@ namespace ACatInLimbo {
   export let items = {
     Spider: {
       name: "Spider",
-      description: "a small spider",
+      description: "x hairy Spider",
       image: "./Images/Items/spider.png",
       static: false //false: item useable
     },
 
     Fish: {
       name: "Fish",
-      description: "a small fishy fish",
+      description: "x fishy Fish",
       image: "./Images/Items/fish.png",
       static: false
     },
 
     Fly: {
       name: "Fly",
-      description: "a small annoying fly, like most flies are",
+      description: "x annoying Fly",
       image: "./Images/Items/fly.png",
       static: false
     },
 
     Snail: {
       name: "Snail",
-      description: "a slimy snail",
+      description: "x slimy Snail",
       image: "./Images/Items/snail.png",
       static: true
     },
 
     Fireflies: {
       name: "Fireflies",
-      description: "glowing Fireflies",
+      description: "x Jar of glowing Fireflies",
       image: "./Images/Items/fireflies.png",
       static: true
     },
     Heart: {
       name: "Heart ",
-      description: "heart of lake Creature",
+      description: "x laky Heart",
       image: "./Images/Items/heart.png",
       static: true
     },
     Coin: {
       name: "Coin ",
-      description: "a small coin",
+      description: "x shiny Coin",
       image: "./Images/Items/coin.png",
       static: true
     }

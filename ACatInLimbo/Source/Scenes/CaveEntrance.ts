@@ -10,15 +10,15 @@ namespace ACatInLimbo {
         ƒS.Sound.play(sound.forestWind, 1, true);
         await ƒS.Location.show(locations.caveEntrance);
         await ƒS.update(transition.maze.duration, transition.maze.alpha, transition.maze.edge);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.walking, ƒS.positionPercent(80, 95));
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.walking, ƒS.positionPercent(83, 99));
         await ƒS.update(1);
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalSad, ƒS.positionPercent(80, 95))
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalSad, ƒS.positionPercent(83, 99))
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "I hate caves.");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(80, 95))
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(83, 99))
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "It's gonna be dark in there. Do we have anything that can provide some light?");
         await ƒS.update();
@@ -27,25 +27,25 @@ namespace ACatInLimbo {
             await ƒS.Speech.tell(characters.protagonist, "Unfortunately, we don't. what should we do?");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
-            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(80, 95))
+            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(83, 99))
             await ƒS.update();
             await ƒS.Speech.tell(characters.pinkCat, "It's your decision, but obviously we won't see much. It could get dangerous.");
             await ƒS.update();
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
-            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95))
+            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99))
             await ƒS.update();
         } else {
             await ƒS.Speech.tell(characters.protagonist, "Yes! We could use those fireflies the swamp creature gave us!");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
-            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(80, 95))
+            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(83, 99))
             await ƒS.update();
             await ƒS.Speech.tell(characters.pinkCat, "Hmpf. Great.");
             await ƒS.update();
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
-            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95))
+            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99))
             await ƒS.update();
         }
 

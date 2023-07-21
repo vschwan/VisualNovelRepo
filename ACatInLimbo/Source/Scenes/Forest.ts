@@ -13,12 +13,12 @@ namespace ACatInLimbo {
         await ƒS.update(transition.circleSwirl.duration, transition.circleSwirl.alpha, transition.circleSwirl.edge);
 
         await ƒS.update(2);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.walking, ƒS.positionPercent(80, 95));
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.walking, ƒS.positionPercent(83, 99));
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "It's kinda eery here. Do we HAVE to be here?");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.cleaningPaw, ƒS.positionPercent(80, 95));
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.cleaningPaw, ƒS.positionPercent(83, 99));
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "We don't HAVE to, but I want to visit an old friend. I want to see what he's been up to, you know?");
         await ƒS.Speech.tell(characters.protagonist, "...I don't like this place.");
@@ -30,7 +30,7 @@ namespace ACatInLimbo {
         await ƒS.Sound.play(sound.horrorDrum1, 1);
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(80, 95));
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(83, 99));
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "!Oh, look! I think I just saw him!");
         await ƒS.Speech.tell(characters.pinkCat, "Come out you chicken shit!");
@@ -45,7 +45,7 @@ namespace ACatInLimbo {
         await ƒS.Sound.play(sound.cathissing, 1);
         await ƒS.Character.animate(characters.pinkCat, characters.pinkCat.pose.scared, ScaredCatAnimation());
         await ƒS.update();
-        await ƒS.Speech.tell(characters.protagonist, "Uaaaah, fuck fuck fuck fuck, LET'S RUN!!!!");
+        await ƒS.Speech.tell(characters.protagonist, "Uaaaah, fuck fuck fuck fuck, LET'S RUN!!!!", false);
         await ƒS.update();
 
         //fight in foroest or flight to lake/swamp
@@ -90,7 +90,7 @@ namespace ACatInLimbo {
                 await ƒS.Character.hideAll();
                 await ƒS.Character.show(characters.spiderCreature, characters.spiderCreature.pose.attack, ƒS.positionPercent(50, 50));
                 await ƒS.update();
-                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.fromBehindLookingAway, ƒS.positionPercent(80, 95));
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.fromBehindLookingAway, ƒS.positionPercent(83, 99));
                 await ƒS.update(1);
                 await ƒS.Speech.tell(characters.pinkCat, "Wait...you're not going to attack, are you?", true);
                 await ƒS.update();
@@ -101,27 +101,27 @@ namespace ACatInLimbo {
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.Character.show(characters.spiderCreature, characters.spiderCreature.pose.normal, ƒS.positionPercent(50, 50));
-                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(80, 95));
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(83, 99));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, "He doesn't do anything, he's just trying to be scary.");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
-                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.protagonist, "Well, it's working?!");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
-                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(80, 95));
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(83, 99));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, "You should get along well actually, you both seem to stem from the chicken family.");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
-                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.protagonist, "...");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
-                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(80, 95));
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(83, 99));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, "Ugh, okay. Listen, it's just a poor soul like you, that got stuck here.");
                 await ƒS.update();
@@ -136,20 +136,20 @@ namespace ACatInLimbo {
                     case howToTreatSpider.insult:
                         await ƒS.Character.hideAll();
                         await ƒS.Character.show(characters.spiderCreature, characters.spiderCreature.pose.sad, ƒS.positionPercent(50, 50));
-                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(80, 95))
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(83, 99))
                         await ƒS.update();
                         await ƒS.Speech.tell(characters.protagonist, "Ew, I'm nothing like that thing, it's fucking digusting.");
                         await ƒS.update();
-                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(80, 95));
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(83, 99));
                         await ƒS.update();
                         await ƒS.Speech.tell(characters.pinkCat, "What in Death's name is wrong with you?");
                         await ƒS.update();
                         await ƒS.Character.hideAll();
-                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(80, 95));
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(83, 99));
                         await ƒS.Character.animate(characters.spiderCreature, characters.spiderCreature.pose.sad, spiderAnimationDisappear());
                         await ƒS.update();
                         await ƒS.Character.hide(characters.pinkCat);
-                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(80, 95));
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(83, 99));
                         await ƒS.update();
                         await ƒS.Speech.tell(characters.pinkCat, "Wow, great, now it's gone. It heard you!");
                         dataForSave.catScore -= 10;
@@ -173,7 +173,7 @@ namespace ACatInLimbo {
                         await ƒS.Speech.tell(characters.protagonist, "Really? That poor thing!");
                         await ƒS.update();
                         await ƒS.Character.hideAll();
-                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(80, 95));
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(83, 99));
                         await ƒS.Character.show(characters.spiderCreature, characters.spiderCreature.pose.smile, ƒS.positionPercent(50, 50));
                         await ƒS.update();
                         await ƒS.Speech.tell(characters.pinkCat, "See, we're nice! This is my new companion, " + dataForSave.nameProtagonist + ". Do you remember me?");
@@ -181,7 +181,7 @@ namespace ACatInLimbo {
                         await ƒS.Speech.tell(characters.pinkCat, "Ui, that's gonna be difficult.");
                         await ƒS.Speech.tell(characters.protagonist, "What's wrong with it?");
                         await ƒS.Character.hideAll();
-                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99));
                         await ƒS.Character.show(characters.spiderCreature, characters.spiderCreature.pose.sad, ƒS.positionPercent(50, 50));
                         await ƒS.update();
                         await ƒS.Speech.tell(characters.pinkCat, "It got lost here. Like you, if we don't stay on our path.");
@@ -190,7 +190,7 @@ namespace ACatInLimbo {
                         await ƒS.Speech.tell(characters.protagonist, "...Great.");
                         await ƒS.update();
                         await ƒS.Character.hideAll();
-                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(80, 95));
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(83, 99));
                         await ƒS.Character.show(characters.spiderCreature, characters.spiderCreature.pose.smile, ƒS.positionPercent(50, 50));
                         await ƒS.update();
                         await ƒS.Speech.tell(characters.pinkCat, "Yeah. So, buddy have you got any treats for me maybe?");
@@ -208,10 +208,10 @@ namespace ACatInLimbo {
                         await ƒS.update();
                         await ƒS.Character.hideAll();
                         await ƒS.Character.animate(characters.spiderCreature, characters.spiderCreature.pose.smile, spiderAnimationDisappear());
-                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.stretching, ƒS.positionPercent(80, 95));
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.stretching, ƒS.positionPercent(83, 99));
                         await ƒS.update();
                         await ƒS.Character.hide(characters.pinkCat);
-                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
+                        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99));
                         await ƒS.update();
                         break;
                 }

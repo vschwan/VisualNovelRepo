@@ -42,7 +42,7 @@ namespace ACatInLimbo {
                 await ƒS.Speech.tell(characters.protagonist, "Got some spiders, great.");
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.protagonist, "Well, this seems like a lovely meadow, but what the fuck am I doing here? I feel kind of...ghosty. Like I don't have a lot of substance.");
-                await ƒS.Speech.tell(characters.protagonist, "Why does this cat look so real? Like it's not supposed to be of stone. Maybe if I touch i...");
+                await ƒS.Speech.tell(characters.protagonist, "Why does this cat look so real? Maybe if I touch i...");
                 await ƒS.update();
 
             case firstAction.awakeCat:
@@ -87,7 +87,7 @@ namespace ACatInLimbo {
         await ƒS.Character.show(characters.stonePedestal, characters.stonePedestal.pose.stonePedestal, ƒS.positionPercent(65, 85));
         await ƒS.update(1);
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Sound.play(sound.cuteMeow, 1, false);
+        await ƒS.Sound.play(sound.reowr, 1, false);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalSmall, ƒS.positionPercent(75, 85));
         await ƒS.update(1);
 
@@ -239,7 +239,7 @@ namespace ACatInLimbo {
                 await ƒS.Speech.tell(characters.pinkCat, "Ouuuh, you seem nice!");
                 await ƒS.update();
                 await ƒS.Character.hide(characters.pinkCat);
-                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.lovely, ƒS.positionPercent(80, 95));
+                await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.lovely, ƒS.positionPercent(83, 99));
                 await ƒS.update();
                 await ƒS.Sound.fade(sound.purring, 0, 2);
                 break;
@@ -248,31 +248,31 @@ namespace ACatInLimbo {
 
         //First conversation
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(80, 95));
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(83, 99));
         await ƒS.update();
         await ƒS.Speech.tell(characters.protagonist, "Do you know where I am? Do you know about this place?");
         await ƒS.Speech.tell(characters.protagonist, "I'm " + dataForSave.nameProtagonist + " by the way.");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99));
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "A warm Hello to you too, good sir. Looks like you're pretty dead, " + dataForSave.nameProtagonist + "!");
         await ƒS.Speech.tell(characters.protagonist, "What?!");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.cleaningPaw, ƒS.positionPercent(80, 95));
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.cleaningPaw, ƒS.positionPercent(83, 99));
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "No need to panic. You're in Limbo.");
         await ƒS.Speech.tell(characters.protagonist, "Limbo? Like the Limbo in Christianity?");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.thoughtful2, ƒS.positionPercent(80, 95));
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.thoughtful2, ƒS.positionPercent(83, 99));
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "Uuuuuh, I don't know anything about that Christianity stuff. This is neither a good nor a bad place though. It's an in-between.");
         await ƒS.Speech.tell(characters.protagonist, "...?");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.derpy2, ƒS.positionPercent(80, 95));
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.derpy2, ƒS.positionPercent(83, 99));
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "Well, you're dead, but your soul didn't get to afterlife.");
         await ƒS.Speech.tell(characters.protagonist, "So... there is a way out? Can I be with my family if I get out?");
@@ -280,27 +280,27 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.pinkCat, "No, honestly I don't have a clue about what happens if you get through, but good thing is, you don't have to suffer for eternity.");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.curious, ƒS.positionPercent(80, 95));
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.curious, ƒS.positionPercent(83, 99));
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "Does sound good, ey?");
         await ƒS.Speech.tell(characters.protagonist, "You're right, I can't remember anything. From what you're telling me, this place doesn't sound like one I would want to stay in.");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.derpy1, ƒS.positionPercent(80, 95));
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.derpy1, ƒS.positionPercent(83, 99));
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "Okay, you're right, I forgot, it's only a neutral place for me personally.");
         await ƒS.Speech.tell(characters.protagonist, "Why is that?");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.proud, ƒS.positionPercent(80, 95));
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.proud, ƒS.positionPercent(83, 99));
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "That's cause I'm a guide. I can give you a tour if you want?");
         await ƒS.Speech.tell(characters.protagonist, "A tour to...where exactly?");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
-        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(80, 95));
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99));
         await ƒS.update();
-        await ƒS.Speech.tell(characters.pinkCat, "To the gate to afterlife you dummy! Want to get out of here and avoid eternal suffering or do you want to stay?");
+        await ƒS.Speech.tell(characters.pinkCat, "To the gate to afterlife, you dummy! Want to get out of here and avoid eternal suffering or do you want to stay?");
         await ƒS.Speech.tell(characters.protagonist, "Oh, good God, yeah, let's go!");
         await ƒS.update();
         await ƒS.Character.hideAll();

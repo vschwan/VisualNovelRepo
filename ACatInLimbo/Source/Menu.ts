@@ -30,7 +30,7 @@ namespace ACatInLimbo {
         break;
       case inGameMenuButtons.credits:
         credits();
-        break;
+        break; 
       case inGameMenuButtons.help:
         help();
         break;
@@ -83,7 +83,7 @@ namespace ACatInLimbo {
   //Help
   export function help(): void {
     ƒS.Text.setClass("TextPrint");
-    ƒS.Text.print("<p>In this game you can find a Lovemeter in the right corner of the screen. It shows the affection the pink Cat feels towards you.</p><p>Open your Inventory through the menu to feed your Cat with items you collect throughout the story to make it like you more.</p><p>Be careful it doesn't leave you!</p><p>Shortcuts:</p><p>Menu: M</p><p>Save: S</p><p>Load: L</p><p>Help: H</p><p>Credits: C</p>");
+    ƒS.Text.print("<p>In this game you can find a Lovemeter in the right corner of the screen. It shows the affection the pink Cat feels towards you.</p><p>Open your Inventory through the menu to feed your Cat with items you collect throughout the story to make it like you more.</p><p>Be careful it doesn't leave you!</p><p>Shortcuts:</p><p>Save: S</p><p>Load: L</p><p>Inventory: I</p><p>Credits: C</p><p>Help: H</p><p>Menu: M</p>");
   }
 
 
@@ -254,7 +254,7 @@ namespace ACatInLimbo {
         </tr>\
         <tr>\
         <td></td>\
-        <td>ANMLCat_Growling cat 3 (ID 1887)_BSB,<br>ANMLCat_Meow cat 7 (ID 1895)_BSB</td>\
+        <td>ANMLCat_Growling cat 3 (ID 1887)_BSB,<br>ANMLCat_Meow cat 7 (ID 1895)_BSB,<br>ANMLCat_Little meow of a cat (ID 0494)_BSB</td>\
         <td>Joseph Sardin,<br><a href:'https://bigsoundbank.com/'>BigSoundBank</a></td>\
         </tr>\
         <tr>\

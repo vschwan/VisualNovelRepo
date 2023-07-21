@@ -10,6 +10,7 @@ namespace ACatInLimbo {
     visitedForest: false,
     visitedSwamp: false,
     visitedBay: false,
+    visitedBayCreatureTwice: false,
     visitedRiver: false,
 
     //booelan for checking if path on map has already been walked --> mapScene
@@ -33,7 +34,7 @@ namespace ACatInLimbo {
 
     nameProtagonist: "You",
     catLeaving: false,
-    catScore: 5,
+    catScore: 10,
     //scoreForCat: 10,
     // points: 0,
     pickedMeterBar: false,

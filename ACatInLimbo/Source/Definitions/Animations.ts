@@ -1,13 +1,23 @@
 namespace ACatInLimbo {
   //ANIMATIONS
+  // export function ScaredCatAnimation(): ƒS.AnimationDefinition {
+  //   return {
+  //     start: { translation: ƒS.positionPercent(85, 99), color: ƒS.Color.CSS("", 1) },
+  //     end: { translation: ƒS.positionPercent(150, 100), color: ƒS.Color.CSS("black", 0.5) },  <------
+  //     duration: 2,
+  //     playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
+  //   }; //Die Opacity und Farbe der Animation wird, nachdem sie abgespielt wurde, 
+  //   //jedes mal auf das Bild auf welches sie angewendet wurde auch in Zukunft auf dieses angewendet, 
+  //   //auch wenn man halt keine Animation nutzt, sondern das Bild nur erscheinen lassen will
+  //   //verstehe nicht, weshalb.
+  // }
   export function ScaredCatAnimation(): ƒS.AnimationDefinition {
-    //something
     return {
-      start: { translation: ƒS.positionPercent(85, 95), color: ƒS.Color.CSS("", 1) },
-      end: { translation: ƒS.positionPercent(150, 100), color: ƒS.Color.CSS("black", 0.5) },
+      start: { translation: ƒS.positionPercent(85, 99), color: ƒS.Color.CSS("", 1) },
+      end: { translation: ƒS.positionPercent(150, 100), color: ƒS.Color.CSS("", 1) },
       duration: 2,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
-    };
+    }; 
   }
   export function spiderAnimationHide(): ƒS.AnimationDefinition {
     return {
@@ -59,7 +69,7 @@ namespace ACatInLimbo {
       end: { translation: ƒS.positionPercent(50, 50), color: ƒS.Color.CSS("#FF7BAC", 1) },
       duration: 4,
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
-    };
+    }; 
   }
 
   export function pathWalked(): ƒS.AnimationDefinition {
