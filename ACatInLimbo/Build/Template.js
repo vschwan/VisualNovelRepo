@@ -29,14 +29,6 @@ var ACatInLimbo;
             if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Spider) != ACatInLimbo.originAmountSpider) {
                 ACatInLimbo.originAmountSpider = ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Spider);
             }
-            // if (ƒS.Inventory.getAmount(items.Snail) < originAmountSnail) {
-            //     console.log("nomnomnom, bay creature fed");
-            //     ƒS.Sound.play(sound.slimeSound, 1, false);
-            //     originAmountSnail = ƒS.Inventory.getAmount(items.Snail);
-            //     bayCreatureFed = true;
-            // } if (ƒS.Inventory.getAmount(items.Snail) != originAmountSnail) {
-            //     originAmountSnail = ƒS.Inventory.getAmount(items.Snail);
-            // }
             if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Fly) < ACatInLimbo.originAmountFly) {
                 console.log("nomnomnom");
                 ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.chompEat, 1, false);
@@ -68,7 +60,7 @@ var ACatInLimbo;
         visitedForest: false,
         visitedSwamp: false,
         visitedBay: false,
-        visitedBayCreatureTwice: false,
+        talkedWithBayCreatureTwice: false,
         visitedRiver: false,
         //booelan for checking if path on map has already been walked --> mapScene
         pathMeadowForest: false,
@@ -1529,8 +1521,8 @@ var ACatInLimbo;
         //if you have already visited bay and not visited lake twice to give lake creature heart back: choose next location
         if (ACatInLimbo.dataForSave.visitedBay == true) {
             //if you have visited lake twice and have given lake creature heart back
-            if (ACatInLimbo.dataForSave.visitedLakeTwice == true && ACatInLimbo.dataForSave.visitedBayCreatureTwice == false) {
-                ACatInLimbo.dataForSave.visitedBayCreatureTwice = true;
+            if (ACatInLimbo.dataForSave.visitedLakeTwice == true && ACatInLimbo.dataForSave.talkedWithBayCreatureTwice == false) {
+                ACatInLimbo.dataForSave.talkedWithBayCreatureTwice = true;
                 await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.fromBehindLookingAway, ACatInLimbo.ƒS.positionPercent(83, 99));
                 await ACatInLimbo.ƒS.update();
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Hey, what's up!");
@@ -1799,19 +1791,19 @@ var ACatInLimbo;
                     await ACatInLimbo.ƒS.update();
                     await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "...We only have four. Maybe don't use all of them up, okay?");
                     let feedSnails = {
-                        snail: "Feed a snail",
+                        feed: "Feed a snail",
                         stop: "Stop Feeding"
                     };
                     let pickedStop = false;
                     let pickedSnail = false;
                     do {
                         if (pickedStop == true) {
-                            delete feedSnails.snail;
+                            delete feedSnails.feed;
                             delete feedSnails.stop;
                         }
                         let feedSnailsRequest = await ACatInLimbo.ƒS.Menu.getInput(feedSnails, "choicesCSSClass");
                         switch (feedSnailsRequest) {
-                            case feedSnails.snail:
+                            case feedSnails.feed:
                                 ACatInLimbo.ƒS.Speech.hide();
                                 pickedSnail = true;
                                 if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Snail) > 0) {
@@ -1896,22 +1888,22 @@ var ACatInLimbo;
         } while (!ACatInLimbo.dataForSave.pickedChoice);
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.bayCreature);
         //conversation about helping or not helping
-        let lakeCreatureDecision = {
+        let helpLakeCreature = {
             help: "bring heart to lake Creature",
             dontHelp: "move forward"
         };
-        let lakeCreatureDecisionRequest = await ACatInLimbo.ƒS.Menu.getInput(lakeCreatureDecision, "choicesCSSClass");
-        switch (lakeCreatureDecisionRequest) {
-            case lakeCreatureDecision.help:
+        let helpLakeCreatureRequest = await ACatInLimbo.ƒS.Menu.getInput(helpLakeCreature, "choicesCSSClass");
+        switch (helpLakeCreatureRequest) {
+            case helpLakeCreature.help:
                 ACatInLimbo.dataForSave.catScore += 10;
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
                 ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.smallOceanWaves, 0, 2);
                 ACatInLimbo.dataForSave.currentPath = "BayToLake";
                 return "Map Scene";
                 break;
-            case lakeCreatureDecision.dontHelp:
+            case helpLakeCreature.dontHelp:
                 ACatInLimbo.dataForSave.catScore -= 10;
-                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Well, we should hurry. Come on.");
+                await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "No. We should hurry. Come on.");
                 await ACatInLimbo.ƒS.update();
                 //check for catScore and hndl badEnding LostCat
                 if (ACatInLimbo.dataForSave.catScore >= 0) {
@@ -3481,7 +3473,7 @@ var ACatInLimbo;
         console.log(ACatInLimbo.dataForSave.nameProtagonist);
         await ACatInLimbo.ƒS.update(1);
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Ah, I remember, it's " + ACatInLimbo.dataForSave.nameProtagonist + "!");
-        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "What is that strange statue doing over there....");
+        await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "What is that strange statue doing over there....?");
         await ACatInLimbo.ƒS.update();
         let firstAction = {
             awakeCat: "Touch the Stone-Cat",

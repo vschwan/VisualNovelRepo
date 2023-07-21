@@ -10,7 +10,7 @@ namespace ACatInLimbo {
     visitedForest: false,
     visitedSwamp: false,
     visitedBay: false,
-    visitedBayCreatureTwice: false,
+    talkedWithBayCreatureTwice: false,
     visitedRiver: false,
 
     //booelan for checking if path on map has already been walked --> mapScene

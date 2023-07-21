@@ -28,15 +28,6 @@ namespace ACatInLimbo {
             } if (ƒS.Inventory.getAmount(items.Spider) != originAmountSpider) {
                 originAmountSpider = ƒS.Inventory.getAmount(items.Spider);
             }
-            // if (ƒS.Inventory.getAmount(items.Snail) < originAmountSnail) {
-            //     console.log("nomnomnom, bay creature fed");
-            //     ƒS.Sound.play(sound.slimeSound, 1, false);
-            //     originAmountSnail = ƒS.Inventory.getAmount(items.Snail);
-            //     bayCreatureFed = true;
-            // } if (ƒS.Inventory.getAmount(items.Snail) != originAmountSnail) {
-            //     originAmountSnail = ƒS.Inventory.getAmount(items.Snail);
-            // }
-
             if (ƒS.Inventory.getAmount(items.Fly) < originAmountFly) {
                 console.log("nomnomnom");
                 ƒS.Sound.play(sound.chompEat, 1, false);

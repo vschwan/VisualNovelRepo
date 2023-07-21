@@ -12,7 +12,7 @@ declare namespace ACatInLimbo {
         visitedForest: boolean;
         visitedSwamp: boolean;
         visitedBay: boolean;
-        visitedBayCreatureTwice: boolean;
+        talkedWithBayCreatureTwice: boolean;
         visitedRiver: boolean;
         pathMeadowForest: boolean;
         pathMeadowLake: boolean;

@@ -13,8 +13,8 @@ namespace ACatInLimbo {
         //if you have already visited bay and not visited lake twice to give lake creature heart back: choose next location
         if (dataForSave.visitedBay == true) {
             //if you have visited lake twice and have given lake creature heart back
-            if (dataForSave.visitedLakeTwice == true && dataForSave.visitedBayCreatureTwice == false) {
-                dataForSave.visitedBayCreatureTwice = true;
+            if (dataForSave.visitedLakeTwice == true && dataForSave.talkedWithBayCreatureTwice == false) {
+                dataForSave.talkedWithBayCreatureTwice = true;
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.fromBehindLookingAway, ƒS.positionPercent(83, 99));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, "Hey, what's up!");
@@ -300,7 +300,7 @@ namespace ACatInLimbo {
                     await ƒS.Speech.tell(characters.pinkCat, "...We only have four. Maybe don't use all of them up, okay?");
 
                     let feedSnails = {
-                        snail: "Feed a snail",
+                        feed: "Feed a snail",
                         stop: "Stop Feeding"
                     }
                     let pickedStop: boolean = false;
@@ -308,13 +308,13 @@ namespace ACatInLimbo {
 
                     do {
                         if (pickedStop == true) {
-                            delete feedSnails.snail;
+                            delete feedSnails.feed;
                             delete feedSnails.stop;
                         }
 
                         let feedSnailsRequest = await ƒS.Menu.getInput(feedSnails, "choicesCSSClass");
                         switch (feedSnailsRequest) {
-                            case feedSnails.snail:
+                            case feedSnails.feed:
                                 ƒS.Speech.hide();
                                 pickedSnail = true;
                                 if (ƒS.Inventory.getAmount(items.Snail) > 0) {
@@ -402,13 +402,13 @@ namespace ACatInLimbo {
 
         await ƒS.Character.hide(characters.bayCreature);
         //conversation about helping or not helping
-        let lakeCreatureDecision = {
+        let helpLakeCreature = {
             help: "bring heart to lake Creature",
             dontHelp: "move forward"
         }
-        let lakeCreatureDecisionRequest = await ƒS.Menu.getInput(lakeCreatureDecision, "choicesCSSClass");
-        switch (lakeCreatureDecisionRequest) {
-            case lakeCreatureDecision.help:
+        let helpLakeCreatureRequest = await ƒS.Menu.getInput(helpLakeCreature, "choicesCSSClass");
+        switch (helpLakeCreatureRequest) {
+            case helpLakeCreature.help:
                 dataForSave.catScore += 10;
                 await ƒS.Character.hide(characters.pinkCat);
                 ƒS.Sound.fade(sound.smallOceanWaves, 0, 2);
@@ -416,9 +416,9 @@ namespace ACatInLimbo {
                 return "Map Scene"
                 break;
 
-            case lakeCreatureDecision.dontHelp:
+            case helpLakeCreature.dontHelp:
                 dataForSave.catScore -= 10;
-                await ƒS.Speech.tell(characters.protagonist, "Well, we should hurry. Come on.");
+                await ƒS.Speech.tell(characters.protagonist, "No. We should hurry. Come on.");
                 await ƒS.update();
 
                 //check for catScore and hndl badEnding LostCat

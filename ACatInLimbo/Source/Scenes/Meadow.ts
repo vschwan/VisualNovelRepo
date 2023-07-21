@@ -22,7 +22,7 @@ namespace ACatInLimbo {
 
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.protagonist, "Ah, I remember, it's " + dataForSave.nameProtagonist + "!");
-        await ƒS.Speech.tell(characters.protagonist, "What is that strange statue doing over there....");
+        await ƒS.Speech.tell(characters.protagonist, "What is that strange statue doing over there....?");
         await ƒS.update();
 
         let firstAction = {
