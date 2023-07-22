@@ -3,7 +3,6 @@ namespace ACatInLimbo {
   export let gameMenu: ƒS.Menu;
   export let menuIsOpen: boolean = true;
 
-
   //MENU
   export let inGameMenuButtons = {
     save: "Save",
@@ -11,7 +10,7 @@ namespace ACatInLimbo {
     inventory: "Inventory",
     credits: "Credits",
     help: "Help",
-    close: "Close",
+    close: "x",
     //   map: "Map"
   };
 

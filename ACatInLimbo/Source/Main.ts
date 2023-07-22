@@ -13,7 +13,9 @@ namespace ACatInLimbo {
     talkedWithBayCreatureTwice: false,
     visitedRiver: false,
 
-    //booelan for checking if path on map has already been walked --> mapScene
+    //for map scene --> showing current path
+    currentPath: "",
+    //booelans for checking if paths on map has already been walked --> mapScene
     pathMeadowForest: false,
     pathMeadowLake: false,
     pathForestLake: false,
@@ -29,15 +31,18 @@ namespace ACatInLimbo {
     pathMountainClouds: false,
     pathCloudsGate: false,
 
+    //mountainScene
     betrayGoats: false,
+
+    //gate scene -->Decision allowCat (to come with you or not)
     betrayCat: false,
 
     nameProtagonist: "You",
+
+    //originally for checking score and handling lostCat
     catLeaving: false,
     catScore: 10,
-    pickedMeterBar: false,
-    // pickedChoice: false,
-    currentPath: "",
+    pickedMeterBar: false
   };
 
   //check for catScore and hndl badEnding LostCat --> Szene wird nicht returned wenn Funktion in anderer Szene aufgerufne wird :(

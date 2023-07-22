@@ -62,7 +62,9 @@ var ACatInLimbo;
         visitedBay: false,
         talkedWithBayCreatureTwice: false,
         visitedRiver: false,
-        //booelan for checking if path on map has already been walked --> mapScene
+        //for map scene --> showing current path
+        currentPath: "",
+        //booelans for checking if paths on map has already been walked --> mapScene
         pathMeadowForest: false,
         pathMeadowLake: false,
         pathForestLake: false,
@@ -77,14 +79,15 @@ var ACatInLimbo;
         pathCaveClouds: false,
         pathMountainClouds: false,
         pathCloudsGate: false,
+        //mountainScene
         betrayGoats: false,
+        //gate scene -->Decision allowCat (to come with you or not)
         betrayCat: false,
         nameProtagonist: "You",
+        //originally for checking score and handling lostCat
         catLeaving: false,
         catScore: 10,
-        pickedMeterBar: false,
-        // pickedChoice: false,
-        currentPath: "",
+        pickedMeterBar: false
     };
     //check for catScore and hndl badEnding LostCat --> Szene wird nicht returned wenn Funktion in anderer Szene aufgerufne wird :(
     // export async function handleLostCat(): Promise<string> {
@@ -462,7 +465,7 @@ var ACatInLimbo;
         inventory: "Inventory",
         credits: "Credits",
         help: "Help",
-        close: "Close",
+        close: "x",
         //   map: "Map"
     };
     async function buttonFunctionalities(_option) {
@@ -1188,7 +1191,6 @@ var ACatInLimbo;
                 angry: "./Images/Characters/creatures/skyworm/skywormAngry.png",
                 angry2: "./Images/Characters/creatures/skyworm/skywormAngry2.png",
                 cliffEdge: "./Images/Characters/creatures/skyworm/skywormCliffEdge.png"
-                // multiple: "./Images/Characters/creatures/skyworm/worms.png"
             }
         },
         //Cats in Heaven

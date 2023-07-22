@@ -14,6 +14,7 @@ declare namespace ACatInLimbo {
         visitedBay: boolean;
         talkedWithBayCreatureTwice: boolean;
         visitedRiver: boolean;
+        currentPath: string;
         pathMeadowForest: boolean;
         pathMeadowLake: boolean;
         pathForestLake: boolean;
@@ -34,7 +35,6 @@ declare namespace ACatInLimbo {
         catLeaving: boolean;
         catScore: number;
         pickedMeterBar: boolean;
-        currentPath: string;
     };
 }
 declare namespace ACatInLimbo {

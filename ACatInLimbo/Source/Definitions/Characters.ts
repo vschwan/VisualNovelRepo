@@ -265,7 +265,6 @@ namespace ACatInLimbo {
         angry: "./Images/Characters/creatures/skyworm/skywormAngry.png",
         angry2: "./Images/Characters/creatures/skyworm/skywormAngry2.png",
         cliffEdge: "./Images/Characters/creatures/skyworm/skywormCliffEdge.png"
-        // multiple: "./Images/Characters/creatures/skyworm/worms.png"
       }
     },
 
