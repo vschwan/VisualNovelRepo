@@ -247,7 +247,7 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "This creature seems less compromise-oriented though.");
 
-        //had to implement cause what's if items get lost due to saving --> loading game? --> no snails, though they would normally be there, cause they're not consumable
+        //had to implement in case you have no snails due to saving+loading or not gettind the snails in the first place
         if (ƒS.Inventory.getAmount(items.Snail) <= 0) {
             await ƒS.Speech.tell(characters.protagonist, "Mhm, we don't really have anything to feed it...To bad we lost those snails, huh?");
             await ƒS.update();
@@ -264,7 +264,7 @@ namespace ACatInLimbo {
             ƒS.Sound.fade(sound.smallOceanWaves, 0, 2);
             let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass");
 
-            await ƒS.Character.hide(characters.pinkCat);
+            await ƒS.Character.hideAll();
             ƒS.Sound.fade(sound.smallOceanWaves, 0, 2);
 
             switch (nextLocationRequest) {
@@ -290,11 +290,7 @@ namespace ACatInLimbo {
             let pickedTalk: boolean;
 
             do {
-                // if (pickedFeed == true) {
-                //     delete feedBayCreature.feed;
-                //     delete feedBayCreature.talk;
-                //     console.log("delete feed");
-                // }
+        
                 if (pickedTalk == true) {
                     delete feedBayCreature.talk;
                     console.log("delete talk");

@@ -82,16 +82,11 @@ var ACatInLimbo;
         nameProtagonist: "You",
         catLeaving: false,
         catScore: 10,
-        //scoreForCat: 10,
-        // points: 0,
         pickedMeterBar: false,
         pickedChoice: false,
         currentPath: "",
-        // openMap: false
-        // started: false,
-        // ended: false
     };
-    //check for catScore and hndl badEnding LostCat --> Szene wird nicht wiedergegeben wenn Funktion in anderer Szene aufgerufne wird :(
+    //check for catScore and hndl badEnding LostCat --> Szene wird nicht returned wenn Funktion in anderer Szene aufgerufne wird :(
     // export async function handleLostCat(): Promise<string> {
     //   if (dataForSave.catScore >= 0) {
     //     console.log("cat is not running away");
@@ -127,10 +122,10 @@ var ACatInLimbo;
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
         let scenes = [
-            { id: "Meadow Scene", scene: ACatInLimbo.Meadow, name: "meadow" },
+            { id: "Meadow Scene", scene: ACatInLimbo.Meadow, name: "Meadow" },
             { id: "Forest Scene", scene: ACatInLimbo.Forest, name: "Forest" },
-            { id: "Lake Scene", scene: ACatInLimbo.Lake, name: "lake" },
-            { id: "Map Scene", scene: ACatInLimbo.Map, name: "map" },
+            { id: "Lake Scene", scene: ACatInLimbo.Lake, name: "Lake" },
+            { id: "Map Scene", scene: ACatInLimbo.Map, name: "Map" },
             { id: "Swamp Scene", scene: ACatInLimbo.Swamp, name: "Swamp" },
             { id: "River Scene", scene: ACatInLimbo.River, name: "River" },
             { id: "Bay Scene", scene: ACatInLimbo.Bay, name: "Bay" },
@@ -145,8 +140,6 @@ var ACatInLimbo;
             { id: "BadEnding Hell Scene", scene: ACatInLimbo.BadEndingHell, name: "BadEnding Hell", next: "Empty Scene" },
             { id: "NeutralEnding Scene", scene: ACatInLimbo.NeutralEnding, name: "NeutralEnding", next: "Empty Scene" },
             { id: "GoodEnding Scene", scene: ACatInLimbo.GoodEnding, name: "GoodEnding", next: "Empty Scene" },
-            // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
-            // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
             // Empty ending scene to stop the program
             { id: "Empty Scene", scene: ACatInLimbo.Empty, name: "END" } //Progamm kann nicht stopenn, deswegen empty Scene zum Schluss erstellen, ohne Inhalt
         ];
@@ -1744,7 +1737,7 @@ var ACatInLimbo;
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal, ACatInLimbo.ƒS.positionPercent(83, 99));
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "This creature seems less compromise-oriented though.");
-        //had to implement cause what's if items get lost due to saving --> loading game? --> no snails, though they would normally be there, cause they're not consumable
+        //had to implement in case you have no snails due to saving+loading or not gettind the snails in the first place
         if (ACatInLimbo.ƒS.Inventory.getAmount(ACatInLimbo.items.Snail) <= 0) {
             await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Mhm, we don't really have anything to feed it...To bad we lost those snails, huh?");
             await ACatInLimbo.ƒS.update();
@@ -1759,7 +1752,7 @@ var ACatInLimbo;
             };
             ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.smallOceanWaves, 0, 2);
             let nextLocationRequest = await ACatInLimbo.ƒS.Menu.getInput(nextLocation, "choicesCSSClass");
-            await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
+            await ACatInLimbo.ƒS.Character.hideAll();
             ACatInLimbo.ƒS.Sound.fade(ACatInLimbo.sound.smallOceanWaves, 0, 2);
             switch (nextLocationRequest) {
                 case nextLocation.river:
@@ -1780,11 +1773,6 @@ var ACatInLimbo;
             let pickedFeed;
             let pickedTalk;
             do {
-                // if (pickedFeed == true) {
-                //     delete feedBayCreature.feed;
-                //     delete feedBayCreature.talk;
-                //     console.log("delete feed");
-                // }
                 if (pickedTalk == true) {
                     delete feedBayCreature.talk;
                     console.log("delete talk");

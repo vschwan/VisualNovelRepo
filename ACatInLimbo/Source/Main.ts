@@ -35,17 +35,12 @@ namespace ACatInLimbo {
     nameProtagonist: "You",
     catLeaving: false,
     catScore: 10,
-    //scoreForCat: 10,
-    // points: 0,
     pickedMeterBar: false,
     pickedChoice: false,
     currentPath: "",
-    // openMap: false
-    // started: false,
-    // ended: false
   };
 
-  //check for catScore and hndl badEnding LostCat --> Szene wird nicht wiedergegeben wenn Funktion in anderer Szene aufgerufne wird :(
+  //check for catScore and hndl badEnding LostCat --> Szene wird nicht returned wenn Funktion in anderer Szene aufgerufne wird :(
   // export async function handleLostCat(): Promise<string> {
   //   if (dataForSave.catScore >= 0) {
   //     console.log("cat is not running away");
@@ -77,8 +72,6 @@ namespace ACatInLimbo {
     , 3000);
 
 
-
-
   window.addEventListener("load", start);
   function start(_event: Event): void {
     //Menu
@@ -90,11 +83,10 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
-
-      { id: "Meadow Scene", scene: Meadow, name: "meadow" },
+      { id: "Meadow Scene", scene: Meadow, name: "Meadow" },
       { id: "Forest Scene", scene: Forest, name: "Forest" },
-      { id: "Lake Scene", scene: Lake, name: "lake" },
-      { id: "Map Scene", scene: Map, name: "map" },
+      { id: "Lake Scene", scene: Lake, name: "Lake" },
+      { id: "Map Scene", scene: Map, name: "Map" },
       { id: "Swamp Scene", scene: Swamp, name: "Swamp" },
       { id: "River Scene", scene: River, name: "River" },
       { id: "Bay Scene", scene: Bay, name: "Bay" },
@@ -104,15 +96,12 @@ namespace ACatInLimbo {
       { id: "Cave Exit Scene", scene: CaveExit, name: "Cave Exit" },
       { id: "Clouds Scene", scene: Clouds, name: "Clouds", next: "Gate Scene" },
       { id: "Gate Scene", scene: Gate, name: "Gate" },
-
+      
       { id: "BadEnding Cave Scene", scene: BadEndingFrog, name: "BadEnding Cave", next: "Empty Scene" },
       { id: "BadEnding LostCat Scene", scene: BadEndingLostCat, name: "BadEnding LostCat", next: "Empty Scene" },
       { id: "BadEnding Hell Scene", scene: BadEndingHell, name: "BadEnding Hell", next: "Empty Scene" },
       { id: "NeutralEnding Scene", scene: NeutralEnding, name: "NeutralEnding", next: "Empty Scene" },
       { id: "GoodEnding Scene", scene: GoodEnding, name: "GoodEnding", next: "Empty Scene" },
-
-      // { id: "Test Scene", scene: testScene, name: "Test", next: "" }, //name = kurze Description für einen selbst
-      // { id: "choose", scene: secondScene, name: "second Scene", next: "" }, //id um ...next um zu bestimmen welche Szene nach dieser Szene abgespielt wird? mit Hilfe von id 
 
       // Empty ending scene to stop the program
       { id: "Empty Scene", scene: Empty, name: "END" }  //Progamm kann nicht stopenn, deswegen empty Scene zum Schluss erstellen, ohne Inhalt
