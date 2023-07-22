@@ -2,6 +2,8 @@ namespace ACatInLimbo {
 
     export async function BadEndingFrog(): ƒS.SceneReturn {
         console.log("Scene starting: Bad Ending - Frog");
+        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
+        document.getElementById("scoreForCat").style.display = "none";
         await ƒS.Character.hideAll();
         await ƒS.update();
 

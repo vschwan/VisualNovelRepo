@@ -125,6 +125,7 @@ var ACatInLimbo;
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
         let scenes = [
+            { id: "Cave Entrance Scene", scene: ACatInLimbo.CaveEntrance, name: "Cave Entrance" },
             { id: "Meadow Scene", scene: ACatInLimbo.Meadow, name: "Meadow" },
             { id: "Forest Scene", scene: ACatInLimbo.Forest, name: "Forest" },
             { id: "Lake Scene", scene: ACatInLimbo.Lake, name: "Lake" },
@@ -1949,6 +1950,7 @@ var ACatInLimbo;
         console.log("Scene starting: Cave Entrance");
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
+        ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fireflies);
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.meadowSound, 0.5, true);
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.forestWind, 1, true);
@@ -4553,6 +4555,8 @@ var ACatInLimbo;
 (function (ACatInLimbo) {
     async function BadEndingFrog() {
         console.log("Scene starting: Bad Ending - Frog");
+        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
+        document.getElementById("scoreForCat").style.display = "none";
         await ACatInLimbo.ƒS.Character.hideAll();
         await ACatInLimbo.ƒS.update();
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
