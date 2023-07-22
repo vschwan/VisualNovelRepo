@@ -193,7 +193,7 @@ namespace ACatInLimbo {
                         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(83, 99));
                         await ƒS.Character.show(characters.spiderCreature, characters.spiderCreature.pose.smile, ƒS.positionPercent(50, 50));
                         await ƒS.update();
-                        await ƒS.Speech.tell(characters.pinkCat, "Yeah. So, buddy have you got any treats for me maybe?");
+                        await ƒS.Speech.tell(characters.pinkCat, "Yeah. So, buddy, have you got any treats for me maybe?");
                         await ƒS.Speech.tell(characters.spiderCreature, "Brbbrlll yaaaaa");
                         await ƒS.Speech.tell(characters.pinkCat, "OMD, that was almost a word!");
                         await ƒS.Speech.tell(characters.pinkCat, "Thank you, my friend. Take it easy, okay?");

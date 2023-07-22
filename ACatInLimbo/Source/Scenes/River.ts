@@ -190,7 +190,7 @@ namespace ACatInLimbo {
             await ƒS.Character.hide(characters.death);
             await ƒS.Character.show(characters.death, characters.death.pose.angry, ƒS.positionPercent(20, 100));
             await ƒS.update();
-            await ƒS.Speech.tell(characters.death, "But if you don't have anything, go back where you came from! I'm disappointed.");
+            await ƒS.Speech.tell(characters.death, "But if you don't have anything, go back to where you came from! I'm disappointed.");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(83, 99));

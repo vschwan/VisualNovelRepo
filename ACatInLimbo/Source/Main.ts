@@ -36,7 +36,7 @@ namespace ACatInLimbo {
     catLeaving: false,
     catScore: 10,
     pickedMeterBar: false,
-    pickedChoice: false,
+    // pickedChoice: false,
     currentPath: "",
   };
 
@@ -50,14 +50,13 @@ namespace ACatInLimbo {
   //   }
   // }
 
-
   setInterval(() => {
     //show score
     let showScore = document.getElementById("scoreForCat");
     showScore.setAttribute("value", dataForSave.catScore.toString());
 
     //check for score
-    if (dataForSave.catScore <= 0) {
+    if (dataForSave.catScore < 0) {
       console.log("Cat is leaving, cause ", dataForSave.catScore);
       dataForSave.catLeaving = true;
       // return "BadEnding LostCat Scene";
@@ -83,6 +82,7 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
+
       { id: "Meadow Scene", scene: Meadow, name: "Meadow" },
       { id: "Forest Scene", scene: Forest, name: "Forest" },
       { id: "Lake Scene", scene: Lake, name: "Lake" },
@@ -96,7 +96,7 @@ namespace ACatInLimbo {
       { id: "Cave Exit Scene", scene: CaveExit, name: "Cave Exit" },
       { id: "Clouds Scene", scene: Clouds, name: "Clouds", next: "Gate Scene" },
       { id: "Gate Scene", scene: Gate, name: "Gate" },
-      
+
       { id: "BadEnding Cave Scene", scene: BadEndingFrog, name: "BadEnding Cave", next: "Empty Scene" },
       { id: "BadEnding LostCat Scene", scene: BadEndingLostCat, name: "BadEnding LostCat", next: "Empty Scene" },
       { id: "BadEnding Hell Scene", scene: BadEndingHell, name: "BadEnding Hell", next: "Empty Scene" },

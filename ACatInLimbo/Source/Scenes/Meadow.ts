@@ -42,7 +42,7 @@ namespace ACatInLimbo {
                 await ƒS.Speech.tell(characters.protagonist, "Got some spiders, great.");
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.protagonist, "Well, this seems like a lovely meadow, but what the fuck am I doing here? I feel kind of...ghosty. Like I don't have a lot of substance.");
-                await ƒS.Speech.tell(characters.protagonist, "Why does this cat look so real? Maybe if I touch i...");
+                await ƒS.Speech.tell(characters.protagonist, "Why does this cat look so real? What if I touch i...");
                 await ƒS.update();
 
             case firstAction.awakeCat:
@@ -163,6 +163,7 @@ namespace ACatInLimbo {
                 let pickedKneelDown: boolean;
                 let pickedReachOut: boolean;
                 let pickedMakeKsKsKs: boolean;
+                let pickedChoice: boolean;
 
                 do {
                     if (pickedKneelDown == true) {
@@ -184,7 +185,7 @@ namespace ACatInLimbo {
 
                     let attractCatRequest;
                     if (pickedKneelDown == true && pickedMakeKsKsKs == true && pickedReachOut == true) {
-                        dataForSave.pickedChoice = true;
+                        pickedChoice = true;
                     }
                     else {
                         attractCatRequest = await ƒS.Menu.getInput(attractCat, "choicesCSSClass");
@@ -225,7 +226,7 @@ namespace ACatInLimbo {
                             pickedReachOut = true;
                             break;
                     }
-                } while (!dataForSave.pickedChoice);
+                } while (pickedChoice);
 
                 await ƒS.update(2);
                 console.log("cat is happy and you got +20 in lovebar");
@@ -283,7 +284,8 @@ namespace ACatInLimbo {
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.curious, ƒS.positionPercent(83, 99));
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "Does sound good, ey?");
-        await ƒS.Speech.tell(characters.protagonist, "You're right, I can't remember anything. From what you're telling me, this place doesn't sound like one I would want to stay in.");
+        await ƒS.Speech.tell(characters.protagonist, "You're right, I can't remember anything.");
+        await ƒS.Speech.tell(characters.protagonist, "From what you're telling me, this place doesn't sound like one I would want to stay in.");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.derpy1, ƒS.positionPercent(83, 99));

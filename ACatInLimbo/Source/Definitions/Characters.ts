@@ -6,13 +6,6 @@ namespace ACatInLimbo {
     protagonist: {
       name: dataForSave.nameProtagonist,
       origin: ƒS.ORIGIN.BOTTOMCENTER,
-      pose: {
-        front: "./Images/Characters/protagonist/protagonistFront.png",
-        side: "./Images/Characters/protagonist/protagonistSide.png",
-        handsInHips: "./Images/Characters/protagonist/protagonistHandsInHips.png",
-        scared: "./Images/Characters/protagonist/protagonistScared.png",
-        thinking: "./Images/Characters/protagonist/protagonistThinking.png"
-      }
     },
 
     pinkCat: {
@@ -186,18 +179,6 @@ namespace ACatInLimbo {
       }
     },
 
-    gateCloser: {
-      name: "GateCLoser",
-      origin: ƒS.ORIGIN.CENTER,
-      pose: {
-        closer1: "./Images/Backgrounds/GateCloser/gateDeathCloser1.png",
-        closer2: "./Images/Backgrounds/GateCloser/gateDeathCloser2.png",
-        closer3: "./Images/Backgrounds/GateCloser/gateDeathCloser3.png",
-        closer4: "./Images/Backgrounds/GateCloser/gateDeathCloser4.png",
-        closer5: "./Images/Backgrounds/GateCloser/gateDeathCloser5.png"
-      }
-    },
-
     goats: {
       name: "Goats",
       origin: ƒS.ORIGIN.CENTER,
@@ -244,6 +225,19 @@ namespace ACatInLimbo {
 
       }
     },
+
+    gateCloser: {
+      name: "GateCLoser",
+      origin: ƒS.ORIGIN.CENTER,
+      pose: {
+        closer1: "./Images/Backgrounds/GateCloser/gateDeathCloser1.png",
+        closer2: "./Images/Backgrounds/GateCloser/gateDeathCloser2.png",
+        closer3: "./Images/Backgrounds/GateCloser/gateDeathCloser3.png",
+        closer4: "./Images/Backgrounds/GateCloser/gateDeathCloser4.png",
+        closer5: "./Images/Backgrounds/GateCloser/gateDeathCloser5.png"
+      }
+    },
+
     snail: {
       name: "Snail",
       origin: ƒS.ORIGIN.BOTTOMCENTER,

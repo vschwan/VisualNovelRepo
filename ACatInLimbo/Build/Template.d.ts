@@ -34,7 +34,6 @@ declare namespace ACatInLimbo {
         catLeaving: boolean;
         catScore: number;
         pickedMeterBar: boolean;
-        pickedChoice: boolean;
         currentPath: string;
     };
 }
@@ -127,13 +126,6 @@ declare namespace ACatInLimbo {
         protagonist: {
             name: string;
             origin: ƒ.ORIGIN2D;
-            pose: {
-                front: string;
-                side: string;
-                handsInHips: string;
-                scared: string;
-                thinking: string;
-            };
         };
         pinkCat: {
             name: string;
@@ -290,17 +282,6 @@ declare namespace ACatInLimbo {
                 DeathBigAtGate: string;
             };
         };
-        gateCloser: {
-            name: string;
-            origin: ƒ.ORIGIN2D;
-            pose: {
-                closer1: string;
-                closer2: string;
-                closer3: string;
-                closer4: string;
-                closer5: string;
-            };
-        };
         goats: {
             name: string;
             origin: ƒ.ORIGIN2D;
@@ -342,6 +323,17 @@ declare namespace ACatInLimbo {
                 flowWaving4: string;
                 flow5: string;
                 flow6: string;
+            };
+        };
+        gateCloser: {
+            name: string;
+            origin: ƒ.ORIGIN2D;
+            pose: {
+                closer1: string;
+                closer2: string;
+                closer3: string;
+                closer4: string;
+                closer5: string;
             };
         };
         snail: {

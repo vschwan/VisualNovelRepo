@@ -83,7 +83,7 @@ namespace ACatInLimbo {
   //Help
   export function help(): void {
     ƒS.Text.setClass("TextPrint");
-    ƒS.Text.print("<p>In this game you can find a Lovemeter in the right corner of the screen. It shows the affection the pink Cat feels towards you.</p><p>Open your Inventory through the menu to feed your Cat with items you collect throughout the story to make it like you more.</p><p>Be careful it doesn't leave you!</p><p>Shortcuts:</p><p>Save: S</p><p>Load: L</p><p>Inventory: I</p><p>Credits: C</p><p>Help: H</p><p>Menu: M</p>");
+    ƒS.Text.print("<p>In this game you can find a Lovemeter in the right corner of the screen. It shows the affection the pink Cat feels towards you.</p><p>Open your Inventory through the menu to feed your Cat with items you collect throughout the story to make it like you more.<br>Be careful it doesn't leave you!<p>Shortcuts:<br>Save: S<br>Load: L --> Note: If you save and load the game, all your items are gonna be lost<br>Inventory: I<br>Credits: C<br>Help: H<br>Menu: M</p>");
   }
 
 

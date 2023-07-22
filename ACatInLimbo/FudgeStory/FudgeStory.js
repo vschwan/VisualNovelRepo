@@ -458,18 +458,15 @@ var FudgeStory;
          */
         static subtract(_item) { 
             let item = Inventory.getItemElement(_item);
-            if (item) {
-                let amount = item.querySelector("amount");
-                if (amount.innerText = "0"){
-                    Inventory.dialog.querySelector("ul").removeChild(item);
-                    console.log("delete item cause = 0");
-                }else{
-                    amount.innerText = (parseInt(amount.innerText) - 1).toString();
-                    console.log("-1 item");// Valentina
-                    return;
-                }
+            let amount = item.querySelector("amount");
+         
+            amount.innerText = (parseInt(amount.innerText) - 1).toString();
+            console.log("-1 item");// Valentina
+        
+            if (amount.innerText == "0"){
+                Inventory.dialog.querySelector("ul").removeChild(item);
+                console.log("delete item cause = 0");
             }
-
         };
 
         /**
