@@ -3498,6 +3498,7 @@ var ACatInLimbo;
         switch (firstActionRequest) {
             case firstAction.lookAround:
                 //bissl doof hier, weil die Katze ja noch nicht erwacht ist, aber togglen von item usability geht nicht (zumindest bekomm ichs nicht hin)
+                //toggle of items.static not possible
                 console.log("look around");
                 ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Spider);
                 ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Spider);

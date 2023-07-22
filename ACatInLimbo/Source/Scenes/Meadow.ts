@@ -4,7 +4,7 @@ namespace ACatInLimbo {
         console.log("Scene starting: Meadow");
 
         //Intro
-        ƒS.Speech.hide(); 
+        ƒS.Speech.hide();
         ƒS.Sound.play(sound.meadowSound, 0.7, true);
         await ƒS.Location.show(locations.meadow);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening1, ƒS.positionPercent(65, 85));
@@ -34,6 +34,7 @@ namespace ACatInLimbo {
         switch (firstActionRequest) {
             case firstAction.lookAround:
                 //bissl doof hier, weil die Katze ja noch nicht erwacht ist, aber togglen von item usability geht nicht (zumindest bekomm ichs nicht hin)
+                //toggle of items.static not possible
                 console.log("look around");
                 ƒS.Inventory.add(items.Spider);
                 ƒS.Inventory.add(items.Spider);
@@ -120,16 +121,16 @@ namespace ACatInLimbo {
             case approachCat.walk:
                 console.log("Walk towards cat");
                 dataForSave.catScore -= 10;
-             
+
                 //check for catScore and hndl badEnding LostCat
                 if (dataForSave.catScore >= 0) {
                     console.log("cat is not running away");
-                  } else {
+                } else {
                     ƒS.Sound.fade(sound.meadowSound, 0, 10);
                     await ƒS.Progress.save();
                     console.log("cat should run away");
                     return "BadEnding LostCat Scene";  //not possible yet to lose cat
-                  }
+                }
 
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Sound.play(sound.growling, 1, false);
