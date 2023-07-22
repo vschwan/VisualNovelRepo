@@ -54,6 +54,7 @@ namespace ACatInLimbo {
             enter: "Enter Cave"
         }
         let getInCaveRequest = await ƒS.Menu.getInput(getInCave, "choicesCSSClass");
+
         switch (getInCaveRequest) {
             case getInCave.enter:
                 dataForSave.catScore -= 10;

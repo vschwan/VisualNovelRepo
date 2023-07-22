@@ -4,6 +4,10 @@ namespace ACatInLimbo {
         console.log("Scene starting: Bay");
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
+        ƒS.Inventory.add(items.Snail);
+        ƒS.Inventory.add(items.Snail);
+        ƒS.Inventory.add(items.Snail);
+        ƒS.Inventory.add(items.Snail);
 
         ƒS.Speech.hide(); //Sprachfenster ausblenden
         ƒS.Sound.play(sound.smallOceanWaves, 0.5, true);
@@ -35,11 +39,8 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Speech.tell(characters.protagonist, "Is that for us? Thank you, that's really nice!");
                 await ƒS.Inventory.add(items.Coin);
-                await ƒS.Inventory.add(items.Fish);
-                await ƒS.Inventory.add(items.Fish);
-                await ƒS.Inventory.add(items.Fish);
                 await ƒS.update();
-                ƒS.Text.print("A coin an three fishes have been added to your inventory");
+                ƒS.Text.print("A coin an has been added to your inventory");
                 await ƒS.Character.hide(characters.bayCreature);
                 await ƒS.Character.show(characters.bayCreature, characters.bayCreature.pose.happyHeart, ƒS.positionPercent(60, 82));
                 await ƒS.update();
@@ -55,7 +56,6 @@ namespace ACatInLimbo {
                 await ƒS.update(2);
                 await ƒS.Speech.tell(characters.pinkCat, "A coin? That could be helpful!");
                 await ƒS.update();
-                await ƒS.Character.hide(characters.pinkCat);
             }
 
             //pick next Location
@@ -66,6 +66,8 @@ namespace ACatInLimbo {
 
             ƒS.Sound.fade(sound.smallOceanWaves, 0, 2);
             let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass");
+            await ƒS.Character.hide(characters.pinkCat);
+
 
             switch (nextLocationRequest) {
                 case nextLocation.river:
@@ -285,7 +287,7 @@ namespace ACatInLimbo {
             feed: "Feed snails",
             talk: "Try to talk it out"
         }
-      
+
 
         let feedBayCreatureRequest = await ƒS.Menu.getInput(feedBayCreature, "choicesCSSClass");
         switch (feedBayCreatureRequest) {
@@ -328,12 +330,13 @@ namespace ACatInLimbo {
         let pickedSnail: boolean = false;
 
         do {
+            let feedSnailsRequest;
             if (pickedStop == true) {
                 delete feedSnails.feed;
                 delete feedSnails.stop;
             }
 
-            let feedSnailsRequest = await ƒS.Menu.getInput(feedSnails, "choicesCSSClass");
+            feedSnailsRequest = await ƒS.Menu.getInput(feedSnails, "choicesCSSClass");
             switch (feedSnailsRequest) {
                 case feedSnails.feed:
                     ƒS.Speech.hide();
@@ -416,9 +419,7 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "Great. We don't have any time to lose. Do you still want to help the Lake Creature?");
         await ƒS.update();
-        await ƒS.Character.hide(characters.bayCreature);
-
-        await ƒS.Character.hide(characters.bayCreature);
+    
         //conversation about helping or not helping
         let helpLakeCreature = {
             help: "bring heart to lake Creature",
@@ -429,6 +430,7 @@ namespace ACatInLimbo {
             case helpLakeCreature.help:
                 dataForSave.catScore += 10;
                 await ƒS.Character.hide(characters.pinkCat);
+                await ƒS.Character.hide(characters.bayCreature);
                 ƒS.Sound.fade(sound.smallOceanWaves, 0, 2);
                 dataForSave.currentPath = "BayToLake"
                 return "Map Scene"
@@ -450,6 +452,7 @@ namespace ACatInLimbo {
                 }
 
                 await ƒS.Character.hide(characters.pinkCat);
+                await ƒS.Character.hide(characters.bayCreature);
                 await ƒS.update();
                 let nextLocation = {
                     river: "River",

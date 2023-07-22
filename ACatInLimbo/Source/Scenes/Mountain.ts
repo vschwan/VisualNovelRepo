@@ -176,7 +176,6 @@ namespace ACatInLimbo {
         let catApproachGoatsRequest = await ƒS.Menu.getInput(catApproachGoats, "choicesCSSClass");
         switch (catApproachGoatsRequest) {
             case catApproachGoats.allow:
-                dataForSave.catScore += 5;
                 await ƒS.Speech.tell(characters.protagonist, "Knock yourself out.");
                 await ƒS.update();
                 await ƒS.Sound.play(sound.purrMeow, 1, false);

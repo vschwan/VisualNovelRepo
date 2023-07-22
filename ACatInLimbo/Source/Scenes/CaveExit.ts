@@ -25,6 +25,8 @@ namespace ACatInLimbo {
         ƒS.Sound.fade(sound.forestWind, 0, 3);
 
         dataForSave.currentPath = "CaveToClouds";
+        await ƒS.Character.hide(characters.pinkCat);
+
         return "Map Scene"
 
 

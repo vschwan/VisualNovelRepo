@@ -74,7 +74,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.meadowForest, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -87,7 +87,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.meadowLake, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -101,7 +101,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.lakeSwamp, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -115,7 +115,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.forestSwamp, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -128,7 +128,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.forestLake, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -141,7 +141,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.forestLake, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -155,7 +155,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.swampRiver, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -169,7 +169,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.swampBay, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -182,7 +182,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.forestSwamp, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -195,7 +195,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.lakeSwamp, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -208,7 +208,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.bayCave, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -224,7 +224,7 @@ namespace ACatInLimbo {
                 await ƒS.update(2);
                 await ƒS.Character.animate(characters.path, characters.path.pose.lakeSwamp, path());
                 await ƒS.update(2);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -238,7 +238,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.bayRiver, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -250,7 +250,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.bayRiver, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -262,7 +262,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.riverMountains, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -274,7 +274,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.riverCave, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -286,7 +286,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.riverCave, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -298,7 +298,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.bayCave, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -310,7 +310,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.caveClouds, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();
@@ -322,7 +322,7 @@ namespace ACatInLimbo {
                 await ƒS.update(1);
                 await ƒS.Character.animate(characters.path, characters.path.pose.mountainsClouds, path());
                 await ƒS.update(3);
-                await new Promise(resolve => setTimeout(resolve, 3000));
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 await ƒS.update();
                 await ƒS.Character.hideAll();
                 await ƒS.update();

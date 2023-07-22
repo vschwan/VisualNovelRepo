@@ -137,8 +137,14 @@ namespace ACatInLimbo {
         await ƒS.Character.show(characters.death, characters.death.pose.DeathBigAtGate, ƒS.positionPercent(50, 100));
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "Goodbye.");
+
+
+        await ƒS.update();
         await ƒS.Sound.fade(sound.celestial, 1, 3);
         await ƒS.update();
+        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
+        document.getElementById("scoreForCat").style.display = "none";
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.hide(characters.death);
         await ƒS.Sound.play(sound.breathing, 3, true);
@@ -150,6 +156,8 @@ namespace ACatInLimbo {
         await ƒS.Character.hide(characters.gateCloser);
         await ƒS.Character.show(characters.gateCloser, characters.gateCloser.pose.closer3, ƒS.positionPercent(50, 50));
         await ƒS.update(2);
+
+        
         await ƒS.Sound.play(sound.demanding, 1, false);
         await ƒS.Speech.tell(characters.pinkCat, "WAIT!", false);
         await ƒS.update();
@@ -214,7 +222,12 @@ namespace ACatInLimbo {
         await ƒS.Character.hide(characters.death);
         await ƒS.Character.show(characters.death, characters.death.pose.normal, ƒS.positionPercent(20, 100));
         await ƒS.update();
-        await ƒS.Speech.tell(characters.death, "But I won't let you go so easily cause you're causing me more work! I will have to craft a new guide if I lose you.");
+        await ƒS.Speech.tell(characters.death, "But I won't let you go so easily cause you're causing me more work!");
+        await ƒS.update();
+        await ƒS.Character.hide(characters.pinkCat);
+        await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99));
+        await ƒS.update();
+        await ƒS.Speech.tell(characters.death, "I will have to craft a new guide if I lose you.");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(83, 99));

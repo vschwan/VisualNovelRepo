@@ -5,7 +5,7 @@ namespace ACatInLimbo {
 
         //Intro
         ƒS.Speech.hide(); 
-        ƒS.Sound.play(sound.meadowSound, 1, true);
+        ƒS.Sound.play(sound.meadowSound, 0.7, true);
         await ƒS.Location.show(locations.meadow);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.awakening1, ƒS.positionPercent(65, 85));
         await ƒS.update(transition.swirlStuff.duration, transition.swirlStuff.alpha, transition.swirlStuff.edge);
@@ -167,18 +167,15 @@ namespace ACatInLimbo {
 
                 do {
                     if (pickedKneelDown == true) {
-                        console.log(pickedKneelDown);
                         delete attractCat.kneelDown;
                         console.log("delete kneel down");
                     }
                     if (pickedMakeKsKsKs == true) {
-                        console.log(pickedMakeKsKsKs);
                         delete attractCat.makeSounds;
                         console.log("delete make sounds");
                     }
 
                     if (pickedReachOut == true) {
-                        console.log(pickedReachOut);
                         delete attractCat.reachOut;
                         console.log("delete reach out");
                     }
@@ -226,7 +223,7 @@ namespace ACatInLimbo {
                             pickedReachOut = true;
                             break;
                     }
-                } while (pickedChoice);
+                } while (!pickedChoice);
 
                 await ƒS.update(2);
                 console.log("cat is happy and you got +20 in lovebar");

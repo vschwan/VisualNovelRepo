@@ -283,6 +283,7 @@ namespace ACatInLimbo {
         }
         ƒS.Sound.fade(sound.frogs, 0, 2);
         ƒS.Sound.fade(sound.swamp, 0, 2);
+        ƒS.Sound.fade(sound.bubblingInTheDeep, 0, 2);
         let nextLocationRequest = await ƒS.Menu.getInput(nextLocation, "choicesCSSClass");
 
         switch (nextLocationRequest) {

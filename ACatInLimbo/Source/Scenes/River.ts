@@ -164,7 +164,7 @@ namespace ACatInLimbo {
                     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(83, 99));
                     await ƒS.update();
                     await ƒS.Character.hide(characters.pinkCat);
-                    await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99));
+                    await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalSad, ƒS.positionPercent(83, 99));
                     await ƒS.update();
                     await ƒS.Speech.tell(characters.pinkCat, "Let's move through the cave then.");
                     await ƒS.update();

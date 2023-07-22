@@ -33,10 +33,10 @@ namespace ACatInLimbo {
             await ƒS.update(1);
             await ƒS.Speech.tell(characters.pinkCat, "Nooo!");
             await ƒS.update();
+
             await ƒS.Character.hide(characters.caveCreature);
             await ƒS.Character.hide(characters.pinkCat);
             await ƒS.update();
-
             ƒS.Sound.fade(sound.DrippingInCave, 0, 3);
             return "BadEnding Cave Scene"
 
@@ -147,8 +147,8 @@ namespace ACatInLimbo {
                 ƒS.Sound.play(sound.snailbreak, 1, false);
                 await ƒS.Speech.tell(characters.pinkCat, "Let's move on quickly now!");
                 await ƒS.update();
-                await ƒS.Character.hide(characters.pinkCat);
 
+                await ƒS.Character.hide(characters.pinkCat);
                 ƒS.Sound.fade(sound.DrippingInCave, 0, 3);
                 return "Cave Exit Scene"
             }
