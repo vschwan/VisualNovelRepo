@@ -37,12 +37,12 @@ namespace ACatInLimbo {
     //gate scene -->Decision allowCat (to come with you or not)
     betrayCat: false,
 
-    nameProtagonist: "You",
-
     //originally for checking score and handling lostCat
     catLeaving: false,
+
     catScore: 10,
-    pickedMeterBar: false
+    pickedMeterBar: false,
+    nameProtagonist: "You"
   };
 
   //check for catScore and hndl badEnding LostCat --> Szene wird nicht returned wenn Funktion in anderer Szene aufgerufne wird :(
@@ -87,7 +87,6 @@ namespace ACatInLimbo {
     document.getElementById("scoreForCat").style.display = "none";
 
     let scenes: ƒS.Scenes = [
-      { id: "Cave Entrance Scene", scene: CaveEntrance, name: "Cave Entrance" },
 
       { id: "Meadow Scene", scene: Meadow, name: "Meadow" },
       { id: "Forest Scene", scene: Forest, name: "Forest" },
@@ -120,7 +119,3 @@ namespace ACatInLimbo {
     ƒS.Progress.go(scenes);
   }
 }
-
-
-
-

@@ -83,11 +83,11 @@ var ACatInLimbo;
         betrayGoats: false,
         //gate scene -->Decision allowCat (to come with you or not)
         betrayCat: false,
-        nameProtagonist: "You",
         //originally for checking score and handling lostCat
         catLeaving: false,
         catScore: 10,
-        pickedMeterBar: false
+        pickedMeterBar: false,
+        nameProtagonist: "You"
     };
     //check for catScore and hndl badEnding LostCat --> Szene wird nicht returned wenn Funktion in anderer Szene aufgerufne wird :(
     // export async function handleLostCat(): Promise<string> {
@@ -125,7 +125,6 @@ var ACatInLimbo;
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
         let scenes = [
-            { id: "Cave Entrance Scene", scene: ACatInLimbo.CaveEntrance, name: "Cave Entrance" },
             { id: "Meadow Scene", scene: ACatInLimbo.Meadow, name: "Meadow" },
             { id: "Forest Scene", scene: ACatInLimbo.Forest, name: "Forest" },
             { id: "Lake Scene", scene: ACatInLimbo.Lake, name: "Lake" },
@@ -1950,7 +1949,6 @@ var ACatInLimbo;
         console.log("Scene starting: Cave Entrance");
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
-        ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Fireflies);
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.meadowSound, 0.5, true);
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.forestWind, 1, true);

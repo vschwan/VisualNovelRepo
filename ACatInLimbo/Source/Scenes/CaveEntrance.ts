@@ -5,8 +5,6 @@ namespace ACatInLimbo {
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
 
-        ƒS.Inventory.add(items.Fireflies);
-
         ƒS.Speech.hide(); //Sprachfenster ausblenden
         ƒS.Sound.play(sound.meadowSound, 0.5, true);
         ƒS.Sound.play(sound.forestWind, 1, true);

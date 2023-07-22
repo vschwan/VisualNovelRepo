@@ -31,10 +31,10 @@ declare namespace ACatInLimbo {
         pathCloudsGate: boolean;
         betrayGoats: boolean;
         betrayCat: boolean;
-        nameProtagonist: string;
         catLeaving: boolean;
         catScore: number;
         pickedMeterBar: boolean;
+        nameProtagonist: string;
     };
 }
 declare namespace ACatInLimbo {
