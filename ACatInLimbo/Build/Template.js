@@ -125,6 +125,7 @@ var ACatInLimbo;
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
         let scenes = [
+            { id: "Gate Scene", scene: ACatInLimbo.Gate, name: "Gate" },
             { id: "Meadow Scene", scene: ACatInLimbo.Meadow, name: "Meadow" },
             { id: "Forest Scene", scene: ACatInLimbo.Forest, name: "Forest" },
             { id: "Lake Scene", scene: ACatInLimbo.Lake, name: "Lake" },
@@ -3906,15 +3907,21 @@ var ACatInLimbo;
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal, ACatInLimbo.ƒS.positionPercent(83, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.goats);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.goats, ACatInLimbo.characters.goats.pose.allGoats, ACatInLimbo.ƒS.positionPercent(50, 50));
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "Makes sense.");
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "You think they're hiding from the sun in those caves?");
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalLookingAway, ACatInLimbo.ƒS.positionPercent(83, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.goats);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.goats, ACatInLimbo.characters.goats.pose.allGoats, ACatInLimbo.ƒS.positionPercent(50, 50));
         await ACatInLimbo.ƒS.update(1);
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal2, ACatInLimbo.ƒS.positionPercent(83, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.goats);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.goats, ACatInLimbo.characters.goats.pose.allGoats, ACatInLimbo.ƒS.positionPercent(50, 50));
         await ACatInLimbo.ƒS.update(1);
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Probably? I'm not a goat expert.");
         await ACatInLimbo.ƒS.update();
@@ -3922,20 +3929,28 @@ var ACatInLimbo;
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talking, ACatInLimbo.ƒS.positionPercent(83, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.goats);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.goats, ACatInLimbo.characters.goats.pose.allGoats, ACatInLimbo.ƒS.positionPercent(50, 50));
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Waiiit! I know we're in a hurry, but do you mind if I say a quick hello at least?");
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalLookingAway, ACatInLimbo.ƒS.positionPercent(83, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.goats);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.goats, ACatInLimbo.characters.goats.pose.allGoats, ACatInLimbo.ƒS.positionPercent(50, 50));
         await new Promise(resolve => setTimeout(resolve, 1000));
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.proud, ACatInLimbo.ƒS.positionPercent(83, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.goats);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.goats, ACatInLimbo.characters.goats.pose.allGoats, ACatInLimbo.ƒS.positionPercent(50, 50));
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.protagonist, "...");
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normal2Sad, ACatInLimbo.ƒS.positionPercent(83, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.goats);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.goats, ACatInLimbo.characters.goats.pose.allGoats, ACatInLimbo.ƒS.positionPercent(50, 50));
         await ACatInLimbo.ƒS.update();
         let catApproachGoats = {
             allow: "Allow Cat to approach goats",
@@ -4004,10 +4019,14 @@ var ACatInLimbo;
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.cleaningPawTiny, ACatInLimbo.ƒS.positionPercent(62, 86));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.goats);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.goats, ACatInLimbo.characters.goats.pose.allGoats, ACatInLimbo.ƒS.positionPercent(50, 50));
         await new Promise(resolve => setTimeout(resolve, 2000));
         await ACatInLimbo.ƒS.update();
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.normalAngry, ACatInLimbo.ƒS.positionPercent(83, 99));
+        await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.goats);
+        await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.goats, ACatInLimbo.characters.goats.pose.allGoats, ACatInLimbo.ƒS.positionPercent(50, 50));
         await ACatInLimbo.ƒS.update(1);
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "You're a real party pooper.");
         await ACatInLimbo.ƒS.update();

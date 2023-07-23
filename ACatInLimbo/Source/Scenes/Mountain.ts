@@ -138,15 +138,21 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99));
+        await ƒS.Character.hide(characters.goats);
+        await ƒS.Character.show(characters.goats, characters.goats.pose.allGoats, ƒS.positionPercent(50, 50));
         await ƒS.update();
         await ƒS.Speech.tell(characters.protagonist, "Makes sense.");
         await ƒS.Speech.tell(characters.protagonist, "You think they're hiding from the sun in those caves?");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(83, 99));
+        await ƒS.Character.hide(characters.goats);
+        await ƒS.Character.show(characters.goats, characters.goats.pose.allGoats, ƒS.positionPercent(50, 50));
         await ƒS.update(1);
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(83, 99));
+        await ƒS.Character.hide(characters.goats);
+        await ƒS.Character.show(characters.goats, characters.goats.pose.allGoats, ƒS.positionPercent(50, 50));
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.pinkCat, "Probably? I'm not a goat expert.");
         await ƒS.update();
@@ -154,20 +160,28 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talking, ƒS.positionPercent(83, 99));
+        await ƒS.Character.hide(characters.goats);
+        await ƒS.Character.show(characters.goats, characters.goats.pose.allGoats, ƒS.positionPercent(50, 50));
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "Waiiit! I know we're in a hurry, but do you mind if I say a quick hello at least?");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(83, 99));
+        await ƒS.Character.hide(characters.goats);
+        await ƒS.Character.show(characters.goats, characters.goats.pose.allGoats, ƒS.positionPercent(50, 50));
         await new Promise(resolve => setTimeout(resolve, 1000));
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.proud, ƒS.positionPercent(83, 99));
+        await ƒS.Character.hide(characters.goats);
+        await ƒS.Character.show(characters.goats, characters.goats.pose.allGoats, ƒS.positionPercent(50, 50));
         await ƒS.update();
         await ƒS.Speech.tell(characters.protagonist, "...");
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2Sad, ƒS.positionPercent(83, 99));
+        await ƒS.Character.hide(characters.goats);
+        await ƒS.Character.show(characters.goats, characters.goats.pose.allGoats, ƒS.positionPercent(50, 50));
         await ƒS.update();
 
         let catApproachGoats = {
@@ -239,10 +253,15 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.cleaningPawTiny, ƒS.positionPercent(62, 86));
+        await ƒS.Character.hide(characters.goats);
+        await ƒS.Character.show(characters.goats, characters.goats.pose.allGoats, ƒS.positionPercent(50, 50));
         await new Promise(resolve => setTimeout(resolve, 2000));
+        
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(83, 99));
+        await ƒS.Character.hide(characters.goats);
+        await ƒS.Character.show(characters.goats, characters.goats.pose.allGoats, ƒS.positionPercent(50, 50));
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.pinkCat, "You're a real party pooper.");
         await ƒS.update();
