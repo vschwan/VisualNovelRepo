@@ -3,7 +3,7 @@
 [Visual Novel](https://vschwan.github.io/VisualNovelRepo/ACatInLimbo/index.html)  
 [Designdokument](https://github.com/vschwan/VisualNovelRepo/tree/main/Concept_ACatInLimbo)  
 [Code](https://github.com/vschwan/VisualNovelRepo/tree/main/ACatInLimbo/Source)  
-[Download as zip](https://drive.google.com/file/d/1Gk69w3m3QF5SkLIAGs8pp18M7XNTQG8W/view?usp=sharing)  
+[Download as zip](https://drive.google.com/file/d/12P5YMUbr705sB57QR95B8lOdCoLREywC/view?usp=drive_link)  
 
 ## Steuerung und Interaktion
 
