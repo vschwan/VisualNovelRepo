@@ -1503,9 +1503,6 @@ var ACatInLimbo;
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
         ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Snail);
-        ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Snail);
-        ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Snail);
-        ACatInLimbo.ƒS.Inventory.add(ACatInLimbo.items.Snail);
         ACatInLimbo.ƒS.Speech.hide(); //Sprachfenster ausblenden
         ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.smallOceanWaves, 0.5, true);
         await ACatInLimbo.ƒS.Location.show(ACatInLimbo.locations.bay);
