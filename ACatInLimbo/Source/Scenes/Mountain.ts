@@ -197,6 +197,8 @@ namespace ACatInLimbo {
                 await ƒS.Sound.play(sound.purrMeow, 1, false);
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.lovely, ƒS.positionPercent(83, 99));
+                await ƒS.Character.hide(characters.goats);
+                await ƒS.Character.show(characters.goats, characters.goats.pose.allGoats, ƒS.positionPercent(50, 50));
                 break;
 
             case catApproachGoats.dontAllow:
@@ -207,6 +209,8 @@ namespace ACatInLimbo {
                 await ƒS.Sound.play(sound.demanding, 1, false);
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.talkingAngry, ƒS.positionPercent(83, 99));
+                await ƒS.Character.hide(characters.goats);
+                await ƒS.Character.show(characters.goats, characters.goats.pose.allGoats, ƒS.positionPercent(50, 50));
                 await ƒS.update();
                 await ƒS.Speech.tell(characters.pinkCat, "Oh, fuck you, I'm gonna do it anyways!");
                 break;
@@ -256,7 +260,7 @@ namespace ACatInLimbo {
         await ƒS.Character.hide(characters.goats);
         await ƒS.Character.show(characters.goats, characters.goats.pose.allGoats, ƒS.positionPercent(50, 50));
         await new Promise(resolve => setTimeout(resolve, 2000));
-        
+
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(83, 99));

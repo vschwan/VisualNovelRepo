@@ -3964,6 +3964,8 @@ var ACatInLimbo;
                 await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.purrMeow, 1, false);
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
                 await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.lovely, ACatInLimbo.ƒS.positionPercent(83, 99));
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.goats);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.goats, ACatInLimbo.characters.goats.pose.allGoats, ACatInLimbo.ƒS.positionPercent(50, 50));
                 break;
             case catApproachGoats.dontAllow:
                 ACatInLimbo.dataForSave.catScore -= 10;
@@ -3973,6 +3975,8 @@ var ACatInLimbo;
                 await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.demanding, 1, false);
                 await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.pinkCat);
                 await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.pinkCat, ACatInLimbo.characters.pinkCat.pose.talkingAngry, ACatInLimbo.ƒS.positionPercent(83, 99));
+                await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.goats);
+                await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.goats, ACatInLimbo.characters.goats.pose.allGoats, ACatInLimbo.ƒS.positionPercent(50, 50));
                 await ACatInLimbo.ƒS.update();
                 await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "Oh, fuck you, I'm gonna do it anyways!");
                 break;
