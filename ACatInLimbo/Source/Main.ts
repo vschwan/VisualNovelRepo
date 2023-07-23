@@ -88,7 +88,6 @@ namespace ACatInLimbo {
     let scenes: ƒS.Scenes = [
       { id: "Gate Scene", scene: Gate, name: "Gate" },
 
-
       { id: "Meadow Scene", scene: Meadow, name: "Meadow" },
       { id: "Forest Scene", scene: Forest, name: "Forest" },
       { id: "Lake Scene", scene: Lake, name: "Lake" },
