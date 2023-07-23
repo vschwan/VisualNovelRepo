@@ -2988,6 +2988,8 @@ var ACatInLimbo;
         await ACatInLimbo.ƒS.Character.hide(ACatInLimbo.characters.gateCloser);
         await ACatInLimbo.ƒS.Character.show(ACatInLimbo.characters.gateCloser, ACatInLimbo.characters.gateCloser.pose.closer3, ACatInLimbo.ƒS.positionPercent(50, 50));
         await ACatInLimbo.ƒS.update(2);
+        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
         await ACatInLimbo.ƒS.Sound.play(ACatInLimbo.sound.demanding, 1, false);
         await ACatInLimbo.ƒS.Speech.tell(ACatInLimbo.characters.pinkCat, "WAIT!", false);
         await ACatInLimbo.ƒS.update();

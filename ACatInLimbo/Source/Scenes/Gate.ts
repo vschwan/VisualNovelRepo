@@ -156,7 +156,9 @@ namespace ACatInLimbo {
         await ƒS.Character.show(characters.gateCloser, characters.gateCloser.pose.closer3, ƒS.positionPercent(50, 50));
         await ƒS.update(2);
 
-        
+
+        document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
+        document.getElementById("scoreForCat").style.display = "";
         await ƒS.Sound.play(sound.demanding, 1, false);
         await ƒS.Speech.tell(characters.pinkCat, "WAIT!", false);
         await ƒS.update();
