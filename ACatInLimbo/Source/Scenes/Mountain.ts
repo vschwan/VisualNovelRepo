@@ -2,7 +2,7 @@ namespace ACatInLimbo {
 
     export async function Mountain(): ƒS.SceneReturn {
         console.log("Scene starting: Mountain");
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide(); 
         //Fun riverflow
         ƒS.Sound.play(sound.happyJazz, 0.5, true);
         await ƒS.Location.show(locations.riverflow);
@@ -75,6 +75,7 @@ namespace ACatInLimbo {
 
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
+
         //Mountains
         await ƒS.Location.show(locations.mountains);
         await ƒS.update(transition.hardEdges.duration, transition.hardEdges.alpha, transition.hardEdges.edge);
@@ -113,6 +114,7 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.protagonist, "Ok, whatever, let's move on.");
         await ƒS.update();
 
+        //meeting of goats
         await ƒS.Character.show(characters.goats, characters.goats.pose.allGoats, ƒS.positionPercent(50, 50));
         await ƒS.Sound.play(sound.goats, 0.5, true);
         await ƒS.update(1);
@@ -142,7 +144,6 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalLookingAway, ƒS.positionPercent(83, 99));
-
         await ƒS.update(1);
         await ƒS.Character.hide(characters.pinkCat);
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal2, ƒS.positionPercent(83, 99));
@@ -176,6 +177,7 @@ namespace ACatInLimbo {
         let catApproachGoatsRequest = await ƒS.Menu.getInput(catApproachGoats, "choicesCSSClass");
         switch (catApproachGoatsRequest) {
             case catApproachGoats.allow:
+                dataForSave.catScore += 5;
                 await ƒS.Speech.tell(characters.protagonist, "Knock yourself out.");
                 await ƒS.update();
                 await ƒS.Sound.play(sound.purrMeow, 1, false);
@@ -184,7 +186,7 @@ namespace ACatInLimbo {
                 break;
 
             case catApproachGoats.dontAllow:
-                dataForSave.catScore -= 5;
+                dataForSave.catScore -= 10;
                 await ƒS.Speech.tell(characters.protagonist, "Naaah, we're wasting time.");
                 await ƒS.Speech.tell(characters.protagonist, "Come on, I want to get going!");
                 await ƒS.update();
@@ -196,6 +198,7 @@ namespace ACatInLimbo {
                 break;
         }
 
+        //cat says hello to goats
         await ƒS.update();
         ƒS.Speech.hide();
         await ƒS.Character.hide(characters.pinkCat);
@@ -242,7 +245,6 @@ namespace ACatInLimbo {
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(83, 99));
         await ƒS.update(1);
         await ƒS.Speech.tell(characters.pinkCat, "You're a real party pooper.");
-
         await ƒS.update();
 
         ƒS.Sound.fade(sound.forestWind, 0, 3);

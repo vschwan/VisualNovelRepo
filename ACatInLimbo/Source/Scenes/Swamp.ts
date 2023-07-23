@@ -5,14 +5,14 @@ namespace ACatInLimbo {
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
 
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide(); 
         ƒS.Sound.play(sound.frogs, 0.1, true);
         ƒS.Sound.play(sound.swamp, 0.5, true);
         await ƒS.Location.show(locations.swamp);
         await ƒS.update(transition.wet2.duration, transition.wet2.alpha, transition.wet2.edge);
         await ƒS.update(1);
 
-        //check if Swamp has already been visited and jump to next scene if so
+        //check if Swamp has already been visited and give nextLocation options if so
         if (dataForSave.visitedSwamp == true) {
             //pick next Location
             let nextLocation = {
@@ -311,11 +311,6 @@ namespace ACatInLimbo {
                 //return "Lake Scene"
                 break;
         }
-
-
-
-
-
 
     }
 }

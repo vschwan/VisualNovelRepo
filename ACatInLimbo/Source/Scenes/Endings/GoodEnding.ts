@@ -5,7 +5,7 @@ namespace ACatInLimbo {
         await ƒS.Character.hideAll();
         await ƒS.update();
 
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide(); 
         ƒS.Sound.play(sound.backgroundJazz, 0.1, true);
         await ƒS.Location.show(locations.goodEndingNoCats);
         await ƒS.update(transition.goodEnding.duration, transition.goodEnding.alpha, transition.goodEnding.edge);
@@ -94,7 +94,7 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.protagonist, "Come on, " + dataForSave.nameProtagonist + ". It's time to move into our new home.");
         await ƒS.update();
 
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide();
         await ƒS.Text.print("Because you treated the cat very well and your destinies are linked, you both end up in Cat's Heaven. <br>By entering this realm you obviously got turned into a cat as well, otherwise, what would be the point of you being in cat heaven? <br>Enjoy endless streams of milk and tuna as far as the eye can see.");
         await new Promise(resolve => setTimeout(resolve, 2000));
 

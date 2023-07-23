@@ -1,7 +1,5 @@
 namespace ACatInLimbo {
 
-
-  //CHARACTERS
   export let characters = {
     protagonist: {
       name: dataForSave.nameProtagonist,
@@ -59,7 +57,7 @@ namespace ACatInLimbo {
         play1Small: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatPlay1Small.png",
         play2Small: "./Images/Characters/pinkCat/pinkCatSmall/pinkCatPlay2Small.png",
 
-        //pink Cat tiny (mountain scene with goats)
+        //pink Cat tiny (mountain scene --> goats)
         cleaningAssTiny: "./Images/Characters/pinkCat/pinkCatTiny/pinkCatCleaningAssTiny.png",
         cleaningPawTiny: "./Images/Characters/pinkCat/pinkCatTiny/pinkCatCleaningPawTiny.png",
         lookingUpTiny: "./Images/Characters/pinkCat/pinkCatTiny/pinkCatLookingUpTiny.png",
@@ -67,7 +65,7 @@ namespace ACatInLimbo {
         proudTiny: "./Images/Characters/pinkCat/pinkCatTiny/pinkCatProudTiny.png",
         loveTiny: "./Images/Characters/pinkCat/pinkCatTiny/pinkCatLoveTiny.png",
 
-        //pink Cat as stone Statue awakes
+        //pink Cat as stone Statue awakes (meadow Scene)
         awakening1: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening1.png",
         awakening2: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening2.png",
         awakening3: "./Images/Characters/pinkCat/pinkCatAwakening/pinkCatAwakening3.png",
@@ -79,6 +77,7 @@ namespace ACatInLimbo {
       }
     },
 
+    //stone pedestal for meadow Scene
     stonePedestal: {
       name: "stonePedestal",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
@@ -153,6 +152,7 @@ namespace ACatInLimbo {
 
       }
     },
+
     caveCreature: {
       name: "Cave Creature",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
@@ -184,10 +184,11 @@ namespace ACatInLimbo {
       origin: ƒS.ORIGIN.CENTER,
       pose: {
         allGoats: "./Images/Characters/creatures/goats/mountainGoats.png",
-        singleGoat: "./Images/Characters/creatures/goats/singleGoatLookingAtCat.png"
+        singleGoat: "./Images/Characters/creatures/goats/singleGoat.png"
       }
     },
 
+    //paths for Map Scene
     path: {
       name: "Path",
       origin: ƒS.ORIGIN.CENTER,
@@ -209,6 +210,7 @@ namespace ACatInLimbo {
       }
     },
 
+    //Mountain Scene, Riverflow
     riverflow: {
       name: "Riverflow",
       origin: ƒS.ORIGIN.CENTER,
@@ -226,6 +228,7 @@ namespace ACatInLimbo {
       }
     },
 
+    //Gate Scene, when walking towards gate
     gateCloser: {
       name: "GateCLoser",
       origin: ƒS.ORIGIN.CENTER,
@@ -238,6 +241,7 @@ namespace ACatInLimbo {
       }
     },
 
+    //for animation in Cave Scene
     snail: {
       name: "Snail",
       origin: ƒS.ORIGIN.BOTTOMCENTER,
@@ -246,6 +250,7 @@ namespace ACatInLimbo {
       }
     },
 
+    //Clouds Scene
     skyworm: {
       name: "Skyworm",
       origin: ƒS.ORIGIN.CENTER,
@@ -268,7 +273,7 @@ namespace ACatInLimbo {
       }
     },
 
-    //Cats in Heaven
+    //Cats in Heaven --> GoodEnding Scene
     orangeCat: {
       name: "OrangeCat",
       origin: ƒS.ORIGIN.CENTER,
@@ -309,8 +314,6 @@ namespace ACatInLimbo {
         curious: "./Images/Characters/catsInHeaven/curiousCats.png"
       }
     },
-
-
 
   }
 

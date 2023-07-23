@@ -46,7 +46,7 @@ namespace ACatInLimbo {
         await ƒS.update(4);
         await ƒS.Text.print("You have to stay in Limbo.<br>Seems like you're not a cat-person.");
         await ƒS.update();
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide(); 
 
         await new Promise(resolve => setTimeout(resolve, 2000));
         let endingCaption = document.getElementById("endingCaption");

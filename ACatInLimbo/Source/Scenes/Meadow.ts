@@ -14,7 +14,7 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.protagonist, "WHO am I?");
         await ƒS.update();
 
-        //get name
+        //get name input
         dataForSave.nameProtagonist = await ƒS.Speech.getInput();
         await ƒS.update();
         characters.protagonist.name = dataForSave.nameProtagonist;
@@ -99,9 +99,7 @@ namespace ACatInLimbo {
             Wait: "Wait"
         };
 
-        //wait for input
         let approachCatRequest = await ƒS.Menu.getInput(approachCat, "choicesCSSClass");
-        //Show MeterBar 
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
 
@@ -122,15 +120,15 @@ namespace ACatInLimbo {
                 console.log("Walk towards cat");
                 dataForSave.catScore -= 10;
 
-                //check for catScore and hndl badEnding LostCat
-                if (dataForSave.catScore >= 0) {
-                    console.log("cat is not running away");
-                } else {
-                    ƒS.Sound.fade(sound.meadowSound, 0, 10);
-                    await ƒS.Progress.save();
-                    console.log("cat should run away");
-                    return "BadEnding LostCat Scene";  //not possible yet to lose cat
-                }
+                // //check for catScore and hndl badEnding LostCat --> not possible to lose cat here
+                // if (dataForSave.catScore >= 0) {
+                //     console.log("cat is not running away");
+                // } else {
+                //     ƒS.Sound.fade(sound.meadowSound, 0, 10);
+                //     await ƒS.Progress.save();
+                //     console.log("cat should run away");
+                //     return "BadEnding LostCat Scene";  //not possible yet to lose cat
+                // }
 
                 await ƒS.Character.hide(characters.pinkCat);
                 await ƒS.Sound.play(sound.growling, 1, false);

@@ -4,9 +4,9 @@ namespace ACatInLimbo {
         console.log("Scene starting: Neutral Ending");
 
         await ƒS.Character.hideAll();
+        ƒS.Speech.hide();
         await ƒS.update();
 
-        ƒS.Speech.hide(); 
         ƒS.Sound.play(sound.clockTicking, 0.3, true);
         await ƒS.Location.show(locations.neutralEnding);
         await ƒS.update(transition.neutralEnding.duration, transition.neutralEnding.alpha, transition.neutralEnding.edge);

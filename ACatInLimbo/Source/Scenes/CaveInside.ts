@@ -3,8 +3,7 @@ namespace ACatInLimbo {
     export async function CaveInside(): ƒS.SceneReturn {
         console.log("Scene starting: Cave Inside");
 
-
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide();
         ƒS.Sound.play(sound.DrippingInCave, 1, true);
 
         if (ƒS.Inventory.getAmount(items.Fireflies) < 1) {
@@ -43,7 +42,7 @@ namespace ACatInLimbo {
         } else {
             await ƒS.Location.show(locations.caveInside);
             await ƒS.update();
-            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.proud, ƒS.positionPercent(83, 99));
+            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99));
             await ƒS.update();
             await ƒS.Speech.tell(characters.pinkCat, "So, as it turned out, helping the swamp creature payed off.");
             await ƒS.Speech.tell(characters.protagonist, "Totally!")
@@ -55,7 +54,7 @@ namespace ACatInLimbo {
             await ƒS.Speech.tell(characters.protagonist, "Eh, what was that? That sounds like we're not alone in here.");
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
-            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99))
+            await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(83, 99))
             await ƒS.update();
             await ƒS.Speech.tell(characters.pinkCat, "Chill, it's just some frogs probably.")
             await ƒS.update();
@@ -153,25 +152,7 @@ namespace ACatInLimbo {
                 return "Cave Exit Scene"
             }
 
-            //monstergrowl einbauen
-            //evtl animation für frog einbauen
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
-
 
     }
 }

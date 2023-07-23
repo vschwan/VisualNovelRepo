@@ -268,24 +268,24 @@ namespace ACatInLimbo {
       next: "»",
       done: "x"
     };
+
     let choice: string;
-    let current: number = 0;
+    let currentTable: number = 0;
+
     do {
-      ƒS.Text.print(credits[current]);
+      ƒS.Text.print(credits[currentTable]);
       choice = await ƒS.Menu.getInput(creditsNav, "creditsNav");
 
       switch (choice) {
         case creditsNav.back:
-          current = Math.max(0, current - 1);
+          currentTable = Math.max(0, currentTable - 1);
           break;
         case creditsNav.next:
-          current = Math.min(3, current + 1);
+          currentTable = Math.min(3, currentTable + 1);
           break;
       }
     } while (choice != creditsNav.done);
+
     ƒS.Text.close();
   }
-
-
-
 }

@@ -5,14 +5,12 @@ namespace ACatInLimbo {
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
 
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
-
-        // ƒS.Sound.play(sound.forestWind, 1, true);
+        ƒS.Speech.hide();
         ƒS.Sound.play(sound.relaxMusic, 0.1, true);
         await ƒS.Location.show(locations.clouds);
-        // await ƒS.Character.show(characters.skyworm, characters.skyworm.pose.multiple, ƒS.positionPercent(50, 50));
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.crouchedLookingAway, ƒS.positionPercent(83, 99));
         await ƒS.update(transition.fuzzyPatches.duration, transition.fuzzyPatches.alpha, transition.fuzzyPatches.edge);
+
         await new Promise(resolve => setTimeout(resolve, 3000));
         await ƒS.Speech.tell(characters.protagonist, "Wow!");
         await ƒS.update();
@@ -32,6 +30,7 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "Skyworms, I think.");
 
+        //if you came here from mountain
         if (dataForSave.pathMountainClouds == true) {
             await ƒS.update();
             await ƒS.Character.hide(characters.pinkCat);
@@ -217,7 +216,7 @@ namespace ACatInLimbo {
                     await ƒS.Character.show(characters.skyworm, characters.skyworm.pose.evil, ƒS.positionPercent(50, 50));
                     await ƒS.update();
                     await ƒS.Speech.tell(characters.pinkCat, "You're a bitch, " + dataForSave.nameProtagonist + ".");
-                    dataForSave.catScore -= 20;
+                    dataForSave.catScore -= 15;
                     await ƒS.update();
                     await ƒS.Character.hide(characters.pinkCat);
                     await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(83, 99));
@@ -271,7 +270,7 @@ namespace ACatInLimbo {
                     break;
 
                 case betrayGoats.dontBetrayGoats:
-                    dataForSave.catScore += 15;
+                    dataForSave.catScore += 10;
                     await ƒS.Speech.tell(characters.protagonist, "Nah, sorry, we don't really know where they are, right?");
                     await ƒS.update();
                     await ƒS.Character.hide(characters.pinkCat);
@@ -333,6 +332,7 @@ namespace ACatInLimbo {
             await ƒS.Speech.tell(characters.pinkCat, "Let's get you to that damn gate.");
             await ƒS.update();
 
+            //if you came here from Cave
         } else {
             await ƒS.Speech.tell(characters.protagonist, "They're pretty");
             await ƒS.update();

@@ -37,15 +37,15 @@ namespace ACatInLimbo {
     //gate scene -->Decision allowCat (to come with you or not)
     betrayCat: false,
 
-    //originally for checking score and handling lostCat
-    catLeaving: false,
+    ////originally for checking score and handling lostCat
+    //catLeaving: false,
 
     catScore: 10,
     pickedMeterBar: false,
     nameProtagonist: "You"
   };
 
-  //check for catScore and hndl badEnding LostCat --> Szene wird nicht returned wenn Funktion in anderer Szene aufgerufne wird :(
+  //check for catScore and hndl badEnding LostCat --> Szene wird nicht returned wenn Funktion in anderer Szene aufgerufen wird :(
   // export async function handleLostCat(): Promise<string> {
   //   if (dataForSave.catScore >= 0) {
   //     console.log("cat is not running away");
@@ -55,6 +55,7 @@ namespace ACatInLimbo {
   //   }
   // }
 
+  //show score on meterbar
   setInterval(() => {
     //show score
     let showScore = document.getElementById("scoreForCat");
@@ -63,12 +64,10 @@ namespace ACatInLimbo {
     //check for score
     if (dataForSave.catScore < 0) {
       console.log("Cat is leaving, cause ", dataForSave.catScore);
-      dataForSave.catLeaving = true;
+      // dataForSave.catLeaving = true;
       // return "BadEnding LostCat Scene";
-
     } else if (dataForSave.catScore <= 5) {
       console.log("Cat's still there, but be careful. Feed items, if you can.");
-      // ƒS.Text.print("Be careful. The cat doesn't like you very much right now.")
     } else {
       console.log("all good, cat likes you.");
     }
@@ -91,7 +90,6 @@ namespace ACatInLimbo {
       { id: "Meadow Scene", scene: Meadow, name: "Meadow" },
       { id: "Forest Scene", scene: Forest, name: "Forest" },
       { id: "Lake Scene", scene: Lake, name: "Lake" },
-      { id: "Map Scene", scene: Map, name: "Map" },
       { id: "Swamp Scene", scene: Swamp, name: "Swamp" },
       { id: "River Scene", scene: River, name: "River" },
       { id: "Bay Scene", scene: Bay, name: "Bay" },
@@ -102,6 +100,10 @@ namespace ACatInLimbo {
       { id: "Clouds Scene", scene: Clouds, name: "Clouds", next: "Gate Scene" },
       { id: "Gate Scene", scene: Gate, name: "Gate" },
 
+      //Map Scene
+      { id: "Map Scene", scene: Map, name: "Map" },
+
+      //Endings
       { id: "BadEnding Cave Scene", scene: BadEndingFrog, name: "BadEnding Cave", next: "Empty Scene" },
       { id: "BadEnding LostCat Scene", scene: BadEndingLostCat, name: "BadEnding LostCat", next: "Empty Scene" },
       { id: "BadEnding Hell Scene", scene: BadEndingHell, name: "BadEnding Hell", next: "Empty Scene" },
@@ -109,7 +111,7 @@ namespace ACatInLimbo {
       { id: "GoodEnding Scene", scene: GoodEnding, name: "GoodEnding", next: "Empty Scene" },
 
       // Empty ending scene to stop the program
-      { id: "Empty Scene", scene: Empty, name: "END" }  //Progamm kann nicht stopenn, deswegen empty Scene zum Schluss erstellen, ohne Inhalt
+      { id: "Empty Scene", scene: Empty, name: "END" }
     ];
 
     let uiElement: HTMLElement = document.querySelector("[type=interface]");

@@ -7,7 +7,7 @@ namespace ACatInLimbo {
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
 
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide(); 
         ƒS.Sound.play(sound.scaryForest, 2, true);
         await ƒS.Location.show(locations.forest);
         await ƒS.update(transition.circleSwirl.duration, transition.circleSwirl.alpha, transition.circleSwirl.edge);
@@ -48,7 +48,7 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.protagonist, "Uaaaah, fuck fuck fuck fuck, LET'S RUN!!!!", false);
         await ƒS.update();
 
-        //fight in foroest or flight to lake/swamp
+        //fight in forest or flight to lake/swamp
         let fightFlight = {
             fight: "Fight",
             flight: "Flight"
@@ -204,7 +204,6 @@ namespace ACatInLimbo {
                         ƒS.Inventory.add(items.Fly);
                         ƒS.Inventory.add(items.Fly);
                         ƒS.Text.print("Five flies have been added to your Inventory");
-                        //add flies to Inventory
                         await ƒS.update();
                         await ƒS.Character.hideAll();
                         await ƒS.Character.animate(characters.spiderCreature, characters.spiderCreature.pose.smile, spiderAnimationDisappear());
@@ -241,7 +240,6 @@ namespace ACatInLimbo {
                 dataForSave.currentPath = "ForestToSwamp";
                 return "Map Scene"
         }
-
 
     }
 }

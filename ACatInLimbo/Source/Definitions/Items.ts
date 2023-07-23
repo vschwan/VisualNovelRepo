@@ -1,22 +1,19 @@
 namespace ACatInLimbo {
 
-  
-
   export let items = {
+    //consumable
     Spider: {
       name: "Spider",
       description: "x hairy Spider",
       image: "./Images/Items/spider.png",
       static: false //false: item useable
     },
-
     Fish: {
       name: "Fish",
       description: "x fishy Fish",
       image: "./Images/Items/fish.png",
       static: false
     },
-
     Fly: {
       name: "Fly",
       description: "x annoying Fly",
@@ -24,6 +21,7 @@ namespace ACatInLimbo {
       static: false
     },
 
+    //not consumable
     Snail: {
       name: "Snail",
       description: "x slimy Snail",

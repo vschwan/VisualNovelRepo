@@ -5,12 +5,12 @@ namespace ACatInLimbo {
         await ƒS.Character.hideAll();
         await ƒS.update();
 
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide(); 
         ƒS.Sound.play(sound.hell, 0.3, true);
         await ƒS.Location.show(locations.badEndingHell);
         await ƒS.update(transition.badEndingHell.duration, transition.badEndingHell.alpha, transition.badEndingHell.edge);
         await ƒS.update(1);
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide(); 
         if (dataForSave.betrayCat == true) {
            await ƒS.Text.print("Death has his twisted ways to test the kindness of souls trapped in Limbo.<br>What were you thinking, leaving the cat behind? I mean, this whole story was a test, were you not aware?<br>Death has kept his little cat, of course.<br>Though it now has to stay in Limbo and pursue it's boring job as a guide (thanks to you) it at least doesn't have to endure endless torture in hell.<br><p>Have fun in here.</p>");
         } else {

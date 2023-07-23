@@ -4,9 +4,8 @@ namespace ACatInLimbo {
         console.log("Scene starting: Bay");
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
-        ƒS.Inventory.add(items.Snail);
-     
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide(); 
+
         ƒS.Sound.play(sound.smallOceanWaves, 0.5, true);
         await ƒS.Location.show(locations.bay);
         await ƒS.update(transition.wildSwirl.duration, transition.wildSwirl.alpha, transition.wildSwirl.edge);
@@ -79,6 +78,7 @@ namespace ACatInLimbo {
             }
         }
 
+        //first time visiting bay
         dataForSave.visitedBay = true;
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.sleeping, ƒS.positionPercent(83, 99));
         await ƒS.update();
@@ -246,7 +246,7 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "This creature seems less compromise-oriented though.");
 
-        //had to implement in case you have no snails due to saving+loading or not getting the snails in the first place (from swamp creature)
+        //in case you have no snails due to saving+loading or not getting the snails in the first place (from swamp creature):
         if (ƒS.Inventory.getAmount(items.Snail) <= 0) {
             console.log("no snail sin inventory");
             await ƒS.Speech.tell(characters.protagonist, "Mhm, we don't really have anything to feed it...To bad we lost those snails, huh?");
@@ -255,6 +255,7 @@ namespace ACatInLimbo {
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normalAngry, ƒS.positionPercent(83, 99));
             await ƒS.update();
             await ƒS.Speech.tell(characters.pinkCat, "Yeah, too bad. Whatever, I guess.");
+            await ƒS.Speech.tell(characters.pinkCat, "Let's leave.");
             await ƒS.update();
 
             let nextLocation = {
@@ -417,7 +418,7 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.pinkCat, "Great. We don't have any time to lose. Do you still want to help the Lake Creature?");
         await ƒS.update();
     
-        //conversation about helping or not helping
+        //helping or not helping lake creature
         let helpLakeCreature = {
             help: "bring heart to lake Creature",
             dontHelp: "move forward"

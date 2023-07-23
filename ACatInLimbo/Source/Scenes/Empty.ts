@@ -1,10 +1,12 @@
 namespace ACatInLimbo {
   export async function Empty(): ƒS.SceneReturn {
-    console.log("THE VISUAL NOVEL ENDS HERE");
 
     let title = document.getElementById("title");
     title.innerText = "A Cat in Limbo"
 
+    console.log("THE VISUAL NOVEL ENDS HERE");
+
+    ////play/replay --> doesn't look good on end screen, also menu already there
     // await new Promise(resolve => setTimeout(resolve, 5000));
     // let endButtons = {
     //   replay: "Play again",

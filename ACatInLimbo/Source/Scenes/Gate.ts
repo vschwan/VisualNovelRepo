@@ -5,7 +5,7 @@ namespace ACatInLimbo {
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
 
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide(); 
         ƒS.Sound.play(sound.celestial, 0.1, true);
         await ƒS.Location.show(locations.gate);
         await ƒS.update(transition.sunCatcher.duration, transition.sunCatcher.alpha, transition.sunCatcher.edge);
@@ -16,7 +16,6 @@ namespace ACatInLimbo {
         await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.fromBehindLookingAway, ƒS.positionPercent(83, 99));
         await ƒS.update(1);
         await ƒS.Text.print("You're almost there!<br>Don't forget to feed any remaining items from your inventory to the cat.");
-        // await new Promise(resolve => setTimeout(resolve, 5000));
         await ƒS.update();
         await ƒS.Character.show(characters.death, characters.death.pose.DeathBigAtGate, ƒS.positionPercent(50, 100));
         await ƒS.update(3);
@@ -142,7 +141,7 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Sound.fade(sound.celestial, 1, 3);
         await ƒS.update();
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide(); 
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
         await ƒS.Character.hide(characters.pinkCat);
@@ -252,8 +251,6 @@ namespace ACatInLimbo {
         }
 
         let allowcatRequest = await ƒS.Menu.getInput(allowCat, "choicesCSSClass");
-
-
         switch (allowcatRequest) {
             case allowCat.toFollow:
                 dataForSave.catScore += 10;
@@ -320,7 +317,6 @@ namespace ACatInLimbo {
                 await ƒS.update();
 
                 if (dataForSave.catScore >= 60) {
-
                     await ƒS.Speech.tell(characters.pinkCat, "Wow, " + dataForSave.nameProtagonist + ". I really underestimated the shittiness of your character.");
                     await ƒS.update();
                     await ƒS.Character.hide(characters.pinkCat);
@@ -352,7 +348,7 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Sound.fade(sound.celestial, 1, 3);
         await ƒS.update();
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide();
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = true);
         document.getElementById("scoreForCat").style.display = "none";
         await ƒS.Character.hide(characters.pinkCat);

@@ -22,17 +22,11 @@ namespace ACatInLimbo {
         await ƒS.update();
         await ƒS.Speech.tell(characters.pinkCat, "Now, it's not much further.");
         await ƒS.update();
+
         ƒS.Sound.fade(sound.forestWind, 0, 3);
-
-        dataForSave.currentPath = "CaveToClouds";
         await ƒS.Character.hide(characters.pinkCat);
-
+        dataForSave.currentPath = "CaveToClouds";
         return "Map Scene"
-
-
-
-
-
 
     }
 }

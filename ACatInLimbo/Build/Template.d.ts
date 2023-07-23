@@ -31,7 +31,6 @@ declare namespace ACatInLimbo {
         pathCloudsGate: boolean;
         betrayGoats: boolean;
         betrayCat: boolean;
-        catLeaving: boolean;
         catScore: number;
         pickedMeterBar: boolean;
         nameProtagonist: string;

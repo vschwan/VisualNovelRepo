@@ -35,6 +35,7 @@ namespace ACatInLimbo {
             name: "Map",
             background: "./Images/Map/map.png"
         },
+
         riverflow: {
             name: "Riverflow",
             background: "./Images/Backgrounds/Riverflow/riverflow.png"
@@ -70,19 +71,17 @@ namespace ACatInLimbo {
             background: "./Images/Backgrounds/clouds.png"
         },
 
-
         gate: {
             name: "Gate",
             background: "./Images/Backgrounds/gate.png",
         },
 
-        //GateCloser
         gateCloser5: {
             name: "Gate",
             background: "./Images/Backgrounds/GateCloser/gateDeathCloser5.png",
         },
       
-
+        
         //Endings Screens
         badEndingFrog: {
             name: "BadEndingFrog",
@@ -93,7 +92,6 @@ namespace ACatInLimbo {
             background: "./Images/Backgrounds/EndingScreens/badEndingFrogFin.png",
         },
 
-
         badEndingHell: {
             name: "BadEndingHell",
             background: "./Images/Backgrounds/EndingScreens/badEndingHell.png",
@@ -102,7 +100,6 @@ namespace ACatInLimbo {
             name: "BadEndingHellFin",
             background: "./Images/Backgrounds/EndingScreens/badEndingHellFin.png",
         },
-
 
         neutralEnding: {
             name: "NeutralEnding",
@@ -113,8 +110,6 @@ namespace ACatInLimbo {
             background: "./Images/Backgrounds/EndingScreens/neutralEndingFin.png",
         },
 
-
-
         badEndingLostCat: {
             name: "BadEndingLostCat",
             background: "./Images/Backgrounds/EndingScreens/badEndingLostCat.png",
@@ -124,7 +119,6 @@ namespace ACatInLimbo {
             background: "./Images/Backgrounds/EndingScreens/badEndingLostCatFin.png",
         },
 
-    
         goodEndingNoCats: {
             name: "GoodEndingCats",
             background: "./Images/Backgrounds/EndingScreens/goodEndingNoCats.png",

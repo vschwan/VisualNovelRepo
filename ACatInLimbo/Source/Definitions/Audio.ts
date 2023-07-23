@@ -1,8 +1,8 @@
 namespace ACatInLimbo {
 
-
   export let sound = {
-    // ambience
+    
+    //Ambience
     forestWind: "Audio/Ambience/forest-wind-and-birds-6881.mp3",
     scaryForest: "./Audio/Ambience/mixkit-scary-forest-at-night-2486.wav",
     meadowSound: "./Audio/Ambience/spring-forest-birds-sounds.mp3",
@@ -22,7 +22,8 @@ namespace ACatInLimbo {
     frogStomach: "./Audio/Ambience/croaking-70573.mp3",
     hell: "./Audio/Ambience/haunted-house-ambience-21831.mp3",
 
-    //catSounds
+
+    //CatSounds
     cathissing: "./Audio/catAudio/Cat-hissing-sound.mp3",
     demanding: "./Audio/catAudio/catmeow1-89814.mp3",
     cuteMeow: "./Audio/catAudio/ANMLCat_Meow cat 7 (ID 1895)_BSB.wav",
@@ -34,7 +35,7 @@ namespace ACatInLimbo {
     reowr: "./Audio/catAudio/ANMLCat_Little meow of a cat (ID 0494)_BSB.wav",
 
 
-    // FX
+    //FX
     horrorDrum1: "./Audio/FX/mixkit-hard-horror-hit-drum-565.wav",
     horrorDrum2: "./Audio/FX/mixkit-horror-deep-drum-heartbeat-559.wav",
     dive: "./Audio/FX/5-meters-dive-6070.mp3",

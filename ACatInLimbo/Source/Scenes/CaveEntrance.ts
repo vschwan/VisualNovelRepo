@@ -5,7 +5,7 @@ namespace ACatInLimbo {
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
 
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide(); 
         ƒS.Sound.play(sound.meadowSound, 0.5, true);
         ƒS.Sound.play(sound.forestWind, 1, true);
         await ƒS.Location.show(locations.caveEntrance);
@@ -23,6 +23,7 @@ namespace ACatInLimbo {
         await ƒS.Speech.tell(characters.pinkCat, "It's gonna be dark in there. Do we have anything that can provide some light?");
         await ƒS.update();
 
+        //if you have no fireflies
         if (ƒS.Inventory.getAmount(items.Fireflies) < 1) {
             await ƒS.Speech.tell(characters.protagonist, "Unfortunately, we don't. what should we do?");
             await ƒS.update();
@@ -57,6 +58,7 @@ namespace ACatInLimbo {
 
         switch (getInCaveRequest) {
             case getInCave.enter:
+                //cat doesn't like caves
                 dataForSave.catScore -= 10;
               
                  //check for catScore and hndl badEnding LostCat

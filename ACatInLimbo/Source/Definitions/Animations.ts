@@ -7,10 +7,11 @@ namespace ACatInLimbo {
   //     duration: 2,
   //     playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
   //   }; //Die Opacity und Farbe der Animation wird, nachdem sie abgespielt wurde, 
-  //   //jedes mal auf das Bild auf welches sie angewendet wurde auch in Zukunft auf dieses angewendet, 
+  //   //jedes mal auf das Bild auf welches sie angewendet wurde auch in Zukunft auf dieses angewendet (pinkCatScared), 
   //   //auch wenn man halt keine Animation nutzt, sondern das Bild nur erscheinen lassen will
   //   //verstehe nicht, weshalb.
   // }
+
   export function ScaredCatAnimation(): ƒS.AnimationDefinition {
     return {
       start: { translation: ƒS.positionPercent(85, 99), color: ƒS.Color.CSS("", 1) },
@@ -19,6 +20,7 @@ namespace ACatInLimbo {
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
     }; 
   }
+
   export function spiderAnimationHide(): ƒS.AnimationDefinition {
     return {
       start: { translation: ƒS.positionPercent(50, -20) },
@@ -43,6 +45,7 @@ namespace ACatInLimbo {
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
     };
   }
+
   export function swampCreatureAppearance(): ƒS.AnimationDefinition {
     //something
     return {
@@ -71,7 +74,6 @@ namespace ACatInLimbo {
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
     }; 
   }
-
   export function pathWalked(): ƒS.AnimationDefinition {
     //something
     return {
@@ -81,6 +83,7 @@ namespace ACatInLimbo {
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
     };
   }
+
   export function snailThrow(): ƒS.AnimationDefinition {
     //something
     return {
@@ -100,7 +103,6 @@ namespace ACatInLimbo {
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
     };
   }
-
 
   export function skywormAppearing(): ƒS.AnimationDefinition {
     //something
@@ -130,7 +132,6 @@ namespace ACatInLimbo {
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
     };
   }
-
   export function flyingCatRose(): ƒS.AnimationDefinition {
     //something
     return {
@@ -140,17 +141,5 @@ namespace ACatInLimbo {
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE
     };
   }
-
-
-
-
-
-  // export function getAnimation(): ƒS.AnimationDefinition {
-  //   return {
-  //     start: { translation: ƒS.positions.bottomleft, rotation: -20, scaling: new ƒS.Position(0.5, 1.5), color: ƒS.Color.CSS("white", 0.3) },
-  //     end: { translation: ƒS.positions.bottomright, rotation: 20, scaling: new ƒS.Position(1.5, 0.5), color: ƒS.Color.CSS("red") },
-  //     duration: 1,
-  //     playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCESTOPAFTER
-  //   };
-  // }
+  
 }

@@ -7,13 +7,13 @@ namespace ACatInLimbo {
         await ƒS.Character.hideAll();
         await ƒS.update();
 
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide(); 
         ƒS.Sound.play(sound.frogStomach, 0.3, true);
         await ƒS.Location.show(locations.badEndingFrog);
         await ƒS.update(transition.badEndingFrog.duration, transition.badEndingFrog.alpha, transition.badEndingFrog.edge);
         await ƒS.update(1);
 
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide(); 
         await ƒS.Text.print("Your soul got devoured by a huge frog and now you're not only dead and in Limbo, but also trapped in a creature's body.<br>Congratulations.<br>Maybe you shouldn't have gone in there.<br>If it's any consolation: The cat will probably make sure that the monster from the cave gets a proper kick in the arse.");
         await new Promise(resolve => setTimeout(resolve, 2000));
         ƒS.Sound.fade(sound.frogStomach, 0.6, 4);

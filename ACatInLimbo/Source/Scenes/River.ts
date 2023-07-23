@@ -2,19 +2,17 @@ namespace ACatInLimbo {
 
     export async function River(): ƒS.SceneReturn {
         console.log("Scene starting: River");
-        // ƒS.Inventory.add(items.Coin);
-        // dataForSave.visitedRiver = true;
         document.getElementsByName("catScore").forEach(meterStuff => meterStuff.hidden = false);
         document.getElementById("scoreForCat").style.display = "";
 
-        ƒS.Speech.hide(); //Sprachfenster ausblenden
+        ƒS.Speech.hide(); 
         ƒS.Sound.play(sound.river, 1, true);
         await ƒS.Location.show(locations.river);
         await ƒS.update(transition.dots.duration, transition.dots.alpha, transition.dots.edge);
         await ƒS.Character.show(characters.death, characters.death.pose.fishingLookingDown, ƒS.positionPercent(45, 82));
         await ƒS.update();
 
-        //second time river
+        //second time at river
         if (dataForSave.visitedRiver == true) {
             if (ƒS.Inventory.getAmount(items.Coin) != 0) {
                 await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.normal, ƒS.positionPercent(83, 99));
@@ -46,7 +44,7 @@ namespace ACatInLimbo {
             }
 
         } else {
-            //first time river
+            //first time at river
             await ƒS.Character.show(characters.pinkCat, characters.pinkCat.pose.walking, ƒS.positionPercent(83, 99));
             await ƒS.update(1);
             await ƒS.Speech.tell(characters.protagonist, "There is someone! Who's that?");
