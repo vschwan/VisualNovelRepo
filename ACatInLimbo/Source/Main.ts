@@ -15,7 +15,7 @@ namespace ACatInLimbo {
 
     //for map scene --> showing current path
     currentPath: "",
-    //booelans for checking if paths on map has already been walked --> mapScene
+    //booleans for checking if path on map has already been walked --> mapScene
     pathMeadowForest: false,
     pathMeadowLake: false,
     pathForestLake: false,
